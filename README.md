@@ -4,3 +4,5 @@ Static files served at https://sitemaps.rallytakesthetrain.com/ through GitHub P
 
 - `hreflang-sitemap.xml`: language and region alternates for the international pages on https://www.rallytakesthetrain.com/
 - `CNAME`: the custom domain for GitHub Pages
+- `llms.txt`: the complete AI guide to https://www.rallytakesthetrain.com/ (every page, with language codes)
+- `robots.txt`: allows crawling and points to the sitemap
