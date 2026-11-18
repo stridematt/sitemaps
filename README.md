@@ -30,10 +30,12 @@ A page that has no version in another language or country does not need an entry
 Runs on `www.rallytakesthetrain.com/*` and reads `tools/clusters.json` from this repo (refreshed every 5 minutes, with a bundled copy as a fallback):
 
 - Adds `<link rel="alternate" hreflang>` tags for the whole cluster, plus x-default, to every clustered page, and sets `<html lang>` to the page's language.
-- Serves the hreflang sitemap at https://www.rallytakesthetrain.com/hreflang-sitemap.xml and adds it to robots.txt.
+- Serves the hreflang sitemap at https://www.rallytakesthetrain.com/hreflang-sitemap.xml (submit this one in Search Console). Its robots.txt code is inactive: `/robots.txt` has its own route to the rally-indexnow Worker, which takes priority.
 - Leaves every other request untouched. If anything fails, the original Squarespace page is returned.
 
-A commit to `clusters.json` goes live on the site within about 5 minutes, with no redeploy. Redeploy (`cd worker && npm install && npm run build && npm test && npx wrangler deploy`) only when the Worker code changes. Each tagged page gets an `x-rtt-hreflang: tagged` response header, which is an easy way to check it.
+A commit to `clusters.json` goes live on the site within about 5 minutes, with no redeploy. It reads the data from GitHub, then the GitHub Pages copy, then the last good copy saved in Cloudflare's cache; if none are available, pages pass through untouched.
+
+Deployed in Cloudflare as the Worker `rtt-hreflang` (account hello@rallytakesthetrain.com) on the route `www.rallytakesthetrain.com/*`, with its workers.dev and preview URLs turned off. Redeploy only when the Worker code changes: `cd worker && npm install && npm run bundle && npm test`, then paste `worker/deploy/rtt-hreflang.min.js` into the Worker in the Cloudflare editor and deploy (or `npx wrangler deploy` with an API token). Each tagged page gets an `x-rtt-hreflang: tagged` response header, which is an easy way to check it.
 
 ## Hosting
 
