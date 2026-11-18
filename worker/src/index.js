@@ -9,12 +9,15 @@
 // If anything goes wrong, the original Squarespace response is returned (fail open).
 //
 // The cluster data is read from GitHub (cached for a few minutes) so a commit to
-// clusters.json goes live without redeploying. A copy bundled at deploy time is the
-// fallback if GitHub can't be reached.
+// clusters.json goes live without redeploying. If GitHub can't be reached it tries
+// the GitHub Pages copy, then the last good copy saved in Cloudflare's cache. If none
+// of those work, pages pass through untouched.
 
-import bundled from '../../tools/clusters.json';
-
-const DATA_URL = 'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/clusters.json';
+const SOURCES = [
+  'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/clusters.json',
+  'https://sitemaps.rallytakesthetrain.com/tools/clusters.json',
+];
+const SAVED_KEY = 'https://rtt-hreflang.internal/clusters.json';
 const DATA_TTL_MS = 5 * 60 * 1000;
 const SITEMAP_PATH = '/hreflang-sitemap.xml';
 
@@ -49,20 +52,40 @@ export function buildIndex(data) {
   return { data, byPath };
 }
 
+function valid(data) {
+  return data && Array.isArray(data.clusters) && data.clusters.length > 0;
+}
+
+async function loadData(ctx) {
+  for (const src of SOURCES) {
+    try {
+      const r = await fetch(src, { cf: { cacheTtl: 300, cacheEverything: true } });
+      if (!r.ok) continue;
+      const text = await r.text();
+      const data = JSON.parse(text);
+      if (!valid(data)) continue;
+      // Save as the last good copy (kept 30 days).
+      const saved = new Response(text, { headers: { 'cache-control': 'public, max-age=2592000', 'content-type': 'application/json' } });
+      ctx.waitUntil(caches.default.put(SAVED_KEY, saved));
+      return data;
+    } catch (e) {}
+  }
+  try {
+    const r = await caches.default.match(SAVED_KEY);
+    if (r) {
+      const data = await r.json();
+      if (valid(data)) return data;
+    }
+  } catch (e) {}
+  return null;
+}
+
 async function getIndex(ctx) {
   const now = Date.now();
   if (cache.index && now - cache.at < DATA_TTL_MS) return cache.index;
-  try {
-    const r = await fetch(DATA_URL, { cf: { cacheTtl: 300, cacheEverything: true } });
-    if (!r.ok) throw new Error('status ' + r.status);
-    const data = await r.json();
-    if (!Array.isArray(data.clusters) || data.clusters.length === 0) throw new Error('empty');
-    cache = { at: now, index: buildIndex(data) };
-  } catch (e) {
-    // Keep serving whatever we had; fall back to the bundled copy on a cold start.
-    if (!cache.index) cache = { at: now, index: buildIndex(bundled) };
-    else cache.at = now;
-  }
+  const data = await loadData(ctx);
+  if (data) cache = { at: now, index: buildIndex(data) };
+  else cache.at = now; // keep what we had (or nothing) and retry in 5 minutes
   return cache.index;
 }
 
@@ -99,7 +122,9 @@ async function handle(request, ctx) {
   const path = url.pathname;
 
   if (path === SITEMAP_PATH && (request.method === 'GET' || request.method === 'HEAD')) {
-    const { data } = await getIndex(ctx);
+    const index = await getIndex(ctx);
+    if (!index) return fetch(request);
+    const { data } = index;
     return new Response(request.method === 'HEAD' ? null : buildSitemap(data), {
       headers: {
         'content-type': 'application/xml; charset=utf-8',
@@ -125,8 +150,9 @@ async function handle(request, ctx) {
   const type = origin.headers.get('content-type') || '';
   if (!type.includes('text/html')) return origin;
 
-  const { byPath } = await getIndex(ctx);
-  const entry = byPath.get(path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path);
+  const index = await getIndex(ctx);
+  if (!index) return origin;
+  const entry = index.byPath.get(path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path);
   if (!entry) return origin;
 
   const rewritten = new HTMLRewriter()

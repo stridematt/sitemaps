@@ -1,5 +1,5 @@
 // Runs the bundled Worker in Miniflare with Squarespace and GitHub mocked.
-// Usage: npm run build && npm test   (page fixtures: FIXTURES=/path/to/saved/html)
+// Usage: npm run bundle && npm test   (page fixtures: FIXTURES=/path/to/saved/html)
 import { Miniflare } from 'miniflare';
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -17,12 +17,16 @@ const pages = {
   '/christmas-eve-services/united-states': 'us.html',
 };
 let githubUp = true;
+let pagesUp = true;
 let robots = 'User-agent: *\nDisallow: /config\n\nSitemap: https://www.rallytakesthetrain.com/sitemap.xml\n';
 
 async function outbound(req) {
   const u = new URL(req.url);
   if (u.hostname === 'raw.githubusercontent.com') {
     return githubUp ? new Response(clustersText, { headers: { 'content-type': 'text/plain' } }) : new Response('down', { status: 503 });
+  }
+  if (u.hostname === 'sitemaps.rallytakesthetrain.com') {
+    return pagesUp ? new Response(clustersText, { headers: { 'content-type': 'application/json' } }) : new Response('down', { status: 503 });
   }
   if (u.pathname === '/robots.txt') return new Response(robots, { headers: { 'content-type': 'text/plain' } });
   if (u.pathname === '/logo.png') return new Response('PNG', { headers: { 'content-type': 'image/png' } });
@@ -118,15 +122,40 @@ await t('images, POSTs and 404s pass through', async () => {
 
 await mf.dispose();
 
-// Fresh instance with GitHub down: the bundled copy keeps pages tagged.
-githubUp = false;
-const mf2 = new Miniflare({ modules: true, scriptPath: new URL('../dist/index.js', import.meta.url).pathname, compatibilityDate: '2026-08-01', outboundService: outbound });
-await t('GitHub down: bundled copy still tags pages', async () => {
+const script = new URL('../dist/index.js', import.meta.url).pathname;
+const persist = '/tmp/rtt-hreflang-test-cache-' + process.pid;
+const fresh = (cachePersist) => new Miniflare({ modules: true, scriptPath: script, compatibilityDate: '2026-08-01', outboundService: outbound, cachePersist });
+
+githubUp = false; pagesUp = true;
+const mf2 = fresh(persist);
+await t('GitHub down: GitHub Pages copy is used (and saved)', async () => {
   const r = await mf2.dispatchFetch(SITE + '/christmas-events-for-kids');
   assert.equal(r.headers.get('x-rtt-hreflang'), 'tagged');
   assert.equal(altCount(await r.text()), hubLinks);
+  await new Promise((res) => setTimeout(res, 500));
 });
 await mf2.dispose();
+
+githubUp = false; pagesUp = false;
+const mf4 = fresh(persist);
+await t('both sources down: last saved copy keeps pages tagged', async () => {
+  const r = await mf4.dispatchFetch(SITE + '/christmas-events-for-kids');
+  assert.equal(r.headers.get('x-rtt-hreflang'), 'tagged');
+  assert.equal(altCount(await r.text()), hubLinks);
+});
+await mf4.dispose();
+
+const mf5 = fresh(undefined);
+await t('both sources down and nothing saved: site still works, untagged', async () => {
+  const r = await mf5.dispatchFetch(SITE + '/christmas-events-for-kids');
+  assert.equal(r.status, 200);
+  assert.equal(r.headers.get('x-rtt-hreflang'), null);
+  assert.equal(Buffer.compare(Buffer.from(await r.arrayBuffer()), readFileSync(FIX + '/christmas-events-for-kids.html')), 0);
+  const sm = await mf5.dispatchFetch(SITE + '/hreflang-sitemap.xml');
+  assert.equal(sm.headers.get('x-rtt-hreflang'), null);
+});
+await mf5.dispose();
+githubUp = true; pagesUp = true;
 
 // Existing hreflang link tags on a clustered page are replaced, not doubled.
 githubUp = true;
