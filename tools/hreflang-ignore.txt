@@ -1,0 +1,4 @@
+# Pages the daily hreflang check should not suggest pairing. One site path per line.
+# Any suggestion that mentions a path listed here is skipped.
+
+/christmas-events/noel-avec-les-enfants-laval  # Laval, France; laval-qc is Laval, Quebec

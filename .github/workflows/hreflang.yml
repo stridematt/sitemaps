@@ -1,0 +1,53 @@
+name: hreflang
+
+on:
+  push:
+    paths:
+      - 'tools/**'
+      - 'hreflang-sitemap.xml'
+  schedule:
+    - cron: '17 13 * * *' # daily, early morning Pacific
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  validate:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check clusters.json and that the sitemap was rebuilt
+        run: |
+          python3 tools/build_hreflang.py
+          git diff --exit-code hreflang-sitemap.xml || (echo "::error::hreflang-sitemap.xml is out of date. Run python3 tools/build_hreflang.py and commit it." && exit 1)
+
+  unpaired:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Look for translated pages missing from clusters.json
+        id: check
+        run: |
+          set +e
+          python3 tools/find_unpaired.py > report.md
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat report.md
+      - name: Open or update the review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STATUS: ${{ steps.check.outputs.status }}
+        run: |
+          title="hreflang: pages to review"
+          num=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ "$STATUS" = "1" ]; then
+            if [ -n "$num" ]; then gh issue edit "$num" --body-file report.md
+            else gh issue create --title "$title" --body-file report.md; fi
+          elif [ "$STATUS" = "0" ] && [ -n "$num" ]; then
+            gh issue close "$num" --comment "All translated pages are in clusters.json now."
+          elif [ "$STATUS" != "0" ]; then
+            echo "::error::The check could not run (exit $STATUS)"; exit 1
+          fi

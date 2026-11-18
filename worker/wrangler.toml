@@ -1,0 +1,10 @@
+name = "rtt-hreflang"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+workers_dev = false
+
+# One route for the whole site so new translated pages are covered automatically.
+# Requests for pages that aren't in tools/clusters.json pass straight through.
+routes = [
+  { pattern = "www.rallytakesthetrain.com/*", zone_name = "rallytakesthetrain.com" }
+]
