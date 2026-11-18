@@ -1,0 +1,10 @@
+# Cloudflare routes for the rtt-hreflang Worker (zone rallytakesthetrain.com).
+# Only these paths start the Worker; everything else on the site never touches it.
+# The 3-hour auto-pair job flags any clustered page that falls outside these.
+www.rallytakesthetrain.com/christmas-*
+www.rallytakesthetrain.com/messes-de-noel*
+www.rallytakesthetrain.com/santa-trains*
+www.rallytakesthetrain.com/weihnachtszuege*
+www.rallytakesthetrain.com/trains-de-noel*
+www.rallytakesthetrain.com/treni-di-natale*
+www.rallytakesthetrain.com/hreflang-sitemap.xml

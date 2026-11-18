@@ -35,12 +35,12 @@ Runs on `www.rallytakesthetrain.com/*` and reads `tools/clusters.json` from this
 
 - Adds `<link rel="alternate" hreflang>` tags for the whole cluster, plus x-default, to every clustered page, and sets `<html lang>` to the page's language.
 - Serves the hreflang sitemap at https://www.rallytakesthetrain.com/hreflang-sitemap.xml (submit this one in Search Console). Its robots.txt code is inactive: `/robots.txt` has its own route to the rally-indexnow Worker, which takes priority.
-- Switches off the old hreflang tags that the site-wide Squarespace language script adds in the browser (their link tags get `rel="x-rtt-hreflang-off"`), so Google only sees the Worker's set. The script still sets the page language, content-language and og:locale.
+- On clustered pages, switches off the old hreflang tags that the site-wide Squarespace language script adds in the browser (their link tags get `rel="x-rtt-hreflang-off"`), so Google only sees the Worker's set. The script still sets the page language, content-language and og:locale.
 - Leaves everything else untouched. If anything fails, the original Squarespace page is returned.
 
 A commit to `clusters.json` goes live on the site within about 5 minutes, with no redeploy. It reads the data from GitHub, then the GitHub Pages copy, then the last good copy saved in Cloudflare's cache; if none are available, pages pass through untouched.
 
-Deployed in Cloudflare as the Worker `rtt-hreflang` (account hello@rallytakesthetrain.com) on the route `www.rallytakesthetrain.com/*`, with its workers.dev and preview URLs turned off. Redeploy only when the Worker code changes: `cd worker && npm install && npm run bundle && npm test`, then paste `worker/deploy/rtt-hreflang.min.js` into the Worker in the Cloudflare editor and deploy (or `npx wrangler deploy` with an API token). Each tagged page gets an `x-rtt-hreflang: tagged` response header, which is an easy way to check it.
+Deployed in Cloudflare as the Worker `rtt-hreflang` (account hello@rallytakesthetrain.com) on the routes in `tools/worker-routes.txt` (the Christmas and other international sections plus `/hreflang-sitemap.xml`), with its workers.dev and preview URLs turned off. Favicon, uploaded files, Squarespace API beacons, the blog, shop and other pages never start the Worker. Pages in those sections that aren't clustered pass straight through without their body being read. If a clustered page ever falls outside these routes, the 3-hour job flags it in the review issue. Redeploy only when the Worker code changes: `cd worker && npm install && npm run bundle && npm test`, then paste `worker/deploy/rtt-hreflang.min.js` into the Worker in the Cloudflare editor and deploy (or `npx wrangler deploy` with an API token). Each tagged page gets an `x-rtt-hreflang: tagged` response header, which is an easy way to check it.
 
 ## Hosting
 

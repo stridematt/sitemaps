@@ -46,6 +46,17 @@ EVE_SECTIONS = {
     'christmas-eve-services-canada': ['en-CA'],
     'christmas-eve-services-uk': ['en-GB'],
     'messes-de-noel-quebec-canada': ['fr-CA'],
+    'christmas-eve-services-australia': ['en-AU'],
+    'christmas-eve-reihai-japan': ['ja', 'ja-JP'],
+}
+# Each country's national Christmas Eve page, which joins the Christmas Eve hub cluster.
+EVE_HUB_CLUSTER = 'christmas-eve-services-hub'
+EVE_HUBS = {
+    'christmas-eve-services-canada': 'canada',
+    'christmas-eve-services-uk': 'united-kingdom',
+    'messes-de-noel-quebec-canada': 'quebec-et-canada-francais',
+    'christmas-eve-services-australia': 'australia',
+    'christmas-eve-reihai-japan': 'japan',
 }
 EVE_ORDER = list(EVE_SECTIONS)
 
@@ -345,52 +356,70 @@ def main():
             else:
                 pending.pop(p, None)
 
-    # 2. Christmas Eve denomination pages across countries.
+    # 2. Christmas Eve pages across countries: national pages join the Christmas Eve
+    #    hub, denomination pages pair by matching URL. New sections often take a while
+    #    to show up in the Squarespace sitemap, so partners are also checked directly.
+    def live(x):
+        if x not in info:
+            info[x] = fetch(x)
+        return info[x].get('ok')
+
+    hub = next((c for c in data['clusters'] if c['name'] == EVE_HUB_CLUSTER), None)
     for p in sorted(info):
-        m = re.match(r'^/([a-z-]+)/([a-z-]+-christmas-eve-services)$', p)
-        if not m or m.group(1) not in EVE_SECTIONS or not info[p].get('ok'):
+        m = re.match(r'^/([a-z-]+)/([a-z-]+)$', p)
+        if not m or m.group(1) not in EVE_SECTIONS or not info[p].get('ok') or p in cl.where:
             continue
-        den = m.group(2)
-        members = [f'/{s}/{den}' for s in EVE_ORDER if f'/{s}/{den}' in pages]
+        sec, slug = m.groups()
+        if hub and EVE_HUBS.get(sec) == slug:
+            codes = [x for x in EVE_SECTIONS[sec] if x not in cl.used_codes(hub)]
+            if codes:
+                hub['pages'].append({'url': SITE + p, 'hreflang': codes})
+                cl.where[p] = hub
+                added.append(f'`{p}` ({",".join(codes)}) joined {EVE_HUB_CLUSTER}')
+            else:
+                review.append(f'`{p}`: {EVE_SECTIONS[sec]} already used in {EVE_HUB_CLUSTER}')
+            continue
+        if not slug.endswith('-christmas-eve-services'):
+            continue
+        members = [f'/{s2}/{slug}' for s2 in EVE_ORDER if f'/{s2}/{slug}' == p or f'/{s2}/{slug}' in cl.where or live(f'/{s2}/{slug}')]
         if len(members) < 2:
             continue
         existing = next((cl.where[x] for x in members if x in cl.where), None)
         for x in members:
             if x in cl.where:
                 continue
-            if x not in info:
-                info[x] = fetch(x)
-            if not info[x].get('ok'):
-                review.append(f'`{x}` is not live or canonical; not added to {den}')
-                continue
             codes = EVE_SECTIONS[x.split('/')[1]]
             if existing:
-                if codes[0] in cl.used_codes(existing):
-                    review.append(f'`{x}`: {codes[0]} already used in {existing["name"]}')
+                free = [c2 for c2 in codes if c2 not in cl.used_codes(existing)]
+                if not free:
+                    review.append(f'`{x}`: {codes} already used in {existing["name"]}')
                     continue
-                existing['pages'].append({'url': SITE + x, 'hreflang': codes})
+                existing['pages'].append({'url': SITE + x, 'hreflang': free})
                 cl.where[x] = existing
-                added.append(f'`{x}` ({codes[0]}) joined {existing["name"]}')
+                added.append(f'`{x}` ({",".join(free)}) joined {existing["name"]}')
             else:
-                other = None
-                for y in members:
-                    if y == x or y in cl.where:
-                        continue
-                    if y not in info:
-                        info[y] = fetch(y)
-                    if info[y].get('ok'):
-                        other = y
-                        break
-                if other:
-                    res = cl.add_pair(other, EVE_SECTIONS[other.split('/')[1]], x, codes, 'christmas-eve-services:' + den)
-                    if res == 'added':
-                        existing = cl.where[x]
-                        # x_default: the US page if present, else the first section in order
-                        first = min((path_of(pp['url']) for pp in existing['pages']), key=lambda u: EVE_ORDER.index(u.split('/')[1]))
-                        existing['x_default'] = SITE + first
-                        added.append(f'`{other}` + `{x}` (new {den} cluster)')
-                    elif res:
-                        review.append(res)
+                other = next((y for y in members if y != x and y not in cl.where), None)
+                if not other:
+                    continue
+                res = cl.add_pair(other, EVE_SECTIONS[other.split('/')[1]], x, codes, 'christmas-eve-services:' + slug)
+                if res == 'added':
+                    existing = cl.where[x]
+                    first = min((path_of(pp['url']) for pp in existing['pages']), key=lambda u: EVE_ORDER.index(u.split('/')[1]))
+                    existing['x_default'] = SITE + first
+                    added.append(f'`{other}` + `{x}` (new {slug} cluster)')
+                elif res:
+                    review.append(res)
+
+    # Every clustered page must be covered by a Worker route, or it won't be tagged.
+    routes_file = os.path.join(HERE, 'worker-routes.txt')
+    if os.path.exists(routes_file):
+        pats = [l.strip().split('/', 1)[1] for l in open(routes_file) if l.strip() and not l.startswith('#')]
+        def covered(path):
+            rel = path.lstrip('/')
+            return any(rel.startswith(pt[:-1]) if pt.endswith('*') else rel == pt for pt in pats)
+        outside = sorted(path for path in cl.where if not covered(path))
+        if outside:
+            review.append(f'{len(outside)} clustered page(s) are outside the Worker routes in tools/worker-routes.txt, so they are not tagged on the site; add a route in Cloudflare and to that file. First: `{outside[0]}`')
 
     errors = build_hreflang.check(data)
     if errors:

@@ -84,19 +84,16 @@ await t('trailing slash still matches', async () => {
 
 const inlineScripts = (html) => [...html.matchAll(/<script(?![^>]*\ssrc=)([^>]*)>([\s\S]*?)<\/script>/g)].map((m) => [m[1], m[2]]);
 
-await t('page not in any cluster: only the old hreflang script line changes', async () => {
+await t('page not in any cluster passes through byte for byte, no header', async () => {
   const r = await get('/christmas-eve-services/united-states');
-  assert.equal(r.headers.get('x-rtt-hreflang'), 'clean');
-  const out = await r.text();
-  const orig = readFileSync(FIX + '/us.html', 'utf8');
-  assert.ok(orig.includes("l.rel='alternate'"));
-  assert.ok(!out.includes("l.rel='alternate'"));
-  assert.equal(out, orig.replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'"));
+  assert.equal(r.headers.get('x-rtt-hreflang'), null);
+  assert.equal(Buffer.compare(Buffer.from(await r.arrayBuffer()), readFileSync(FIX + '/us.html')), 0);
 });
 
-await t('every inline script on real pages still compiles; only the hreflang line differs', async () => {
+await t('tagged pages: every inline script still compiles; only the old hreflang line differs', async () => {
   for (const [path, file] of Object.entries(pages)) {
-    const out = await (await get(path)).text();
+    const r = await get(path);
+    const out = await r.text();
     const before = inlineScripts(readFileSync(FIX + '/' + file, 'utf8'));
     const after = inlineScripts(out);
     assert.equal(after.length, before.length, path);
@@ -108,8 +105,13 @@ await t('every inline script on real pages still compiles; only the hreflang lin
       }
       if (!/json/i.test(attrs)) new vm.Script(code); // throws on a syntax error
     });
-    assert.equal(changed, 1, path);
+    assert.equal(changed, r.headers.get('x-rtt-hreflang') === 'tagged' ? 1 : 0, path);
   }
+});
+
+await t('HEAD on a clustered page passes through', async () => {
+  const r = await get('/christmas-events-for-kids', { method: 'HEAD' });
+  assert.equal(r.headers.get('x-rtt-hreflang'), null);
 });
 
 await t('old hreflang link tags removed, body anchors untouched', async () => {
@@ -125,13 +127,16 @@ await t('sitemap on www matches the Python build exactly', async () => {
   assert.equal(xml, readFileSync(ROOT + 'hreflang-sitemap.xml', 'utf8'));
 });
 
-await t('robots.txt gets the hreflang sitemap line once', async () => {
-  const txt = await (await get('/robots.txt')).text();
-  assert.ok(txt.includes('Sitemap: https://www.rallytakesthetrain.com/sitemap.xml'));
-  assert.equal(txt.split('Sitemap: https://www.rallytakesthetrain.com/hreflang-sitemap.xml').length - 1, 1);
-  robots += 'Sitemap: https://www.rallytakesthetrain.com/hreflang-sitemap.xml\n';
-  const again = await (await get('/robots.txt')).text();
-  assert.equal(again.split('hreflang-sitemap.xml').length - 1, 1);
+await t('robots.txt passes through untouched (it has its own route to rally-indexnow)', async () => {
+  const r = await get('/robots.txt');
+  assert.equal(await r.text(), robots);
+  assert.equal(r.headers.get('x-rtt-hreflang'), null);
+});
+
+await t('sitemap is built once and reused', async () => {
+  const a = await (await get('/hreflang-sitemap.xml')).text();
+  const b = await (await get('/hreflang-sitemap.xml')).text();
+  assert.equal(a, b);
 });
 
 await t('images, POSTs and 404s pass through', async () => {
@@ -176,10 +181,8 @@ const mf5 = fresh(undefined);
 await t('both sources down and nothing saved: site still works, untagged', async () => {
   const r = await mf5.dispatchFetch(SITE + '/christmas-events-for-kids');
   assert.equal(r.status, 200);
-  assert.equal(r.headers.get('x-rtt-hreflang'), 'clean');
-  const h = await r.text();
-  assert.equal(altCount(h), 0);
-  assert.equal(h, readFileSync(FIX + '/christmas-events-for-kids.html', 'utf8').replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'"));
+  assert.equal(r.headers.get('x-rtt-hreflang'), null);
+  assert.equal(Buffer.compare(Buffer.from(await r.arrayBuffer()), readFileSync(FIX + '/christmas-events-for-kids.html')), 0);
   const sm = await mf5.dispatchFetch(SITE + '/hreflang-sitemap.xml');
   assert.equal(sm.headers.get('x-rtt-hreflang'), null);
 });

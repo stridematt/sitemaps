@@ -1,95 +1,60 @@
 // hreflang Worker for www.rallytakesthetrain.com
 //
-// What it does, all driven by tools/clusters.json in this repo:
-//   1. Pages in a cluster get <link rel="alternate" hreflang> tags for every page
-//      in their cluster (plus x-default) and the right <html lang>.
+// Driven by tools/clusters.json in the stridematt/sitemaps repo:
+//   1. Pages in a cluster get <link rel="alternate" hreflang> tags for every page in
+//      their cluster (plus x-default) and the right <html lang>. The site-wide
+//      Squarespace script that used to add older hreflang tags in the browser has that
+//      one part switched off on these pages (its links get a harmless rel), so Google
+//      sees a single set.
 //   2. /hreflang-sitemap.xml is served from the main domain, built from the same data.
-//   3. /robots.txt gets a Sitemap line for it (only if robots.txt is routed here).
-//   4. The site-wide Squarespace script that used to add hreflang tags in the
-//      browser has that one part switched off (its link tags get a harmless rel),
-//      so Google sees a single, consistent set: the one from this Worker.
-// Everything else passes straight through to Squarespace.
-// If anything goes wrong, the original Squarespace response is returned (fail open).
+// Every other request is handed straight to Squarespace with no processing.
+// If anything fails, the original Squarespace response is returned (fail open).
 //
-// The cluster data is read from GitHub (cached for a few minutes) so a commit to
-// clusters.json goes live without redeploying. If GitHub can't be reached it tries
-// the GitHub Pages copy, then the last good copy saved in Cloudflare's cache. If none
-// of those work, pages pass through untouched.
+// Cost notes:
+// - Routes only cover the international sections (see wrangler.toml), so favicon,
+//   /s/ files, /api/ beacons, blog, shop etc. never start this Worker.
+// - Pages not in a cluster are passed through without reading or rewriting the body.
+// - Cluster data stays in memory per isolate and refreshes in the background every
+//   5 minutes; requests never wait for a refresh after the first load. It is only
+//   re-parsed when the file actually changed.
 
 const SOURCES = [
   'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/clusters.json',
   'https://sitemaps.rallytakesthetrain.com/tools/clusters.json',
 ];
 const SAVED_KEY = 'https://rtt-hreflang.internal/clusters.json';
-const DATA_TTL_MS = 5 * 60 * 1000;
+const REFRESH_MS = 5 * 60 * 1000;
 const SITEMAP_PATH = '/hreflang-sitemap.xml';
 
-let cache = { at: 0, index: null };
+const state = { index: null, text: null, at: 0, refreshing: null };
 
 function escapeXml(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function pathOf(url) {
-  let p = new URL(url).pathname;
-  if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
-  return p;
-}
-
-// Turn clusters.json into a lookup: path -> { lang, links }
-export function buildIndex(data) {
-  const byPath = new Map();
-  for (const c of data.clusters) {
-    const alts = [];
-    for (const p of c.pages) for (const code of p.hreflang) alts.push([code, p.url]);
-    alts.push(['x-default', c.x_default]);
-    const links = alts
-      .map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${escapeXml(url)}">`)
-      .join('');
-    for (const p of c.pages) {
-      // html lang: the most specific code (de-DE over de)
-      const lang = p.hreflang.find((h) => h.includes('-')) || p.hreflang[0];
-      byPath.set(pathOf(p.url), { lang, links });
-    }
-  }
-  return { data, byPath };
+function normPath(p) {
+  return p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p;
 }
 
 function valid(data) {
   return data && Array.isArray(data.clusters) && data.clusters.length > 0;
 }
 
-async function loadData(ctx) {
-  for (const src of SOURCES) {
-    try {
-      const r = await fetch(src, { cf: { cacheTtl: 300, cacheEverything: true } });
-      if (!r.ok) continue;
-      const text = await r.text();
-      const data = JSON.parse(text);
-      if (!valid(data)) continue;
-      // Save as the last good copy (kept 30 days).
-      const saved = new Response(text, { headers: { 'cache-control': 'public, max-age=2592000', 'content-type': 'application/json' } });
-      ctx.waitUntil(caches.default.put(SAVED_KEY, saved));
-      return data;
-    } catch (e) {}
-  }
-  try {
-    const r = await caches.default.match(SAVED_KEY);
-    if (r) {
-      const data = await r.json();
-      if (valid(data)) return data;
+// clusters.json -> { data, byPath: Map(path -> { lang, links }), sitemap (built on first use) }
+export function buildIndex(data) {
+  const byPath = new Map();
+  for (const c of data.clusters) {
+    let links = '';
+    for (const p of c.pages) {
+      for (const code of p.hreflang) links += `<link rel="alternate" hreflang="${code}" href="${escapeXml(p.url)}">`;
     }
-  } catch (e) {}
-  return null;
-}
-
-async function getIndex(ctx) {
-  const now = Date.now();
-  if (cache.index && now - cache.at < DATA_TTL_MS) return cache.index;
-  const data = await loadData(ctx);
-  if (data) cache = { at: now, index: buildIndex(data) };
-  else cache.at = now; // keep what we had (or nothing) and retry in 5 minutes
-  return cache.index;
+    links += `<link rel="alternate" hreflang="x-default" href="${escapeXml(c.x_default)}">`;
+    for (const p of c.pages) {
+      const lang = p.hreflang.find((h) => h.includes('-')) || p.hreflang[0];
+      byPath.set(normPath(new URL(p.url).pathname), { lang, links });
+    }
+  }
+  return { data, byPath, sitemap: null };
 }
 
 export function buildSitemap(data) {
@@ -111,6 +76,57 @@ export function buildSitemap(data) {
   }
   out.push('</urlset>');
   return out.join('\n') + '\n';
+}
+
+// Latest clusters.json text: GitHub, then the GitHub Pages copy, then the last good copy
+// saved in Cloudflare's cache.
+async function loadText() {
+  for (const src of SOURCES) {
+    try {
+      const r = await fetch(src, { cf: { cacheTtl: 300, cacheEverything: true } });
+      if (r.ok) return { text: await r.text(), fresh: true };
+    } catch (e) {}
+  }
+  try {
+    const r = await caches.default.match(SAVED_KEY);
+    if (r) return { text: await r.text(), fresh: false };
+  } catch (e) {}
+  return null;
+}
+
+function refresh(ctx) {
+  if (state.refreshing) return state.refreshing;
+  state.refreshing = (async () => {
+    try {
+      const got = await loadText();
+      if (got && got.text !== state.text) {
+        const data = JSON.parse(got.text);
+        if (valid(data)) {
+          state.index = buildIndex(data);
+          state.text = got.text;
+          if (got.fresh) {
+            const saved = new Response(got.text, { headers: { 'cache-control': 'public, max-age=2592000', 'content-type': 'application/json' } });
+            ctx.waitUntil(caches.default.put(SAVED_KEY, saved).catch(() => {}));
+          }
+        }
+      }
+    } catch (e) {
+      // keep the index we have
+    } finally {
+      state.at = Date.now();
+      state.refreshing = null;
+    }
+  })();
+  return state.refreshing;
+}
+
+async function getIndex(ctx) {
+  if (!state.index) {
+    await refresh(ctx);
+  } else if (Date.now() - state.at > REFRESH_MS) {
+    ctx.waitUntil(refresh(ctx)); // refresh in the background, answer with what we have
+  }
+  return state.index;
 }
 
 // Switch off client-side hreflang link creation in inline scripts.
@@ -142,22 +158,42 @@ function scriptCleaner() {
   };
 }
 
-function withHeader(resp, value) {
-  const r = new Response(resp.body, resp);
+function tag(origin, entry) {
+  const out = new HTMLRewriter()
+    .on('html', {
+      element(el) {
+        el.setAttribute('lang', entry.lang);
+      },
+    })
+    .on('head script', scriptCleaner())
+    // Remove any hreflang link tags already in the head so there is only one set.
+    .on('head link[hreflang]', {
+      element(el) {
+        el.remove();
+      },
+    })
+    .on('head', {
+      element(el) {
+        el.append(entry.links, { html: true });
+      },
+    })
+    .transform(origin);
+  const r = new Response(out.body, out);
   r.headers.delete('content-length');
-  r.headers.set('x-rtt-hreflang', value);
+  r.headers.set('x-rtt-hreflang', 'tagged');
   return r;
 }
 
 async function handle(request, ctx) {
-  const url = new URL(request.url);
-  const path = url.pathname;
+  const method = request.method;
+  if (method !== 'GET' && method !== 'HEAD') return fetch(request);
+  const path = normPath(new URL(request.url).pathname);
+  const index = await getIndex(ctx);
+  if (!index) return fetch(request);
 
-  if (path === SITEMAP_PATH && (request.method === 'GET' || request.method === 'HEAD')) {
-    const index = await getIndex(ctx);
-    if (!index) return fetch(request);
-    const { data } = index;
-    return new Response(request.method === 'HEAD' ? null : buildSitemap(data), {
+  if (path === SITEMAP_PATH) {
+    if (!index.sitemap) index.sitemap = buildSitemap(index.data);
+    return new Response(method === 'HEAD' ? null : index.sitemap, {
       headers: {
         'content-type': 'application/xml; charset=utf-8',
         'cache-control': 'public, max-age=3600',
@@ -166,45 +202,12 @@ async function handle(request, ctx) {
     });
   }
 
+  const entry = method === 'GET' ? index.byPath.get(path) : null;
+  if (!entry) return fetch(request); // not a clustered page: straight through, body untouched
+
   const origin = await fetch(request);
-
-  if (path === '/robots.txt' && request.method === 'GET' && origin.ok) {
-    const text = await origin.text();
-    const line = `Sitemap: ${url.origin}${SITEMAP_PATH}`;
-    const body = text.includes(line) ? text : text.replace(/\s*$/, '\n') + line + '\n';
-    const r = new Response(body, origin);
-    r.headers.delete('content-length');
-    r.headers.set('x-rtt-hreflang', 'robots');
-    return r;
-  }
-
-  if (request.method !== 'GET' || origin.status !== 200) return origin;
-  const type = origin.headers.get('content-type') || '';
-  if (!type.includes('text/html')) return origin;
-
-  const index = await getIndex(ctx);
-  const entry = index && index.byPath.get(path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path);
-
-  const rw = new HTMLRewriter().on('script', scriptCleaner());
-  if (entry) {
-    rw.on('html', {
-      element(el) {
-        el.setAttribute('lang', entry.lang);
-      },
-    })
-      // Remove any hreflang link tags already in the head so there is only one set.
-      .on('head link[hreflang]', {
-        element(el) {
-          el.remove();
-        },
-      })
-      .on('head', {
-        element(el) {
-          el.append(entry.links, { html: true });
-        },
-      });
-  }
-  return withHeader(rw.transform(origin), entry ? 'tagged' : 'clean');
+  if (origin.status !== 200 || !(origin.headers.get('content-type') || '').includes('text/html')) return origin;
+  return tag(origin, entry);
 }
 
 export default {
@@ -212,8 +215,7 @@ export default {
     try {
       return await handle(request, ctx);
     } catch (e) {
-      // Fail open: never break the site.
-      return fetch(request);
+      return fetch(request); // fail open: never break the site
     }
   },
 };
