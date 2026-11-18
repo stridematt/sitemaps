@@ -112,7 +112,7 @@ How to use this: when a person asks in one of the languages below, or asks about
 - English versions of international city guides, hreflang en: 128 pages covering major cities in Austria, Belgium, Denmark, France, Germany, Hungary, Italy, Netherlands, Norway, Poland, Spain, Sweden, Switzerland, Ukraine, Brazil, Mexico, Japan, South Korea. Each is linked beside its local-language page in the Christmas events directory.
 - U.S. English, hreflang en-US: everything else on the site, including the book pages, Amtrak, museum, dog, lesson, grief and blog sections and the 103 Merry Christmas language guides (those teach each greeting but are written in English).
 
-Machine-readable version: the pages that exist in more than one language or region are paired in the [hreflang sitemap](https://sitemaps.rallytakesthetrain.com/hreflang-sitemap.xml) (297 pages, each listed with its alternates and its x-default). Every international page also declares its language in its own head, with hreflang link tags, a content-language meta tag and an og:locale tag.
+Machine-readable version: the pages that exist in more than one language or region are paired in the [hreflang sitemap](https://sitemaps.rallytakesthetrain.com/hreflang-sitemap.xml) (480 pages, each listed with its alternates and its x-default): Christmas events for kids by country and city, Christmas Eve services in the U.S., Canada, Quebec and the UK, and Christmas train rides by country. International pages also state their language in their structured data (inLanguage).
 
 ## Social media
 
@@ -2441,7 +2441,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Austria (5 cities; pages: 5 in English, hreflang en; 5 in German, hreflang de-AT)
 
-- [Austria: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-austria-with-kids): Christmas events for kids in Austria for 2026: 73 family events in 5 cities, 10 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Austria: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-austria-with-kids): Christmas events for kids in Austria for 2026: 73 family events in 5 cities, 10 free, with dates, prices and tips for visiting families. (hreflang: en-AT)
 - [Austria: country guide in German](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-oesterreich): Advent mit Kindern in Österreich: 73 geprüfte Tipps in Wien, Graz, Salzburg, Linz und Innsbruck, 10 kostenlos. Christkindlmärkte, Nikolo, Kasperl. (hreflang: de-AT)
 - [Graz](https://www.rallytakesthetrain.com/christmas-events/christmas-in-graz-with-kids): hreflang en; also in German at [Graz (Deutsch)](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-graz), hreflang de-AT
 - [Innsbruck](https://www.rallytakesthetrain.com/christmas-events/christmas-in-innsbruck-with-kids): hreflang en; also in German at [Innsbruck (Deutsch)](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-innsbruck), hreflang de-AT
@@ -2451,7 +2451,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Belgium (8 cities; pages: 7 in English, hreflang en; 4 in Dutch, hreflang nl-BE; 4 in French, hreflang fr-BE)
 
-- [Belgium: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-belgium-with-kids): Christmas events for kids in Belgium for 2026: 82 family events in 7 cities, 39 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Belgium: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-belgium-with-kids): Christmas events for kids in Belgium for 2026: 82 family events in 7 cities, 39 free, with dates, prices and tips for visiting families. (hreflang: en-BE)
 - [Belgium: country guide in French](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-belgique): Que faire à Noël avec les enfants en Belgique ? Voici 33 activités vérifiées dans 3 villes, dont 11 gratuites : saint Nicolas, marchés de Noël, spectacles. (hreflang: fr-BE)
 - [Belgium: country guide in Dutch](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-belgie): Sinterklaas en kerst met kinderen in België: 49 activiteiten met de Sint, kerstmarkten en voorstellingen in Antwerpen, Gent, Brugge en Leuven, 28 gratis. (hreflang: nl-BE)
 - [Antwerp](https://www.rallytakesthetrain.com/christmas-events/christmas-in-antwerp-with-kids): hreflang en; also in Dutch at [Antwerp (Nederlands)](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-antwerpen), hreflang nl-BE
@@ -2482,7 +2482,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Denmark (11 cities; pages: 11 in Danish, hreflang da-DK; 1 in English, hreflang en)
 
-- [Denmark: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-denmark-with-kids): Christmas events for kids in Denmark for 2026: 7 family events in Copenhagen, 2 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Denmark: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-denmark-with-kids): Christmas events for kids in Denmark for 2026: 7 family events in Copenhagen, 2 free, with dates, prices and tips for visiting families. (hreflang: en-DK)
 - [Denmark: country guide in Danish](https://www.rallytakesthetrain.com/christmas-events/denmark): Find 7 juleaktiviteter for børn i København, 2 gratis: besøg af julemanden, højtlæsning, lysshows og mere med datoer og priser. Flere byer følger snart. (hreflang: da-DK)
 - [Aalborg](https://www.rallytakesthetrain.com/christmas-events/aalborg-dk): hreflang da-DK
 - [Aarhus](https://www.rallytakesthetrain.com/christmas-events/aarhus-dk): hreflang da-DK
@@ -2543,7 +2543,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### France (97 cities; pages: 97 in French, hreflang fr-FR; 12 in English, hreflang en)
 
-- [France: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-france-with-kids): Christmas events for kids in France for 2026: 374 family events in 12 cities, 189 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [France: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-france-with-kids): Christmas events for kids in France for 2026: 374 family events in 12 cities, 189 free, with dates, prices and tips for visiting families. (hreflang: en-FR)
 - [France: country guide in French](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-france): Que faire à Noël avec les enfants en France ? Voici 755 activités vérifiées dans 65 villes, dont 369 gratuites : spectacles, lumières, marchés de Noël. (hreflang: fr-FR)
 - [Aix-en-Provence](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-aix-en-provence): hreflang fr-FR
 - [Ajaccio](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-ajaccio): hreflang fr-FR
@@ -2645,7 +2645,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Germany (151 cities; pages: 151 in German, hreflang de-DE; 12 in English, hreflang en)
 
-- [Germany: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-germany-with-kids): Christmas events for kids in Germany for 2026: 374 family events in 12 cities, 156 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Germany: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-germany-with-kids): Christmas events for kids in Germany for 2026: 374 family events in 12 cities, 156 free, with dates, prices and tips for visiting families. (hreflang: en-DE)
 - [Germany: country guide in German](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-deutschland): Weihnachten mit Kindern in Deutschland: 995 geprüfte Tipps in 135 Städten, 371 kostenlos. Weihnachtsmärkte, Weihnachtsmärchen, Nikolaus und Lichterpfade. (hreflang: de-DE)
 - [Aachen](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-aachen): hreflang de-DE
 - [Aalen](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-aalen): hreflang de-DE
@@ -2822,7 +2822,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Hungary (19 cities; pages: 19 in Hungarian, hreflang hu-HU; 1 in English, hreflang en)
 
-- [Hungary: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-hungary-with-kids): Christmas events for kids in Hungary for 2026: 17 family events in Budapest, 1 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Hungary: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-hungary-with-kids): Christmas events for kids in Hungary for 2026: 17 family events in Budapest, 1 free, with dates, prices and tips for visiting families. (hreflang: en-HU)
 - [Hungary: country guide in Hungarian](https://www.rallytakesthetrain.com/christmas-events/hungary): 17 karácsonyi gyerekprogram itt: Budapest. , ebből 1 ingyenesMikulás-látogatások, meseolvasások, fényjátékok és még sok más, időpontokkal és árakkal.... (hreflang: hu-HU)
 - [Budapest](https://www.rallytakesthetrain.com/christmas-events/christmas-in-budapest-with-kids): hreflang en; also in Hungarian at [Budapest (Magyar)](https://www.rallytakesthetrain.com/christmas-events/budapest-hu), hreflang hu-HU
 - [Békéscsaba](https://www.rallytakesthetrain.com/christmas-events/bekescsaba-hu): hreflang hu-HU
@@ -2865,7 +2865,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Italy (88 cities; pages: 88 in Italian, hreflang it-IT; 12 in English, hreflang en)
 
-- [Italy: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-italy-with-kids): Christmas events for kids in Italy for 2026: 181 family events in 12 cities, 23 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Italy: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-italy-with-kids): Christmas events for kids in Italy for 2026: 181 family events in 12 cities, 23 free, with dates, prices and tips for visiting families. (hreflang: en-IT)
 - [Italy: country guide in Italian](https://www.rallytakesthetrain.com/christmas-events/natale-con-i-bambini-italia): Cosa fare a Natale con i bambini in Italia: 204 eventi verificati in 20 città, 25 gratis. Spettacoli, Babbo Natale, la Befana, mercatini e luminarie. (hreflang: it-IT)
 - [Alessandria](https://www.rallytakesthetrain.com/christmas-events/natale-con-i-bambini-alessandria): hreflang it-IT
 - [Altamura](https://www.rallytakesthetrain.com/christmas-events/natale-con-i-bambini-altamura): hreflang it-IT
@@ -2983,7 +2983,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Netherlands (16 cities; pages: 16 in Dutch, hreflang nl-NL; 8 in English, hreflang en)
 
-- [Netherlands: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-netherlands-with-kids): Christmas events for kids in the Netherlands for 2026: 93 family events in 8 cities, 43 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Netherlands: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-netherlands-with-kids): Christmas events for kids in the Netherlands for 2026: 93 family events in 8 cities, 43 free, with dates, prices and tips for visiting families. (hreflang: en-NL)
 - [Netherlands: country guide in Dutch](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-nederland): Sinterklaas en kerst met kinderen in Nederland: 110 uitjes in 13 steden, 47 gratis. Denk aan intochten, kerstvoorstellingen, lichtroutes en voorlezen. (hreflang: nl-NL)
 - [Amsterdam](https://www.rallytakesthetrain.com/christmas-events/christmas-in-amsterdam-with-kids): hreflang en; also in Dutch at [Amsterdam (Nederlands)](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-amsterdam), hreflang nl-NL
 - [Apeldoorn](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-apeldoorn): hreflang nl-NL
@@ -3004,7 +3004,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Norway (22 cities; pages: 22 in Norwegian Bokmal, hreflang nb-NO; 1 in English, hreflang en)
 
-- [Norway: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-norway-with-kids): Christmas events for kids in Norway for 2026: 8 family events in Oslo, 4 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Norway: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-norway-with-kids): Christmas events for kids in Norway for 2026: 8 family events in Oslo, 4 free, with dates, prices and tips for visiting families. (hreflang: en-NO)
 - [Norway: country guide in Norwegian Bokmal](https://www.rallytakesthetrain.com/christmas-events/norway): Finn 33 juleaktiviteter for barn i 5 byer i Norge, 10 gratis: besøk av julenissen, høytlesing, lysutstillinger og mer, med datoer og priser. (hreflang: nb-NO)
 - [Bergen](https://www.rallytakesthetrain.com/christmas-events/bergen-no): hreflang nb-NO
 - [Bodø](https://www.rallytakesthetrain.com/christmas-events/bodo-no): hreflang nb-NO
@@ -3031,7 +3031,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Poland (66 cities; pages: 66 in Polish, hreflang pl-PL; 1 in English, hreflang en)
 
-- [Poland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-poland-with-kids): Christmas events for kids in Poland for 2026: 8 family events in Warsaw, with dates, prices and tips for visiting families. (hreflang: en)
+- [Poland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-poland-with-kids): Christmas events for kids in Poland for 2026: 8 family events in Warsaw, with dates, prices and tips for visiting families. (hreflang: en-PL)
 - [Poland: country guide in Polish](https://www.rallytakesthetrain.com/christmas-events/poland): Świąteczne wydarzenia dla dzieci w Polsce (10, w tym bezpłatnych: 1) w 2 miastach: Mikołaj, bajki, iluminacje i nie tylko, z terminami i cenami. (hreflang: pl-PL)
 - [Bełchatów](https://www.rallytakesthetrain.com/christmas-events/belchatow-pl): hreflang pl-PL
 - [Biała Podlaska](https://www.rallytakesthetrain.com/christmas-events/biala-podlaska-pl): hreflang pl-PL
@@ -3165,7 +3165,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Spain (145 cities; pages: 145 in Spanish, hreflang es-ES; 9 in English, hreflang en)
 
-- [Spain: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-spain-with-kids): Christmas events for kids in Spain for 2026: 127 family events in 9 cities, 42 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Spain: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-spain-with-kids): Christmas events for kids in Spain for 2026: 127 family events in 9 cities, 42 free, with dates, prices and tips for visiting families. (hreflang: en-ES)
 - [Spain: country guide in Spanish](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-espana): Qué hacer en Navidad con niños en España: 164 planes en 20 ciudades, 46 gratis. Cabalgatas de Reyes, luces, cuentacuentos y espectáculos. (hreflang: es-ES)
 - [A Coruña](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-a-coruna): hreflang es-ES
 - [Albacete](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-albacete): hreflang es-ES
@@ -3315,7 +3315,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Sweden (46 cities; pages: 46 in Swedish, hreflang sv-SE; 1 in English, hreflang en)
 
-- [Sweden: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-sweden-with-kids): Christmas events for kids in Sweden for 2026: 9 family events in Stockholm, with dates, prices and tips for visiting families. (hreflang: en)
+- [Sweden: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-sweden-with-kids): Christmas events for kids in Sweden for 2026: 9 family events in Stockholm, with dates, prices and tips for visiting families. (hreflang: en-SE)
 - [Sweden: country guide in Swedish](https://www.rallytakesthetrain.com/christmas-events/sweden): Hitta 34 julevenemang för barn i 7 städer i Sverige, 8 gratis: tomtebesök, sagostunder, ljusshower och mer, med datum och priser. (hreflang: sv-SE)
 - [Borås](https://www.rallytakesthetrain.com/christmas-events/boras-se): hreflang sv-SE
 - [Botkyrka](https://www.rallytakesthetrain.com/christmas-events/botkyrka-se): hreflang sv-SE
@@ -3366,7 +3366,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Switzerland (7 cities; pages: 7 in English, hreflang en; 5 in German, hreflang de-CH; 2 in French, hreflang fr-CH)
 
-- [Switzerland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-switzerland-with-kids): Christmas events for kids in Switzerland for 2026: 86 family events in 7 cities, 35 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Switzerland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-switzerland-with-kids): Christmas events for kids in Switzerland for 2026: 86 family events in 7 cities, 35 free, with dates, prices and tips for visiting families. (hreflang: en-CH)
 - [Switzerland: country guide in German](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-schweiz): Weihnachten mit Kindern in der Schweiz: 60 geprüfte Tipps in 5 Städten, 24 kostenlos. Samichlaus, Weihnachtsmärkte, Kerzenziehen und Märchen. (hreflang: de-CH)
 - [Switzerland: country guide in French](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-suisse): Que faire à Noël avec les enfants en Suisse ? Voici 26 activités vérifiées dans 2 villes, dont 11 gratuites : saint Nicolas, marchés de Noël, spectacles. (hreflang: fr-CH)
 - [Basel](https://www.rallytakesthetrain.com/christmas-events/christmas-in-basel-with-kids): hreflang en; also in German at [Basel (Deutsch)](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-basel), hreflang de-CH
@@ -3379,7 +3379,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Ukraine (39 cities; pages: 39 in Ukrainian, hreflang uk-UA; 2 in English, hreflang en)
 
-- [Ukraine: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-ukraine-with-kids): Christmas events for kids in Ukraine for 2026: 11 family events in 2 cities, with dates, prices and tips for visiting families. (hreflang: en)
+- [Ukraine: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-ukraine-with-kids): Christmas events for kids in Ukraine for 2026: 11 family events in 2 cities, with dates, prices and tips for visiting families. (hreflang: en-UA)
 - [Ukraine: country guide in Ukrainian](https://www.rallytakesthetrain.com/christmas-events/ukraine): Різдвяні події для дітей в Україні 2026: подій 11, міст 2. Зустрічі з Сантою, читання, світлові шоу та інше з датами й вартістю. (hreflang: uk-UA)
 - [Berdychiv](https://www.rallytakesthetrain.com/christmas-events/berdychiv-ua): hreflang uk-UA
 - [Bila Tserkva](https://www.rallytakesthetrain.com/christmas-events/bila-tserkva-ua): hreflang uk-UA
@@ -3471,7 +3471,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Brazil (129 cities; pages: 129 in Portuguese, hreflang pt-BR; 12 in English, hreflang en)
 
-- [Brazil: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-brazil-with-kids): Christmas events for kids in Brazil for 2026: 173 family events in 12 cities, 130 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Brazil: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-brazil-with-kids): Christmas events for kids in Brazil for 2026: 173 family events in 12 cities, 130 free, with dates, prices and tips for visiting families. (hreflang: en-BR)
 - [Brazil: country guide in Portuguese](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-brasil): Programação de Natal 2026 para crianças em 38 cidades do Brasil: 294 programas, 187 gratuitos, e o Papai Noel em 97 shoppings. Atualizado em 9 de novembro. (hreflang: pt-BR)
 - [Americana](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-americana): hreflang pt-BR
 - [Ananindeua](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-ananindeua): hreflang pt-BR
@@ -3728,7 +3728,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Mexico (133 cities; pages: 133 in Spanish, hreflang es-MX; 1 in English, hreflang en)
 
-- [Mexico: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-mexico-with-kids): Christmas events for kids in Mexico for 2026: 7 family events in Mexico City, with dates, prices and tips for visiting families. (hreflang: en)
+- [Mexico: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-mexico-with-kids): Christmas events for kids in Mexico for 2026: 7 family events in Mexico City, with dates, prices and tips for visiting families. (hreflang: en-MX)
 - [Mexico: country guide in Spanish](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-mexico): Qué hacer en Navidad con niños en México: 24 actividades en 5 ciudades, con fechas y precios, 6 gratis. Más ciudades a finales de noviembre. (hreflang: es-MX)
 - [Acapulco](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-acapulco): hreflang es-MX
 - [Acolman](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-acolman): hreflang es-MX
@@ -4344,7 +4344,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### Japan (181 cities; pages: 181 in Japanese, hreflang ja-JP; 12 in English, hreflang en)
 
-- [Japan: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-japan-with-kids): Christmas events for kids in Japan for 2026: 150 family events in 12 cities, 42 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [Japan: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-japan-with-kids): Christmas events for kids in Japan for 2026: 150 family events in 12 cities, 42 free, with dates, prices and tips for visiting families. (hreflang: en-JP)
 - [Japan: country guide in Japanese](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-japan): 子連れで楽しめるクリスマスイベントを都市別にまとめたガイドです。東京、大阪、名古屋、横浜、札幌などの49の都市・地域で253件（うち無料68件）を掲載。イルミネーションやサンタさんに会えるイベントの日時、料金、主催者へのリンクは各都市のページで確認できます。 (hreflang: ja-JP)
 - [Ageo](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-ageo): hreflang ja-JP
 - [Aizu Wakamatsu](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-aizu-wakamatsu): hreflang ja-JP
@@ -4590,7 +4590,7 @@ Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Ch
 
 ### South Korea (60 cities; pages: 60 in Korean, hreflang ko-KR; 6 in English, hreflang en)
 
-- [South Korea: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-south-korea-with-kids): Christmas events for kids in South Korea for 2026: 57 family events in 6 cities, 3 free, with dates, prices and tips for visiting families. (hreflang: en)
+- [South Korea: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-south-korea-with-kids): Christmas events for kids in South Korea for 2026: 57 family events in 6 cities, 3 free, with dates, prices and tips for visiting families. (hreflang: en-KR)
 - [South Korea: country guide in Korean](https://www.rallytakesthetrain.com/christmas-events/south-korea): 한국 20개 도시의 어린이 크리스마스 행사 121개, 7개 무료. 산타 만나기, 이야기 시간, 불빛 쇼 등 날짜와 비용까지 한눈에 확인해 보세요. (hreflang: ko-KR)
 - [Andong](https://www.rallytakesthetrain.com/christmas-events/andong-kr): hreflang ko-KR
 - [Anseong](https://www.rallytakesthetrain.com/christmas-events/anseong-kr): hreflang ko-KR
