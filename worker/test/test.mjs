@@ -4,6 +4,7 @@ import { Miniflare } from 'miniflare';
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 
 const ROOT = new URL('../../', import.meta.url).pathname;
 const FIX = process.env.FIXTURES || '/home/claude/audit';
@@ -81,10 +82,34 @@ await t('trailing slash still matches', async () => {
   assert.match(head(h), /hreflang="fr-CA" href="https:\/\/www\.rallytakesthetrain\.com\/messes-de-noel-quebec-canada\/quebec-et-canada-francais"/);
 });
 
-await t('page not in any cluster passes through byte for byte', async () => {
+const inlineScripts = (html) => [...html.matchAll(/<script(?![^>]*\ssrc=)([^>]*)>([\s\S]*?)<\/script>/g)].map((m) => [m[1], m[2]]);
+
+await t('page not in any cluster: only the old hreflang script line changes', async () => {
   const r = await get('/christmas-eve-services/united-states');
-  assert.equal(r.headers.get('x-rtt-hreflang'), null);
-  assert.equal(Buffer.compare(Buffer.from(await r.arrayBuffer()), readFileSync(FIX + '/us.html')), 0);
+  assert.equal(r.headers.get('x-rtt-hreflang'), 'clean');
+  const out = await r.text();
+  const orig = readFileSync(FIX + '/us.html', 'utf8');
+  assert.ok(orig.includes("l.rel='alternate'"));
+  assert.ok(!out.includes("l.rel='alternate'"));
+  assert.equal(out, orig.replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'"));
+});
+
+await t('every inline script on real pages still compiles; only the hreflang line differs', async () => {
+  for (const [path, file] of Object.entries(pages)) {
+    const out = await (await get(path)).text();
+    const before = inlineScripts(readFileSync(FIX + '/' + file, 'utf8'));
+    const after = inlineScripts(out);
+    assert.equal(after.length, before.length, path);
+    let changed = 0;
+    after.forEach(([attrs, code], i) => {
+      if (code !== before[i][1]) {
+        changed++;
+        assert.equal(code, before[i][1].replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'"));
+      }
+      if (!/json/i.test(attrs)) new vm.Script(code); // throws on a syntax error
+    });
+    assert.equal(changed, 1, path);
+  }
 });
 
 await t('old hreflang link tags removed, body anchors untouched', async () => {
@@ -111,10 +136,12 @@ await t('robots.txt gets the hreflang sitemap line once', async () => {
 
 await t('images, POSTs and 404s pass through', async () => {
   const img = await get('/logo.png');
+  assert.equal(img.headers.get('content-type'), 'image/png');
   assert.equal(await img.text(), 'PNG');
   assert.equal(img.headers.get('x-rtt-hreflang'), null);
   const post = await get('/form', { method: 'POST', body: 'a=1' });
   assert.equal(await post.text(), 'posted a=1');
+  assert.equal(post.headers.get('x-rtt-hreflang'), null);
   const nf = await get('/nope');
   assert.equal(nf.status, 404);
   assert.equal(nf.headers.get('x-rtt-hreflang'), null);
@@ -149,8 +176,10 @@ const mf5 = fresh(undefined);
 await t('both sources down and nothing saved: site still works, untagged', async () => {
   const r = await mf5.dispatchFetch(SITE + '/christmas-events-for-kids');
   assert.equal(r.status, 200);
-  assert.equal(r.headers.get('x-rtt-hreflang'), null);
-  assert.equal(Buffer.compare(Buffer.from(await r.arrayBuffer()), readFileSync(FIX + '/christmas-events-for-kids.html')), 0);
+  assert.equal(r.headers.get('x-rtt-hreflang'), 'clean');
+  const h = await r.text();
+  assert.equal(altCount(h), 0);
+  assert.equal(h, readFileSync(FIX + '/christmas-events-for-kids.html', 'utf8').replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'"));
   const sm = await mf5.dispatchFetch(SITE + '/hreflang-sitemap.xml');
   assert.equal(sm.headers.get('x-rtt-hreflang'), null);
 });

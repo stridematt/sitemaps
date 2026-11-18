@@ -5,7 +5,9 @@ Static files served at https://sitemaps.rallytakesthetrain.com/ through GitHub P
 - `hreflang-sitemap.xml`: language and region alternates for the international pages on https://www.rallytakesthetrain.com/. Generated; do not edit by hand.
 - `tools/clusters.json`: the source for the hreflang sitemap. Each cluster is one guide in its different languages or countries, with its x-default.
 - `tools/build_hreflang.py`: checks `clusters.json` (valid codes, no page in two clusters, no code used twice in a cluster, x-default present) and writes `hreflang-sitemap.xml`.
-- `tools/find_unpaired.py`: compares the live site sitemap with `clusters.json` and lists translated pages that aren't paired yet, plus clustered pages that no longer exist. Runs daily in GitHub Actions and opens an issue titled "hreflang: pages to review" when it finds something. Rejected suggestions go in `tools/hreflang-ignore.txt`.
+- `tools/auto_pair.py`: runs every 3 hours in GitHub Actions. Reads the site sitemap, opens pages it hasn't seen before and adds them to `clusters.json` when the site itself declares them as language versions of each other, then rebuilds the sitemap and commits. Sources it trusts: the cluster list in the site-wide Squarespace language script, each page's language switcher link (the `rtt-post__meta` line, e.g. "Lire en français"), and matching Christmas Eve denomination URLs across countries. Every page must be live, canonical to itself, indexable and declare the expected language. Doubtful cases go to the review issue instead.
+- `tools/find_unpaired.py`: pattern check run with the job above; lists likely pairs by URL and clustered pages that no longer exist.
+- Both report to one GitHub issue, "hreflang: pages to review", which closes itself when everything is paired. Rejected suggestions go in `tools/hreflang-ignore.txt`.
 - `worker/`: the Cloudflare Worker on www.rallytakesthetrain.com (see below).
 - `CNAME`: the custom domain for GitHub Pages
 - `llms-full.txt` and `llms.txt`: the complete AI guide to https://www.rallytakesthetrain.com/ with every address written in full. The version served at https://www.rallytakesthetrain.com/llms.txt lists the same pages, with the three large directories written as site paths.
@@ -19,6 +21,8 @@ Static files served at https://sitemaps.rallytakesthetrain.com/ through GitHub P
 
 ## Adding pages
 
+New translated pages are paired automatically within about 3 hours if the site declares them (site script cluster list or the page's language switcher). To add or fix one by hand:
+
 1. Add a cluster, or a page to an existing cluster, in `tools/clusters.json`.
 2. Run `python3 tools/build_hreflang.py`.
 3. Commit `tools/clusters.json` and `hreflang-sitemap.xml` together.
@@ -31,7 +35,8 @@ Runs on `www.rallytakesthetrain.com/*` and reads `tools/clusters.json` from this
 
 - Adds `<link rel="alternate" hreflang>` tags for the whole cluster, plus x-default, to every clustered page, and sets `<html lang>` to the page's language.
 - Serves the hreflang sitemap at https://www.rallytakesthetrain.com/hreflang-sitemap.xml (submit this one in Search Console). Its robots.txt code is inactive: `/robots.txt` has its own route to the rally-indexnow Worker, which takes priority.
-- Leaves every other request untouched. If anything fails, the original Squarespace page is returned.
+- Switches off the old hreflang tags that the site-wide Squarespace language script adds in the browser (their link tags get `rel="x-rtt-hreflang-off"`), so Google only sees the Worker's set. The script still sets the page language, content-language and og:locale.
+- Leaves everything else untouched. If anything fails, the original Squarespace page is returned.
 
 A commit to `clusters.json` goes live on the site within about 5 minutes, with no redeploy. It reads the data from GitHub, then the GitHub Pages copy, then the last good copy saved in Cloudflare's cache; if none are available, pages pass through untouched.
 

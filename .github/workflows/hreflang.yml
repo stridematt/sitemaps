@@ -6,12 +6,16 @@ on:
       - 'tools/**'
       - 'hreflang-sitemap.xml'
   schedule:
-    - cron: '17 13 * * *' # daily, early morning Pacific
+    - cron: '23 */3 * * *' # every 3 hours
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   issues: write
+
+concurrency:
+  group: hreflang-${{ github.event_name == 'push' && 'validate' || 'auto-pair' }}
+  cancel-in-progress: false
 
 jobs:
   validate:
@@ -24,30 +28,60 @@ jobs:
           python3 tools/build_hreflang.py
           git diff --exit-code hreflang-sitemap.xml || (echo "::error::hreflang-sitemap.xml is out of date. Run python3 tools/build_hreflang.py and commit it." && exit 1)
 
-  unpaired:
+  auto-pair:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Look for translated pages missing from clusters.json
-        id: check
+
+      - name: Restore the list of pages already checked
+        uses: actions/cache/restore@v4
+        with:
+          path: .state
+          key: auto-pair-state-${{ github.run_id }}
+          restore-keys: auto-pair-state-
+
+      - name: Pair new translated pages
         run: |
+          mkdir -p .state
+          python3 tools/auto_pair.py --state .state/auto-pair.json --report report.md
           set +e
-          python3 tools/find_unpaired.py > report.md
-          echo "status=$?" >> "$GITHUB_OUTPUT"
-          cat report.md
-      - name: Open or update the review issue
+          python3 tools/find_unpaired.py > patterns.md
+          echo "PATTERNS=$?" >> "$GITHUB_ENV"
+
+      - name: Commit any new pairs
+        run: |
+          if git diff --quiet -- tools/clusters.json hreflang-sitemap.xml; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          python3 tools/build_hreflang.py --check
+          n=$(grep -c '^- ' <(sed -n '/^## Added/,/^## /p' report.md) || true)
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/clusters.json hreflang-sitemap.xml
+          { echo "Auto-pair: $n new hreflang page(s)"; echo; sed -n '/^## Added/,/^## Needs/p' report.md | grep '^- ' | head -100; } > msg.txt
+          git commit -q -F msg.txt
+          git push
+
+      - name: Save the list of pages already checked
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .state
+          key: auto-pair-state-${{ github.run_id }}
+
+      - name: Open, update or close the review issue
         env:
           GH_TOKEN: ${{ github.token }}
-          STATUS: ${{ steps.check.outputs.status }}
         run: |
           title="hreflang: pages to review"
+          needs=$(grep -c '^## Needs a look' report.md || true)
+          { echo "Last checked: $(date -u '+%Y-%m-%d %H:%M UTC')"; echo; cat report.md; if [ "$PATTERNS" = "1" ]; then echo; cat patterns.md; fi; } > issue.md
           num=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
-          if [ "$STATUS" = "1" ]; then
-            if [ -n "$num" ]; then gh issue edit "$num" --body-file report.md
-            else gh issue create --title "$title" --body-file report.md; fi
-          elif [ "$STATUS" = "0" ] && [ -n "$num" ]; then
-            gh issue close "$num" --comment "All translated pages are in clusters.json now."
-          elif [ "$STATUS" != "0" ]; then
-            echo "::error::The check could not run (exit $STATUS)"; exit 1
+          if [ "$needs" != "0" ] || [ "$PATTERNS" = "1" ]; then
+            if [ -n "$num" ]; then gh issue edit "$num" --body-file issue.md
+            else gh issue create --title "$title" --body-file issue.md; fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" --comment "Everything is paired now."
           fi

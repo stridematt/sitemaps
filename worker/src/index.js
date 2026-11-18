@@ -4,8 +4,11 @@
 //   1. Pages in a cluster get <link rel="alternate" hreflang> tags for every page
 //      in their cluster (plus x-default) and the right <html lang>.
 //   2. /hreflang-sitemap.xml is served from the main domain, built from the same data.
-//   3. /robots.txt gets a Sitemap line for it.
-// Every other request passes straight through to Squarespace untouched.
+//   3. /robots.txt gets a Sitemap line for it (only if robots.txt is routed here).
+//   4. The site-wide Squarespace script that used to add hreflang tags in the
+//      browser has that one part switched off (its link tags get a harmless rel),
+//      so Google sees a single, consistent set: the one from this Worker.
+// Everything else passes straight through to Squarespace.
 // If anything goes wrong, the original Squarespace response is returned (fail open).
 //
 // The cluster data is read from GitHub (cached for a few minutes) so a commit to
@@ -110,6 +113,35 @@ export function buildSitemap(data) {
   return out.join('\n') + '\n';
 }
 
+// Switch off client-side hreflang link creation in inline scripts.
+const REL_PROP = /(\.rel\s*=\s*)(['"])alternate\2/g;
+const REL_ATTR = /(setAttribute\(\s*(['"])rel\2\s*,\s*)(['"])alternate\3/g;
+export function disableScriptHreflang(code) {
+  if (!code.includes('hreflang')) return code;
+  return code.replace(REL_PROP, '$1$2x-rtt-hreflang-off$2').replace(REL_ATTR, '$1$3x-rtt-hreflang-off$3');
+}
+
+function scriptCleaner() {
+  let buf = null;
+  return {
+    element(el) {
+      const type = (el.getAttribute('type') || '').toLowerCase();
+      buf = el.getAttribute('src') || type.includes('json') ? null : '';
+    },
+    text(t) {
+      if (buf === null) return;
+      buf += t.text;
+      if (t.lastInTextNode) {
+        const out = disableScriptHreflang(buf);
+        buf = null;
+        t.replace(out, { html: true });
+      } else {
+        t.remove();
+      }
+    },
+  };
+}
+
 function withHeader(resp, value) {
   const r = new Response(resp.body, resp);
   r.headers.delete('content-length');
@@ -151,29 +183,28 @@ async function handle(request, ctx) {
   if (!type.includes('text/html')) return origin;
 
   const index = await getIndex(ctx);
-  if (!index) return origin;
-  const entry = index.byPath.get(path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path);
-  if (!entry) return origin;
+  const entry = index && index.byPath.get(path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path);
 
-  const rewritten = new HTMLRewriter()
-    .on('html', {
+  const rw = new HTMLRewriter().on('script', scriptCleaner());
+  if (entry) {
+    rw.on('html', {
       element(el) {
         el.setAttribute('lang', entry.lang);
       },
     })
-    // Remove any hreflang link tags already in the head so there is only one set.
-    .on('head link[hreflang]', {
-      element(el) {
-        el.remove();
-      },
-    })
-    .on('head', {
-      element(el) {
-        el.append(entry.links, { html: true });
-      },
-    })
-    .transform(origin);
-  return withHeader(rewritten, 'tagged');
+      // Remove any hreflang link tags already in the head so there is only one set.
+      .on('head link[hreflang]', {
+        element(el) {
+          el.remove();
+        },
+      })
+      .on('head', {
+        element(el) {
+          el.append(entry.links, { html: true });
+        },
+      });
+  }
+  return withHeader(rw.transform(origin), entry ? 'tagged' : 'clean');
 }
 
 export default {
