@@ -122,8 +122,24 @@ def main():
             guides[hr] = {'kind': 'country', 'name': c['name']}
         for g in c['groups']:
             if g['state']:
-                guides[g['state'][0]] = {'kind': 'state', 'name': g['state'][1]}
+                guides[g['state'][0]] = {'kind': 'state', 'name': g['state'][1], 'country': c['name']}
     gstate = old.get('guide_pages', {})
+    # New city pages a country or state guide links to (its city cards and city sections) count too,
+    # even before the hub lists them. They are picked up from the last read of each guide.
+    added = []
+    for g, gs in gstate.items():
+        gi = guides.get(g)
+        if not gi:
+            continue
+        for q in gs.get('cities', []):
+            if q in place or q in guides or q in odd or 'duplicate' in q:
+                continue
+            country = gi['name'] if gi['kind'] == 'country' else gi.get('country', '')
+            place[q] = {'country': country, 'state': g if gi['kind'] == 'state' and country == 'United States' else None,
+                        'name': gs.get('names', {}).get(q) or q.rsplit('/', 1)[-1], 'main': q}
+            added.append(q)
+    if added:
+        log(f'{len(added)} city pages found through guides that the hub does not list yet: {added[:10]}')
 
     # What to (re)read
     due = []
@@ -149,7 +165,13 @@ def main():
         for p, (st, h) in zip(todo, ex.map(fetch, todo)):
             if st == 200 and h and p in guides:
                 links = sorted(set(re.findall(r'href="(/christmas-events/[a-z0-9-]+)(?:#[^"]*)?"', h)) & set(place))
-                gstate[p] = {'links': links, 'lang': (re.search(r'<html[^>]*\blang="([^"]+)"', h) or [None, ''])[1], 'lastmod': lastmod.get(p), 'at': today}
+                cities = {}
+                for m in re.finditer(r'<li class="rtt-rc">(?:(?!</li>).){0,3000}?href="(/christmas-events/[a-z0-9-]+)"[^>]*>(?:<[^>]+>)*([^<]{1,80})', h, re.S):
+                    cities.setdefault(m.group(1), m.group(2).strip())
+                for m in re.finditer(r'<h2 id="city-[^"]*"[^>]*>([^<]{1,80})(?:(?!<h2\b).){0,4000}?href="(/christmas-events/[a-z0-9-]+)', h, re.S):
+                    cities.setdefault(m.group(2), m.group(1).strip())
+                cities.pop(p, None)
+                gstate[p] = {'links': links, 'cities': sorted(cities), 'names': cities, 'lang': (re.search(r'<html[^>]*\blang="([^"]+)"', h) or [None, ''])[1], 'lastmod': lastmod.get(p), 'at': today}
                 sq_ids[p] = item_id(h) or sq_ids.get(p)
                 pages.setdefault(p, {}).update({'guide': True, 'lastmod': lastmod.get(p), 'at': today, 'e': 0, 'f': 0, 'k': [], 'fk': [], 'x': None})
             elif st == 200 and h:
