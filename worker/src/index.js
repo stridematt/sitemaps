@@ -404,10 +404,11 @@ export function applySitemapFix(xml, fix) {
   });
   const add = (fix.add || []).filter(([p]) => p && p.startsWith('/') && !seen.has(p));
   if (seen.size + add.length > MAX_SITEMAP_URLS) return null; // over the protocol limit: leave Squarespace's as is
+  const NL = '\n'; // kept as an escape so the deploy bundle stays on one line
   const entries = add.map(([p, d]) =>
-    `  <url>\n    <loc>https://www.rallytakesthetrain.com${escapeXml(p)}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.75</priority>\n` +
-    (/^\d{4}-\d\d-\d\d$/.test(d || '') ? `    <lastmod>${d}</lastmod>\n` : '') + '  </url>\n').join('');
-  out = out.replace(/<\/urlset>\s*$/, entries + '</urlset>\n');
+    '  <url>' + NL + '    <loc>https://www.rallytakesthetrain.com' + escapeXml(p) + '</loc>' + NL + '    <changefreq>weekly</changefreq>' + NL +
+    '    <priority>0.75</priority>' + NL + (/^\d{4}-\d\d-\d\d$/.test(d || '') ? '    <lastmod>' + d + '</lastmod>' + NL : '') + '  </url>' + NL).join('');
+  out = out.replace(/<\/urlset>\s*$/, entries + '</urlset>' + NL);
   return { xml: out, added: add.length, removed };
 }
 
