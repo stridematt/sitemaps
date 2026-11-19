@@ -3891,7 +3891,7 @@ Links under the headings below are written as paths on this site: put https://ww
 ### Luxembourg (62 cities; English pages, hreflang en-LU, unless marked)
 
 - [Luxembourg: country guide](/christmas-events/luxembourg): Find 39 Christmas events for kids across Luxembourg, 6 free: Saint Nicholas visits, Christmas markets, story times and more. Every date checked 5 November.
-- [Luxembourg: country guide (Français)](/christmas-events/noel-avec-les-enfants-luxembourg): Que faire à Noël avec les enfants au Luxembourg ? Voici 39 activités vérifiées, dont 6 gratuites : saint Nicolas, marchés de Noël, contes, spectacles. (hreflang fr-LU)
+- [Luxembourg: country guide (Français)](/christmas-events/noel-avec-les-enfants-luxembourg) (hreflang fr-LU)
 - [Bech](/christmas-events/bech-lu); [Français](/christmas-events/noel-avec-les-enfants-bech) hreflang fr-LU
 - [Bertrange](/christmas-events/bertrange-lu); [Français](/christmas-events/noel-avec-les-enfants-bertrange) hreflang fr-LU
 - [Bettendorf](/christmas-events/bettendorf-lu); [Français](/christmas-events/noel-avec-les-enfants-bettendorf) hreflang fr-LU
@@ -3957,8 +3957,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Netherlands (40 cities; Dutch pages, hreflang nl-NL, unless marked)
 
-- [Netherlands: country guide](/christmas-events/christmas-in-netherlands-with-kids): Christmas events for kids in the Netherlands for 2026: 182 family events in 8 cities, 43 free, with dates, prices and tips for visiting families. (hreflang en-NL)
-- [Netherlands: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-nederland): Sinterklaas en kerst met kinderen in Nederland: 644 uitjes in 40 steden, 180 gratis. Intochten, kerstmarkten, schaatsbanen en lichtroutes.
+- [Netherlands: country guide](/christmas-events/christmas-in-netherlands-with-kids) (hreflang en-NL)
+- [Netherlands: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-nederland)
 - [Alkmaar](/christmas-events/kerst-met-kinderen-alkmaar)
 - [Almere](/christmas-events/kerst-met-kinderen-almere)
 - [Amersfoort](/christmas-events/kerst-met-kinderen-amersfoort)
@@ -4002,8 +4002,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Norway (22 cities; Norwegian Bokmal pages, hreflang nb-NO, unless marked)
 
-- [Norway: country guide](/christmas-events/christmas-in-norway-with-kids): Christmas events for kids in Norway for 2026: 8 family events in Oslo, 4 free, with dates, prices and tips for visiting families. (hreflang en-NO)
-- [Norway: country guide (Norsk)](/christmas-events/norway): Finn 33 juleaktiviteter for barn i 5 byer i Norge, 10 gratis: besøk av julenissen, høytlesing, lysutstillinger og mer, med datoer og priser.
+- [Norway: country guide](/christmas-events/christmas-in-norway-with-kids) (hreflang en-NO)
+- [Norway: country guide (Norsk)](/christmas-events/norway)
 - [Bergen](/christmas-events/bergen-no)
 - [Bodø](/christmas-events/bodo-no)
 - [Bærum](/christmas-events/baerum-no)
@@ -4029,8 +4029,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Poland (66 cities; Polish pages, hreflang pl-PL, unless marked)
 
-- [Poland: country guide](/christmas-events/christmas-in-poland-with-kids): Christmas events for kids in Poland for 2026: 8 family events in Warsaw, with dates, prices and tips for visiting families. (hreflang en-PL)
-- [Poland: country guide (Polski)](/christmas-events/poland): Świąteczne wydarzenia dla dzieci w Polsce (10, w tym bezpłatnych: 1) w 2 miastach: Mikołaj, bajki, iluminacje i nie tylko, z terminami i cenami.
+- [Poland: country guide](/christmas-events/christmas-in-poland-with-kids) (hreflang en-PL)
+- [Poland: country guide (Polski)](/christmas-events/poland)
 - [Bełchatów](/christmas-events/belchatow-pl)
 - [Biała Podlaska](/christmas-events/biala-podlaska-pl)
 - [Białystok](/christmas-events/bialystok-pl)
@@ -4100,7 +4100,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Portugal (56 cities; Portuguese pages, hreflang pt-PT)
 
-- [Portugal: country guide (Português)](/christmas-events/natal-com-criancas-portugal): O que fazer no Natal com crianças em Portugal em 2026: 187 atividades confirmadas pelas câmaras, 45 gratuitas, com Pai Natal, luzes e mercados de Natal.
+- [Portugal: country guide (Português)](/christmas-events/natal-com-criancas-portugal)
 - [Alcobaça](/christmas-events/natal-com-criancas-alcobaca)
 - [Almada](/christmas-events/natal-com-criancas-almada)
 - [Amadora](/christmas-events/natal-com-criancas-amadora)
@@ -4160,7 +4160,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Romania (41 cities; Romanian pages, hreflang ro-RO)
 
-- [Romania: country guide (Romanian)](/christmas-events/romania): Găsește 2 evenimente de Crăciun pentru copii în București, 2 gratuite: vizite la Moș Crăciun, ore de poveste, luminițe și multe altele, cu date și...
+- [Romania: country guide (Romanian)](/christmas-events/romania)
 - [Alba Iulia](/christmas-events/alba-iulia-ro)
 - [Arad](/christmas-events/arad-ro)
 - [Bacău](/christmas-events/bacau-ro)
@@ -4205,7 +4205,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Slovakia (8 cities; Slovak pages, hreflang sk-SK)
 
-- [Slovakia: country guide (Slovak)](/christmas-events/slovakia): Vianoce s deťmi na Slovensku: sprievodcovia mestami s históriou a tradíciami Vianoc. Podujatia na rok 2026 pribudnú koncom novembra, prihláste sa.
+- [Slovakia: country guide (Slovak)](/christmas-events/slovakia)
 - [Banská Bystrica](/christmas-events/banska-bystrica-sk)
 - [Bratislava](/christmas-events/bratislava-sk)
 - [Košice](/christmas-events/kosice-sk)
@@ -4217,14 +4217,14 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Slovenia (2 cities; Slovenian pages, hreflang sl-SI)
 
-- [Slovenia: country guide (Slovenian)](/christmas-events/slovenia): Božič z otroki v Sloveniji: vodniki po mestih z zgodovino in običaji božiča. Dogodki za leto 2026 bodo objavljeni konec novembra, prijavite se.
+- [Slovenia: country guide (Slovenian)](/christmas-events/slovenia)
 - [Ljubljana](/christmas-events/ljubljana-si)
 - [Maribor](/christmas-events/maribor-si)
 
 ### Spain (145 cities; Spanish pages, hreflang es-ES, unless marked)
 
-- [Spain: country guide](/christmas-events/christmas-in-spain-with-kids): Christmas events for kids in Spain for 2026: 127 family events in 9 cities, 42 free, with dates, prices and tips for visiting families. (hreflang en-ES)
-- [Spain: country guide (Español)](/christmas-events/navidad-con-ninos-espana): Qué hacer en Navidad con niños en España: 697 planes en 46 ciudades, 284 gratis. Cabalgatas de Reyes, luces, cuentacuentos y espectáculos.
+- [Spain: country guide](/christmas-events/christmas-in-spain-with-kids) (hreflang en-ES)
+- [Spain: country guide (Español)](/christmas-events/navidad-con-ninos-espana)
 - [A Coruña](/christmas-events/navidad-con-ninos-a-coruna)
 - [Albacete](/christmas-events/navidad-con-ninos-albacete)
 - [Alcalá de Guadaíra](/christmas-events/navidad-con-ninos-alcala-de-guadaira)
@@ -4373,8 +4373,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Sweden (46 cities; Swedish pages, hreflang sv-SE, unless marked)
 
-- [Sweden: country guide](/christmas-events/christmas-in-sweden-with-kids): Christmas events for kids in Sweden for 2026: 9 family events in Stockholm, with dates, prices and tips for visiting families. (hreflang en-SE)
-- [Sweden: country guide (Svenska)](/christmas-events/sweden): Hitta 34 julevenemang för barn i 7 städer i Sverige, 8 gratis: tomtebesök, sagostunder, ljusshower och mer, med datum och priser.
+- [Sweden: country guide](/christmas-events/christmas-in-sweden-with-kids) (hreflang en-SE)
+- [Sweden: country guide (Svenska)](/christmas-events/sweden)
 - [Borås](/christmas-events/boras-se)
 - [Botkyrka](/christmas-events/botkyrka-se)
 - [Eskilstuna](/christmas-events/eskilstuna-se)
@@ -4424,9 +4424,9 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Switzerland (7 cities; English pages, hreflang en, unless marked)
 
-- [Switzerland: country guide](/christmas-events/christmas-in-switzerland-with-kids): Christmas events for kids in Switzerland for 2026: 86 family events in 7 cities, 35 free, with dates, prices and tips for visiting families. (hreflang en-CH)
-- [Switzerland: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-schweiz): Weihnachten mit Kindern in der Schweiz: 60 geprüfte Tipps in 5 Städten, 24 kostenlos. Samichlaus, Weihnachtsmärkte, Kerzenziehen und Märchen. (hreflang de-CH)
-- [Switzerland: country guide (Français)](/christmas-events/noel-avec-les-enfants-suisse): Que faire à Noël avec les enfants en Suisse ? Voici 12826 vérifiées dans 2 villes, dont 4611 : saint Nicolas, marchés de Noël, spectacles. (hreflang fr-CH)
+- [Switzerland: country guide](/christmas-events/christmas-in-switzerland-with-kids) (hreflang en-CH)
+- [Switzerland: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-schweiz) (hreflang de-CH)
+- [Switzerland: country guide (Français)](/christmas-events/noel-avec-les-enfants-suisse) (hreflang fr-CH)
 - [Basel](/christmas-events/christmas-in-basel-with-kids); [Deutsch](/christmas-events/weihnachten-mit-kindern-basel) hreflang de-CH
 - [Bern](/christmas-events/christmas-in-bern-with-kids); [Deutsch](/christmas-events/weihnachten-mit-kindern-bern) hreflang de-CH
 - [Geneva](/christmas-events/christmas-in-geneva-with-kids); [Français](/christmas-events/noel-avec-les-enfants-geneve) hreflang fr-CH
@@ -4437,8 +4437,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Ukraine (39 cities; Ukrainian pages, hreflang uk-UA, unless marked)
 
-- [Ukraine: country guide](/christmas-events/christmas-in-ukraine-with-kids): Christmas events for kids in Ukraine for 2026: 11 family events in 2 cities, with dates, prices and tips for visiting families. (hreflang en-UA)
-- [Ukraine: country guide (Українська)](/christmas-events/ukraine): Різдвяні події для дітей в Україні 2026: подій 11, міст 2. Зустрічі з Сантою, читання, світлові шоу та інше з датами й вартістю.
+- [Ukraine: country guide](/christmas-events/christmas-in-ukraine-with-kids) (hreflang en-UA)
+- [Ukraine: country guide (Українська)](/christmas-events/ukraine)
 - [Berdychiv](/christmas-events/berdychiv-ua)
 - [Bila Tserkva](/christmas-events/bila-tserkva-ua)
 - [Cherkasy](/christmas-events/cherkasy-ua)
@@ -4481,7 +4481,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### United Kingdom (44 cities; English pages, hreflang en-GB)
 
-- [United Kingdom: country guide](/christmas-events/uk): Find 1,174 Christmas events for kids in 44 UK cities, 185 free: pantos, Santa’s grottos, light trails and more. Pick your city for dates and prices.
+- [United Kingdom: country guide](/christmas-events/uk)
 - [Aberdeen](/christmas-events/aberdeen-uk)
 - [Belfast](/christmas-events/belfast-uk)
 - [Birmingham](/christmas-events/birmingham-uk)
@@ -4529,8 +4529,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Brazil (129 cities; Portuguese pages, hreflang pt-BR, unless marked)
 
-- [Brazil: country guide](/christmas-events/christmas-in-brazil-with-kids): Christmas events for kids in Brazil for 2026: 173 family events in 12 cities, 130 free, with dates, prices and tips for visiting families. (hreflang en-BR)
-- [Brazil: country guide (Português)](/christmas-events/natal-com-criancas-brasil): Programação de Natal 2026 para crianças em 38 cidades do Brasil: 294 programas, 187 gratuitos, e o Papai Noel em 97 shoppings. Atualizado em 9 de novembro.
+- [Brazil: country guide](/christmas-events/christmas-in-brazil-with-kids) (hreflang en-BR)
+- [Brazil: country guide (Português)](/christmas-events/natal-com-criancas-brasil)
 - [Americana](/christmas-events/natal-com-criancas-americana)
 - [Ananindeua](/christmas-events/natal-com-criancas-ananindeua)
 - [Aparecida de Goiânia](/christmas-events/natal-com-criancas-aparecida-de-goiania)
@@ -4663,8 +4663,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Canada (154 cities; English pages, hreflang en-CA, unless marked)
 
-- [Canada: country guide](/christmas-events/canada): Find 373 Christmas events for kids in 42 Canadian cities, 152 free: Santa Claus parades, story times, light shows and more, with dates and costs.
-- [Canada: country guide (Français)](/christmas-events/activites-de-noel-pour-enfants-quebec): Au Québec et à Ottawa-Gatineau, 60 activités de Noël pour enfants, dont 31 gratuites : défilés du père Noël, heures du conte, spectacles et plus. (hreflang fr-CA)
+- [Canada: country guide](/christmas-events/canada)
+- [Canada: country guide (Français)](/christmas-events/activites-de-noel-pour-enfants-quebec) (hreflang fr-CA)
 - [Abbotsford](/christmas-events/abbotsford-bc)
 - [Airdrie](/christmas-events/airdrie-ab)
 - [Ajax](/christmas-events/ajax-on)
@@ -4822,7 +4822,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Colombia (60 cities; Spanish pages, hreflang es-CO)
 
-- [Colombia: country guide (Español)](/christmas-events/navidad-con-ninos-colombia): Qué hacer en Navidad con niños en Colombia: 11 actividades en 3 ciudades, con fechas y precios. Más ciudades cuando se anuncien los alumbrados.
+- [Colombia: country guide (Español)](/christmas-events/navidad-con-ninos-colombia)
 - [Aguachica](/christmas-events/navidad-con-ninos-aguachica)
 - [Arauca](/christmas-events/navidad-con-ninos-arauca)
 - [Armenia](/christmas-events/navidad-con-ninos-armenia)
@@ -4886,8 +4886,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Mexico (133 cities; Spanish pages, hreflang es-MX, unless marked)
 
-- [Mexico: country guide](/christmas-events/christmas-in-mexico-with-kids): Christmas events for kids in Mexico for 2026: 7 family events in Mexico City, with dates, prices and tips for visiting families. (hreflang en-MX)
-- [Mexico: country guide (Español)](/christmas-events/navidad-con-ninos-mexico): Qué hacer en Navidad con niños en México: 24 actividades en 5 ciudades, con fechas y precios, 6 gratis. Más ciudades a finales de noviembre.
+- [Mexico: country guide](/christmas-events/christmas-in-mexico-with-kids) (hreflang en-MX)
+- [Mexico: country guide (Español)](/christmas-events/navidad-con-ninos-mexico)
 - [Acapulco](/christmas-events/navidad-con-ninos-acapulco)
 - [Acolman](/christmas-events/navidad-con-ninos-acolman)
 - [Aguascalientes](/christmas-events/navidad-con-ninos-aguascalientes)
@@ -5078,7 +5078,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Australia (34 cities; English pages, hreflang en-AU)
 
-- [Australia: country guide](/christmas-events/australia): Find 342 Christmas events for kids in 24 Australian cities, 211 free: carols, Santa photos, light shows and more. Pick your city for dates and costs.
+- [Australia: country guide](/christmas-events/australia)
 - [Adelaide](/christmas-events/adelaide-sa)
 - [Albury-Wodonga](/christmas-events/albury-wodonga-nsw)
 - [Ballarat](/christmas-events/ballarat-vic)
@@ -5116,13 +5116,13 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Hong Kong (1 city; English pages, hreflang en-HK)
 
-- [Hong Kong: country guide](/christmas-events/christmas-hong-kong): Find 12 Christmas events for kids in Hong Kong, 1 free: theme park Christmas, Santa, storytelling and light shows, with dates and prices.
+- [Hong Kong: country guide](/christmas-events/christmas-hong-kong)
 - [Hong Kong](/christmas-events/hong-kong-hk)
 
 ### Japan (181 cities; Japanese pages, hreflang ja-JP, unless marked)
 
-- [Japan: country guide](/christmas-events/christmas-in-japan-with-kids): Christmas events for kids in Japan for 2026: 150 family events in 12 cities, 42 free, with dates, prices and tips for visiting families. (hreflang en-JP)
-- [Japan: country guide (日本語)](/christmas-events/kodomo-christmas-japan): 子連れで楽しめるクリスマスイベントを都市別にまとめたガイドです。東京、大阪、名古屋、横浜、札幌などの179の都市・地域で1534件（うち無料412件）を掲載。イルミネーションやサンタさんに会えるイベントの日時、料金、主催者へのリンクは各都市のページで確認できます。
+- [Japan: country guide](/christmas-events/christmas-in-japan-with-kids) (hreflang en-JP)
+- [Japan: country guide (日本語)](/christmas-events/kodomo-christmas-japan)
 - [Ageo](/christmas-events/kodomo-christmas-ageo)
 - [Aizu Wakamatsu](/christmas-events/kodomo-christmas-aizu-wakamatsu)
 - [Akashi](/christmas-events/kodomo-christmas-akashi)
@@ -5307,7 +5307,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### New Zealand (6 cities; English pages, hreflang en-NZ)
 
-- [New Zealand: country guide](/christmas-events/new-zealand): Find 49 Christmas events for kids across New Zealand, 34 free: Santa parades, Christmas in the Park, carols and more. Dates and costs checked 5 November.
+- [New Zealand: country guide](/christmas-events/new-zealand)
 - [Auckland](/christmas-events/auckland-nz)
 - [Christchurch](/christmas-events/christchurch-nz)
 - [Dunedin](/christmas-events/dunedin-nz)
@@ -5317,7 +5317,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Philippines (41 cities; English pages, hreflang en-PH)
 
-- [Philippines: country guide](/christmas-events/philippines): Find 13 Christmas events for kids across the Philippines, 4 free: Santa meet and greets, holiday shows and light displays, with more cities to come.
+- [Philippines: country guide](/christmas-events/philippines)
 - [Bacolod](/christmas-events/bacolod-ph)
 - [Baguio](/christmas-events/baguio-ph)
 - [Batangas City](/christmas-events/batangas-ph)
@@ -5362,13 +5362,13 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Singapore (1 city; English pages, hreflang en-SG)
 
-- [Singapore: country guide](/christmas-events/christmas-singapore): Find 20 Christmas events for kids in Singapore, 7 free: Orchard Road light-ups, Santa, storytelling and Christmas shows, with dates and prices.
+- [Singapore: country guide](/christmas-events/christmas-singapore)
 - [Singapore](/christmas-events/singapore-sg)
 
 ### South Korea (60 cities; Korean pages, hreflang ko-KR, unless marked)
 
-- [South Korea: country guide](/christmas-events/christmas-in-south-korea-with-kids): Christmas events for kids in South Korea for 2026: 57 family events in 6 cities, 3 free, with dates, prices and tips for visiting families. (hreflang en-KR)
-- [South Korea: country guide (한국어)](/christmas-events/south-korea): 한국 20개 도시의 어린이 크리스마스 행사 121개, 7개 무료. 산타 만나기, 이야기 시간, 불빛 쇼 등 날짜와 비용까지 한눈에 확인해 보세요.
+- [South Korea: country guide](/christmas-events/christmas-in-south-korea-with-kids) (hreflang en-KR)
+- [South Korea: country guide (한국어)](/christmas-events/south-korea)
 - [Andong](/christmas-events/andong-kr)
 - [Anseong](/christmas-events/anseong-kr)
 - [Asan](/christmas-events/asan-kr)
@@ -5432,7 +5432,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Ethiopia (60 cities; Amharic pages, hreflang am-ET)
 
-- [Ethiopia: country guide (Amharic)](/christmas-events/ethiopia): ገና ከልጆች ጋር በኢትዮጵያ፦ የእያንዳንዱን ከተማ የገና ታሪክና ወጎች የሚያስቃኙ የከተማ መመሪያዎች። የ2019 ዓ.ም. ዝግጅቶች በኖቬምበር መጨረሻ ይደርሳሉ፣ ማሳወቂያ እንዲደርስዎ አሁኑኑ ይመዝገቡ።
+- [Ethiopia: country guide (Amharic)](/christmas-events/ethiopia)
 - [Adama](/christmas-events/adama-et)
 - [Addis Ababa](/christmas-events/addis-ababa-et)
 - [Adigrat](/christmas-events/adigrat-et)
@@ -5496,7 +5496,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Lebanon (5 cities; Arabic pages, hreflang ar-LB)
 
-- [Lebanon: country guide (Arabic)](/christmas-events/lebanon): عيد الميلاد مع الأطفال في لبنان: أدلة للمدن تروي تاريخ الميلاد وتقاليده في كل مدينة. فعاليات 2026 تصل أواخر تشرين الثاني، اشتركوا في التنبيه.
+- [Lebanon: country guide (Arabic)](/christmas-events/lebanon)
 - [Beirut](/christmas-events/beirut-lb)
 - [Sidon](/christmas-events/sidon-lb)
 - [Tripoli](/christmas-events/tripoli-lb)
@@ -5505,7 +5505,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Madagascar (19 cities; Malagasy pages, hreflang mg-MG)
 
-- [Madagascar: country guide (Malagasy)](/christmas-events/madagascar): Krismasy sy ankizy eto Madagasikara: torolalana isaky ny tanàna, misy ny tantara sy fomban'ny Krismasy. Ho tonga faran'ny novambra ny fety 2026.
+- [Madagascar: country guide (Malagasy)](/christmas-events/madagascar)
 - [Ambanja](/christmas-events/ambanja-mg)
 - [Ambatondrazaka](/christmas-events/ambatondrazaka-mg)
 - [Ambilobe](/christmas-events/ambilobe-mg)
