@@ -3891,7 +3891,7 @@ Each country heading names the language code that most of its pages use; a page 
 ### Luxembourg (62 cities; English pages, hreflang en-LU, unless marked)
 
 - [Luxembourg: country guide](https://www.rallytakesthetrain.com/christmas-events/luxembourg): Find 39 Christmas events for kids across Luxembourg, 6 free: Saint Nicholas visits, Christmas markets, story times and more. Every date checked 5 November.
-- [Luxembourg: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-luxembourg) (hreflang fr-LU)
+- [Luxembourg: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-luxembourg): Que faire à Noël avec les enfants au Luxembourg ? Voici 39 activités vérifiées, dont 6 gratuites : saint Nicolas, marchés de Noël, contes, spectacles. (hreflang fr-LU)
 - [Bech](https://www.rallytakesthetrain.com/christmas-events/bech-lu); [Français](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-bech) hreflang fr-LU
 - [Bertrange](https://www.rallytakesthetrain.com/christmas-events/bertrange-lu); [Français](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-bertrange) hreflang fr-LU
 - [Bettendorf](https://www.rallytakesthetrain.com/christmas-events/bettendorf-lu); [Français](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-bettendorf) hreflang fr-LU
@@ -3957,8 +3957,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Netherlands (40 cities; Dutch pages, hreflang nl-NL, unless marked)
 
-- [Netherlands: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-netherlands-with-kids) (hreflang en-NL)
-- [Netherlands: country guide (Nederlands)](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-nederland)
+- [Netherlands: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-netherlands-with-kids): Christmas events for kids in the Netherlands for 2026: 182 family events in 8 cities, 43 free, with dates, prices and tips for visiting families. (hreflang en-NL)
+- [Netherlands: country guide (Nederlands)](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-nederland): Sinterklaas en kerst met kinderen in Nederland: 644 uitjes in 40 steden, 180 gratis. Intochten, kerstmarkten, schaatsbanen en lichtroutes.
 - [Alkmaar](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-alkmaar)
 - [Almere](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-almere)
 - [Amersfoort](https://www.rallytakesthetrain.com/christmas-events/kerst-met-kinderen-amersfoort)
@@ -4002,8 +4002,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Norway (22 cities; Norwegian Bokmal pages, hreflang nb-NO, unless marked)
 
-- [Norway: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-norway-with-kids) (hreflang en-NO)
-- [Norway: country guide (Norsk)](https://www.rallytakesthetrain.com/christmas-events/norway)
+- [Norway: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-norway-with-kids): Christmas events for kids in Norway for 2026: 8 family events in Oslo, 4 free, with dates, prices and tips for visiting families. (hreflang en-NO)
+- [Norway: country guide (Norsk)](https://www.rallytakesthetrain.com/christmas-events/norway): Finn 33 juleaktiviteter for barn i 5 byer i Norge, 10 gratis: besøk av julenissen, høytlesing, lysutstillinger og mer, med datoer og priser.
 - [Bergen](https://www.rallytakesthetrain.com/christmas-events/bergen-no)
 - [Bodø](https://www.rallytakesthetrain.com/christmas-events/bodo-no)
 - [Bærum](https://www.rallytakesthetrain.com/christmas-events/baerum-no)
@@ -4029,8 +4029,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Poland (66 cities; Polish pages, hreflang pl-PL, unless marked)
 
-- [Poland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-poland-with-kids) (hreflang en-PL)
-- [Poland: country guide (Polski)](https://www.rallytakesthetrain.com/christmas-events/poland)
+- [Poland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-poland-with-kids): Christmas events for kids in Poland for 2026: 8 family events in Warsaw, with dates, prices and tips for visiting families. (hreflang en-PL)
+- [Poland: country guide (Polski)](https://www.rallytakesthetrain.com/christmas-events/poland): Świąteczne wydarzenia dla dzieci w Polsce (10, w tym bezpłatnych: 1) w 2 miastach: Mikołaj, bajki, iluminacje i nie tylko, z terminami i cenami.
 - [Bełchatów](https://www.rallytakesthetrain.com/christmas-events/belchatow-pl)
 - [Biała Podlaska](https://www.rallytakesthetrain.com/christmas-events/biala-podlaska-pl)
 - [Białystok](https://www.rallytakesthetrain.com/christmas-events/bialystok-pl)
@@ -4100,7 +4100,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Portugal (56 cities; Portuguese pages, hreflang pt-PT)
 
-- [Portugal: country guide (Português)](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-portugal)
+- [Portugal: country guide (Português)](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-portugal): O que fazer no Natal com crianças em Portugal em 2026: 187 atividades confirmadas pelas câmaras, 45 gratuitas, com Pai Natal, luzes e mercados de Natal.
 - [Alcobaça](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-alcobaca)
 - [Almada](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-almada)
 - [Amadora](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-amadora)
@@ -4160,7 +4160,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Romania (41 cities; Romanian pages, hreflang ro-RO)
 
-- [Romania: country guide (Romanian)](https://www.rallytakesthetrain.com/christmas-events/romania)
+- [Romania: country guide (Romanian)](https://www.rallytakesthetrain.com/christmas-events/romania): Găsește 2 evenimente de Crăciun pentru copii în București, 2 gratuite: vizite la Moș Crăciun, ore de poveste, luminițe și multe altele, cu date și...
 - [Alba Iulia](https://www.rallytakesthetrain.com/christmas-events/alba-iulia-ro)
 - [Arad](https://www.rallytakesthetrain.com/christmas-events/arad-ro)
 - [Bacău](https://www.rallytakesthetrain.com/christmas-events/bacau-ro)
@@ -4205,7 +4205,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Slovakia (8 cities; Slovak pages, hreflang sk-SK)
 
-- [Slovakia: country guide (Slovak)](https://www.rallytakesthetrain.com/christmas-events/slovakia)
+- [Slovakia: country guide (Slovak)](https://www.rallytakesthetrain.com/christmas-events/slovakia): Vianoce s deťmi na Slovensku: sprievodcovia mestami s históriou a tradíciami Vianoc. Podujatia na rok 2026 pribudnú koncom novembra, prihláste sa.
 - [Banská Bystrica](https://www.rallytakesthetrain.com/christmas-events/banska-bystrica-sk)
 - [Bratislava](https://www.rallytakesthetrain.com/christmas-events/bratislava-sk)
 - [Košice](https://www.rallytakesthetrain.com/christmas-events/kosice-sk)
@@ -4217,14 +4217,14 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Slovenia (2 cities; Slovenian pages, hreflang sl-SI)
 
-- [Slovenia: country guide (Slovenian)](https://www.rallytakesthetrain.com/christmas-events/slovenia)
+- [Slovenia: country guide (Slovenian)](https://www.rallytakesthetrain.com/christmas-events/slovenia): Božič z otroki v Sloveniji: vodniki po mestih z zgodovino in običaji božiča. Dogodki za leto 2026 bodo objavljeni konec novembra, prijavite se.
 - [Ljubljana](https://www.rallytakesthetrain.com/christmas-events/ljubljana-si)
 - [Maribor](https://www.rallytakesthetrain.com/christmas-events/maribor-si)
 
 ### Spain (145 cities; Spanish pages, hreflang es-ES, unless marked)
 
-- [Spain: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-spain-with-kids) (hreflang en-ES)
-- [Spain: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-espana)
+- [Spain: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-spain-with-kids): Christmas events for kids in Spain for 2026: 127 family events in 9 cities, 42 free, with dates, prices and tips for visiting families. (hreflang en-ES)
+- [Spain: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-espana): Qué hacer en Navidad con niños en España: 697 planes en 46 ciudades, 284 gratis. Cabalgatas de Reyes, luces, cuentacuentos y espectáculos.
 - [A Coruña](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-a-coruna)
 - [Albacete](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-albacete)
 - [Alcalá de Guadaíra](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-alcala-de-guadaira)
@@ -4373,8 +4373,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Sweden (46 cities; Swedish pages, hreflang sv-SE, unless marked)
 
-- [Sweden: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-sweden-with-kids) (hreflang en-SE)
-- [Sweden: country guide (Svenska)](https://www.rallytakesthetrain.com/christmas-events/sweden)
+- [Sweden: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-sweden-with-kids): Christmas events for kids in Sweden for 2026: 9 family events in Stockholm, with dates, prices and tips for visiting families. (hreflang en-SE)
+- [Sweden: country guide (Svenska)](https://www.rallytakesthetrain.com/christmas-events/sweden): Hitta 34 julevenemang för barn i 7 städer i Sverige, 8 gratis: tomtebesök, sagostunder, ljusshower och mer, med datum och priser.
 - [Borås](https://www.rallytakesthetrain.com/christmas-events/boras-se)
 - [Botkyrka](https://www.rallytakesthetrain.com/christmas-events/botkyrka-se)
 - [Eskilstuna](https://www.rallytakesthetrain.com/christmas-events/eskilstuna-se)
@@ -4424,9 +4424,9 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Switzerland (7 cities; English pages, hreflang en, unless marked)
 
-- [Switzerland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-switzerland-with-kids) (hreflang en-CH)
-- [Switzerland: country guide (Deutsch)](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-schweiz) (hreflang de-CH)
-- [Switzerland: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-suisse) (hreflang fr-CH)
+- [Switzerland: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-switzerland-with-kids): Christmas events for kids in Switzerland for 2026: 86 family events in 7 cities, 35 free, with dates, prices and tips for visiting families. (hreflang en-CH)
+- [Switzerland: country guide (Deutsch)](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-schweiz): Weihnachten mit Kindern in der Schweiz: 60 geprüfte Tipps in 5 Städten, 24 kostenlos. Samichlaus, Weihnachtsmärkte, Kerzenziehen und Märchen. (hreflang de-CH)
+- [Switzerland: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-suisse): Que faire à Noël avec les enfants en Suisse ? Voici 12826 vérifiées dans 2 villes, dont 4611 : saint Nicolas, marchés de Noël, spectacles. (hreflang fr-CH)
 - [Basel](https://www.rallytakesthetrain.com/christmas-events/christmas-in-basel-with-kids); [Deutsch](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-basel) hreflang de-CH
 - [Bern](https://www.rallytakesthetrain.com/christmas-events/christmas-in-bern-with-kids); [Deutsch](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-bern) hreflang de-CH
 - [Geneva](https://www.rallytakesthetrain.com/christmas-events/christmas-in-geneva-with-kids); [Français](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-geneve) hreflang fr-CH
@@ -4437,8 +4437,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Ukraine (39 cities; Ukrainian pages, hreflang uk-UA, unless marked)
 
-- [Ukraine: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-ukraine-with-kids) (hreflang en-UA)
-- [Ukraine: country guide (Українська)](https://www.rallytakesthetrain.com/christmas-events/ukraine)
+- [Ukraine: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-ukraine-with-kids): Christmas events for kids in Ukraine for 2026: 11 family events in 2 cities, with dates, prices and tips for visiting families. (hreflang en-UA)
+- [Ukraine: country guide (Українська)](https://www.rallytakesthetrain.com/christmas-events/ukraine): Різдвяні події для дітей в Україні 2026: подій 11, міст 2. Зустрічі з Сантою, читання, світлові шоу та інше з датами й вартістю.
 - [Berdychiv](https://www.rallytakesthetrain.com/christmas-events/berdychiv-ua)
 - [Bila Tserkva](https://www.rallytakesthetrain.com/christmas-events/bila-tserkva-ua)
 - [Cherkasy](https://www.rallytakesthetrain.com/christmas-events/cherkasy-ua)
@@ -4481,7 +4481,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### United Kingdom (44 cities; English pages, hreflang en-GB)
 
-- [United Kingdom: country guide](https://www.rallytakesthetrain.com/christmas-events/uk)
+- [United Kingdom: country guide](https://www.rallytakesthetrain.com/christmas-events/uk): Find 1,174 Christmas events for kids in 44 UK cities, 185 free: pantos, Santa’s grottos, light trails and more. Pick your city for dates and prices.
 - [Aberdeen](https://www.rallytakesthetrain.com/christmas-events/aberdeen-uk)
 - [Belfast](https://www.rallytakesthetrain.com/christmas-events/belfast-uk)
 - [Birmingham](https://www.rallytakesthetrain.com/christmas-events/birmingham-uk)
@@ -4529,8 +4529,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Brazil (129 cities; Portuguese pages, hreflang pt-BR, unless marked)
 
-- [Brazil: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-brazil-with-kids) (hreflang en-BR)
-- [Brazil: country guide (Português)](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-brasil)
+- [Brazil: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-brazil-with-kids): Christmas events for kids in Brazil for 2026: 173 family events in 12 cities, 130 free, with dates, prices and tips for visiting families. (hreflang en-BR)
+- [Brazil: country guide (Português)](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-brasil): Programação de Natal 2026 para crianças em 38 cidades do Brasil: 294 programas, 187 gratuitos, e o Papai Noel em 97 shoppings. Atualizado em 9 de novembro.
 - [Americana](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-americana)
 - [Ananindeua](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-ananindeua)
 - [Aparecida de Goiânia](https://www.rallytakesthetrain.com/christmas-events/natal-com-criancas-aparecida-de-goiania)
@@ -4663,8 +4663,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Canada (154 cities; English pages, hreflang en-CA, unless marked)
 
-- [Canada: country guide](https://www.rallytakesthetrain.com/christmas-events/canada)
-- [Canada: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/activites-de-noel-pour-enfants-quebec) (hreflang fr-CA)
+- [Canada: country guide](https://www.rallytakesthetrain.com/christmas-events/canada): Find 373 Christmas events for kids in 42 Canadian cities, 152 free: Santa Claus parades, story times, light shows and more, with dates and costs.
+- [Canada: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/activites-de-noel-pour-enfants-quebec): Au Québec et à Ottawa-Gatineau, 60 activités de Noël pour enfants, dont 31 gratuites : défilés du père Noël, heures du conte, spectacles et plus. (hreflang fr-CA)
 - [Abbotsford](https://www.rallytakesthetrain.com/christmas-events/abbotsford-bc)
 - [Airdrie](https://www.rallytakesthetrain.com/christmas-events/airdrie-ab)
 - [Ajax](https://www.rallytakesthetrain.com/christmas-events/ajax-on)
@@ -4822,7 +4822,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Colombia (60 cities; Spanish pages, hreflang es-CO)
 
-- [Colombia: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-colombia)
+- [Colombia: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-colombia): Qué hacer en Navidad con niños en Colombia: 11 actividades en 3 ciudades, con fechas y precios. Más ciudades cuando se anuncien los alumbrados.
 - [Aguachica](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-aguachica)
 - [Arauca](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-arauca)
 - [Armenia](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-armenia)
@@ -4886,8 +4886,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Mexico (133 cities; Spanish pages, hreflang es-MX, unless marked)
 
-- [Mexico: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-mexico-with-kids) (hreflang en-MX)
-- [Mexico: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-mexico)
+- [Mexico: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-mexico-with-kids): Christmas events for kids in Mexico for 2026: 7 family events in Mexico City, with dates, prices and tips for visiting families. (hreflang en-MX)
+- [Mexico: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-mexico): Qué hacer en Navidad con niños en México: 24 actividades en 5 ciudades, con fechas y precios, 6 gratis. Más ciudades a finales de noviembre.
 - [Acapulco](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-acapulco)
 - [Acolman](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-acolman)
 - [Aguascalientes](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-aguascalientes)
@@ -5078,7 +5078,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Australia (34 cities; English pages, hreflang en-AU)
 
-- [Australia: country guide](https://www.rallytakesthetrain.com/christmas-events/australia)
+- [Australia: country guide](https://www.rallytakesthetrain.com/christmas-events/australia): Find 342 Christmas events for kids in 24 Australian cities, 211 free: carols, Santa photos, light shows and more. Pick your city for dates and costs.
 - [Adelaide](https://www.rallytakesthetrain.com/christmas-events/adelaide-sa)
 - [Albury-Wodonga](https://www.rallytakesthetrain.com/christmas-events/albury-wodonga-nsw)
 - [Ballarat](https://www.rallytakesthetrain.com/christmas-events/ballarat-vic)
@@ -5116,13 +5116,13 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Hong Kong (1 city; English pages, hreflang en-HK)
 
-- [Hong Kong: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-hong-kong)
+- [Hong Kong: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-hong-kong): Find 12 Christmas events for kids in Hong Kong, 1 free: theme park Christmas, Santa, storytelling and light shows, with dates and prices.
 - [Hong Kong](https://www.rallytakesthetrain.com/christmas-events/hong-kong-hk)
 
 ### Japan (181 cities; Japanese pages, hreflang ja-JP, unless marked)
 
-- [Japan: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-japan-with-kids) (hreflang en-JP)
-- [Japan: country guide (日本語)](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-japan)
+- [Japan: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-japan-with-kids): Christmas events for kids in Japan for 2026: 150 family events in 12 cities, 42 free, with dates, prices and tips for visiting families. (hreflang en-JP)
+- [Japan: country guide (日本語)](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-japan): 子連れで楽しめるクリスマスイベントを都市別にまとめたガイドです。東京、大阪、名古屋、横浜、札幌などの179の都市・地域で1534件（うち無料412件）を掲載。イルミネーションやサンタさんに会えるイベントの日時、料金、主催者へのリンクは各都市のページで確認できます。
 - [Ageo](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-ageo)
 - [Aizu Wakamatsu](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-aizu-wakamatsu)
 - [Akashi](https://www.rallytakesthetrain.com/christmas-events/kodomo-christmas-akashi)
@@ -5307,7 +5307,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### New Zealand (6 cities; English pages, hreflang en-NZ)
 
-- [New Zealand: country guide](https://www.rallytakesthetrain.com/christmas-events/new-zealand)
+- [New Zealand: country guide](https://www.rallytakesthetrain.com/christmas-events/new-zealand): Find 49 Christmas events for kids across New Zealand, 34 free: Santa parades, Christmas in the Park, carols and more. Dates and costs checked 5 November.
 - [Auckland](https://www.rallytakesthetrain.com/christmas-events/auckland-nz)
 - [Christchurch](https://www.rallytakesthetrain.com/christmas-events/christchurch-nz)
 - [Dunedin](https://www.rallytakesthetrain.com/christmas-events/dunedin-nz)
@@ -5317,7 +5317,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Philippines (41 cities; English pages, hreflang en-PH)
 
-- [Philippines: country guide](https://www.rallytakesthetrain.com/christmas-events/philippines)
+- [Philippines: country guide](https://www.rallytakesthetrain.com/christmas-events/philippines): Find 13 Christmas events for kids across the Philippines, 4 free: Santa meet and greets, holiday shows and light displays, with more cities to come.
 - [Bacolod](https://www.rallytakesthetrain.com/christmas-events/bacolod-ph)
 - [Baguio](https://www.rallytakesthetrain.com/christmas-events/baguio-ph)
 - [Batangas City](https://www.rallytakesthetrain.com/christmas-events/batangas-ph)
@@ -5362,13 +5362,13 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Singapore (1 city; English pages, hreflang en-SG)
 
-- [Singapore: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-singapore)
+- [Singapore: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-singapore): Find 20 Christmas events for kids in Singapore, 7 free: Orchard Road light-ups, Santa, storytelling and Christmas shows, with dates and prices.
 - [Singapore](https://www.rallytakesthetrain.com/christmas-events/singapore-sg)
 
 ### South Korea (60 cities; Korean pages, hreflang ko-KR, unless marked)
 
-- [South Korea: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-south-korea-with-kids) (hreflang en-KR)
-- [South Korea: country guide (한국어)](https://www.rallytakesthetrain.com/christmas-events/south-korea)
+- [South Korea: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-south-korea-with-kids): Christmas events for kids in South Korea for 2026: 57 family events in 6 cities, 3 free, with dates, prices and tips for visiting families. (hreflang en-KR)
+- [South Korea: country guide (한국어)](https://www.rallytakesthetrain.com/christmas-events/south-korea): 한국 20개 도시의 어린이 크리스마스 행사 121개, 7개 무료. 산타 만나기, 이야기 시간, 불빛 쇼 등 날짜와 비용까지 한눈에 확인해 보세요.
 - [Andong](https://www.rallytakesthetrain.com/christmas-events/andong-kr)
 - [Anseong](https://www.rallytakesthetrain.com/christmas-events/anseong-kr)
 - [Asan](https://www.rallytakesthetrain.com/christmas-events/asan-kr)
@@ -5432,7 +5432,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Ethiopia (60 cities; Amharic pages, hreflang am-ET)
 
-- [Ethiopia: country guide (Amharic)](https://www.rallytakesthetrain.com/christmas-events/ethiopia)
+- [Ethiopia: country guide (Amharic)](https://www.rallytakesthetrain.com/christmas-events/ethiopia): ገና ከልጆች ጋር በኢትዮጵያ፦ የእያንዳንዱን ከተማ የገና ታሪክና ወጎች የሚያስቃኙ የከተማ መመሪያዎች። የ2019 ዓ.ም. ዝግጅቶች በኖቬምበር መጨረሻ ይደርሳሉ፣ ማሳወቂያ እንዲደርስዎ አሁኑኑ ይመዝገቡ።
 - [Adama](https://www.rallytakesthetrain.com/christmas-events/adama-et)
 - [Addis Ababa](https://www.rallytakesthetrain.com/christmas-events/addis-ababa-et)
 - [Adigrat](https://www.rallytakesthetrain.com/christmas-events/adigrat-et)
@@ -5496,7 +5496,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Lebanon (5 cities; Arabic pages, hreflang ar-LB)
 
-- [Lebanon: country guide (Arabic)](https://www.rallytakesthetrain.com/christmas-events/lebanon)
+- [Lebanon: country guide (Arabic)](https://www.rallytakesthetrain.com/christmas-events/lebanon): عيد الميلاد مع الأطفال في لبنان: أدلة للمدن تروي تاريخ الميلاد وتقاليده في كل مدينة. فعاليات 2026 تصل أواخر تشرين الثاني، اشتركوا في التنبيه.
 - [Beirut](https://www.rallytakesthetrain.com/christmas-events/beirut-lb)
 - [Sidon](https://www.rallytakesthetrain.com/christmas-events/sidon-lb)
 - [Tripoli](https://www.rallytakesthetrain.com/christmas-events/tripoli-lb)
@@ -5505,7 +5505,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Madagascar (19 cities; Malagasy pages, hreflang mg-MG)
 
-- [Madagascar: country guide (Malagasy)](https://www.rallytakesthetrain.com/christmas-events/madagascar)
+- [Madagascar: country guide (Malagasy)](https://www.rallytakesthetrain.com/christmas-events/madagascar): Krismasy sy ankizy eto Madagasikara: torolalana isaky ny tanàna, misy ny tantara sy fomban'ny Krismasy. Ho tonga faran'ny novambra ny fety 2026.
 - [Ambanja](https://www.rallytakesthetrain.com/christmas-events/ambanja-mg)
 - [Ambatondrazaka](https://www.rallytakesthetrain.com/christmas-events/ambatondrazaka-mg)
 - [Ambilobe](https://www.rallytakesthetrain.com/christmas-events/ambilobe-mg)
