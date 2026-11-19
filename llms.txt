@@ -3345,8 +3345,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Austria (5 cities; German pages, hreflang de-AT, unless marked)
 
-- [Austria: country guide](/christmas-events/christmas-in-austria-with-kids): Christmas events for kids in Austria for 2026: 73 family events in 5 cities, 10 free, with dates, prices and tips for visiting families. (hreflang en-AT)
-- [Austria: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-oesterreich): Advent mit Kindern in Österreich: 73 geprüfte Tipps in Wien, Graz, Salzburg, Linz und Innsbruck, 10 kostenlos. Christkindlmärkte, Nikolo, Kasperl.
+- [Austria: country guide](/christmas-events/christmas-in-austria-with-kids): Christmas events for kids in Austria for 2026: 81 family events in 6 cities, 10 free, with dates, prices and tips for visiting families. (hreflang en-AT)
+- [Austria: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-oesterreich): Advent mit Kindern in Österreich: 115 geprüfte Tipps in Wien, Graz, Salzburg, Linz und Innsbruck, 21 kostenlos. Christkindlmärkte, Nikolo, Kasperl.
 - [Graz](/christmas-events/christmas-in-graz-with-kids) hreflang en; [Deutsch](/christmas-events/weihnachten-mit-kindern-graz)
 - [Innsbruck](/christmas-events/christmas-in-innsbruck-with-kids) hreflang en; [Deutsch](/christmas-events/weihnachten-mit-kindern-innsbruck)
 - [Linz](/christmas-events/christmas-in-linz-with-kids) hreflang en; [Deutsch](/christmas-events/weihnachten-mit-kindern-linz)
@@ -3357,7 +3357,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 - [Belgium: country guide](/christmas-events/christmas-in-belgium-with-kids): Sinterklaas parades, Christmas markets, ice rinks and holiday shows in Brussels, Antwerp, Bruges, Ghent, Leuven, Liège and Namur. 95 free, dates and prices. (hreflang en-BE)
 - [Belgium: country guide (Français)](/christmas-events/noel-avec-les-enfants-belgique): Saint Nicolas, marchés de Noël, patinoires et spectacles à Bruxelles, Liège, Charleroi et Namur : 132 sorties en famille, dont 29 gratuites. Dates et prix. (hreflang fr-BE)
-- [Belgium: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-belgie): Sinterklaasintredes, kerstmarkten, schaatsbanen en kerstvoorstellingen in Antwerpen, Gent, Brugge en Leuven: 150 uitstappen met kinderen, 68 gratis. (hreflang nl-BE)
+- [Belgium: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-belgie): Sinterklaasintredes, kerstmarkten, schaatsbanen en kerstvoorstellingen in Antwerpen, Gent, Brugge en Leuven: 149 uitstappen met kinderen, 68 gratis. (hreflang nl-BE)
 - [Antwerp](/christmas-events/christmas-in-antwerp-with-kids); [Nederlands](/christmas-events/kerst-met-kinderen-antwerpen) hreflang nl-BE
 - [Bruges](/christmas-events/christmas-in-bruges-with-kids); [Nederlands](/christmas-events/kerst-met-kinderen-brugge) hreflang nl-BE
 - [Brussels](/christmas-events/christmas-in-brussels-with-kids); [Français](/christmas-events/noel-avec-les-enfants-bruxelles) hreflang fr-BE
@@ -3386,8 +3386,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Denmark (11 cities; Danish pages, hreflang da-DK, unless marked)
 
-- [Denmark: country guide](/christmas-events/christmas-in-denmark-with-kids): Christmas events for kids in Denmark for 2026: 7 family events in Copenhagen, 2 free, with dates, prices and tips for visiting families. (hreflang en-DK)
-- [Denmark: country guide (Dansk)](/christmas-events/denmark): Find 7 juleaktiviteter for børn i København, 2 gratis: besøg af julemanden, højtlæsning, lysshows og mere med datoer og priser. Flere byer følger snart.
+- [Denmark: country guide](/christmas-events/christmas-in-denmark-with-kids): Christmas events for kids in Denmark for 2026: 6 family events in Copenhagen, 2 free, with dates, prices and tips for visiting families. (hreflang en-DK)
+- [Denmark: country guide (Dansk)](/christmas-events/denmark): Find 15 juleaktiviteter for børn i København, 2 gratis: besøg af julemanden, højtlæsning, lysshows og mere med datoer og priser. Flere byer følger snart.
 - [Aalborg](/christmas-events/aalborg-dk)
 - [Aarhus](/christmas-events/aarhus-dk)
 - [Copenhagen](/christmas-events/christmas-in-copenhagen-with-kids) hreflang en; [Dansk](/christmas-events/copenhagen-dk)
@@ -3409,7 +3409,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Finland (34 cities; Finnish pages, hreflang fi-FI)
 
-- [Finland: country guide (Finnish)](/christmas-events/finland): Lasten joulutapahtumat Suomessa: 26 tapahtumaa, 5 kaupunkia, joista maksuttomia 3. Joulupukki, satutuokiot, valonäytökset ja muuta päivineen ja hintoineen.
+- [Finland: country guide (Finnish)](/christmas-events/finland): Lasten joulutapahtumat Suomessa: 652 tapahtumaa, 36 kaupunkia, joista maksuttomia 3. Joulupukki, satutuokiot, valonäytökset ja muuta päivineen ja hintoineen.
 - [Espoo](/christmas-events/espoo-fi)
 - [Helsinki](/christmas-events/helsinki-fi)
 - [Hyvinkää](/christmas-events/hyvinkaa-fi)
@@ -3447,8 +3447,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### France (97 cities; French pages, hreflang fr-FR, unless marked)
 
-- [France: country guide](/christmas-events/christmas-in-france-with-kids): Christmas events for kids in France for 2026: 374 family events in 12 cities, 189 free, with dates, prices and tips for visiting families. (hreflang en-FR)
-- [France: country guide (Français)](/christmas-events/noel-avec-les-enfants-france): Que faire à Noël avec les enfants en France ? Voici 908 activités vérifiées dans 67 villes, dont 438 gratuites : spectacles, lumières, marchés de Noël.
+- [France: country guide](/christmas-events/christmas-in-france-with-kids): Christmas events for kids in France for 2026: 369 family events in 12 cities, 186 free, with dates, prices and tips for visiting families. (hreflang en-FR)
+- [France: country guide (Français)](/christmas-events/noel-avec-les-enfants-france): Que faire à Noël avec les enfants en France ? Voici 1017 activités vérifiées dans 98 villes, dont 468 gratuites : spectacles, lumières, marchés de Noël.
 - [Aix-en-Provence](/christmas-events/noel-avec-les-enfants-aix-en-provence)
 - [Ajaccio](/christmas-events/noel-avec-les-enfants-ajaccio)
 - [Albi](/christmas-events/noel-avec-les-enfants-albi)
@@ -3549,8 +3549,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Germany (151 cities; German pages, hreflang de-DE, unless marked)
 
-- [Germany: country guide](/christmas-events/christmas-in-germany-with-kids): Christmas events for kids in Germany for 2026: 511 family events in 12 cities, 188 free, with dates, prices and tips for visiting families. (hreflang en-DE)
-- [Germany: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-deutschland): Weihnachten mit Kindern in Deutschland: 1.895 geprüfte Tipps in 137 Städten, 525 kostenlos. Weihnachtsmärkte, Weihnachtsmärchen, Nikolaus und Lichterpfade.
+- [Germany: country guide](/christmas-events/christmas-in-germany-with-kids): Christmas events for kids in Germany for 2026: 509 family events in 12 cities, 186 free, with dates, prices and tips for visiting families. (hreflang en-DE)
+- [Germany: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-deutschland): Weihnachten mit Kindern in Deutschland: 1.942 geprüfte Tipps in 152 Städten, 546 kostenlos. Weihnachtsmärkte, Weihnachtsmärchen, Nikolaus und Lichterpfade.
 - [Aachen](/christmas-events/weihnachten-mit-kindern-aachen)
 - [Aalen](/christmas-events/weihnachten-mit-kindern-aalen)
 - [Annaberg-Buchholz](/christmas-events/weihnachten-mit-kindern-annaberg-buchholz)
@@ -3771,7 +3771,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Ireland (5 cities; English pages, hreflang en-IE)
 
-- [Ireland: country guide](/christmas-events/ireland): Find 343 Christmas events for kids across Ireland, 96 free: Santa experiences, pantos, Christmas markets and lights in 5 cities. Dates and prices.
+- [Ireland: country guide](/christmas-events/ireland): Find 342 Christmas events for kids across Ireland, 95 free: Santa experiences, pantos, Christmas markets and lights in 5 cities. Dates and prices.
 - [Cork](/christmas-events/cork-ie)
 - [Dublin](/christmas-events/dublin-ie)
 - [Galway](/christmas-events/galway-ie)
@@ -3780,8 +3780,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Italy (88 cities; Italian pages, hreflang it-IT, unless marked)
 
-- [Italy: country guide](/christmas-events/christmas-in-italy-with-kids): Christmas events for kids in Italy for 2026: 181 family events in 12 cities, 23 free, with dates, prices and tips for visiting families. (hreflang en-IT)
-- [Italy: country guide (Italiano)](/christmas-events/natale-con-i-bambini-italia): Cosa fare a Natale con i bambini in Italia: 204 eventi verificati in 20 città, 25 gratis. Spettacoli, Babbo Natale, la Befana, mercatini e luminarie.
+- [Italy: country guide](/christmas-events/christmas-in-italy-with-kids): Christmas events for kids in Italy for 2026: 180 family events in 12 cities, 22 free, with dates, prices and tips for visiting families. (hreflang en-IT)
+- [Italy: country guide (Italiano)](/christmas-events/natale-con-i-bambini-italia): Cosa fare a Natale con i bambini in Italia: 257 eventi verificati in 89 città, 31 gratis. Spettacoli, Babbo Natale, la Befana, mercatini e luminarie.
 - [Alessandria](/christmas-events/natale-con-i-bambini-alessandria)
 - [Altamura](/christmas-events/natale-con-i-bambini-altamura)
 - [Ancona](/christmas-events/natale-con-i-bambini-ancona)
@@ -3890,8 +3890,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Luxembourg (62 cities; English pages, hreflang en-LU, unless marked)
 
-- [Luxembourg: country guide](/christmas-events/luxembourg): Find 39 Christmas events for kids across Luxembourg, 6 free: Saint Nicholas visits, Christmas markets, story times and more. Every date checked 5 November.
-- [Luxembourg: country guide (Français)](/christmas-events/noel-avec-les-enfants-luxembourg): Que faire à Noël avec les enfants au Luxembourg ? Voici 39 activités vérifiées, dont 6 gratuites : saint Nicolas, marchés de Noël, contes, spectacles. (hreflang fr-LU)
+- [Luxembourg: country guide](/christmas-events/luxembourg): Find 305 Christmas events for kids across Luxembourg, 37 free: Saint Nicholas visits, Christmas markets, story times and more. Every date checked 5 November.
+- [Luxembourg: country guide (Français)](/christmas-events/noel-avec-les-enfants-luxembourg): Que faire à Noël avec les enfants au Luxembourg ? Voici 320 activités vérifiées, dont 42 gratuites : saint Nicolas, marchés de Noël, contes, spectacles. (hreflang fr-LU)
 - [Bech](/christmas-events/bech-lu); [Français](/christmas-events/noel-avec-les-enfants-bech) hreflang fr-LU
 - [Bertrange](/christmas-events/bertrange-lu); [Français](/christmas-events/noel-avec-les-enfants-bertrange) hreflang fr-LU
 - [Bettendorf](/christmas-events/bettendorf-lu); [Français](/christmas-events/noel-avec-les-enfants-bettendorf) hreflang fr-LU
@@ -3957,8 +3957,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Netherlands (40 cities; Dutch pages, hreflang nl-NL, unless marked)
 
-- [Netherlands: country guide](/christmas-events/christmas-in-netherlands-with-kids): Christmas events for kids in the Netherlands for 2026: 182 family events in 8 cities, 43 free, with dates, prices and tips for visiting families. (hreflang en-NL)
-- [Netherlands: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-nederland): Sinterklaas en kerst met kinderen in Nederland: 644 uitjes in 40 steden, 180 gratis. Intochten, kerstmarkten, schaatsbanen en lichtroutes.
+- [Netherlands: country guide](/christmas-events/christmas-in-netherlands-with-kids): Christmas events for kids in the Netherlands for 2026: 192 family events in 9 cities, 44 free, with dates, prices and tips for visiting families. (hreflang en-NL)
+- [Netherlands: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-nederland): Sinterklaas en kerst met kinderen in Nederland: 603 uitjes in 40 steden, 173 gratis. Intochten, kerstmarkten, schaatsbanen en lichtroutes.
 - [Alkmaar](/christmas-events/kerst-met-kinderen-alkmaar)
 - [Almere](/christmas-events/kerst-met-kinderen-almere)
 - [Amersfoort](/christmas-events/kerst-met-kinderen-amersfoort)
