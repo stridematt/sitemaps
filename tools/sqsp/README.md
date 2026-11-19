@@ -11,6 +11,8 @@ copy served without the Worker say exactly what the live site says.
   * Post title (only counts, never years or dates)
   * Excerpt
   * Code and text blocks: counts, filter totals, structured data, and past events removed
+* Which posts: every path in `tools/sqsp/ids.json` (Squarespace post ids, refreshed by the truth build).
+  A post is checked again when its live counts change, and at least once a week.
 * What it never touches: posts outside `/christmas-events/`, drafts, and posts edited in the
   last 15 minutes.
 

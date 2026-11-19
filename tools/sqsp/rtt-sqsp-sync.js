@@ -26,7 +26,8 @@ var RTTSync = (() => {
     kindFor: () => kindFor,
     planItem: () => planItem,
     restore: () => restore,
-    run: () => run
+    run: () => run,
+    signature: () => signature
   });
 
   // src/heal.js
@@ -598,64 +599,97 @@ ${head}
     await put(old);
     return `restored ${list[which].path} to its copy from ${new Date(list[which].at).toISOString()}`;
   }
+  function signature(path, live) {
+    const g = live.guides && live.guides[path];
+    if (g) return `g:${g.e},${g.f},${g.c}`;
+    const c = live.pages && live.pages[path];
+    return c ? `c:${c[0]},${c[1]}` : "";
+  }
+  var CHECKED = "rtt-sqsp-checked";
+  var loadChecked = () => {
+    try {
+      return JSON.parse(localStorage.getItem(CHECKED) || "{}");
+    } catch (e) {
+      return {};
+    }
+  };
+  var saveChecked = (m) => {
+    try {
+      localStorage.setItem(CHECKED, JSON.stringify(m));
+    } catch (e) {
+    }
+  };
+  var IDS_URL = "https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/sqsp/ids.json";
   async function run(opts = {}) {
-    const { apply = false, limit = 400, delayMs = 400, quietMinutes = 15, only = null, onProgress = null } = opts;
-    const state = { started: (/* @__PURE__ */ new Date()).toISOString(), apply, scanned: 0, planned: 0, written: 0, skipped: [], errors: [], plans: [], done: false };
+    const { apply = false, limit = 400, delayMs = 250, quietMinutes = 15, only = null, force = false, workers = 4, onProgress = null } = opts;
+    const state = { started: (/* @__PURE__ */ new Date()).toISOString(), apply, targets: 0, checked: 0, upToDate: 0, planned: 0, written: 0, skipped: [], errors: [], plans: [], done: false };
     if (typeof window !== "undefined") window.__rttSyncState = state;
-    const live = opts.live || await fetch(LIVE_URL + "?t=" + Date.now()).then((r) => r.json());
+    const bust = "?t=" + Date.now();
+    const live = opts.live || await fetch(LIVE_URL + bust).then((r) => r.json());
+    const ids = opts.ids || await fetch(IDS_URL + bust).then((r) => r.json());
     const today = opts.today || refToday();
     state.today = today;
     state.liveGenerated = live.generated;
-    const todo = [];
-    let start = null, guard = 0;
-    do {
-      const j = await fetch(`/api/content-collections/${COLLECTION}/content-items?limit=50${start ? "&start=" + encodeURIComponent(start) : ""}`).then((r) => r.json());
-      for (const it of j.results || []) {
-        state.scanned++;
-        if (only && !only.includes(it.fullUrl)) continue;
-        if (it.workflowState !== 1) continue;
-        let plan;
-        try {
-          plan = planItem(it, live, today);
-        } catch (e) {
-          plan = { error: e.message };
-        }
-        if (!plan) continue;
-        if (plan.error) {
-          state.errors.push({ path: it.fullUrl, error: plan.error });
-          continue;
-        }
-        state.planned++;
-        state.plans.push({ path: it.fullUrl, id: it.id, lines: describe(plan) });
-        todo.push(it.id);
+    const checked = loadChecked();
+    const week = 7 * 864e5;
+    const todo = Object.keys(ids).filter((p) => kindFor(p, live) && (!only || only.includes(p))).filter((p) => {
+      const c = checked[p];
+      const fresh = c && c.s === signature(p, live) && Date.now() - c.at < week;
+      return force || !fresh;
+    });
+    state.targets = todo.length;
+    let next = 0;
+    const one = async (path) => {
+      const id = ids[path];
+      const r = await fetch(postUrl(id));
+      if (!r.ok) {
+        state.errors.push({ path, error: `GET ${r.status}` });
+        return;
       }
-      if (onProgress) onProgress(state);
-      start = j.hasNextPage ? j.nextPageStart : null;
-    } while (start && ++guard < 400);
-    if (apply) {
-      for (const id of todo.slice(0, limit)) {
-        try {
-          const cur = await fetch(postUrl(id)).then((r) => r.json());
-          if (Date.now() - cur.updatedOn < quietMinutes * 6e4) {
-            state.skipped.push({ path: cur.fullUrl, why: "edited recently" });
-            continue;
-          }
-          const plan = planItem(cur, live, today);
-          if (!plan || plan.error) {
-            if (plan && plan.error) state.errors.push({ path: cur.fullUrl, error: plan.error });
-            continue;
-          }
-          await backup(cur);
-          await put(plan.item);
-          state.written++;
-          if (onProgress) onProgress(state);
-        } catch (e) {
-          state.errors.push({ id, error: e.message });
-        }
-        await sleep(delayMs);
+      const cur = await r.json();
+      state.checked++;
+      if (cur.workflowState !== 1) return;
+      const plan = planItem(cur, live, today);
+      if (plan && plan.error) {
+        state.errors.push({ path, error: plan.error });
+        return;
       }
-      if (todo.length > limit) state.skipped.push({ why: `${todo.length - limit} more over the per-run limit; they go next run` });
-    }
+      if (!plan) {
+        state.upToDate++;
+        if (apply) checked[path] = { s: signature(path, live), d: today, at: Date.now() };
+        return;
+      }
+      state.planned++;
+      state.plans.push({ path, id, lines: describe(plan) });
+      if (!apply) return;
+      if (state.written >= limit) {
+        state.skipped.push({ path, why: "over the per-run limit; goes next run" });
+        return;
+      }
+      if (Date.now() - cur.updatedOn < quietMinutes * 6e4) {
+        state.skipped.push({ path, why: "edited recently" });
+        return;
+      }
+      await backup(cur);
+      await put(plan.item);
+      state.written++;
+      checked[path] = { s: signature(path, live), d: today, at: Date.now() };
+      await sleep(delayMs);
+    };
+    const worker = async () => {
+      while (next < todo.length) {
+        const path = todo[next++];
+        try {
+          await one(path);
+        } catch (e) {
+          state.errors.push({ path, error: e.message });
+        }
+        if (onProgress && state.checked % 50 === 0) onProgress(state);
+        if (apply && state.checked % 100 === 0) saveChecked(checked);
+      }
+    };
+    await Promise.all(Array.from({ length: Math.max(1, workers) }, worker));
+    if (apply) saveChecked(checked);
     state.done = true;
     state.finished = (/* @__PURE__ */ new Date()).toISOString();
     return state;

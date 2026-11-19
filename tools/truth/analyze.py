@@ -36,6 +36,12 @@ def cards(html):
     return out
 
 
+def item_id(html):
+    # Squarespace post id (the post body wrapper is id="item-<24 hex>"), used by the Squarespace sync
+    m = re.search(r'data-type="item" id="item-([0-9a-f]{24})"', html) or re.search(r'\bid="item-([0-9a-f]{24})"', html)
+    return m.group(1) if m else None
+
+
 def analyze(html, today):
     cs = cards(html)
     live = [c for c in cs if not c['last'] or c['last'] >= today]
@@ -58,6 +64,7 @@ def analyze(html, today):
         'towns': towns, 'faq': faq,
         'title': H.unescape(title.group(1).strip()) if title else '', 'description': H.unescape(desc.group(1)) if desc else '',
         'lang': lang.group(1) if lang else '', 'checked': checked[-1] if checked else None,
+        'sq': item_id(html),
     }
 
 

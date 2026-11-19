@@ -171,55 +171,72 @@ export async function restore(idOrPath, which = 0) {
   return `restored ${list[which].path} to its copy from ${new Date(list[which].at).toISOString()}`;
 }
 
-// Scan the collection, plan every post, and (with apply) write up to `limit` of them.
+// Signature of what a page should say today; a page is checked again when it changes.
+export function signature(path, live) {
+  const g = live.guides && live.guides[path];
+  if (g) return `g:${g.e},${g.f},${g.c}`;
+  const c = live.pages && live.pages[path];
+  return c ? `c:${c[0]},${c[1]}` : '';
+}
+const CHECKED = 'rtt-sqsp-checked';
+const loadChecked = () => { try { return JSON.parse(localStorage.getItem(CHECKED) || '{}'); } catch (e) { return {}; } };
+const saveChecked = (m) => { try { localStorage.setItem(CHECKED, JSON.stringify(m)); } catch (e) {} };
+const IDS_URL = 'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/sqsp/ids.json';
+
+// Check every Christmas events post whose live counts changed since its last check (or that was
+// last checked a week ago), and with apply, write the ones that differ, up to `limit` per run.
 // Posts edited in the last `quietMinutes` are left alone so a sync never overwrites live editing.
 export async function run(opts = {}) {
-  const { apply = false, limit = 400, delayMs = 400, quietMinutes = 15, only = null, onProgress = null } = opts;
-  const state = { started: new Date().toISOString(), apply, scanned: 0, planned: 0, written: 0, skipped: [], errors: [], plans: [], done: false };
+  const { apply = false, limit = 400, delayMs = 250, quietMinutes = 15, only = null, force = false, workers = 4, onProgress = null } = opts;
+  const state = { started: new Date().toISOString(), apply, targets: 0, checked: 0, upToDate: 0, planned: 0, written: 0, skipped: [], errors: [], plans: [], done: false };
   if (typeof window !== 'undefined') window.__rttSyncState = state;
-  const live = opts.live || (await fetch(LIVE_URL + '?t=' + Date.now()).then((r) => r.json()));
+  const bust = '?t=' + Date.now();
+  const live = opts.live || (await fetch(LIVE_URL + bust).then((r) => r.json()));
+  const ids = opts.ids || (await fetch(IDS_URL + bust).then((r) => r.json()));
   const today = opts.today || refToday();
   state.today = today;
   state.liveGenerated = live.generated;
+  const checked = loadChecked();
+  const week = 7 * 86400000;
+  const todo = Object.keys(ids).filter((p) => kindFor(p, live) && (!only || only.includes(p))).filter((p) => {
+    const c = checked[p];
+    const fresh = c && c.s === signature(p, live) && Date.now() - c.at < week;
+    return force || !fresh;
+  });
+  state.targets = todo.length;
 
-  const todo = [];
-  let start = null, guard = 0;
-  do {
-    const j = await fetch(`/api/content-collections/${COLLECTION}/content-items?limit=50${start ? '&start=' + encodeURIComponent(start) : ''}`).then((r) => r.json());
-    for (const it of j.results || []) {
-      state.scanned++;
-      if (only && !only.includes(it.fullUrl)) continue;
-      if (it.workflowState !== 1) continue; // published posts only
-      let plan;
-      try { plan = planItem(it, live, today); } catch (e) { plan = { error: e.message }; }
-      if (!plan) continue;
-      if (plan.error) { state.errors.push({ path: it.fullUrl, error: plan.error }); continue; }
-      state.planned++;
-      state.plans.push({ path: it.fullUrl, id: it.id, lines: describe(plan) });
-      todo.push(it.id);
+  let next = 0;
+  const one = async (path) => {
+    const id = ids[path];
+    const r = await fetch(postUrl(id));
+    if (!r.ok) { state.errors.push({ path, error: `GET ${r.status}` }); return; }
+    const cur = await r.json();
+    state.checked++;
+    if (cur.workflowState !== 1) return;
+    const plan = planItem(cur, live, today);
+    if (plan && plan.error) { state.errors.push({ path, error: plan.error }); return; }
+    if (!plan) { state.upToDate++; if (apply) checked[path] = { s: signature(path, live), d: today, at: Date.now() }; return; }
+    state.planned++;
+    state.plans.push({ path, id, lines: describe(plan) });
+    if (!apply) return;
+    if (state.written >= limit) { state.skipped.push({ path, why: 'over the per-run limit; goes next run' }); return; }
+    if (Date.now() - cur.updatedOn < quietMinutes * 60000) { state.skipped.push({ path, why: 'edited recently' }); return; }
+    await backup(cur);
+    await put(plan.item);
+    state.written++;
+    checked[path] = { s: signature(path, live), d: today, at: Date.now() };
+    await sleep(delayMs);
+  };
+  const worker = async () => {
+    while (next < todo.length) {
+      const path = todo[next++];
+      try { await one(path); } catch (e) { state.errors.push({ path, error: e.message }); }
+      if (onProgress && state.checked % 50 === 0) onProgress(state);
+      if (apply && state.checked % 100 === 0) saveChecked(checked);
     }
-    if (onProgress) onProgress(state);
-    start = j.hasNextPage ? j.nextPageStart : null;
-  } while (start && ++guard < 400);
-
-  if (apply) {
-    for (const id of todo.slice(0, limit)) {
-      try {
-        const cur = await fetch(postUrl(id)).then((r) => r.json()); // fresh copy, the shape PUT expects
-        if (Date.now() - cur.updatedOn < quietMinutes * 60000) { state.skipped.push({ path: cur.fullUrl, why: 'edited recently' }); continue; }
-        const plan = planItem(cur, live, today);
-        if (!plan || plan.error) { if (plan && plan.error) state.errors.push({ path: cur.fullUrl, error: plan.error }); continue; }
-        await backup(cur);
-        await put(plan.item);
-        state.written++;
-        if (onProgress) onProgress(state);
-      } catch (e) {
-        state.errors.push({ id, error: e.message });
-      }
-      await sleep(delayMs);
-    }
-    if (todo.length > limit) state.skipped.push({ why: `${todo.length - limit} more over the per-run limit; they go next run` });
-  }
+  };
+  await Promise.all(Array.from({ length: Math.max(1, workers) }, worker));
+  if (apply) saveChecked(checked);
   state.done = true;
   state.finished = new Date().toISOString();
   return state;

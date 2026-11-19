@@ -11,7 +11,7 @@ state pages right, and to list city guides the hub's A to Z has not picked up ye
 """
 import argparse, collections, concurrent.futures as cf, datetime, gzip, json, os, re, sys, time, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from analyze import analyze
+from analyze import analyze, item_id
 
 SITE = 'https://www.rallytakesthetrain.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -142,15 +142,19 @@ def main():
     log(f'{len(place)} city guide pages ({len(missing)} cities not in the hub A to Z); reading {len(todo)} of {len(due)} due')
     if odd:
         log(f'pages that look like leftover copies: {odd}')
+    ids_path = os.path.join(HERE, '..', 'sqsp', 'ids.json')
+    sq_ids = json.load(open(ids_path, encoding='utf-8')) if os.path.exists(ids_path) else {}
     failed = 0
     with cf.ThreadPoolExecutor(8) as ex:
         for p, (st, h) in zip(todo, ex.map(fetch, todo)):
             if st == 200 and h and p in guides:
                 links = sorted(set(re.findall(r'href="(/christmas-events/[a-z0-9-]+)(?:#[^"]*)?"', h)) & set(place))
                 gstate[p] = {'links': links, 'lang': (re.search(r'<html[^>]*\blang="([^"]+)"', h) or [None, ''])[1], 'lastmod': lastmod.get(p), 'at': today}
+                sq_ids[p] = item_id(h) or sq_ids.get(p)
                 pages.setdefault(p, {}).update({'guide': True, 'lastmod': lastmod.get(p), 'at': today, 'e': 0, 'f': 0, 'k': [], 'fk': [], 'x': None})
             elif st == 200 and h:
                 r = analyze(h, today)
+                sq_ids[p] = r['sq'] or sq_ids.get(p)
                 pages[p] = {'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
                             'k': r['keys'], 'fk': r['free_keys'], 'lang': r['lang'], 'lastmod': lastmod.get(p), 'at': today}
             elif st in (404, 410):
@@ -159,6 +163,10 @@ def main():
                 failed += 1
     if failed:
         log(f'{failed} pages could not be read; their last known counts are kept')
+    # Squarespace post ids for the sync (path -> id), kept for pages that still exist
+    sq_ids = {p: i for p, i in sq_ids.items() if i and (p in place or p in guides)}
+    os.makedirs(os.path.dirname(ids_path), exist_ok=True)
+    json.dump(dict(sorted(sq_ids.items())), open(ids_path, 'w', encoding='utf-8'), indent=0, separators=(',', ':'))
     # Events that have passed since a page was read still drop out of its count.
     for p, v in pages.items():
         if v.get('x') and v['x'] < today:
