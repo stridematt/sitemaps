@@ -23,6 +23,8 @@
 //   5 minutes; requests never wait for a refresh after the first load. It is only
 //   re-parsed when the file actually changed.
 
+import { healHub, healCity, healGuide, refToday } from './heal.js';
+
 const SOURCES = [
   'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/clusters.json',
   'https://sitemaps.rallytakesthetrain.com/tools/clusters.json',
@@ -184,6 +186,91 @@ async function getIndex(ctx) {
   return state.index;
 }
 
+// ---- Live counts (tools/truth/live.json, rebuilt every 3 hours) ------------------------
+const LIVE_SOURCES = [
+  'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/truth/live.json',
+  'https://sitemaps.rallytakesthetrain.com/tools/truth/live.json',
+];
+const LIVE_SAVED = 'https://rtt-hreflang.internal/live.json';
+const lstate = { data: null, text: null, at: 0, refreshing: null };
+
+function refreshLive(ctx) {
+  if (lstate.refreshing) return lstate.refreshing;
+  lstate.refreshing = (async () => {
+    try {
+      let text = null, fresh = false;
+      for (const src of LIVE_SOURCES) {
+        try {
+          const r = await fetch(src, { cf: { cacheTtl: 300, cacheEverything: true } });
+          if (r.ok) { text = await r.text(); fresh = true; break; }
+        } catch (e) {}
+      }
+      if (!text) {
+        try { const r = await caches.default.match(LIVE_SAVED); if (r) text = await r.text(); } catch (e) {}
+      }
+      if (text && text !== lstate.text) {
+        const d = JSON.parse(text);
+        if (d && d.total && d.cities) {
+          lstate.data = d;
+          lstate.text = text;
+          if (fresh) ctx.waitUntil(caches.default.put(LIVE_SAVED, new Response(text, { headers: { 'cache-control': 'public, max-age=2592000' } })).catch(() => {}));
+        }
+      }
+    } catch (e) {
+      // keep what we have
+    } finally {
+      lstate.at = Date.now();
+      lstate.refreshing = null;
+    }
+  })();
+  return lstate.refreshing;
+}
+
+async function getLive(ctx) {
+  if (!lstate.data) await refreshLive(ctx);
+  else if (Date.now() - lstate.at > REFRESH_MS) ctx.waitUntil(refreshLive(ctx));
+  return lstate.data;
+}
+
+// Which healer a path gets, if any.
+export function healerFor(path, live) {
+  if (!live) return null;
+  if (path === '/christmas-events-for-kids') return 'hub';
+  if (!path.startsWith('/christmas-events/')) return null;
+  if (live.guides && live.guides[path]) return 'guide';
+  if (live.pages && live.pages[path]) return 'city';
+  return null;
+}
+
+export function runHealer(kind, html, live, path, today) {
+  if (kind === 'hub') return healHub(html, live, { day: today });
+  if (kind === 'guide') return healGuide(html, today, live, path);
+  if (kind === 'city') return healCity(html, today, live.pages, path);
+  return null;
+}
+
+// Healed pages are kept for an hour per data version and day, so the work runs rarely.
+async function healed(request, path, kind, live, ctx) {
+  const today = refToday();
+  const key = `https://rtt-heal.internal${path}?d=${today}&v=${encodeURIComponent(live.generated || '')}`;
+  try {
+    const hit = await caches.default.match(key);
+    if (hit) return { html: await hit.text(), status: 'hit' };
+  } catch (e) {}
+  const origin = await originFetch(request);
+  if (origin.status !== 200 || !(origin.headers.get('content-type') || '').includes('text/html')) return { resp: origin };
+  const html = await origin.text();
+  let out = null;
+  try {
+    out = runHealer(kind, html, live, path, today);
+  } catch (e) {
+    out = null;
+  }
+  const body = out || html;
+  ctx.waitUntil(caches.default.put(key, new Response(body, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600' } })).catch(() => {}));
+  return { html: body, status: out ? 'healed' : 'clean', headers: origin.headers };
+}
+
 // Switch off client-side hreflang link creation in inline scripts.
 const REL_PROP = /(\.rel\s*=\s*)(['"])alternate\2/g;
 const REL_ATTR = /(setAttribute\(\s*(['"])rel\2\s*,\s*)(['"])alternate\3/g;
@@ -313,6 +400,19 @@ async function handle(request, ctx) {
   }
 
   const entry = method === 'GET' ? index.byPath.get(path) : null;
+
+  // Self-healing counts (anonymous GET only; signed-in editors see Squarespace as stored).
+  if (method === 'GET' && cachePlan(request)) {
+    const live = await getLive(ctx);
+    const kind = healerFor(path, live);
+    if (kind) {
+      const h = await healed(request, path, kind, live, ctx);
+      if (h.resp) return forBrowser(h.resp);
+      const resp = new Response(h.html, { status: 200, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-cache', 'x-rtt-counts': h.status } });
+      return entry ? tag(resp, entry) : resp;
+    }
+  }
+
   if (!entry) {
     // Not a clustered page: through the edge cache, body untouched.
     const resp = await originFetch(request);

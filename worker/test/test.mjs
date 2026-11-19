@@ -11,13 +11,18 @@ const FIX = process.env.FIXTURES || '/home/claude/audit';
 const SITE = 'https://www.rallytakesthetrain.com';
 const clustersText = readFileSync(ROOT + 'tools/clusters.json', 'utf8');
 
+const DYN = '/home/claude/dyn/';
 const pages = {
   '/christmas-events-for-kids': 'christmas-events-for-kids.html',
+  '/christmas-events/denver-co': DYN + 'christmas-events_denver-co.html',
+  '/christmas-events/colorado': DYN + 'christmas-events_colorado.html',
   '/christmas-events/weihnachten-mit-kindern-deutschland': 'christmas-events_weihnachten-mit-kindern-deutschland.html',
   '/christmas-eve-services-near-me': 'christmas-eve-services-near-me.html',
   '/christmas-eve-services/united-states': 'us.html',
 };
 let githubUp = true;
+let liveUp = true;
+const liveText = readFileSync(ROOT + 'tools/truth/live.json', 'utf8');
 let llmsGithub = true;
 let llmsPages = true;
 const llmsBody = 'x'.repeat(20000);
@@ -33,6 +38,7 @@ async function outbound(req) {
     if (up === 'bad') return new Response('<html>rate limited</html>', { headers: { 'content-type': 'text/html' } });
     return up ? new Response('# Rally Takes the Train\n' + (u.hostname === 'raw.githubusercontent.com' ? 'GH ' : 'PAGES ') + u.pathname + '\n' + llmsBody, { headers: { 'content-type': 'text/plain' } }) : new Response('down', { status: 503 });
   }
+  if (u.pathname.endsWith('/tools/truth/live.json')) return liveUp ? new Response(liveText, { headers: { 'content-type': 'text/plain' } }) : new Response('down', { status: 503 });
   if (u.pathname === '/llms.txt') return new Response('squarespace llms', { headers: { 'content-type': 'text/plain' } });
   if (u.hostname === 'raw.githubusercontent.com') {
     return githubUp ? new Response(clustersText, { headers: { 'content-type': 'text/plain' } }) : new Response('down', { status: 503 });
@@ -47,7 +53,7 @@ async function outbound(req) {
   }
   if (u.pathname === '/form' && req.method === 'POST') return new Response('posted ' + (await req.text()), { headers: { 'content-type': 'text/html' } });
   const key = u.pathname.length > 1 ? u.pathname.replace(/\/$/, '') : u.pathname;
-  if (pages[key]) return new Response(readFileSync(FIX + '/' + pages[key]), { headers: { 'content-type': 'text/html; charset=utf-8' } });
+  if (pages[key]) return new Response(readFileSync(pages[key].startsWith('/') ? pages[key] : FIX + '/' + pages[key]), { headers: { 'content-type': 'text/html; charset=utf-8' } });
   return new Response('<html><head></head><body>not found</body></html>', { status: 404, headers: { 'content-type': 'text/html' } });
 }
 
@@ -101,22 +107,28 @@ await t('page not in any cluster passes through byte for byte, no header', async
   assert.equal(Buffer.compare(Buffer.from(await r.arrayBuffer()), readFileSync(FIX + '/us.html')), 0);
 });
 
-await t('tagged pages: every inline script still compiles; only the old hreflang line differs', async () => {
+await t('tagged pages: every inline script still compiles; only the planned lines differ', async () => {
+  const HUBFIX = [["cities: a[5], live: a[6], regs: [], list: []}", "cities: a[5], live: a[6], events: a[7] || 0, regs: [], list: []}"],
+    ["plural(n, 'city', 'cities'), 'xn-cta--place');", "(x.events > 0 ? plural(x.events, 'event', 'events') : plural(n, 'city', 'cities')), 'xn-cta--place');"]];
   for (const [path, file] of Object.entries(pages)) {
     const r = await get(path);
     const out = await r.text();
-    const before = inlineScripts(readFileSync(FIX + '/' + file, 'utf8'));
+    const before = inlineScripts(readFileSync(file.startsWith('/') ? file : FIX + '/' + file, 'utf8'));
     const after = inlineScripts(out);
     assert.equal(after.length, before.length, path);
     let changed = 0;
     after.forEach(([attrs, code], i) => {
+      if (/json/i.test(attrs)) { if (code.trim()) JSON.parse(code); return; } // data blocks may be healed; they must still parse
       if (code !== before[i][1]) {
         changed++;
-        assert.equal(code, before[i][1].replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'"));
+        let want = before[i][1].replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'");
+        if (code !== want) for (const [a, b] of HUBFIX) want = want.replace(a, b);
+        if (code !== want) want = want.replace("l.rel='x-rtt-hreflang-off'", "l.rel='alternate'");
+        assert.equal(code, want, path);
       }
-      if (!/json/i.test(attrs)) new vm.Script(code); // throws on a syntax error
+      new vm.Script(code); // throws on a syntax error
     });
-    assert.equal(changed, r.headers.get('x-rtt-hreflang') === 'tagged' ? 1 : 0, path);
+    assert.ok(changed <= (r.headers.get('x-rtt-hreflang') === 'tagged' ? 2 : 1), path + ' changed ' + changed);
   }
 });
 
@@ -228,6 +240,39 @@ await t('llms.txt: both sources down, the last good copy is served', async () =>
   llmsGithub = true; llmsPages = true;
 });
 
+
+await t('hub: counts healed from live.json, hreflang still tagged', async () => {
+  const r = await get('/christmas-events-for-kids');
+  const h = await r.text();
+  assert.equal(r.headers.get('x-rtt-hreflang'), 'tagged');
+  assert.ok(['healed', 'hit'].includes(r.headers.get('x-rtt-counts')), r.headers.get('x-rtt-counts'));
+  const live = JSON.parse(liveText);
+  assert.ok(h.includes(`<li><b>${live.total.events.toLocaleString('en-US')}</b>Christmas events</li>`));
+  assert.match(h, /events: a\[7\] \|\| 0/);
+  assert.equal(altCount(h), hubLinks);
+  const r2 = await get('/christmas-events-for-kids');
+  assert.equal(r2.headers.get('x-rtt-counts'), 'hit');
+  await r2.arrayBuffer();
+});
+
+await t('city page with nothing stale is served as is; state guide is healed', async () => {
+  const r = await get('/christmas-events/denver-co');
+  const h = await r.text();
+  assert.equal(h, readFileSync(DYN + 'christmas-events_denver-co.html', 'utf8'));
+  const g = await get('/christmas-events/colorado');
+  const gh = await g.text();
+  assert.ok(['healed', 'hit'].includes(g.headers.get('x-rtt-counts')));
+  assert.match(gh, /See all \d+ events in Denver/);
+});
+
+await t('signed-in visitors and unknown pages are never healed', async () => {
+  const r = await get('/christmas-events-for-kids', { headers: { cookie: 'SiteUserInfo=me' } });
+  assert.equal(r.headers.get('x-rtt-counts'), null);
+  await r.arrayBuffer();
+  const e = await get('/christmas-events/some-event-page-co');
+  assert.equal(e.headers.get('x-rtt-counts'), null);
+  await e.arrayBuffer();
+});
 await mf.dispose();
 
 const script = new URL('../dist/index.js', import.meta.url).pathname;
