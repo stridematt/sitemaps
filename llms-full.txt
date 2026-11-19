@@ -3346,7 +3346,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Austria (5 cities; German pages, hreflang de-AT, unless marked)
 
-- [Austria: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-austria-with-kids): Christmas events for kids in Austria for 2026: 81 family events in 6 cities, 10 free, with dates, prices and tips for visiting families. (hreflang en-AT)
+- [Austria: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-austria-with-kids): Christmas events for kids in Austria for 2026: 73 family events in 5 cities, 10 free, with dates, prices and tips for visiting families. (hreflang en-AT)
 - [Austria: country guide (Deutsch)](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-oesterreich): Advent mit Kindern in Österreich: 115 geprüfte Tipps in Wien, Graz, Salzburg, Linz und Innsbruck, 21 kostenlos. Christkindlmärkte, Nikolo, Kasperl.
 - [Graz](https://www.rallytakesthetrain.com/christmas-events/christmas-in-graz-with-kids) hreflang en; [Deutsch](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-graz)
 - [Innsbruck](https://www.rallytakesthetrain.com/christmas-events/christmas-in-innsbruck-with-kids) hreflang en; [Deutsch](https://www.rallytakesthetrain.com/christmas-events/weihnachten-mit-kindern-innsbruck)
@@ -3380,7 +3380,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Cyprus (3 cities; Greek pages, hreflang el-CY)
 
-- [Cyprus: country guide (Greek)](https://www.rallytakesthetrain.com/christmas-events/cyprus): 23 χριστουγεννιάτικες εκδηλώσεις για παιδιά σε 3 πόλεις της Κύπρου το 2026, οι 13 δωρεάν: Παραμυθούπολη, φωταγωγήσεις, αγορές, Άγιος Βασίλης.
+- [Cyprus: country guide (Greek)](https://www.rallytakesthetrain.com/christmas-events/cyprus): 23 χριστουγεννιάτικες εκδηλώσεις για παιδιά σε 3 πόλεις της Κύπρου το 2026, οι 7 δωρεάν: Παραμυθούπολη, φωταγωγήσεις, αγορές, Άγιος Βασίλης.
 - [Larnaca](https://www.rallytakesthetrain.com/christmas-events/larnaca-cy)
 - [Limassol](https://www.rallytakesthetrain.com/christmas-events/limassol-cy)
 - [Nicosia](https://www.rallytakesthetrain.com/christmas-events/nicosia-cy)
