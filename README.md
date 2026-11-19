@@ -57,3 +57,16 @@ Deployed in Cloudflare as the Worker `rtt-hreflang` (account hello@rallytakesthe
 - Page titles already looked up are kept in the Actions cache (`.state/llms-titles.json`), so each run only fetches new pages.
 - The build refuses to write if the new file has fewer than 95% of the last file's links, a section is missing, or a placeholder is left over, so a bad run never replaces a good file.
 - The Worker serves the GitHub copy (cached 5 minutes at Cloudflare), then the GitHub Pages copy, then the last good copy saved in Cloudflare's cache, then Squarespace's own llms.txt.
+
+## Live counts (self-healing numbers)
+
+Every number on the Christmas events pages that changes as the site grows or as the season goes by (events, free events, cities, countries, filter totals, FAQ answers, titles and descriptions) is corrected from one source of truth.
+
+- `tools/truth/build_truth.py` runs every 3 hours in GitHub Actions. It reads every city guide's event cards (dates and free flags), drops events whose last day has passed, and writes `tools/truth/live.json`: totals, countries, U.S. states and Canadian provinces, every city page and every country or state guide. Pages are re-read when the sitemap says they changed, when their next event ends, or after 7 days. It also writes `tools/sqsp/ids.json` (each page's Squarespace post id).
+- The Worker (`worker/src/heal.js`) reads `live.json` every 5 minutes and corrects the hub (`/christmas-events-for-kids`), every country and state guide, and every city page as it serves them: past events removed, every count phrase rewritten in about 30 languages (dates, times, ages, prices and years are never touched). Healed pages carry the header `x-rtt-counts: healed` (or `clean` when nothing was stale).
+- The hub leads with event counts: each country row reads "N events in M cities", and the city finder shows each city's events.
+- Tests: `cd worker && node test/heal.test.mjs && npm test`.
+
+## Squarespace sync (`tools/sqsp/`)
+
+Writes the same corrections back into the stored Squarespace posts (SEO title, SEO description, excerpt, post title, and the code blocks), so Squarespace itself matches the live site. It runs in a signed-in Squarespace admin tab, keeps a backup of every post before writing it, skips drafts and posts edited in the last 15 minutes, and skips any post where it finds a count it cannot read (those are listed for a hand fix). See `tools/sqsp/README.md`.
