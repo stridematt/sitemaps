@@ -231,7 +231,9 @@ def main():
             by_state[c['state']].append(c)
 
     def agg(cs):
-        r = roll([q for c in cs for q in c['paths']])
+        # One language version per city (the fuller one): the English and local-language pages list the
+        # same events, sometimes under different card ids, so taking both would count events twice.
+        r = roll([c['best'] for c in cs])
         r['cities'] = len(cs)
         r['cities_with_events'] = sum(1 for c in cs if (pages.get(c['best']) or {}).get('e'))
         return r
@@ -258,9 +260,8 @@ def main():
         else:
             continue
         g = regions[key]
-        for q in c['paths']:
-            v = pages.get(q) or {}
-            g['events'].update(v.get('k', [])); g['free'].update(v.get('fk', []))
+        v = pages.get(c['best']) or {}
+        g['events'].update(v.get('k', [])); g['free'].update(v.get('fk', []))
         g['cities'] += 1
         g['cities_with_events'] += 1 if (pages.get(p) or {}).get('e') else 0
     live = {
