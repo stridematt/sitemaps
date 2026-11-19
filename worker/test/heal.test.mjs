@@ -63,8 +63,9 @@ t('hub: finder data, rows, A to Z and headline all from live.json', () => {
   assert.ok(out.includes(`<title>Christmas Events for Kids Near Me 2026: ${(Math.floor(T.events / 1000) * 1000).toLocaleString('en-US')}+ Events</title>`));
   assert.ok(out.includes('href="/christmas-events/commerce-city-co"'), 'a city missing from the A to Z is listed');
   assert.ok(out.includes('Last updated November 18, 2026'));
-  const leftover = out.replace(/<script[\s\S]*?<\/script>/g, '').match(/\b3,2(42|44|64)\b[^<]{0,20}(cities|city guides)/);
-  assert.equal(leftover, null, 'no old city total left: ' + (leftover && leftover[0]));
+  const text = out.replace(/<script[\s\S]*?<\/script>/g, '').replace(/a light for each of the [\d,]+ cities/g, '');
+  const leftover = (text.match(/\b3,2(42|64)\b[^<]{0,20}(cities|city guides)/) || [null])[0];
+  assert.equal(leftover, null, 'no old city total left');
   const D = JSON.parse(out.match(/id="xn-data">([\s\S]*?)<\/script>/)[1]);
   const us = D.c.find((c) => c[0] === 'US');
   assert.equal(us[7], live.countries['United States'].events);

@@ -148,6 +148,7 @@ export function healHub(html, live, opts = {}) {
   rep(/<ul class="xn-stat" id="xn-stat" role="list">[\s\S]*?<\/ul>/,
     () => `<ul class="xn-stat" id="xn-stat" role="list"><li><b>${num(T.events)}</b>Christmas events</li><li><b>${num(T.cities)}</b>cities</li><li><b>${num(T.countries)}</b>countries</li></ul>`);
   rep(/(<h2 class="xn-map__h" id="xn-map-h">)[\d,]+( Christmas lights)/, (_, a, b) => a + num(onMap) + b);
+  rep(/(a light for each of the )[\d,]+( cities)/g, (_, a, b) => a + num(onMap) + b);
   rep(/(<ul class="xn-map__legend" role="list"><li><i aria-hidden="true"><\/i>)[\d,]+( cit(?:y|ies) with confirmed 2026 events<\/li><li><i aria-hidden="true"><\/i>)[\d,]+( cit)/,
     (_, a, b, c) => a + num(T.cities_with_events) + b + num(T.cities - T.cities_with_events) + c);
   rep(/(Choose a country to see every city we cover there\. )[\d,]+( cities already have confirmed 2026 events)/, (_, a, b) => a + num(T.cities_with_events) + b);
