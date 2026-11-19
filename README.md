@@ -46,3 +46,14 @@ Deployed in Cloudflare as the Worker `rtt-hreflang` (account hello@rallytakesthe
 ## Hosting
 
 `sitemaps.rallytakesthetrain.com` needs a DNS record in Cloudflare (the domain's DNS host): CNAME `sitemaps` to `stridematt.github.io`, set to DNS only (grey cloud) so GitHub Pages can serve its HTTPS certificate. Submit the sitemap in the `rallytakesthetrain.com` Domain property in Google Search Console, which covers both the `sitemaps` and `www` hosts.
+
+## llms.txt
+
+`llms.txt` and `llms-full.txt` are rebuilt from the live site every 3 hours by the same GitHub Action (`tools/llms/build_llms.py`) and served at https://www.rallytakesthetrain.com/llms.txt and /llms-full.txt by the Worker (routes `www.rallytakesthetrain.com/llms.txt` and `/llms-full.txt`).
+
+- Hand-written parts (book facts, guides, museums, policies, the Optional list) live in `tools/llms/template.md`. Edit that file to change them; the `{{...}}` placeholders are filled in by the build.
+- Built from the site each run: the Christmas events directory (the A to Z list on /christmas-events-for-kids plus any English city guide in sitemap.xml not yet in that list), the six Christmas Eve sections (every page, via ?format=json), counts, the language list (codes from `tools/clusters.json`), and a "Pages added recently" list for any other new page in sitemap.xml that the template does not mention yet.
+- Hand-picked "Start at" links per language (the Christmas train pages) are in `tools/llms/start_links.json`.
+- Page titles already looked up are kept in the Actions cache (`.state/llms-titles.json`), so each run only fetches new pages.
+- The build refuses to write if the new file has fewer than 95% of the last file's links, a section is missing, or a placeholder is left over, so a bad run never replaces a good file.
+- The Worker serves the GitHub copy (cached 5 minutes at Cloudflare), then the GitHub Pages copy, then the last good copy saved in Cloudflare's cache, then Squarespace's own llms.txt.

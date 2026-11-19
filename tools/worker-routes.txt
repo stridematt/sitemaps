@@ -8,3 +8,5 @@ www.rallytakesthetrain.com/weihnachtszuege*
 www.rallytakesthetrain.com/trains-de-noel*
 www.rallytakesthetrain.com/treni-di-natale*
 www.rallytakesthetrain.com/hreflang-sitemap.xml
+www.rallytakesthetrain.com/llms.txt
+www.rallytakesthetrain.com/llms-full.txt

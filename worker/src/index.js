@@ -11,6 +11,7 @@
 //      (Tiered Cache), so visitors and crawlers worldwide get pages from a nearby
 //      data center instead of waiting on Squarespace. Signed-in or cart visitors,
 //      Squarespace special URLs and errors are never cached.
+//   4. /llms.txt and /llms-full.txt are served from the repo (rebuilt every 3 hours).
 // Pages not in a cluster are handed to Squarespace (through the cache) unread.
 // If anything fails, the original Squarespace response is returned (fail open).
 //
@@ -239,10 +240,64 @@ function tag(origin, entry) {
   return r;
 }
 
+// ---- llms.txt -------------------------------------------------------------------
+// Built from the live site every 3 hours by GitHub Actions (tools/llms/build_llms.py)
+// and served here, so it has no size limit and never needs pasting into Squarespace.
+// Order: GitHub, then the GitHub Pages copy, then the last good copy saved in
+// Cloudflare's cache, then Squarespace's own llms.txt.
+const LLMS = {
+  '/llms.txt': [
+    'https://raw.githubusercontent.com/stridematt/sitemaps/main/llms.txt',
+    'https://sitemaps.rallytakesthetrain.com/llms.txt',
+  ],
+  '/llms-full.txt': [
+    'https://raw.githubusercontent.com/stridematt/sitemaps/main/llms-full.txt',
+    'https://sitemaps.rallytakesthetrain.com/llms-full.txt',
+  ],
+};
+const LLMS_HEADERS = { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'public, max-age=300' };
+
+export function looksLikeLlms(text) {
+  return typeof text === 'string' && text.startsWith('# Rally Takes the Train') && text.length > 10000;
+}
+
+async function serveLlms(path, request, ctx) {
+  const savedKey = 'https://rtt-hreflang.internal' + path;
+  let text = null;
+  let from = 'github';
+  for (const src of LLMS[path]) {
+    try {
+      const r = await fetch(src, { cf: { cacheTtl: 300, cacheEverything: true } });
+      if (!r.ok) continue;
+      const t = await r.text();
+      if (!looksLikeLlms(t)) continue;
+      text = t;
+      if (r.headers.get('cf-cache-status') !== 'HIT') {
+        // A fresh copy: keep it as the last good one.
+        const saved = new Response(t, { headers: { ...LLMS_HEADERS, 'cache-control': 'public, max-age=2592000' } });
+        ctx.waitUntil(caches.default.put(savedKey, saved).catch(() => {}));
+      }
+      break;
+    } catch (e) {}
+  }
+  if (!text) {
+    try {
+      const r = await caches.default.match(savedKey);
+      if (r) {
+        text = await r.text();
+        from = 'saved';
+      }
+    } catch (e) {}
+  }
+  if (!text) return originFetch(request); // Squarespace's own copy
+  return new Response(request.method === 'HEAD' ? null : text, { headers: { ...LLMS_HEADERS, 'x-rtt-llms': from } });
+}
+
 async function handle(request, ctx) {
   const method = request.method;
   if (method !== 'GET' && method !== 'HEAD') return fetch(request);
   const path = normPath(new URL(request.url).pathname);
+  if (LLMS[path]) return serveLlms(path, request, ctx);
   const index = await getIndex(ctx);
   if (!index) return originFetch(request);
 

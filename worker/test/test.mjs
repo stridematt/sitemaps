@@ -18,6 +18,9 @@ const pages = {
   '/christmas-eve-services/united-states': 'us.html',
 };
 let githubUp = true;
+let llmsGithub = true;
+let llmsPages = true;
+const llmsBody = 'x'.repeat(20000);
 const seen = []; // URLs the Worker requested from Squarespace
 let pagesUp = true;
 let robots = 'User-agent: *\nDisallow: /config\n\nSitemap: https://www.rallytakesthetrain.com/sitemap.xml\n';
@@ -25,6 +28,12 @@ let robots = 'User-agent: *\nDisallow: /config\n\nSitemap: https://www.rallytake
 async function outbound(req) {
   const u = new URL(req.url);
   if (u.hostname === 'www.rallytakesthetrain.com') seen.push(req.url);
+  if (/\/llms(-full)?\.txt$/.test(u.pathname) && u.hostname !== 'www.rallytakesthetrain.com') {
+    const up = u.hostname === 'raw.githubusercontent.com' ? llmsGithub : llmsPages;
+    if (up === 'bad') return new Response('<html>rate limited</html>', { headers: { 'content-type': 'text/html' } });
+    return up ? new Response('# Rally Takes the Train\n' + (u.hostname === 'raw.githubusercontent.com' ? 'GH ' : 'PAGES ') + u.pathname + '\n' + llmsBody, { headers: { 'content-type': 'text/plain' } }) : new Response('down', { status: 503 });
+  }
+  if (u.pathname === '/llms.txt') return new Response('squarespace llms', { headers: { 'content-type': 'text/plain' } });
   if (u.hostname === 'raw.githubusercontent.com') {
     return githubUp ? new Response(clustersText, { headers: { 'content-type': 'text/plain' } }) : new Response('down', { status: 503 });
   }
@@ -190,11 +199,41 @@ await t('HTML responses tell browsers to recheck (no-cache); files are left alon
   await img.arrayBuffer();
 });
 
+await t('llms.txt and llms-full.txt are served from GitHub as plain text', async () => {
+  const r = await get('/llms.txt');
+  const b = await r.text();
+  assert.equal(r.status, 200);
+  assert.equal(r.headers.get('content-type'), 'text/plain; charset=utf-8');
+  assert.equal(r.headers.get('x-rtt-llms'), 'github');
+  assert.ok(b.startsWith('# Rally Takes the Train\nGH /stridematt/sitemaps/main/llms.txt'));
+  const f = await (await get('/llms-full.txt')).text();
+  assert.ok(f.includes('GH /stridematt/sitemaps/main/llms-full.txt'));
+  const h = await get('/llms.txt', { method: 'HEAD' });
+  assert.equal(h.status, 200);
+  assert.equal((await h.text()).length, 0);
+});
+
+await t('llms.txt: a bad GitHub answer is skipped for the GitHub Pages copy', async () => {
+  llmsGithub = 'bad';
+  const r = await get('/llms.txt');
+  assert.ok((await r.text()).includes('PAGES /llms.txt'));
+  llmsGithub = true;
+});
+
+await t('llms.txt: both sources down, the last good copy is served', async () => {
+  llmsGithub = false; llmsPages = false;
+  const r = await get('/llms.txt');
+  assert.equal(r.headers.get('x-rtt-llms'), 'saved');
+  assert.ok((await r.text()).startsWith('# Rally Takes the Train'));
+  llmsGithub = true; llmsPages = true;
+});
+
 await mf.dispose();
 
 const script = new URL('../dist/index.js', import.meta.url).pathname;
 const persist = '/tmp/rtt-hreflang-test-cache-' + process.pid;
 const fresh = (cachePersist) => new Miniflare({ modules: true, scriptPath: script, compatibilityDate: '2026-08-01', outboundService: outbound, cachePersist });
+
 
 githubUp = false; pagesUp = true;
 const mf2 = fresh(persist);

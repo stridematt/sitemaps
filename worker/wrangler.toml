@@ -12,4 +12,6 @@ routes = [
   { pattern = "www.rallytakesthetrain.com/trains-de-noel*", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/treni-di-natale*", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/hreflang-sitemap.xml", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/llms.txt", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/llms-full.txt", zone_name = "rallytakesthetrain.com" },
 ]
