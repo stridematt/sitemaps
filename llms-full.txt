@@ -3380,7 +3380,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Cyprus (3 cities; Greek pages, hreflang el-CY)
 
-- [Cyprus: country guide (Greek)](https://www.rallytakesthetrain.com/christmas-events/cyprus): 23 χριστουγεννιάτικες εκδηλώσεις για παιδιά σε 6 πόλεις της Κύπρου το 2026, οι 19 δωρεάν: Παραμυθούπολη, φωταγωγήσεις, αγορές, Άγιος Βασίλης.
+- [Cyprus: country guide (Greek)](https://www.rallytakesthetrain.com/christmas-events/cyprus): 23 χριστουγεννιάτικες εκδηλώσεις για παιδιά σε 3 πόλεις της Κύπρου το 2026, οι 13 δωρεάν: Παραμυθούπολη, φωταγωγήσεις, αγορές, Άγιος Βασίλης.
 - [Larnaca](https://www.rallytakesthetrain.com/christmas-events/larnaca-cy)
 - [Limassol](https://www.rallytakesthetrain.com/christmas-events/limassol-cy)
 - [Nicosia](https://www.rallytakesthetrain.com/christmas-events/nicosia-cy)
@@ -3388,7 +3388,7 @@ Each country heading names the language code that most of its pages use; a page 
 ### Denmark (11 cities; Danish pages, hreflang da-DK, unless marked)
 
 - [Denmark: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-denmark-with-kids): Christmas events for kids in Denmark for 2026: 6 family events in Copenhagen, 2 free, with dates, prices and tips for visiting families. (hreflang en-DK)
-- [Denmark: country guide (Dansk)](https://www.rallytakesthetrain.com/christmas-events/denmark): Juleaktiviteter for børn i Danmark 2026: 15 aktiviteter med bekræftet dato i 11 byer, 2 gratis, med julemanden, luciaoptog og julemarkeder.
+- [Denmark: country guide (Dansk)](https://www.rallytakesthetrain.com/christmas-events/denmark): Juleaktiviteter for børn i Danmark 2026: 335 aktiviteter med bekræftet dato i 11 byer, 163 gratis, med julemanden, luciaoptog og julemarkeder.
 - [Aalborg](https://www.rallytakesthetrain.com/christmas-events/aalborg-dk)
 - [Aarhus](https://www.rallytakesthetrain.com/christmas-events/aarhus-dk)
 - [Copenhagen](https://www.rallytakesthetrain.com/christmas-events/christmas-in-copenhagen-with-kids) hreflang en; [Dansk](https://www.rallytakesthetrain.com/christmas-events/copenhagen-dk)
@@ -3403,7 +3403,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Estonia (3 cities; Estonian pages, hreflang et-EE)
 
-- [Estonia: country guide (Estonian)](https://www.rallytakesthetrain.com/christmas-events/estonia): Laste jõuluüritused Eestis 2026: 48 kontrollitud sündmust Tallinnas, Tartus, Pärnus ja Narvas, 0 tasuta. Jõuluturud, jõuluvana ja jõuluetendused.
+- [Estonia: country guide (Estonian)](https://www.rallytakesthetrain.com/christmas-events/estonia): Laste jõuluüritused Eestis 2026: 48 kontrollitud sündmust Tallinnas, Tartus, Pärnus ja Narvas, 17 tasuta. Jõuluturud, jõuluvana ja jõuluetendused.
 - [Narva](https://www.rallytakesthetrain.com/christmas-events/narva-ee)
 - [Tallinn](https://www.rallytakesthetrain.com/christmas-events/tallinn-ee)
 - [Tartu](https://www.rallytakesthetrain.com/christmas-events/tartu-ee)
@@ -3449,7 +3449,7 @@ Each country heading names the language code that most of its pages use; a page 
 ### France (97 cities; French pages, hreflang fr-FR, unless marked)
 
 - [France: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-france-with-kids): Christmas events for kids in France for 2026: 369 family events in 12 cities, 186 free, with dates, prices and tips for visiting families. (hreflang en-FR)
-- [France: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-france): Que faire à Noël avec les enfants en France ? Voici 1017 activités vérifiées dans 98 villes, dont 468 gratuites : spectacles, lumières, marchés de Noël.
+- [France: country guide (Français)](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-france): Que faire à Noël avec les enfants en France ? Voici 1031 activités vérifiées dans 97 villes, dont 470 gratuites : spectacles, lumières, marchés de Noël.
 - [Aix-en-Provence](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-aix-en-provence)
 - [Ajaccio](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-ajaccio)
 - [Albi](https://www.rallytakesthetrain.com/christmas-events/noel-avec-les-enfants-albi)
@@ -3738,7 +3738,7 @@ Each country heading names the language code that most of its pages use; a page 
 ### Hungary (19 cities; Hungarian pages, hreflang hu-HU, unless marked)
 
 - [Hungary: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-hungary-with-kids): Christmas events for kids in Hungary for 2026: 17 family events in Budapest, 1 free, with dates, prices and tips for visiting families. (hreflang en-HU)
-- [Hungary: country guide (Magyar)](https://www.rallytakesthetrain.com/christmas-events/hungary): Mikulás-ünnepség, adventi vásár, bábszínház és családi koncert 18 magyar városban: 220 ellenőrzött program 2026-ra, ebből 8 ingyenes, dátummal és árral.
+- [Hungary: country guide (Magyar)](https://www.rallytakesthetrain.com/christmas-events/hungary): Mikulás-ünnepség, adventi vásár, bábszínház és családi koncert 18 magyar városban: 220 ellenőrzött program 2026-ra, ebből 67 ingyenes, dátummal és árral.
 - [Budapest](https://www.rallytakesthetrain.com/christmas-events/christmas-in-budapest-with-kids) hreflang en; [Magyar](https://www.rallytakesthetrain.com/christmas-events/budapest-hu)
 - [Békéscsaba](https://www.rallytakesthetrain.com/christmas-events/bekescsaba-hu)
 - [Debrecen](https://www.rallytakesthetrain.com/christmas-events/debrecen-hu)
@@ -3761,7 +3761,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Iceland (7 cities; Icelandic pages, hreflang is-IS)
 
-- [Iceland: country guide (Icelandic)](https://www.rallytakesthetrain.com/christmas-events/iceland): Jólaviðburðir 2026 fyrir börn í 8 bæjum: 58 staðfestir viðburðir, 0 ókeypis, frá jólasveinum í Þjóðminjasafninu til Jólaþorpsins og Jólatorgsins.
+- [Iceland: country guide (Icelandic)](https://www.rallytakesthetrain.com/christmas-events/iceland): Jólaviðburðir 2026 fyrir börn í 7 bæjum: 58 staðfestir viðburðir, 22 ókeypis, frá jólasveinum í Þjóðminjasafninu til Jólaþorpsins og Jólatorgsins.
 - [Akureyri](https://www.rallytakesthetrain.com/christmas-events/akureyri-is)
 - [Garðabær](https://www.rallytakesthetrain.com/christmas-events/gardabaer-is)
 - [Hafnarfjörður](https://www.rallytakesthetrain.com/christmas-events/hafnarfjordur-is)
@@ -3882,7 +3882,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Lithuania (5 cities; Lithuanian pages, hreflang lt-LT)
 
-- [Lithuania: country guide (Lithuanian)](https://www.rallytakesthetrain.com/christmas-events/lithuania): Kalėdos su vaikais Lietuvoje 2026: 24 renginiai Vilniuje, Kaune, Klaipėdoje, Šiauliuose, Panevėžyje ir Alytuje, 7 nemokamų. Eglių įžiebimai, Kalėdų Senelis.
+- [Lithuania: country guide (Lithuanian)](https://www.rallytakesthetrain.com/christmas-events/lithuania): Kalėdos su vaikais Lietuvoje 2026: 44 renginiai Vilniuje, Kaune, Klaipėdoje, Šiauliuose, Panevėžyje ir Alytuje, 25 nemokamų. Eglių įžiebimai, Kalėdų Senelis.
 - [Kaunas](https://www.rallytakesthetrain.com/christmas-events/kaunas-lt)
 - [Klaipėda](https://www.rallytakesthetrain.com/christmas-events/klaipeda-lt)
 - [Panevėžys](https://www.rallytakesthetrain.com/christmas-events/panevezys-lt)

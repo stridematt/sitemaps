@@ -3380,7 +3380,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Cyprus (3 cities; Greek pages, hreflang el-CY)
 
-- [Cyprus: country guide (Greek)](/christmas-events/cyprus): 23 χριστουγεννιάτικες εκδηλώσεις για παιδιά σε 6 πόλεις της Κύπρου το 2026, οι 19 δωρεάν: Παραμυθούπολη, φωταγωγήσεις, αγορές, Άγιος Βασίλης.
+- [Cyprus: country guide (Greek)](/christmas-events/cyprus): 23 χριστουγεννιάτικες εκδηλώσεις για παιδιά σε 3 πόλεις της Κύπρου το 2026, οι 13 δωρεάν: Παραμυθούπολη, φωταγωγήσεις, αγορές, Άγιος Βασίλης.
 - [Larnaca](/christmas-events/larnaca-cy)
 - [Limassol](/christmas-events/limassol-cy)
 - [Nicosia](/christmas-events/nicosia-cy)
@@ -3388,7 +3388,7 @@ Links under the headings below are written as paths on this site: put https://ww
 ### Denmark (11 cities; Danish pages, hreflang da-DK, unless marked)
 
 - [Denmark: country guide](/christmas-events/christmas-in-denmark-with-kids): Christmas events for kids in Denmark for 2026: 6 family events in Copenhagen, 2 free, with dates, prices and tips for visiting families. (hreflang en-DK)
-- [Denmark: country guide (Dansk)](/christmas-events/denmark): Juleaktiviteter for børn i Danmark 2026: 15 aktiviteter med bekræftet dato i 11 byer, 2 gratis, med julemanden, luciaoptog og julemarkeder.
+- [Denmark: country guide (Dansk)](/christmas-events/denmark): Juleaktiviteter for børn i Danmark 2026: 335 aktiviteter med bekræftet dato i 11 byer, 163 gratis, med julemanden, luciaoptog og julemarkeder.
 - [Aalborg](/christmas-events/aalborg-dk)
 - [Aarhus](/christmas-events/aarhus-dk)
 - [Copenhagen](/christmas-events/christmas-in-copenhagen-with-kids) hreflang en; [Dansk](/christmas-events/copenhagen-dk)
@@ -3403,7 +3403,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Estonia (3 cities; Estonian pages, hreflang et-EE)
 
-- [Estonia: country guide (Estonian)](/christmas-events/estonia): Laste jõuluüritused Eestis 2026: 48 kontrollitud sündmust Tallinnas, Tartus, Pärnus ja Narvas, 0 tasuta. Jõuluturud, jõuluvana ja jõuluetendused.
+- [Estonia: country guide (Estonian)](/christmas-events/estonia): Laste jõuluüritused Eestis 2026: 48 kontrollitud sündmust Tallinnas, Tartus, Pärnus ja Narvas, 17 tasuta. Jõuluturud, jõuluvana ja jõuluetendused.
 - [Narva](/christmas-events/narva-ee)
 - [Tallinn](/christmas-events/tallinn-ee)
 - [Tartu](/christmas-events/tartu-ee)
@@ -3449,7 +3449,7 @@ Links under the headings below are written as paths on this site: put https://ww
 ### France (97 cities; French pages, hreflang fr-FR, unless marked)
 
 - [France: country guide](/christmas-events/christmas-in-france-with-kids): Christmas events for kids in France for 2026: 369 family events in 12 cities, 186 free, with dates, prices and tips for visiting families. (hreflang en-FR)
-- [France: country guide (Français)](/christmas-events/noel-avec-les-enfants-france): Que faire à Noël avec les enfants en France ? Voici 1017 activités vérifiées dans 98 villes, dont 468 gratuites : spectacles, lumières, marchés de Noël.
+- [France: country guide (Français)](/christmas-events/noel-avec-les-enfants-france): Que faire à Noël avec les enfants en France ? Voici 1031 activités vérifiées dans 97 villes, dont 470 gratuites : spectacles, lumières, marchés de Noël.
 - [Aix-en-Provence](/christmas-events/noel-avec-les-enfants-aix-en-provence)
 - [Ajaccio](/christmas-events/noel-avec-les-enfants-ajaccio)
 - [Albi](/christmas-events/noel-avec-les-enfants-albi)
@@ -3738,7 +3738,7 @@ Links under the headings below are written as paths on this site: put https://ww
 ### Hungary (19 cities; Hungarian pages, hreflang hu-HU, unless marked)
 
 - [Hungary: country guide](/christmas-events/christmas-in-hungary-with-kids): Christmas events for kids in Hungary for 2026: 17 family events in Budapest, 1 free, with dates, prices and tips for visiting families. (hreflang en-HU)
-- [Hungary: country guide (Magyar)](/christmas-events/hungary): Mikulás-ünnepség, adventi vásár, bábszínház és családi koncert 18 magyar városban: 220 ellenőrzött program 2026-ra, ebből 8 ingyenes, dátummal és árral.
+- [Hungary: country guide (Magyar)](/christmas-events/hungary): Mikulás-ünnepség, adventi vásár, bábszínház és családi koncert 18 magyar városban: 220 ellenőrzött program 2026-ra, ebből 67 ingyenes, dátummal és árral.
 - [Budapest](/christmas-events/christmas-in-budapest-with-kids) hreflang en; [Magyar](/christmas-events/budapest-hu)
 - [Békéscsaba](/christmas-events/bekescsaba-hu)
 - [Debrecen](/christmas-events/debrecen-hu)
@@ -3761,7 +3761,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Iceland (7 cities; Icelandic pages, hreflang is-IS)
 
-- [Iceland: country guide (Icelandic)](/christmas-events/iceland): Jólaviðburðir 2026 fyrir börn í 8 bæjum: 58 staðfestir viðburðir, 0 ókeypis, frá jólasveinum í Þjóðminjasafninu til Jólaþorpsins og Jólatorgsins.
+- [Iceland: country guide (Icelandic)](/christmas-events/iceland): Jólaviðburðir 2026 fyrir börn í 7 bæjum: 58 staðfestir viðburðir, 22 ókeypis, frá jólasveinum í Þjóðminjasafninu til Jólaþorpsins og Jólatorgsins.
 - [Akureyri](/christmas-events/akureyri-is)
 - [Garðabær](/christmas-events/gardabaer-is)
 - [Hafnarfjörður](/christmas-events/hafnarfjordur-is)
@@ -3882,7 +3882,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Lithuania (5 cities; Lithuanian pages, hreflang lt-LT)
 
-- [Lithuania: country guide (Lithuanian)](/christmas-events/lithuania): Kalėdos su vaikais Lietuvoje 2026: 24 renginiai Vilniuje, Kaune, Klaipėdoje, Šiauliuose, Panevėžyje ir Alytuje, 7 nemokamų. Eglių įžiebimai, Kalėdų Senelis.
+- [Lithuania: country guide (Lithuanian)](/christmas-events/lithuania): Kalėdos su vaikais Lietuvoje 2026: 44 renginiai Vilniuje, Kaune, Klaipėdoje, Šiauliuose, Panevėžyje ir Alytuje, 25 nemokamų. Eglių įžiebimai, Kalėdų Senelis.
 - [Kaunas](/christmas-events/kaunas-lt)
 - [Klaipėda](/christmas-events/klaipeda-lt)
 - [Panevėžys](/christmas-events/panevezys-lt)
