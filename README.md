@@ -70,3 +70,12 @@ Every number on the Christmas events pages that changes as the site grows or as 
 ## Squarespace sync (`tools/sqsp/`)
 
 Writes the same corrections back into the stored Squarespace posts (SEO title, SEO description, excerpt, post title, and the code blocks), so Squarespace itself matches the live site. It runs in a signed-in Squarespace admin tab, keeps a backup of every post before writing it, skips drafts and posts edited in the last 15 minutes, and skips any post where it finds a count it cannot read (those are listed for a hand fix). See `tools/sqsp/README.md`.
+
+## sitemap.xml (self-maintaining)
+
+Squarespace's own sitemap lags behind new pages and keeps URLs that now return 404 or redirect. `tools/sitemap/build_fix.py` runs every 3 hours in GitHub Actions and writes `tools/sitemap/fix.json`:
+
+- **Added:** every live, indexable Christmas events city page and country or state guide, every Christmas Eve page, and the new address of any renamed page, when Squarespace's sitemap does not list them yet. Each is checked first: it must return 200, have no noindex, and be canonical to itself. Once Squarespace lists a page itself, it drops off the add list.
+- **Removed:** URLs in Squarespace's sitemap that return 404/410 or redirect. Every URL is re-checked about every two days (3,000 per run, plus everything that failed last time). If a run would remove more than 3% of the sitemap at once, it keeps the previous list instead (an outage, not real deletions).
+
+The Worker applies `fix.json` as https://www.rallytakesthetrain.com/sitemap.xml is served (header `x-rtt-sitemap: fixed +N -M`). A request with the header `x-rtt-raw: 1` gets Squarespace's own copy. If the fix list can't be loaded, or the result would pass the 50,000 URL limit, Squarespace's sitemap is served unchanged.

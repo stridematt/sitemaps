@@ -107,6 +107,20 @@ jobs:
           git commit -q -m "llms.txt: rebuilt from the live site"
           for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
 
+      - name: Keep sitemap.xml complete (add missing pages, drop 404s and redirects)
+        run: |
+          git pull -q --rebase || true
+          python3 tools/sitemap/build_fix.py --state .state/sitemap.json
+          if [ -z "$(git status --porcelain tools/sitemap/fix.json)" ]; then
+            echo "Sitemap fix unchanged."
+            exit 0
+          fi
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/sitemap/fix.json
+          git commit -q -m "sitemap.xml: $(python3 -c "import json;f=json.load(open('tools/sitemap/fix.json'));print(f\"{len(f['add'])} pages added, {len(f['remove'])} dead URLs dropped\")")"
+          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
+
       - name: Save the list of pages already checked
         if: always()
         uses: actions/cache/save@v4

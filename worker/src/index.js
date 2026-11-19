@@ -382,11 +382,81 @@ async function serveLlms(path, request, ctx) {
   return new Response(request.method === 'HEAD' ? null : text, { headers: { ...LLMS_HEADERS, 'x-rtt-llms': from } });
 }
 
+// ---- sitemap.xml ------------------------------------------------------------------
+// Squarespace's sitemap lags behind new pages and keeps URLs that now 404 or redirect.
+// tools/sitemap/build_fix.py (every 3 hours) lists what to add and remove; it is applied
+// here as the sitemap is served. A request with x-rtt-raw gets Squarespace's own copy.
+const SITEMAP_FIX = [
+  'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/sitemap/fix.json',
+  'https://sitemaps.rallytakesthetrain.com/tools/sitemap/fix.json',
+];
+const MAX_SITEMAP_URLS = 50000;
+
+export function applySitemapFix(xml, fix) {
+  if (!fix || !xml.includes('</urlset>')) return null;
+  const drop = new Set(fix.remove || []);
+  const seen = new Set();
+  let removed = 0;
+  let out = xml.replace(/[ \t]*<url>\s*<loc>https:\/\/www\.rallytakesthetrain\.com([^<]*)<\/loc>[\s\S]*?<\/url>\s*/g, (block, p) => {
+    if (drop.has(p)) { removed++; return ''; }
+    seen.add(p);
+    return block;
+  });
+  const add = (fix.add || []).filter(([p]) => p && p.startsWith('/') && !seen.has(p));
+  if (seen.size + add.length > MAX_SITEMAP_URLS) return null; // over the protocol limit: leave Squarespace's as is
+  const entries = add.map(([p, d]) =>
+    `  <url>\n    <loc>https://www.rallytakesthetrain.com${escapeXml(p)}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.75</priority>\n` +
+    (/^\d{4}-\d\d-\d\d$/.test(d || '') ? `    <lastmod>${d}</lastmod>\n` : '') + '  </url>\n').join('');
+  out = out.replace(/<\/urlset>\s*$/, entries + '</urlset>\n');
+  return { xml: out, added: add.length, removed };
+}
+
+async function loadSitemapFix(ctx) {
+  const saved = 'https://rtt-hreflang.internal/sitemap-fix.json';
+  for (const src of SITEMAP_FIX) {
+    try {
+      const r = await fetch(src, { cf: { cacheTtl: 300, cacheEverything: true } });
+      if (!r.ok) continue;
+      const t = await r.text();
+      const j = JSON.parse(t);
+      if (!Array.isArray(j.add) || !Array.isArray(j.remove)) continue;
+      ctx.waitUntil(caches.default.put(saved, new Response(t, { headers: { 'cache-control': 'public, max-age=2592000' } })).catch(() => {}));
+      return j;
+    } catch (e) {}
+  }
+  try {
+    const r = await caches.default.match(saved);
+    if (r) return JSON.parse(await r.text());
+  } catch (e) {}
+  return null;
+}
+
+async function serveSitemapXml(request, ctx) {
+  if (request.headers.has('x-rtt-raw')) return fetch(request);
+  const origin = await fetch(new Request(request.url, { method: 'GET', headers: request.headers }), { cf: { cacheTtl: 600, cacheEverything: true } });
+  if (origin.status !== 200 || !(origin.headers.get('content-type') || '').includes('xml')) return origin;
+  const fix = await loadSitemapFix(ctx);
+  if (!fix) return forBrowser(origin);
+  const tagv = origin.headers.get('etag') || origin.headers.get('last-modified') || origin.headers.get('content-length') || '';
+  const key = `https://rtt-hreflang.internal/sitemap.xml?f=${encodeURIComponent(fix.generated || '')}&o=${encodeURIComponent(tagv)}&b=${BUILD}`;
+  const headers = { 'content-type': 'application/xml; charset=utf-8', 'cache-control': 'no-cache' };
+  try {
+    const hit = await caches.default.match(key);
+    if (hit) return new Response(request.method === 'HEAD' ? null : hit.body, { headers: { ...headers, 'x-rtt-sitemap': hit.headers.get('x-rtt-sitemap') || 'fixed' } });
+  } catch (e) {}
+  const res = applySitemapFix(await origin.text(), fix);
+  if (!res) return fetch(request);
+  const note = `fixed +${res.added} -${res.removed}`;
+  ctx.waitUntil(caches.default.put(key, new Response(res.xml, { headers: { 'cache-control': 'public, max-age=600', 'x-rtt-sitemap': note } })).catch(() => {}));
+  return new Response(request.method === 'HEAD' ? null : res.xml, { headers: { ...headers, 'x-rtt-sitemap': note } });
+}
+
 async function handle(request, ctx) {
   const method = request.method;
   if (method !== 'GET' && method !== 'HEAD') return fetch(request);
   const path = normPath(new URL(request.url).pathname);
   if (LLMS[path]) return serveLlms(path, request, ctx);
+  if (path === '/sitemap.xml') return serveSitemapXml(request, ctx);
   const index = await getIndex(ctx);
   if (!index) return originFetch(request);
 
