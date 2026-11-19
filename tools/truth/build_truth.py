@@ -42,10 +42,14 @@ def linked_cities(h, self_path=None):
 
 def item_json(path):
     """A post's Squarespace JSON (body, title, id), or None."""
-    for _ in range(3):
+    for i in range(5):
         try:
             r = urllib.request.urlopen(urllib.request.Request(SITE + path + ('&' if '?' in path else '?') + 'format=json', headers={'User-Agent': UA}), timeout=60)
             return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code in (404, 410):
+                return None
+            time.sleep(8 * (i + 1) if e.code in (429, 503) else 3)
         except Exception:
             continue
     return None
@@ -110,6 +114,15 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
                     continue
                 j = item_json(q)
                 qb = ((j or {}).get('item') or {}).get('body') or ''
+                if not qb:  # could not read it now: keep what the last crawl knew
+                    prev = guides.get(root) or {}
+                    if q in prev.get('cities', {}):
+                        cities[q] = prev['cities'][q]
+                    elif q in prev.get('subs', {}):
+                        subs[q] = prev['subs'][q]
+                        for c2, n2 in (guides.get(q) or {}).get('cities', {}).items():
+                            cities.setdefault(c2, n2)
+                    continue
                 if '<section class="rtt-pe-ride"' in qb or ('<li class="rtt-rc">' not in qb and qb):
                     cities[q] = name
                 elif '<li class="rtt-rc">' in qb:
@@ -132,7 +145,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
     return found
 
 
-def fetch(path, tries=2):
+def fetch(path, tries=5):
     for i in range(tries):
         try:
             r = urllib.request.urlopen(urllib.request.Request(SITE + path, headers={'User-Agent': UA, 'Accept-Encoding': 'gzip'}), timeout=60)
@@ -143,6 +156,9 @@ def fetch(path, tries=2):
         except urllib.error.HTTPError as e:
             if e.code in (404, 410):
                 return e.code, ''
+            if e.code in (429, 503):
+                time.sleep(8 * (i + 1))  # Squarespace is rate limiting: back off
+                continue
         except Exception:
             pass
         time.sleep(3)
@@ -283,7 +299,7 @@ def main():
     ids_path = os.path.join(HERE, '..', 'sqsp', 'ids.json')
     sq_ids = json.load(open(ids_path, encoding='utf-8')) if os.path.exists(ids_path) else {}
     failed = 0
-    with cf.ThreadPoolExecutor(12) as ex:
+    with cf.ThreadPoolExecutor(6) as ex:
         for p, (st, h) in zip(todo, ex.map(fetch, todo)):
             if st == 200 and h and p in guides:
                 hrefs = set(re.findall(r'href="(/christmas-events/[a-z0-9-]+)(?:#[^"]*)?"', h))
