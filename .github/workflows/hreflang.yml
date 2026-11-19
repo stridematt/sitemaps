@@ -107,6 +107,17 @@ jobs:
           git commit -q -m "llms.txt: rebuilt from the live site"
           for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
 
+      - name: Audit the counts against the sitemap (event pages no city page lists)
+        run: |
+          git pull -q --rebase || true
+          python3 tools/truth/audit_sitemap.py || exit 0
+          if [ -z "$(git status --porcelain tools/truth/audit.json)" ]; then exit 0; fi
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/truth/audit.json
+          git commit -q -m "Counts audit against the sitemap"
+          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
+
       - name: Keep sitemap.xml complete (add missing pages, drop 404s and redirects)
         run: |
           git pull -q --rebase || true

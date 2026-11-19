@@ -1,0 +1,2589 @@
+{
+ "today": "2026-11-18",
+ "sitemap_urls": 20436,
+ "city_pages": 3454,
+ "event_pages_listed": 20818,
+ "count_mismatch": [
+  [
+   "/christmas-events/aalborg-dk",
+   0,
+   28
+  ],
+  [
+   "/christmas-events/aarhus-dk",
+   0,
+   47
+  ],
+  [
+   "/christmas-events/akureyri-is",
+   0,
+   6
+  ],
+  [
+   "/christmas-events/arborg-is",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/bacolod-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/baguio-ph",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/banska-bystrica-sk",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/batangas-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/bekescsaba-hu",
+   0,
+   5
+  ],
+  [
+   "/christmas-events/bialystok-pl",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/bratislava-sk",
+   0,
+   14
+  ],
+  [
+   "/christmas-events/budapest-hu",
+   17,
+   20
+  ],
+  [
+   "/christmas-events/bydgoszcz-pl",
+   0,
+   5
+  ],
+  [
+   "/christmas-events/cadiz-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/cagayan-de-oro-ph",
+   2,
+   4
+  ],
+  [
+   "/christmas-events/calamba-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/cebu-ph",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/copenhagen-dk",
+   6,
+   64
+  ],
+  [
+   "/christmas-events/davao-ph",
+   2,
+   9
+  ],
+  [
+   "/christmas-events/debrecen-hu",
+   0,
+   15
+  ],
+  [
+   "/christmas-events/eger-hu",
+   6,
+   19
+  ],
+  [
+   "/christmas-events/esbjerg-dk",
+   0,
+   38
+  ],
+  [
+   "/christmas-events/gardabaer-is",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/gdansk-pl",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/general-santos-ph",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/gliwice-pl",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/gyor-hu",
+   0,
+   23
+  ],
+  [
+   "/christmas-events/hafnarfjordur-is",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/herning-dk",
+   0,
+   16
+  ],
+  [
+   "/christmas-events/horsens-dk",
+   0,
+   31
+  ],
+  [
+   "/christmas-events/iligan-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/iloilo-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/kaposvar-hu",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/katowice-pl",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/kaunas-lt",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/kecskemet-hu",
+   0,
+   12
+  ],
+  [
+   "/christmas-events/kielce-pl",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/klaipeda-lt",
+   4,
+   5
+  ],
+  [
+   "/christmas-events/kolding-dk",
+   9,
+   19
+  ],
+  [
+   "/christmas-events/kopavogur-is",
+   0,
+   14
+  ],
+  [
+   "/christmas-events/kosice-sk",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/koszalin-pl",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/krakow-pl",
+   0,
+   7
+  ],
+  [
+   "/christmas-events/laoag-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/larnaca-cy",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/legazpi-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/limassol-cy",
+   0,
+   6
+  ],
+  [
+   "/christmas-events/lipa-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/ljubljana-si",
+   0,
+   17
+  ],
+  [
+   "/christmas-events/lodz-pl",
+   0,
+   5
+  ],
+  [
+   "/christmas-events/lublin-pl",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/lucena-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/maribor-si",
+   0,
+   12
+  ],
+  [
+   "/christmas-events/metro-manila-ph",
+   9,
+   36
+  ],
+  [
+   "/christmas-events/miskolc-hu",
+   0,
+   12
+  ],
+  [
+   "/christmas-events/naga-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/narva-ee",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/natal-com-criancas-barcelos",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/natal-com-criancas-vila-do-conde",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/natal-com-criancas-vila-franca-de-xira",
+   7,
+   8
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-acapulco",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-aguascalientes",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-amozoc",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-atlixco",
+   2,
+   4
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-campeche",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-cancun",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-celaya",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-chetumal",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-chihuahua",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-ciudad-de-mexico",
+   12,
+   21
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-ciudad-del-carmen",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-ciudad-juarez",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-cuauhtemoc-chihuahua",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-cuernavaca",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-culiacan",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-durango",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-guadalajara",
+   2,
+   4
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-hermosillo",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-huixquilucan",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-la-paz",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-leon",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-lerma",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-los-mochis",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-matamoros",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-mazatlan",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-merida",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-mexicali",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-monterrey",
+   3,
+   9
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-morelia",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-naucalpan",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-navolato",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-oaxaca",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-pachuca",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-piedras-negras",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-playa-del-carmen",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-puebla",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-puerto-vallarta",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-queretaro",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-saltillo",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-san-luis-potosi",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-san-miguel-de-allende",
+   0,
+   5
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-san-pedro-garza-garcia",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-tampico",
+   0,
+   5
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-tehuacan",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-tepic",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-tepotzotlan",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-tijuana",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-toluca",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-torreon",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-tuxtepec",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-veracruz",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-villahermosa",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-zacatecas",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-zapopan",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-zihuatanejo",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/nicosia-cy",
+   0,
+   7
+  ],
+  [
+   "/christmas-events/nitra-sk",
+   8,
+   13
+  ],
+  [
+   "/christmas-events/noel-avec-les-enfants-paris",
+   84,
+   115
+  ],
+  [
+   "/christmas-events/nyiregyhaza-hu",
+   5,
+   13
+  ],
+  [
+   "/christmas-events/odense-dk",
+   0,
+   53
+  ],
+  [
+   "/christmas-events/olongapo-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/olsztyn-pl",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/opole-pl",
+   0,
+   3
+  ],
+  [
+   "/christmas-events/osijek-hr",
+   0,
+   8
+  ],
+  [
+   "/christmas-events/pampanga-ph",
+   0,
+   6
+  ],
+  [
+   "/christmas-events/panevezys-lt",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/pecs-hu",
+   2,
+   16
+  ],
+  [
+   "/christmas-events/poznan-pl",
+   0,
+   6
+  ],
+  [
+   "/christmas-events/presov-sk",
+   0,
+   6
+  ],
+  [
+   "/christmas-events/puerto-princesa-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/pula-hr",
+   0,
+   18
+  ],
+  [
+   "/christmas-events/randers-dk",
+   0,
+   42
+  ],
+  [
+   "/christmas-events/reykjanesbaer-is",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/reykjavik-is",
+   3,
+   23
+  ],
+  [
+   "/christmas-events/rijeka-hr",
+   0,
+   5
+  ],
+  [
+   "/christmas-events/roskilde-dk",
+   0,
+   15
+  ],
+  [
+   "/christmas-events/rzeszow-pl",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/siauliai-lt",
+   11,
+   22
+  ],
+  [
+   "/christmas-events/singapore-sg",
+   19,
+   89
+  ],
+  [
+   "/christmas-events/sopron-hu",
+   0,
+   17
+  ],
+  [
+   "/christmas-events/sorsogon-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/split-hr",
+   5,
+   7
+  ],
+  [
+   "/christmas-events/szczecin-pl",
+   7,
+   3
+  ],
+  [
+   "/christmas-events/szeged-hu",
+   0,
+   11
+  ],
+  [
+   "/christmas-events/szekesfehervar-hu",
+   0,
+   21
+  ],
+  [
+   "/christmas-events/szolnok-hu",
+   0,
+   8
+  ],
+  [
+   "/christmas-events/szombathely-hu",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/tagum-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/tallinn-ee",
+   0,
+   19
+  ],
+  [
+   "/christmas-events/tarlac-city-ph",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/tartu-ee",
+   5,
+   19
+  ],
+  [
+   "/christmas-events/tatabanya-hu",
+   0,
+   8
+  ],
+  [
+   "/christmas-events/torun-pl",
+   8,
+   4
+  ],
+  [
+   "/christmas-events/trencin-sk",
+   3,
+   5
+  ],
+  [
+   "/christmas-events/trnava-sk",
+   3,
+   8
+  ],
+  [
+   "/christmas-events/tuguegarao-ph",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/vejle-dk",
+   0,
+   24
+  ],
+  [
+   "/christmas-events/veszprem-hu",
+   0,
+   6
+  ],
+  [
+   "/christmas-events/vilnius-lt",
+   9,
+   13
+  ],
+  [
+   "/christmas-events/warsaw-pl",
+   8,
+   12
+  ],
+  [
+   "/christmas-events/wroclaw-pl",
+   2,
+   8
+  ],
+  [
+   "/christmas-events/zadar-hr",
+   0,
+   9
+  ],
+  [
+   "/christmas-events/zagreb-hr",
+   15,
+   20
+  ],
+  [
+   "/christmas-events/zamboanga-ph",
+   0,
+   4
+  ],
+  [
+   "/christmas-events/zielona-gora-pl",
+   0,
+   2
+  ],
+  [
+   "/christmas-events/zilina-sk",
+   0,
+   1
+  ]
+ ],
+ "uncounted_city_pages": [],
+ "upcoming_not_listed": [
+  [
+   "/christmas-events/42nd-annual-tree-lighting-ceremony-portland-or",
+   "2026-11-27",
+   "/christmas-events/portland-or",
+   "42nd Annual Tree Lighting Ceremony"
+  ],
+  [
+   "/christmas-events/a-christmas-story-eine-weihnachtsgeschichte-nobel-popel-music-theater-leuven-be",
+   "2026-12-20",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "A Christmas Story (Eine Weihnachtsgeschichte), Nobel-Popel Music Theater"
+  ],
+  [
+   "/christmas-events/a-very-k-pop-christmas-k-pop-superslayers-live-waterford-ie",
+   "2026-12-12",
+   "/christmas-events/waterford-ie",
+   "A Very K-Pop Christmas: K-Pop Superslayers Live"
+  ],
+  [
+   "/christmas-events/a-visit-to-santa-claus-at-killruddery-bray-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "A Visit to Santa Claus at Killruddery"
+  ],
+  [
+   "/christmas-events/adventsabenteuer-advent-adventure-leuven-be",
+   "2026-12-19",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Adventsabenteuer (Advent Adventure)"
+  ],
+  [
+   "/christmas-events/aladdin-the-pantomime-in-ringaskiddy-ie",
+   "2026-11-22",
+   "/christmas-events/cork-ie",
+   "Aladdin The Pantomime in Ringaskiddy"
+  ],
+  [
+   "/christmas-events/an-advent-day-for-the-whole-family-bruges-be",
+   "2026-12-30",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "An Advent Day for the Whole Family"
+  ],
+  [
+   "/christmas-events/angels-heavenly-messengers-engel-himmlische-boten-bruges-be",
+   "2027-01-03",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Angels. Heavenly Messengers (Engel. Himmlische Boten)"
+  ],
+  [
+   "/christmas-events/autry-museum-holiday-events-los-angeles-ca",
+   "2026-12-05",
+   "/christmas-events/los-angeles-ca",
+   "Autry Museum Holiday Events: Tree Lighting & Santa's Winter Wonderland"
+  ],
+  [
+   "/christmas-events/babies-and-toddlers-storytelling-christmas-wonderland-at-bewleys-dublin-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Babies and Toddlers Storytelling: Christmas Wonderland at Bewley's Grafton Street"
+  ],
+  [
+   "/christmas-events/baby-steps-with-santa-irvine-ca",
+   "2026-12-01",
+   "/christmas-events/irvine-ca",
+   "Baby Steps with Santa"
+  ],
+  [
+   "/christmas-events/ballyorgan-christmas-market-and-santas-grotto-ie",
+   "2026-12-05",
+   "/christmas-events/limerick-ie",
+   "Ballyorgan Christmas Market and Santa's Grotto"
+  ],
+  [
+   "/christmas-events/ballyroan-library-christmas-market-dublin-ie",
+   "2026-11-28",
+   "/christmas-events/dublin-ie",
+   "Ballyroan Library Christmas Market"
+  ],
+  [
+   "/christmas-events/beauty-and-the-beast-christmas-panto-dungarvan-encore-stage-academy-ie",
+   "2026-11-30",
+   "/christmas-events/waterford-ie",
+   "Beauty and the Beast Christmas Panto (Dungarvan Encore Stage Academy)"
+  ],
+  [
+   "/christmas-events/bel-air-christmas-parade-and-tree-lighting-bel-air-md",
+   "2026-12-06",
+   "/christmas-events/baltimore-md",
+   "Bel Air Christmas Parade & Tree Lighting Ceremony"
+  ],
+  [
+   "/christmas-events/bentleyville-tour-of-lights-duluth-mn",
+   "2026-12-26",
+   "/christmas-events/duluth-mn",
+   "Bentleyville Tour of Lights"
+  ],
+  [
+   "/christmas-events/beverly-brite-nite-mount-lebanon-pa",
+   "2026-12-03",
+   "/christmas-events/mount-lebanon-pa",
+   "Beverly Brite Nite"
+  ],
+  [
+   "/christmas-events/bicton-christmas-craft-fair-and-late-night-shopping-devon-uk",
+   "2026-12-04",
+   "/christmas-events/exeter-uk",
+   "Bicton Christmas Craft Fair and Late Night Shopping"
+  ],
+  [
+   "/christmas-events/blarney-community-choir-christmas-concert-with-the-ryan-sisters-ie",
+   "2026-12-20",
+   "/christmas-events/cork-ie",
+   "Blarney Community Choir Christmas Concert with the Ryan Sisters"
+  ],
+  [
+   "/christmas-events/blue-light-parade-and-showcase-waterford-ie",
+   "2026-11-28",
+   "/christmas-events/waterford-ie",
+   "Blue Light Parade and Showcase"
+  ],
+  [
+   "/christmas-events/boherbuoy-band-christmas-concert-and-family-fun-evening-limerick-ie",
+   "2026-12-13",
+   "/christmas-events/limerick-ie",
+   "Boherbuoy Band Christmas Concert and Family Fun Evening"
+  ],
+  [
+   "/christmas-events/books-before-bed-teddy-bear-sleepover-at-swords-library-dublin-ie",
+   "2026-12-10",
+   "/christmas-events/dublin-ie",
+   "Books Before Bed: Teddy Bear Sleepover at Swords Library"
+  ],
+  [
+   "/christmas-events/breakfast-with-santa-at-the-civic-amarillo-holiday-market-tx",
+   "2026-12-05",
+   "/christmas-events/amarillo-tx",
+   "Brunch with Santa at the Civic Amarillo Holiday Market"
+  ],
+  [
+   "/christmas-events/breakfast-with-santa-at-the-lady-gregory-hotel-gort-ie",
+   "2026-12-20",
+   "/christmas-events/galway-ie",
+   "Breakfast with Santa at the Lady Gregory Hotel"
+  ],
+  [
+   "/christmas-events/breakfast-with-santa-claus-at-the-red-cow-inn-dublin-ie",
+   "2026-12-19",
+   "/christmas-events/dublin-ie",
+   "Breakfast with Santa Claus at the Red Cow Inn"
+  ],
+  [
+   "/christmas-events/breakfast-with-santa-la-grange-ky",
+   "2026-12-12",
+   "/christmas-events/la-grange-ky",
+   "Breakfast with Santa"
+  ],
+  [
+   "/christmas-events/brighter-winter-nights-anchorage-ak",
+   "2027-01-31",
+   "/christmas-events/anchorage-ak",
+   "Brighter Winter Nights"
+  ],
+  [
+   "/christmas-events/c-and-n-dance-academy-christmas-show-dublin-ie",
+   "2026-11-28",
+   "/christmas-events/dublin-ie",
+   "C and N Dance Academy Christmas Show"
+  ],
+  [
+   "/christmas-events/camphor-heights-holiday-festival-lakeland-fl",
+   "2026-12-05",
+   "/christmas-events/lakeland-fl",
+   "Camphor Heights Holiday Festival"
+  ],
+  [
+   "/christmas-events/caulstown-christmas-tree-and-alpaca-family-farm-dunboyne-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "Caulstown Christmas Tree and Alpaca Family Farm"
+  ],
+  [
+   "/christmas-events/christmas-at-old-fort-concho-san-angelo-tx",
+   "2026-12-06",
+   "/christmas-events/san-angelo-tx",
+   "Christmas at Old Fort Concho"
+  ],
+  [
+   "/christmas-events/christmas-at-russell-square-waterloo-ia",
+   "2026-12-05",
+   "/christmas-events/waterloo-ia",
+   "Christmas at Russell Square"
+  ],
+  [
+   "/christmas-events/christmas-at-the-movies-dublin-concert-orchestra-ie",
+   "2026-12-14",
+   "/christmas-events/dublin-ie",
+   "Christmas at the Movies (Dublin Concert Orchestra)"
+  ],
+  [
+   "/christmas-events/christmas-camp-at-sirius-arts-centre-cobh-ie",
+   "2026-12-12",
+   "/christmas-events/cork-ie",
+   "Christmas Camp at Sirius Arts Centre"
+  ],
+  [
+   "/christmas-events/christmas-choirs-and-merry-little-christmas-at-cork-city-library-ie",
+   "2026-12-12",
+   "/christmas-events/cork-ie",
+   "Christmas Choirs and Merry Little Christmas at Cork City Library"
+  ],
+  [
+   "/christmas-events/christmas-classic-how-the-grinch-stole-christmas-at-belltable-limerick-ie",
+   "2026-12-14",
+   "/christmas-events/limerick-ie",
+   "Christmas Classic: How the Grinch Stole Christmas at Belltable"
+  ],
+  [
+   "/christmas-events/christmas-craft-workshop-for-children-with-kim-jenkinson-at-shankill-dublin-ie",
+   "2026-12-16",
+   "/christmas-events/dublin-ie",
+   "Christmas Craft Workshop for Children with Kim Jenkinson at Shankill Library"
+  ],
+  [
+   "/christmas-events/christmas-craft-workshop-for-kids-at-the-rediscovery-centre-dublin-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Christmas Craft Workshop for Kids at the Rediscovery Centre"
+  ],
+  [
+   "/christmas-events/christmas-decoration-workshop-for-children-with-wicklow-willow-dublin-ie",
+   "2026-12-05",
+   "/christmas-events/dublin-ie",
+   "Christmas Decoration Workshop for Children with Wicklow Willow at Deansgrange Library"
+  ],
+  [
+   "/christmas-events/christmas-family-ball-fort-lauderdale-fl",
+   "2026-12-29",
+   "/christmas-events/fort-lauderdale-fl",
+   "Christmas Family Ball"
+  ],
+  [
+   "/christmas-events/christmas-family-movie-matinee-in-the-halla-ballinora-waterfall-ie",
+   "2026-12-13",
+   "/christmas-events/cork-ie",
+   "Christmas Family Movie Matinee in the Halla, Ballinora"
+  ],
+  [
+   "/christmas-events/christmas-in-shankill-village-visit-santa-dublin-ie",
+   "2026-11-29",
+   "/christmas-events/dublin-ie",
+   "Christmas in Shankill Village: Visit Santa"
+  ],
+  [
+   "/christmas-events/christmas-in-the-city-city-of-music-studios-christmas-showcase-waterford-ie",
+   "2026-12-06",
+   "/christmas-events/waterford-ie",
+   "Christmas in the City: City of Music Studios Christmas Showcase"
+  ],
+  [
+   "/christmas-events/christmas-launch-party-at-the-square-tallaght-ie",
+   "2026-11-21",
+   "/christmas-events/dublin-ie",
+   "Christmas Launch Party at The Square Tallaght"
+  ],
+  [
+   "/christmas-events/christmas-lights-tour-dublin-city-sightseeing-ie",
+   "2026-12-30",
+   "/christmas-events/dublin-ie",
+   "Christmas Lights Tour Dublin (City Sightseeing)"
+  ],
+  [
+   "/christmas-events/christmas-magic-show-with-reuben-the-entertainer-at-balbriggan-library-ie",
+   "2026-12-19",
+   "/christmas-events/dublin-ie",
+   "Christmas Magic Show with Reuben the Entertainer at Balbriggan Library"
+  ],
+  [
+   "/christmas-events/christmas-magic-show-with-reuben-the-entertainer-at-skerries-library-ie",
+   "2026-12-19",
+   "/christmas-events/dublin-ie",
+   "Christmas Magic Show with Reuben the Entertainer at Skerries Library"
+  ],
+  [
+   "/christmas-events/christmas-market-at-the-abenteueroase-adventure-oasis-bruges-be",
+   "2027-01-06",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Christmas Market at the Abenteueroase (Adventure Oasis)"
+  ],
+  [
+   "/christmas-events/christmas-market-at-the-villa-donnersmarck-bruges-be",
+   "2026-12-20",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Christmas Market at the Villa Donnersmarck"
+  ],
+  [
+   "/christmas-events/christmas-musical-tots-with-karen-donnellan-at-blanchardstown-library-dublin-ie",
+   "2026-12-19",
+   "/christmas-events/dublin-ie",
+   "Christmas Musical Tots with Karen Donnellan at Blanchardstown Library"
+  ],
+  [
+   "/christmas-events/christmas-musical-tots-with-karen-donnellan-at-howth-library-dublin-ie",
+   "2026-12-17",
+   "/christmas-events/dublin-ie",
+   "Christmas Musical Tots with Karen Donnellan at Howth Library"
+  ],
+  [
+   "/christmas-events/christmas-musical-tots-with-karen-donnellan-at-malahide-library-ie",
+   "2026-12-17",
+   "/christmas-events/dublin-ie",
+   "Christmas Musical Tots with Karen Donnellan at Malahide Library"
+  ],
+  [
+   "/christmas-events/christmas-past-and-present-grand-island-ne",
+   "2026-12-12",
+   "/christmas-events/grand-island-ne",
+   "Christmas Past & Present"
+  ],
+  [
+   "/christmas-events/christmas-storytime-at-blanchardstown-library-dublin-ie",
+   "2026-12-17",
+   "/christmas-events/dublin-ie",
+   "Christmas Storytime at Blanchardstown Library"
+  ],
+  [
+   "/christmas-events/christmas-storytime-with-mrs-claus-and-billy-bear-at-the-square-tallaght-ie",
+   "2026-11-28",
+   "/christmas-events/dublin-ie",
+   "Christmas Storytime with Mrs Claus and Billy Bear at The Square Tallaght"
+  ],
+  [
+   "/christmas-events/christmas-teddy-bear-sleepover-at-blanchardstown-library-dublin-ie",
+   "2026-12-10",
+   "/christmas-events/dublin-ie",
+   "Christmas Teddy Bear Sleepover at Blanchardstown Library"
+  ],
+  [
+   "/christmas-events/christmas-winter-wonderland-at-ballyowen-castle-dublin-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Christmas Winter Wonderland at Ballyowen Castle"
+  ],
+  [
+   "/christmas-events/christmas-workshop-for-children-ages-6-to-12-weihnachtswerkstatt-leuven-be",
+   "2026-11-21",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Christmas Workshop for Children Ages 6 to 12 (Weihnachtswerkstatt)"
+  ],
+  [
+   "/christmas-events/cinderella-irish-national-youth-ballet-dublin-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Cinderella (Irish National Youth Ballet)"
+  ],
+  [
+   "/christmas-events/cinderella-kildare-youth-ballet-naas-ie",
+   "2026-12-20",
+   "/christmas-events/dublin-ie",
+   "Cinderella (Kildare Youth Ballet)"
+  ],
+  [
+   "/christmas-events/city-ballet-the-nutcracker-escondido-ca",
+   "2026-12-23",
+   "/christmas-events/escondido-ca",
+   "City Ballet’s The Nutcracker"
+  ],
+  [
+   "/christmas-events/city-square-viking-elf-trail-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "City Square Viking Elf Trail"
+  ],
+  [
+   "/christmas-events/clondalkin-christmas-market-and-tree-lighting-dublin-ie",
+   "2026-11-28",
+   "/christmas-events/dublin-ie",
+   "Clondalkin Christmas Market and Tree Lighting"
+  ],
+  [
+   "/christmas-events/cobh-santa-express-at-cobh-heritage-centre-ie",
+   "2026-12-22",
+   "/christmas-events/cork-ie",
+   "Cobh Santa Express at Cobh Heritage Centre"
+  ],
+  [
+   "/christmas-events/come-and-sing-carols-at-st-marys-cathedral-limerick-ie",
+   "2026-12-12",
+   "/christmas-events/limerick-ie",
+   "Come and Sing Carols at St Mary's Cathedral"
+  ],
+  [
+   "/christmas-events/community-christmas-tree-lighting-folsom-ca",
+   "2026-12-04",
+   "/christmas-events/folsom-ca",
+   "Community Christmas Tree Lighting"
+  ],
+  [
+   "/christmas-events/conscious-crafting-for-all-the-family-waterford-ie",
+   "2026-12-13",
+   "/christmas-events/waterford-ie",
+   "Conscious Crafting for All the Family"
+  ],
+  [
+   "/christmas-events/cowboy-christmas-meet-cowboy-santa-at-the-briscoe-san-antonio-tx",
+   "2026-12-06",
+   "/christmas-events/san-antonio-tx",
+   "Cowboy Christmas: Meet Cowboy Santa at the Briscoe"
+  ],
+  [
+   "/christmas-events/cuairt-ar-dhaidi-na-nollag-visit-santa-through-irish-dublin-ie",
+   "2026-12-06",
+   "/christmas-events/dublin-ie",
+   "Cuairt ar Dhaidí na Nollag: Visit Santa Through Irish"
+  ],
+  [
+   "/christmas-events/das-geheimnis-der-weihnachtswichtel-the-secret-of-the-christmas-elves-namur-be",
+   "2026-12-06",
+   "/christmas-events/christmas-in-namur-with-kids",
+   "Das Geheimnis der Weihnachtswichtel (The Secret of the Christmas Elves)"
+  ],
+  [
+   "/christmas-events/die-himmelskinder-weihnacht-the-sky-childrens-christmas-leuven-be",
+   "2026-12-05",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Die Himmelskinder-Weihnacht (The Sky Children's Christmas)"
+  ],
+  [
+   "/christmas-events/disneys-a-christmas-carol-screening-at-garter-lane-waterford-ie",
+   "2026-12-12",
+   "/christmas-events/waterford-ie",
+   "Disney's A Christmas Carol screening at Garter Lane"
+  ],
+  [
+   "/christmas-events/dlr-elf-dash-dublin-ie",
+   "2026-12-06",
+   "/christmas-events/dublin-ie",
+   "dlr Elf Dash 2026"
+  ],
+  [
+   "/christmas-events/dodublin-christmas-bus-tour-with-santa-and-gus-on-the-bus-ie",
+   "2026-12-20",
+   "/christmas-events/dublin-ie",
+   "DoDublin Christmas Bus Tour with Santa and Gus on the Bus"
+  ],
+  [
+   "/christmas-events/downtown-cookie-crawl-menomonee-falls-wi",
+   "2026-12-05",
+   "/christmas-events/menomonee-falls-wi",
+   "Downtown Cookie Crawl"
+  ],
+  [
+   "/christmas-events/draiocht-sa-spideal-cuairt-ar-daidi-na-nollag-an-spideal-ie",
+   "2026-12-22",
+   "/christmas-events/galway-ie",
+   "Draíocht sa Spidéal: Cuairt ar Daidí na Nollag"
+  ],
+  [
+   "/christmas-events/dubuque-symphony-orchestra-holiday-family-concert-dubuque-ia",
+   "2026-12-05",
+   "/christmas-events/dubuque-ia",
+   "Dubuque Symphony Orchestra Holiday Family Concert"
+  ],
+  [
+   "/christmas-events/eastport-yacht-club-lights-parade-annapolis-md",
+   "2026-12-12",
+   "/christmas-events/annapolis-md",
+   "Eastport Yacht Club Lights Parade"
+  ],
+  [
+   "/christmas-events/elf-at-the-whale-theatre-greystones-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "Elf at the Whale Theatre"
+  ],
+  [
+   "/christmas-events/elf-hunt-at-deansgrange-library-dublin-ie",
+   "2026-12-31",
+   "/christmas-events/dublin-ie",
+   "Elf Hunt at Deansgrange Library"
+  ],
+  [
+   "/christmas-events/elf-the-musical-montgomery-al",
+   "2026-12-27",
+   "/christmas-events/montgomery-al",
+   "Elf The Musical"
+  ],
+  [
+   "/christmas-events/enchanted-garden-winter-lights-tramore-ie",
+   "2026-12-31",
+   "/christmas-events/waterford-ie",
+   "Enchanted Garden Winter Lights"
+  ],
+  [
+   "/christmas-events/engel-maxi-angel-maxi-leuven-be",
+   "2026-11-28",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Engel Maxi (Angel Maxi)"
+  ],
+  [
+   "/christmas-events/european-christmas-market-huntington-beach-ca",
+   "2027-01-03",
+   "/christmas-events/huntington-beach-ca",
+   "European Christmas Market"
+  ],
+  [
+   "/christmas-events/fa-la-la-la-la-fabulous-christmas-junior-musicals-bray-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Fa la la la la Fabulous Christmas (Junior Musicals)"
+  ],
+  [
+   "/christmas-events/family-christmas-festival-at-slieve-aughty-centre-loughrea-ie",
+   "2026-12-23",
+   "/christmas-events/galway-ie",
+   "Family Christmas Festival at Slieve Aughty Centre"
+  ],
+  [
+   "/christmas-events/family-christmas-market-at-alice-salomon-platz-berlin-be",
+   "2026-12-26",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Family Christmas Market at Alice-Salomon-Platz (Berlin)"
+  ],
+  [
+   "/christmas-events/family-concert-christmas-with-astrid-lindgren-bruges-be",
+   "2026-12-02",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Family Concert: Christmas with Astrid Lindgren"
+  ],
+  [
+   "/christmas-events/family-day-christmas-constellations-at-draiocht-dublin-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Family Day: Christmas Constellations at Draíocht"
+  ],
+  [
+   "/christmas-events/family-day-elf-prints-and-patterns-at-draiocht-dublin-ie",
+   "2026-12-19",
+   "/christmas-events/dublin-ie",
+   "Family Day: Elf Prints and Patterns at Draíocht"
+  ],
+  [
+   "/christmas-events/family-workshop-festive-christmas-crafts-at-saint-patricks-cathedral-dublin-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Family Workshop: Festive Christmas Crafts at Saint Patrick's Cathedral"
+  ],
+  [
+   "/christmas-events/festival-of-christmas-petaluma-ca",
+   "2026-12-13",
+   "/christmas-events/santa-rosa-ca",
+   "Festival of Christmas"
+  ],
+  [
+   "/christmas-events/festival-of-trees-white-bear-lake-mn",
+   "2026-12-19",
+   "/christmas-events/white-bear-lake-mn",
+   "Festival of Trees"
+  ],
+  [
+   "/christmas-events/festive-crafts-at-skerries-library-ie",
+   "2026-12-10",
+   "/christmas-events/dublin-ie",
+   "Festive Crafts at Skerries Library"
+  ],
+  [
+   "/christmas-events/festive-crafts-for-ages-4-to-7-at-malahide-library-ie",
+   "2026-12-14",
+   "/christmas-events/dublin-ie",
+   "Festive Crafts for Ages 4 to 7 at Malahide Library"
+  ],
+  [
+   "/christmas-events/festive-crafts-for-ages-4-to-7-at-swords-library-dublin-ie",
+   "2026-12-03",
+   "/christmas-events/dublin-ie",
+   "Festive Crafts for Ages 4 to 7 at Swords Library"
+  ],
+  [
+   "/christmas-events/festive-crafts-for-ages-4-to-8-at-baldoyle-library-dublin-ie",
+   "2026-12-15",
+   "/christmas-events/dublin-ie",
+   "Festive Crafts for Ages 4 to 8 at Baldoyle Library"
+  ],
+  [
+   "/christmas-events/festive-crafts-for-ages-5-to-10-at-donabate-library-ie",
+   "2026-12-17",
+   "/christmas-events/dublin-ie",
+   "Festive Crafts for Ages 5 to 10 at Donabate Library"
+  ],
+  [
+   "/christmas-events/festive-explorer-family-workshops-at-imma-dublin-ie",
+   "2026-12-20",
+   "/christmas-events/dublin-ie",
+   "Festive Explorer Family Workshops at IMMA"
+  ],
+  [
+   "/christmas-events/festive-family-movie-at-malahide-library-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Festive Family Movie at Malahide Library"
+  ],
+  [
+   "/christmas-events/festive-family-movies-at-baldoyle-library-dublin-ie",
+   "2026-12-22",
+   "/christmas-events/dublin-ie",
+   "Festive Family Movies at Baldoyle Library"
+  ],
+  [
+   "/christmas-events/festive-family-movies-at-rush-library-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "Festive Family Movies at Rush Library"
+  ],
+  [
+   "/christmas-events/festive-lego-workshop-waterford-ie",
+   "2026-12-22",
+   "/christmas-events/waterford-ie",
+   "Festive Lego Workshop"
+  ],
+  [
+   "/christmas-events/festive-story-time-at-malahide-library-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Festive Story Time at Malahide Library"
+  ],
+  [
+   "/christmas-events/festive-story-time-at-swords-library-dublin-ie",
+   "2026-12-15",
+   "/christmas-events/dublin-ie",
+   "Festive Story Time at Swords Library"
+  ],
+  [
+   "/christmas-events/festive-sunday-lunch-with-santa-at-the-limerick-strand-hotel-ie",
+   "2026-11-29",
+   "/christmas-events/limerick-ie",
+   "Festive Sunday Lunch with Santa at the Limerick Strand Hotel"
+  ],
+  [
+   "/christmas-events/frau-holle-leuven-be",
+   "2026-11-21",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Frau Holle"
+  ],
+  [
+   "/christmas-events/funky-christmas-tree-collage-with-tarsila-kruse-at-garristown-library-ie",
+   "2026-12-16",
+   "/christmas-events/dublin-ie",
+   "Funky Christmas Tree Collage with Tarsila Krüse at Garristown Library"
+  ],
+  [
+   "/christmas-events/garter-lane-christmas-craft-fair-waterford-ie",
+   "2026-12-22",
+   "/christmas-events/waterford-ie",
+   "Garter Lane Christmas Craft Fair"
+  ],
+  [
+   "/christmas-events/gingerbread-buffet-drop-in-and-play-green-bay-wi",
+   "2026-12-18",
+   "/christmas-events/green-bay-wi",
+   "Gingerbread Buffet, Drop in and Play"
+  ],
+  [
+   "/christmas-events/gingerbread-house-decorating-party-with-the-gloway-co-galway-ie",
+   "2026-12-05",
+   "/christmas-events/galway-ie",
+   "Gingerbread House Decorating Party with The Gloway Co."
+  ],
+  [
+   "/christmas-events/gingerbread-house-decorating-pittsburgh-pa",
+   "2026-12-03",
+   "/christmas-events/pittsburgh-pa",
+   "Gingerbread House Decorating"
+  ],
+  [
+   "/christmas-events/gingerbread-lane-la-quinta-ca",
+   "2026-12-19",
+   "/christmas-events/palm-springs-ca",
+   "Gingerbread Lane"
+  ],
+  [
+   "/christmas-events/glittery-and-the-sparkle-elf-glittery-und-der-funkelwichtel-bruges-be",
+   "2026-12-12",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Glittery and the Sparkle Elf (Glittery und der Funkelwichtel)"
+  ],
+  [
+   "/christmas-events/glowing-gardens-jacksonville-fl",
+   "2027-01-03",
+   "/christmas-events/jacksonville-fl",
+   "Glowing Gardens"
+  ],
+  [
+   "/christmas-events/hallcrest-vineyards-holiday-market-felton-ca",
+   "2026-12-06",
+   "/christmas-events/santa-cruz-ca",
+   "Hallcrest Vineyards Holiday Market"
+  ],
+  [
+   "/christmas-events/heartland-music-together-holiday-mini-session-louisville-ky",
+   "2026-12-19",
+   "/christmas-events/louisville-ky",
+   "Heartland Music Together Holiday Mini Session"
+  ],
+  [
+   "/christmas-events/holiday-lamplight-tours-bakersfield-ca",
+   "2026-12-05",
+   "/christmas-events/bakersfield-ca",
+   "Holiday Lamplight Tours"
+  ],
+  [
+   "/christmas-events/holiday-lights-parade-flagstaff-az",
+   "2026-12-12",
+   "/christmas-events/flagstaff-az",
+   "Greater Flagstaff Chamber and Wecom Holiday Lights Parade"
+  ],
+  [
+   "/christmas-events/holiday-ride-on-train-atlanta-ga",
+   "2027-01-03",
+   "/christmas-events/atlanta-ga",
+   "Holiday Ride-on Train"
+  ],
+  [
+   "/christmas-events/holiday-spectacular-san-jose-ca",
+   "2026-12-13",
+   "/christmas-events/san-jose-ca",
+   "Holiday Spectacular"
+  ],
+  [
+   "/christmas-events/holiday-tree-lighting-san-gabriel-ca",
+   "2026-12-01",
+   "/christmas-events/san-gabriel-ca",
+   "Holiday Tree Lighting"
+  ],
+  [
+   "/christmas-events/holly-jolly-jamboree-soddy-daisy-tn",
+   "2026-12-04",
+   "/christmas-events/chattanooga-tn",
+   "Holly Jolly Jamboree"
+  ],
+  [
+   "/christmas-events/home-alone-in-concert-dublin-ie",
+   "2026-12-21",
+   "/christmas-events/dublin-ie",
+   "Home Alone in Concert"
+  ],
+  [
+   "/christmas-events/howth-family-christmas-concert-extravaganza-dublin-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Howth Family Christmas Concert Extravaganza"
+  ],
+  [
+   "/christmas-events/i-drive-district-holiday-tree-lighting-orlando-fl",
+   "2026-11-20",
+   "/christmas-events/orlando-fl",
+   "I-Drive District Official Holiday Tree Lighting"
+  ],
+  [
+   "/christmas-events/inclusive-santa-experience-at-barberstown-castle-straffan-ie",
+   "2026-12-06",
+   "/christmas-events/dublin-ie",
+   "Inclusive Santa Experience at Barberstown Castle"
+  ],
+  [
+   "/christmas-events/jingle-all-the-way-rathfarnham-concert-band-society-dublin-ie",
+   "2026-11-30",
+   "/christmas-events/dublin-ie",
+   "Jingle All the Way (Rathfarnham Concert Band Society)"
+  ],
+  [
+   "/christmas-events/jingle-fest-at-emerald-park-ashbourne-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "Jingle Fest at Emerald Park"
+  ],
+  [
+   "/christmas-events/jolaboka-cologne-be",
+   "2026-12-09",
+   "/christmas-events/christmas-in-namur-with-kids",
+   "Jolaboka (Cologne)"
+  ],
+  [
+   "/christmas-events/jolabokaflod-burlington-vt",
+   "2026-12-02",
+   "/christmas-events/burlington-vt",
+   "Jolabokaflod"
+  ],
+  [
+   "/christmas-events/kids-christmas-disco-at-the-talbot-hotel-midleton-ie",
+   "2026-12-06",
+   "/christmas-events/cork-ie",
+   "Kids Christmas Disco at the Talbot Hotel Midleton"
+  ],
+  [
+   "/christmas-events/kids-crafty-christmas-morning-at-clondalkin-library-dublin-ie",
+   "2026-11-21",
+   "/christmas-events/dublin-ie",
+   "Kids Crafty Christmas Morning at Clondalkin Library"
+  ],
+  [
+   "/christmas-events/kids-morning-make-your-own-christmas-decoration-dublin-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Kids Morning: Make Your Own Christmas Decoration"
+  ],
+  [
+   "/christmas-events/kidsyard-family-rave-christmas-cracker-dublin-ie",
+   "2026-12-20",
+   "/christmas-events/dublin-ie",
+   "Kidsyard Family Rave: Christmas Cracker"
+  ],
+  [
+   "/christmas-events/kilfinane-christmas-moonlight-market-ie",
+   "2026-12-18",
+   "/christmas-events/limerick-ie",
+   "Kilfinane Christmas Moonlight Market"
+  ],
+  [
+   "/christmas-events/kokosnuss-feiert-weihnachten-familientag-kokosnuss-celebrates-christmas-namur-be",
+   "2026-12-27",
+   "/christmas-events/christmas-in-namur-with-kids",
+   "Kokosnuss feiert Weihnachten: Familientag (Kokosnuss Celebrates Christmas: Family Day)"
+  ],
+  [
+   "/christmas-events/kreativ-tag-geschenkpapier-selbst-gestalten-creative-day-make-your-own-namur-be",
+   "2026-12-02",
+   "/christmas-events/christmas-in-namur-with-kids",
+   "Kreativ-Tag: Geschenkpapier selbst gestalten (Creative Day: Make Your Own Wrapping Paper)"
+  ],
+  [
+   "/christmas-events/kringletown-christmas-village-and-santa-experience-kilmacthomas-ie",
+   "2026-12-20",
+   "/christmas-events/waterford-ie",
+   "KringleTown Christmas Village and Santa Experience"
+  ],
+  [
+   "/christmas-events/le-studio-cinekrafte-special-noel-dudelange",
+   "2026-11-28",
+   "/christmas-events/noel-avec-les-enfants-esch-sur-alzette",
+   "Le Studio CinéKrafté : Spécial Noël (Dudelange)"
+  ],
+  [
+   "/christmas-events/le-studio-cinekrafte-special-noel-dudelange-lu",
+   "2026-11-28",
+   "/christmas-events/esch-sur-alzette-lu",
+   "Le Studio CinéKrafté : Spécial Noël (Dudelange)"
+  ],
+  [
+   "/christmas-events/lets-glow-sf-san-francisco-ca",
+   "2026-12-13",
+   "/christmas-events/san-francisco-ca",
+   "Let's Glow SF"
+  ],
+  [
+   "/christmas-events/lets-quiz-weihnachtsedition-christmas-edition-namur-be",
+   "2026-12-12",
+   "/christmas-events/christmas-in-namur-with-kids",
+   "Let's Quiz! Weihnachtsedition (Christmas Edition)"
+  ],
+  [
+   "/christmas-events/letters-from-santa-mailbox-moline-il",
+   "2026-11-30",
+   "/christmas-events/moline-il",
+   "Letters from Santa Mailbox"
+  ],
+  [
+   "/christmas-events/light-it-up-long-beach-holiday-house-digital-map-long-beach-ny",
+   "2027-01-01",
+   "/christmas-events/long-beach-ny",
+   "Light It Up Long Beach Holiday House Digital Map"
+  ],
+  [
+   "/christmas-events/lighted-christmas-parade-marshall-tx",
+   "2026-12-05",
+   "/christmas-events/marshall-tx",
+   "Lighted Christmas Parade"
+  ],
+  [
+   "/christmas-events/lighting-of-the-village-helen-ga",
+   "2026-11-27",
+   "/christmas-events/atlanta-ga",
+   "Annual Lighting of the Village"
+  ],
+  [
+   "/christmas-events/lotta-kann-fast-alles-lotta-can-do-almost-anything-namur-be",
+   "2026-12-02",
+   "/christmas-events/christmas-in-namur-with-kids",
+   "Lotta kann fast alles (Lotta Can Do Almost Anything)"
+  ],
+  [
+   "/christmas-events/loughrea-town-hall-christmas-market-and-community-open-day-ie",
+   "2026-12-12",
+   "/christmas-events/galway-ie",
+   "Loughrea Town Hall Christmas Market and Community Open Day"
+  ],
+  [
+   "/christmas-events/lucan-house-christmas-market-dublin-ie",
+   "2026-12-06",
+   "/christmas-events/dublin-ie",
+   "Lucan House Christmas Market"
+  ],
+  [
+   "/christmas-events/made-well-irish-craft-in-christmas-lights-at-killruddery-bray-ie",
+   "2026-11-22",
+   "/christmas-events/dublin-ie",
+   "MADE-WELL: Irish Craft in Christmas Lights at Killruddery"
+  ],
+  [
+   "/christmas-events/marana-holiday-festival-and-tree-lighting-marana-az",
+   "2026-12-05",
+   "/christmas-events/marana-az",
+   "Marana's Holiday Festival & Tree Lighting"
+  ],
+  [
+   "/christmas-events/maryland-holiday-light-spectacular-timonium-md",
+   "2026-12-30",
+   "/christmas-events/baltimore-md",
+   "Maryland Holiday Light Spectacular"
+  ],
+  [
+   "/christmas-events/meet-santa-at-the-market-scottsdale-az",
+   "2026-12-19",
+   "/christmas-events/scottsdale-az",
+   "Meet Santa at the Market"
+  ],
+  [
+   "/christmas-events/meet-santa-at-the-red-stables-dublin-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Meet Santa at The Red Stables"
+  ],
+  [
+   "/christmas-events/movies-at-the-reg-home-alone-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Movies at The Reg: Home Alone"
+  ],
+  [
+   "/christmas-events/mrs-claus-snow-stroll-huntsville-al",
+   "2026-12-05",
+   "/christmas-events/huntsville-al",
+   "Mrs. Claus' Snow Stroll at Stovehouse"
+  ],
+  [
+   "/christmas-events/murray-city-annual-tree-lighting-and-santa-visit-ut",
+   "2026-11-23",
+   "/christmas-events/salt-lake-city-ut",
+   "A Murray Christmas Tree Lighting"
+  ],
+  [
+   "/christmas-events/newcastle-west-christmas-craft-fair-and-santa-paws-ie",
+   "2026-11-29",
+   "/christmas-events/limerick-ie",
+   "Newcastle West Christmas Craft Fair and Santa Paws"
+  ],
+  [
+   "/christmas-events/night-at-the-north-pole-grand-prairie-tx",
+   "2026-12-09",
+   "/christmas-events/grand-prairie-tx",
+   "Night at the North Pole"
+  ],
+  [
+   "/christmas-events/nikolauskonzert-der-regionalschule-weiden-saint-nicholas-concert-namur-be",
+   "2026-12-05",
+   "/christmas-events/christmas-in-namur-with-kids",
+   "Nikolauskonzert der Regionalschule Weiden (Saint Nicholas Concert of the Weiden Regional School)"
+  ],
+  [
+   "/christmas-events/north-pole-express-parrish-fl",
+   "2026-12-22",
+   "/christmas-events/sarasota-fl",
+   "North Pole Express"
+  ],
+  [
+   "/christmas-events/nutcracker-in-a-nutshell-tustin-ca",
+   "2026-11-19",
+   "/christmas-events/irvine-ca",
+   "Nutcracker in a Nutshell"
+  ],
+  [
+   "/christmas-events/oh-du-furzige-weihnachtszeit-oh-you-farty-christmas-season-bruges-be",
+   "2026-12-23",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Oh, du furzige Weihnachtszeit! (Oh, You Farty Christmas Season)"
+  ],
+  [
+   "/christmas-events/oneiroupoli-drama-gr",
+   "2027-01-03",
+   "/christmas-events/kavala-gr",
+   "Ονειρούπολη -"
+  ],
+  [
+   "/christmas-events/oughterard-christmas-street-light-switch-on-ie",
+   "2026-12-06",
+   "/christmas-events/galway-ie",
+   "Oughterard Christmas Street Light Switch-On"
+  ],
+  [
+   "/christmas-events/oughterard-santa-grotto-ie",
+   "2026-12-06",
+   "/christmas-events/galway-ie",
+   "Oughterard Santa Grotto"
+  ],
+  [
+   "/christmas-events/paint-your-own-pottery-christmas-ornaments-waterford-ie",
+   "2026-11-21",
+   "/christmas-events/waterford-ie",
+   "Paint Your Own Pottery Christmas Ornaments"
+  ],
+  [
+   "/christmas-events/parthalan-place-christmas-market-and-tree-lighting-tallaght-ie",
+   "2026-11-27",
+   "/christmas-events/dublin-ie",
+   "Parthalán Place Christmas Market and Tree Lighting"
+  ],
+  [
+   "/christmas-events/puttin-on-the-glitz-santas-village-san-clemente-ca",
+   "2026-12-05",
+   "/christmas-events/san-clemente-ca",
+   "Puttin' On The Glitz & Santa's Village By The Sea"
+  ],
+  [
+   "/christmas-events/rathfarnham-castle-park-christmas-market-dublin-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Rathfarnham Castle Park Christmas Market"
+  ],
+  [
+   "/christmas-events/rush-christmas-market-elf-treasure-trail-ie",
+   "2026-11-29",
+   "/christmas-events/dublin-ie",
+   "Rush Christmas Market Elf Treasure Trail"
+  ],
+  [
+   "/christmas-events/rush-panto-cinderella-at-the-millbank-theatre-ie",
+   "2026-12-30",
+   "/christmas-events/dublin-ie",
+   "Rush Panto: Cinderella at the Millbank Theatre"
+  ],
+  [
+   "/christmas-events/san-jose-holiday-lights-san-jose-ca",
+   "2027-01-01",
+   "/christmas-events/san-jose-ca",
+   "San Jose Holiday Lights"
+  ],
+  [
+   "/christmas-events/santa-and-the-ponies-at-festina-lente-bray-ie",
+   "2026-12-20",
+   "/christmas-events/dublin-ie",
+   "Santa and the Ponies at Festina Lente"
+  ],
+  [
+   "/christmas-events/santa-arrival-at-the-red-cow-inn-dublin-ie",
+   "2026-11-28",
+   "/christmas-events/dublin-ie",
+   "Santa Arrival at the Red Cow Inn"
+  ],
+  [
+   "/christmas-events/santa-arrives-at-blackrock-village-centre-dublin-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Santa Arrives at Blackrock Village Centre"
+  ],
+  [
+   "/christmas-events/santa-express-at-waterford-suir-valley-railway-kilmeadan-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Santa Express at Waterford Suir Valley Railway"
+  ],
+  [
+   "/christmas-events/santa-express-new-hope-valley-railway-new-hill-nc",
+   "2026-12-19",
+   "/christmas-events/raleigh-nc",
+   "Santa Express at New Hope Valley Railway"
+  ],
+  [
+   "/christmas-events/santa-fest-and-tree-lighting-tampa-fl",
+   "2026-12-05",
+   "/christmas-events/tampa-fl",
+   "Santa Fest & Tree Lighting"
+  ],
+  [
+   "/christmas-events/santa-in-the-barn-at-leahys-open-farm-dungourney-ie",
+   "2026-12-23",
+   "/christmas-events/cork-ie",
+   "Santa in the Barn at Leahy's Open Farm"
+  ],
+  [
+   "/christmas-events/santa-is-coming-to-loughrea-ie",
+   "2026-12-06",
+   "/christmas-events/galway-ie",
+   "Santa Is Coming to Loughrea"
+  ],
+  [
+   "/christmas-events/santa-land-experience-at-treacys-west-county-hotel-ennis-ie",
+   "2026-12-20",
+   "/christmas-events/limerick-ie",
+   "Santa Land Experience at Treacys West County Hotel"
+  ],
+  [
+   "/christmas-events/santa-reads-in-the-crane-der-weihnachtsmann-liest-im-kran-leuven-be",
+   "2026-12-12",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Santa Reads in the Crane (Der Weihnachtsmann liest im Kran)"
+  ],
+  [
+   "/christmas-events/santa-truck-for-lauralynn-dublin-and-north-kildare-stops-ie",
+   "2026-12-05",
+   "/christmas-events/dublin-ie",
+   "Santa Truck for LauraLynn: Dublin and North Kildare Stops"
+  ],
+  [
+   "/christmas-events/santa-visit-at-skinny-batch-bakery-childrens-christmas-market-lusk-ie",
+   "2026-12-06",
+   "/christmas-events/dublin-ie",
+   "Santa Visit at Skinny Batch Bakery Children's Christmas Market"
+  ],
+  [
+   "/christmas-events/santa-visit-at-the-harbour-bar-bray-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Santa Visit at The Harbour Bar"
+  ],
+  [
+   "/christmas-events/santa-visit-at-the-martello-bray-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Santa Visit at The Martello"
+  ],
+  [
+   "/christmas-events/santa-visits-at-the-old-orchard-inn-dublin-ie",
+   "2026-12-19",
+   "/christmas-events/dublin-ie",
+   "Santa Visits at The Old Orchard Inn"
+  ],
+  [
+   "/christmas-events/santa-visits-gardenfield-tuam-ie",
+   "2026-12-06",
+   "/christmas-events/galway-ie",
+   "Santa Visits Gardenfield"
+  ],
+  [
+   "/christmas-events/santas-arrival-festival-and-lighting-ceremony-mission-viejo-ca",
+   "2026-11-29",
+   "/christmas-events/mission-viejo-ca",
+   "Santa's Arrival Festival & Lighting Ceremony"
+  ],
+  [
+   "/christmas-events/santas-christmas-lunch-at-old-conna-bray-ie",
+   "2026-12-13",
+   "/christmas-events/dublin-ie",
+   "Santa's Christmas Lunch at Old Conna"
+  ],
+  [
+   "/christmas-events/santas-cottage-milltown-ie",
+   "2026-12-13",
+   "/christmas-events/galway-ie",
+   "Santa's Cottage Milltown"
+  ],
+  [
+   "/christmas-events/santas-giant-disco-postbox-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Santa's Giant Disco Postbox"
+  ],
+  [
+   "/christmas-events/santas-grand-arrival-aurora-co",
+   "2026-11-20",
+   "/christmas-events/aurora-co",
+   "Santa's Grand Arrival"
+  ],
+  [
+   "/christmas-events/santas-grotto-at-city-square-waterford-ie",
+   "2026-12-24",
+   "/christmas-events/waterford-ie",
+   "Santa's Grotto at City Square"
+  ],
+  [
+   "/christmas-events/santas-grotto-at-liffey-valley-shopping-centre-dublin-ie",
+   "2026-12-24",
+   "/christmas-events/dublin-ie",
+   "Santa's Grotto at Liffey Valley Shopping Centre"
+  ],
+  [
+   "/christmas-events/santas-grotto-at-the-south-court-hotel-limerick-ie",
+   "2026-12-06",
+   "/christmas-events/limerick-ie",
+   "Santa's Grotto at the South Court Hotel"
+  ],
+  [
+   "/christmas-events/santas-grotto-in-sandyford-business-district-dublin-ie",
+   "2026-12-03",
+   "/christmas-events/dublin-ie",
+   "Santa's Grotto in Sandyford Business District"
+  ],
+  [
+   "/christmas-events/santas-post-box-collection-show-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Santa's Post-box Collection Show"
+  ],
+  [
+   "/christmas-events/santas-sunday-brunch-richmond-va",
+   "2026-12-06",
+   "/christmas-events/richmond-va",
+   "2nd Annual Santa’s Sunday Brunch"
+  ],
+  [
+   "/christmas-events/santas-supershow-at-tallaght-theatre-ie",
+   "2026-12-20",
+   "/christmas-events/dublin-ie",
+   "Santa's SuperShow at Tallaght Theatre"
+  ],
+  [
+   "/christmas-events/santas-supershow-galway-ie",
+   "2026-12-13",
+   "/christmas-events/galway-ie",
+   "Santa's SuperShow: Galway"
+  ],
+  [
+   "/christmas-events/santas-supershow-in-cork-matinee-ie",
+   "2026-12-12",
+   "/christmas-events/cork-ie",
+   "Santa's SuperShow in Cork (matinee)"
+  ],
+  [
+   "/christmas-events/sausalito-lighted-boat-parade-sausalito-ca",
+   "2026-12-12",
+   "/christmas-events/san-francisco-ca",
+   "Sausalito 39th Annual Lighted Boat Parade & Fireworks"
+  ],
+  [
+   "/christmas-events/schulerklausjagen-school-kids-klausjagen-weggis-ch",
+   "2026-12-03",
+   "/christmas-events/christmas-in-lucerne-with-kids",
+   "Schülerklausjagen (School Kids' Klausjagen) (Weggis)"
+  ],
+  [
+   "/christmas-events/sensory-santa-and-disney-friends-dreambig-foundation-new-ross-ie",
+   "2026-12-05",
+   "/christmas-events/waterford-ie",
+   "Sensory Santa and Disney Friends (Dreambig Foundation)"
+  ],
+  [
+   "/christmas-events/sensory-santa-at-the-courtyard-hotel-leixlip-ie",
+   "2026-11-29",
+   "/christmas-events/dublin-ie",
+   "Sensory Santa at the Courtyard Hotel Leixlip"
+  ],
+  [
+   "/christmas-events/sensory-santa-weekend-at-city-square-waterford-ie",
+   "2026-11-29",
+   "/christmas-events/waterford-ie",
+   "Sensory Santa Weekend at City Square"
+  ],
+  [
+   "/christmas-events/sing-christmas-concert-at-axis-ballymun-dublin-ie",
+   "2026-12-11",
+   "/christmas-events/dublin-ie",
+   "SING Christmas Concert at Axis Ballymun"
+  ],
+  [
+   "/christmas-events/skating-in-the-park-huntsville-al",
+   "2027-01-03",
+   "/christmas-events/huntsville-al",
+   "Skating in the Park"
+  ],
+  [
+   "/christmas-events/sleeping-beauty-panto-sensory-performance-waterford-ie",
+   "2026-12-02",
+   "/christmas-events/waterford-ie",
+   "Sleeping Beauty Panto Sensory Performance"
+  ],
+  [
+   "/christmas-events/snow-white-the-arena-panto-waterford-ie",
+   "2026-12-30",
+   "/christmas-events/waterford-ie",
+   "Snow White: The Arena Panto 2026"
+  ],
+  [
+   "/christmas-events/snowball-fighting-at-winterval-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Snowball Fighting at Winterval"
+  ],
+  [
+   "/christmas-events/south-kent-santa-parade-wyoming-mi",
+   "2026-12-12",
+   "/christmas-events/wyoming-mi",
+   "South Kent Santa Parade: Christmas at the Movies"
+  ],
+  [
+   "/christmas-events/spike-island-charity-christmas-carol-concert-cobh-ie",
+   "2026-12-06",
+   "/christmas-events/cork-ie",
+   "Spike Island Charity Christmas Carol Concert"
+  ],
+  [
+   "/christmas-events/st-andrews-national-school-christmas-fair-bray-ie",
+   "2026-11-28",
+   "/christmas-events/dublin-ie",
+   "St Andrew's National School Christmas Fair"
+  ],
+  [
+   "/christmas-events/storytime-at-the-mall-manchester-nh",
+   "2026-12-08",
+   "/christmas-events/manchester-nh",
+   "Storytime at the Mall"
+  ],
+  [
+   "/christmas-events/sunset-holiday-mercantile-san-francisco-ca",
+   "2026-12-06",
+   "/christmas-events/san-francisco-ca",
+   "The Sunset Holiday Mercantile"
+  ],
+  [
+   "/christmas-events/superkids-christmas-camp-waterford-ie",
+   "2026-12-20",
+   "/christmas-events/waterford-ie",
+   "SuperKids Christmas Camp"
+  ],
+  [
+   "/christmas-events/swea-atlanta-christmas-market-atlanta-ga",
+   "2026-12-05",
+   "/christmas-events/atlanta-ga",
+   "SWEA Atlanta's Annual Christmas Market"
+  ],
+  [
+   "/christmas-events/taneys-walking-nativity-experience-dublin-ie",
+   "2026-11-29",
+   "/christmas-events/dublin-ie",
+   "Taney's Walking Nativity Experience"
+  ],
+  [
+   "/christmas-events/teddy-bear-christmas-storytime-at-baldoyle-library-dublin-ie",
+   "2026-12-18",
+   "/christmas-events/dublin-ie",
+   "Teddy Bear Christmas Storytime at Baldoyle Library"
+  ],
+  [
+   "/christmas-events/the-best-christmas-pageant-ever-broken-arrow-ok",
+   "2026-12-20",
+   "/christmas-events/broken-arrow-ok",
+   "The Best Christmas Pageant Ever by Barbara Robinson"
+  ],
+  [
+   "/christmas-events/the-bookshelf-with-ryan-tubridy-festive-family-matinee-dublin-ie",
+   "2026-12-11",
+   "/christmas-events/dublin-ie",
+   "The Bookshelf with Ryan Tubridy: Festive Family Matinée"
+  ],
+  [
+   "/christmas-events/the-christmas-bakery-the-musical-die-weihnachtsbackerei-bruges-be",
+   "2026-12-05",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "The Christmas Bakery: The Musical (Die Weihnachtsbäckerei)"
+  ],
+  [
+   "/christmas-events/the-christmas-market-at-winterval-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "The Christmas Market at Winterval"
+  ],
+  [
+   "/christmas-events/the-christmas-turkey-and-other-tales-with-niall-de-burca-greystones-ie",
+   "2026-12-19",
+   "/christmas-events/dublin-ie",
+   "The Christmas Turkey and Other Tales with Niall de Búrca"
+  ],
+  [
+   "/christmas-events/the-elves-workshop-waterford-ie",
+   "2026-12-20",
+   "/christmas-events/waterford-ie",
+   "The Elves Workshop"
+  ],
+  [
+   "/christmas-events/the-great-dickens-christmas-fair-daly-city-ca",
+   "2026-12-20",
+   "/christmas-events/san-francisco-ca",
+   "The Great Dickens Christmas Fair"
+  ],
+  [
+   "/christmas-events/the-muppet-christmas-carol-at-light-house-cinema-dublin-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "The Muppet Christmas Carol at Light House Cinema"
+  ],
+  [
+   "/christmas-events/the-muppet-christmas-carol-at-mermaid-arts-centre-bray-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "The Muppet Christmas Carol at Mermaid Arts Centre"
+  ],
+  [
+   "/christmas-events/the-muppet-christmas-carol-at-triskel-christmas-movies-cork-ie",
+   "2026-12-23",
+   "/christmas-events/cork-ie",
+   "The Muppet Christmas Carol at Triskel Christmas Movies"
+  ],
+  [
+   "/christmas-events/the-nativity-scene-exhibition-at-rathfarnham-castle-dublin-ie",
+   "2027-01-06",
+   "/christmas-events/dublin-ie",
+   "The Nativity Scene exhibition at Rathfarnham Castle"
+  ],
+  [
+   "/christmas-events/the-nutcracker-ocala-metro-ballet-ocala-fl",
+   "2026-11-28",
+   "/christmas-events/ocala-fl",
+   "The Nutcracker Ballet Presented by Ocala Metro Ballet Theatre"
+  ],
+  [
+   "/christmas-events/the-nutcracker-symphony-of-lights-los-angeles-ca",
+   "2026-12-11",
+   "/christmas-events/los-angeles-ca",
+   "The Nutcracker: Symphony of Lights"
+  ],
+  [
+   "/christmas-events/the-polish-christmas-village-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "The Polish Christmas Village"
+  ],
+  [
+   "/christmas-events/the-sandymount-hotel-santa-day-dublin-ie",
+   "2026-12-06",
+   "/christmas-events/dublin-ie",
+   "The Sandymount Hotel Santa Day"
+  ],
+  [
+   "/christmas-events/the-snowman-at-saint-patricks-cathedral-dublin-ie",
+   "2026-12-23",
+   "/christmas-events/dublin-ie",
+   "The Snowman at Saint Patrick's Cathedral"
+  ],
+  [
+   "/christmas-events/the-toy-library-circular-christmas-swap-and-play-cork-ie",
+   "2026-11-29",
+   "/christmas-events/cork-ie",
+   "The Toy Library Circular Christmas Swap and Play"
+  ],
+  [
+   "/christmas-events/the-toy-library-circular-christmas-swap-and-play-dublin-ie",
+   "2026-11-28",
+   "/christmas-events/dublin-ie",
+   "The Toy Library Circular Christmas Swap and Play"
+  ],
+  [
+   "/christmas-events/the-winterval-circus-waterford-ie",
+   "2027-01-03",
+   "/christmas-events/waterford-ie",
+   "The Winterval Circus"
+  ],
+  [
+   "/christmas-events/the-winterval-mini-express-train-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "The Winterval Mini Express Train"
+  ],
+  [
+   "/christmas-events/tidings-of-tradition-at-friars-gate-theatre-kilmallock-ie",
+   "2026-12-11",
+   "/christmas-events/limerick-ie",
+   "Tidings of Tradition at Friars' Gate Theatre"
+  ],
+  [
+   "/christmas-events/tidings-of-tradition-christmas-tour-dungarvan-ie",
+   "2026-12-13",
+   "/christmas-events/waterford-ie",
+   "Tidings of Tradition: Christmas Tour 2026"
+  ],
+  [
+   "/christmas-events/timm-thaler-the-boy-who-sold-his-laughter-leuven-be",
+   "2026-12-26",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Timm Thaler (The Boy Who Sold His Laughter)"
+  ],
+  [
+   "/christmas-events/tinseltown-in-water-works-park-des-moines-ia",
+   "2026-11-21",
+   "/christmas-events/des-moines-ia",
+   "Tinseltown in Water Works Park"
+  ],
+  [
+   "/christmas-events/university-of-limerick-orchestra-christmas-concert-featuring-the-snowman-ie",
+   "2026-11-29",
+   "/christmas-events/limerick-ie",
+   "University of Limerick Orchestra Christmas Concert featuring The Snowman"
+  ],
+  [
+   "/christmas-events/uptown-winter-market-and-tree-lighting-mount-lebanon-pa",
+   "2026-12-05",
+   "/christmas-events/mount-lebanon-pa",
+   "Uptown Winter Market and Tree Lighting"
+  ],
+  [
+   "/christmas-events/victorian-christmas-at-the-bishops-palace-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Victorian Christmas at the Bishop's Palace"
+  ],
+  [
+   "/christmas-events/visit-long-beach-tree-lighting-long-beach-ca",
+   "2026-12-07",
+   "/christmas-events/long-beach-ca",
+   "Visit Long Beach Tree Lighting"
+  ],
+  [
+   "/christmas-events/visit-santa-at-christmas-in-shankill-village-dublin-ie",
+   "2026-11-29",
+   "/christmas-events/dublin-ie",
+   "Visit Santa at Christmas in Shankill Village"
+  ],
+  [
+   "/christmas-events/visit-santa-at-winterval-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Visit Santa at Winterval"
+  ],
+  [
+   "/christmas-events/waldweihnacht-forest-christmas-leuven-be",
+   "2026-12-20",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Waldweihnacht (Forest Christmas)"
+  ],
+  [
+   "/christmas-events/waterford-panto-sleeping-beauty-ie",
+   "2026-12-30",
+   "/christmas-events/waterford-ie",
+   "Waterford Panto: Sleeping Beauty"
+  ],
+  [
+   "/christmas-events/waterford-treasures-childrens-christmas-trail-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Waterford Treasures Children's Christmas Trail"
+  ],
+  [
+   "/christmas-events/weihnachtsbackerei-christmas-bakery-theater-tom-teuer-hamburg-be",
+   "2026-12-30",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Weihnachtsbäckerei (Christmas Bakery), Theater Tom Teuer (Hamburg)"
+  ],
+  [
+   "/christmas-events/whistle-stop-christmas-cleburne-tx",
+   "2027-01-03",
+   "/christmas-events/cleburne-tx",
+   "Whistle Stop Christmas"
+  ],
+  [
+   "/christmas-events/who-how-what-christmas-wer-wie-was-weihnachten-bruges-be",
+   "2026-12-19",
+   "/christmas-events/christmas-in-bruges-with-kids",
+   "Who, How, What Christmas? (Wer Wie Was Weihnachten?)"
+  ],
+  [
+   "/christmas-events/winter-songs-winter-stories-with-inishlacken-strings-waterford-ie",
+   "2026-12-20",
+   "/christmas-events/waterford-ie",
+   "Winter Songs, Winter Stories with Inishlacken Strings"
+  ],
+  [
+   "/christmas-events/winter-walk-of-lights-vienna-va",
+   "2027-01-03",
+   "/christmas-events/washington-dc",
+   "Winter Walk of Lights"
+  ],
+  [
+   "/christmas-events/winter-weekend-winterliches-wochenende-leuven-be",
+   "2027-01-10",
+   "/christmas-events/christmas-in-leuven-with-kids",
+   "Winter Weekend (Winterliches Wochenende)"
+  ],
+  [
+   "/christmas-events/winter-wonder-lights-rochester-mi",
+   "2026-12-30",
+   "/christmas-events/rochester-mi",
+   "Winter Wonder Lights"
+  ],
+  [
+   "/christmas-events/winter-wonderland-art-workshop-for-ages-4-to-7-malahide-ie",
+   "2026-11-29",
+   "/christmas-events/dublin-ie",
+   "Winter Wonderland Art Workshop for Ages 4 to 7"
+  ],
+  [
+   "/christmas-events/winter-wonderland-at-ardmore-open-farm-and-mini-zoo-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Winter Wonderland at Ardmore Open Farm and Mini Zoo"
+  ],
+  [
+   "/christmas-events/winter-wondertales-with-simone-schuemmelfeder-at-baldoyle-library-dublin-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Winter Wondertales with Simone Schuemmelfeder at Baldoyle Library"
+  ],
+  [
+   "/christmas-events/winter-wondertales-with-simone-schuemmelfeder-at-swords-library-dublin-ie",
+   "2026-12-12",
+   "/christmas-events/dublin-ie",
+   "Winter Wondertales with Simone Schuemmelfeder at Swords Library"
+  ],
+  [
+   "/christmas-events/winterfest-boat-parade-viewing-area-fort-lauderdale-fl",
+   "2026-12-12",
+   "/christmas-events/fort-lauderdale-fl",
+   "Seminole Hard Rock Winterfest Boat Parade"
+  ],
+  [
+   "/christmas-events/winterval-fairground-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Winterval Fairground"
+  ],
+  [
+   "/christmas-events/winterval-illuminates-christmas-light-show-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Winterval Illuminates Christmas Light Show"
+  ],
+  [
+   "/christmas-events/winterval-olde-worlde-choir-waterford-ie",
+   "2026-12-20",
+   "/christmas-events/waterford-ie",
+   "Winterval Olde Worlde Choir"
+  ],
+  [
+   "/christmas-events/winterval-on-ice-waterford-ie",
+   "2027-01-03",
+   "/christmas-events/waterford-ie",
+   "Winterval On Ice"
+  ],
+  [
+   "/christmas-events/winterval-photo-orienteering-waterford-ie",
+   "2026-12-23",
+   "/christmas-events/waterford-ie",
+   "Winterval Photo Orienteering"
+  ],
+  [
+   "/christmas-events/winterval-santa-cruise-on-the-barrow-princess-waterford-ie",
+   "2026-12-20",
+   "/christmas-events/waterford-ie",
+   "Winterval Santa Cruise on the Barrow Princess"
+  ],
+  [
+   "/christmas-events/winterval-truck-and-tractor-parade-waterford-ie",
+   "2026-12-06",
+   "/christmas-events/waterford-ie",
+   "Winterval Truck and Tractor Parade"
+  ],
+  [
+   "/christmas-events/zoo-tots-polar-pals-at-dublin-zoo-ie",
+   "2026-12-02",
+   "/christmas-events/dublin-ie",
+   "Zoo Tots: Polar Pals at Dublin Zoo"
+  ]
+ ],
+ "upcoming_not_listed_by_country": {
+  "Ireland": 168,
+  "United States": 75,
+  "Belgium": 28,
+  "Luxembourg": 2,
+  "United Kingdom": 1,
+  "Greece": 1,
+  "Switzerland": 1
+ },
+ "past_not_listed": 220,
+ "other": [
+  [
+   "/christmas-events/arrival-and-sint-festival-in-zandvoort-intocht-en-sintfestival-zandvoort-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/arrival-of-sinterklaas-in-the-hague-intocht-sinterklaas-den-haag-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/organizer",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/reading-pa-duplicate-copy",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sint-nicolaas-arrival-in-dordrecht-intocht-sint-nicolaas-dordrecht-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-amersfoort-sinterklaasstad-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-amsterdam-sinterklaas-intocht-amsterdam-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-capelle-aan-den-ijssel-intocht-sinterklaas-capelle-aan-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-ijmuiden-sinterklaasintocht-ijmuiden-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-leiden-intocht-sinterklaas-leiden-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-leidschendam-intocht-sinterklaas-leidschendam-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-rotterdam-sinterklaasintocht-rotterdam-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-schiedam-intocht-sinterklaas-schiedam-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-veldhoven-sinterklaas-intocht-veldhoven-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-voorburg-intocht-in-voorburg-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-arrival-in-zeist-sinterklaas-intocht-zeist-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-comes-to-eindhoven-sinterklaas-komt-naar-eindhoven-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-party-at-marsmanplein-sinterklaasfeest-marsmanplein-haarlem-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/sinterklaas-party-zaandam-sinterklaas-feest-zaandam-nl",
+   "no event dates"
+  ],
+  [
+   "/christmas-events/the-arrival-de-intocht-helmond-nl",
+   "no event dates"
+  ]
+ ]
+}

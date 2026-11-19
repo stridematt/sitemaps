@@ -25,6 +25,113 @@ def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
 
+RC = re.compile(r'<li class="rtt-rc">(?:(?!</li>).){0,3000}?href="(/christmas-events/[a-z0-9-]+)"[^>]*>(?:<[^>]+>)*([^<]{1,80})', re.S)
+SEC = re.compile(r'<h2 id="city-[^"]*"[^>]*>([^<]{1,80})(?:(?!<h2\b).){0,4000}?href="(/christmas-events/[a-z0-9-]+)', re.S)
+
+
+def linked_cities(h, self_path=None):
+    """City pages a guide lists: its city cards and its city sections (path -> shown name)."""
+    out = {}
+    for m in RC.finditer(h):
+        out.setdefault(m.group(1), m.group(2).strip())
+    for m in SEC.finditer(h):
+        out.setdefault(m.group(2), m.group(1).strip())
+    out.pop(self_path, None)
+    return out
+
+
+def item_json(path):
+    """A post's Squarespace JSON (body, title, id), or None."""
+    for _ in range(3):
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(SITE + path + ('&' if '?' in path else '?') + 'format=json', headers={'User-Agent': UA}), timeout=60)
+            return json.loads(r.read())
+        except Exception:
+            continue
+    return None
+
+
+def plain(s):
+    import unicodedata
+    return ''.join(c for c in unicodedata.normalize('NFKD', s) if not unicodedata.combining(c))
+
+
+def discover_guides(known_guides, known_places, code2name, found, today, log):
+    """New country and region guides the hub does not list yet.
+
+    Walks the Christmas events collection newest first (back to the last run), takes every new post
+    that lists city cards, and follows its cards down to the city pages (a country page can list
+    region pages, which list city pages). Returns the updated `found` registry:
+      found['hw']: newest publish time seen; found['guides'][path] = {kind, name, country, cities, subs}
+    """
+    hw = found.get('hw', 0)
+    guides = found.setdefault('guides', {})
+    url, newest, roots = '/christmas-events', hw, []
+    for _ in range(250):
+        j = item_json(url)
+        if not j:
+            break
+        stop = False
+        for it in j.get('items', []):
+            if it.get('publishOn', 0) <= hw - 3600000:
+                stop = True
+                break
+            newest = max(newest, it.get('publishOn', 0))
+            p, b = it.get('fullUrl', ''), it.get('body') or ''
+            if p in known_guides or p in guides or p in known_places or '<section class="rtt-pe-ride"' in b:
+                continue
+            if '<li class="rtt-rc">' in b:
+                roots.append((p, it.get('title', ''), b))
+        nxt = (j.get('pagination') or {}).get('nextPageUrl')
+        if stop or not nxt:
+            break
+        url = nxt
+    found['hw'] = newest
+    # re-crawl guides found earlier once a day (they gain cities as they are built out)
+    for g, v in guides.items():
+        if v.get('at', '') < today and v.get('kind') == 'country':
+            j = item_json(g)
+            if j and j.get('item'):
+                roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
+    sub_of = {s: g for g, v in guides.items() for s in v.get('subs', {})}
+    for root, title, body in roots:
+        if root in sub_of:
+            continue
+        cities, subs, seen = {}, {}, {root}
+        queue = [(root, body, None)]
+        while queue:
+            path, b, parent = queue.pop()
+            for q, name in linked_cities(b, path).items():
+                if q in seen or q in known_guides:
+                    continue
+                seen.add(q)
+                if q in known_places:
+                    cities[q] = name
+                    continue
+                j = item_json(q)
+                qb = ((j or {}).get('item') or {}).get('body') or ''
+                if '<section class="rtt-pe-ride"' in qb or ('<li class="rtt-rc">' not in qb and qb):
+                    cities[q] = name
+                elif '<li class="rtt-rc">' in qb:
+                    subs[q] = {'name': name}
+                    queue.append((q, qb, path))
+        codes = collections.Counter(c.rsplit('-', 1)[-1].upper() for c in cities if re.search(r'-[a-z]{2}$', c))
+        cc = codes.most_common(1)[0][0] if codes else ''
+        ld = re.search(r'"@type":\s*"Country",\s*"name":\s*"([^"]+)"', body)
+        country = code2name.get(cc) or (plain(ld.group(1)) if ld else '') or re.sub(r'\s*\(\d{4}\)\s*$', '', title)
+        if not cities:
+            continue
+        kind = 'region' if cc in code2name else 'country'
+        guides[root] = {'kind': kind, 'name': country if kind == 'country' else re.sub(r'\s*\(\d{4}\)\s*$', '', title),
+                        'country': country, 'cc': cc, 'cities': cities, 'subs': subs, 'at': today}
+        log(f'found a {kind} guide the hub does not list yet: {root} ({country}, {len(cities)} city pages, {len(subs)} region pages)')
+    # a region page found on its own before its country page: keep it under the country only
+    subs_all = {s for v in guides.values() for s in v.get('subs', {})}
+    for g in [g for g in guides if g in subs_all]:
+        guides.pop(g)
+    return found
+
+
 def fetch(path, tries=2):
     for i in range(tries):
         try:
@@ -49,7 +156,7 @@ def ref_today():
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--max', type=int, default=1500, help='most pages to read this run')
+    ap.add_argument('--max', type=int, default=8000, help='most pages to read this run')
     ap.add_argument('--titles', default=os.path.join(ROOT, '.state', 'llms-titles.json'))
     ap.add_argument('--state', default=os.path.join(ROOT, '.state', 'truth.json'), help='full registry kept between runs')
     args = ap.parse_args()
@@ -123,6 +230,19 @@ def main():
         for g in c['groups']:
             if g['state']:
                 guides[g['state'][0]] = {'kind': 'state', 'name': g['state'][1], 'country': c['name']}
+    # Country and region guides the hub does not list yet (a new country is live before it is on the hub)
+    code2name = {}
+    if xd:
+        code2name = {c[0]: c[1] for c in json.loads(xd.group(1)).get('c', [])}
+    found = discover_guides(guides, place, code2name, old.get('found', {}), today, log)
+    for g, fg in found.get('guides', {}).items():
+        if g in guides:
+            continue
+        guides[g] = {'kind': fg['kind'], 'name': fg['name'], 'country': fg['country']}
+        for sub, sd in fg.get('subs', {}).items():
+            guides.setdefault(sub, {'kind': 'region', 'name': sd.get('name', ''), 'country': fg['country']})
+        for q, name in fg.get('cities', {}).items():
+            place.setdefault(q, {'country': fg['country'], 'state': None, 'name': name, 'main': q})
     gstate = old.get('guide_pages', {})
     # New city pages a country or state guide links to (its city cards and city sections) count too,
     # even before the hub lists them. They are picked up from the last read of each guide.
@@ -142,6 +262,8 @@ def main():
         log(f'{len(added)} city pages found through guides that the hub does not list yet: {added[:10]}')
 
     # What to (re)read
+    # Every page is read every run: Squarespace's sitemap dates lag behind edits, so a page that
+    # changed would otherwise keep its old count for days. New and changed pages go first.
     due = []
     for p in list(place) + list(guides):
         prev = pages.get(p)
@@ -151,7 +273,7 @@ def main():
             due.append((1, p))
         elif prev.get('x') and prev['x'] < today:
             due.append((2, p))
-        elif prev.get('at', '') < (datetime.date.fromisoformat(today) - datetime.timedelta(days=7)).isoformat():
+        else:
             due.append((3, p))
     due.sort()
     todo = [p for _, p in due[:args.max]]
@@ -161,17 +283,13 @@ def main():
     ids_path = os.path.join(HERE, '..', 'sqsp', 'ids.json')
     sq_ids = json.load(open(ids_path, encoding='utf-8')) if os.path.exists(ids_path) else {}
     failed = 0
-    with cf.ThreadPoolExecutor(8) as ex:
+    with cf.ThreadPoolExecutor(12) as ex:
         for p, (st, h) in zip(todo, ex.map(fetch, todo)):
             if st == 200 and h and p in guides:
-                links = sorted(set(re.findall(r'href="(/christmas-events/[a-z0-9-]+)(?:#[^"]*)?"', h)) & set(place))
-                cities = {}
-                for m in re.finditer(r'<li class="rtt-rc">(?:(?!</li>).){0,3000}?href="(/christmas-events/[a-z0-9-]+)"[^>]*>(?:<[^>]+>)*([^<]{1,80})', h, re.S):
-                    cities.setdefault(m.group(1), m.group(2).strip())
-                for m in re.finditer(r'<h2 id="city-[^"]*"[^>]*>([^<]{1,80})(?:(?!<h2\b).){0,4000}?href="(/christmas-events/[a-z0-9-]+)', h, re.S):
-                    cities.setdefault(m.group(2), m.group(1).strip())
-                cities.pop(p, None)
-                gstate[p] = {'links': links, 'cities': sorted(cities), 'names': cities, 'lang': (re.search(r'<html[^>]*\blang="([^"]+)"', h) or [None, ''])[1], 'lastmod': lastmod.get(p), 'at': today}
+                hrefs = set(re.findall(r'href="(/christmas-events/[a-z0-9-]+)(?:#[^"]*)?"', h))
+                links = sorted(hrefs & set(place))
+                cities = linked_cities(h, p)
+                gstate[p] = {'links': links, 'subs': sorted(q for q in (set(cities) & set(guides)) if q != p), 'cities': sorted(cities), 'names': cities, 'lang': (re.search(r'<html[^>]*\blang="([^"]+)"', h) or [None, ''])[1], 'lastmod': lastmod.get(p), 'at': today}
                 sq_ids[p] = item_id(h) or sq_ids.get(p)
                 pages.setdefault(p, {}).update({'guide': True, 'lastmod': lastmod.get(p), 'at': today, 'e': 0, 'f': 0, 'k': [], 'fk': [], 'x': None})
             elif st == 200 and h:
@@ -196,9 +314,22 @@ def main():
     for p in list(pages):
         if p not in place and p not in guides:
             pages.pop(p)
+    def all_links(g, seen=None):
+        seen = seen if seen is not None else {g}
+        gs = gstate.get(g) or {}
+        out = set(gs.get('links', []))
+        for sub in gs.get('subs', []):
+            if sub not in seen:
+                seen.add(sub)
+                out |= all_links(sub, seen)
+        return out
+
     gout = {}
     for p, g in guides.items():
-        links = (gstate.get(p) or {}).get('links', [])
+        # only this guide's own cities (guides also link "nearby" cities in other states or countries)
+        country = g['name'] if g['kind'] == 'country' else g.get('country', '')
+        own = lambda q: (place.get(q) or {}).get('country') == country and (g['kind'] != 'state' or (place.get(q) or {}).get('state') in (p, None))
+        links = sorted(q for q in all_links(p) if own(q))
         k, fk = set(), set()
         for q in links:
             v = pages.get(q) or {}
@@ -248,7 +379,7 @@ def main():
         'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': (pages.get(c['best']) or {}).get('e', 0),
                        'f': (pages.get(c['best']) or {}).get('f', 0), 'alt': [q for q in c['paths'] if q != p],
                        'hub': p not in missing} for p, c in sorted(cities.items())},
-        'pages': pages, 'odd': odd, 'guide_pages': gstate,
+        'pages': pages, 'odd': odd, 'guide_pages': gstate, 'found': found,
     }
     # Small file for the Worker: only what pages display.
     regions = collections.defaultdict(lambda: {'events': set(), 'free': set(), 'cities': 0, 'cities_with_events': 0})
