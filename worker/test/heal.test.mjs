@@ -21,6 +21,8 @@ t('count phrases in several languages; dates, times and years are left alone', (
   assert.equal(rewriteCounts('A 110-foot tree, 15 minutes, ages 3 to 5, $20, open 5 to 10 pm', 36, 12), 'A 110-foot tree, 15 minutes, ages 3 to 5, $20, open 5 to 10 pm');
   assert.equal(rewriteCounts('36 family events across Denver and 5 nearby towns, 13 of them free', 30, 9), '30 family events across Denver and 5 nearby towns, 9 of them free');
   assert.equal(rewriteCounts('We found 73 confirmed Christmas events for kids', 81, 10), 'We found 81 confirmed Christmas events for kids');
+  assert.equal(rewriteCounts('Suomessa: 26 tapahtumaa, joista maksuttomia 3. Avoinna 3.12.', 652, 246), 'Suomessa: 652 tapahtumaa, joista maksuttomia 246. Avoinna 3.12.');
+  assert.equal(rewriteCounts('olemme vahvistaneet 26 lasten joulutapahtumaa', 652, 246), 'olemme vahvistaneet 652 lasten joulutapahtumaa');
 });
 
 t('reference day is UTC-12', () => {

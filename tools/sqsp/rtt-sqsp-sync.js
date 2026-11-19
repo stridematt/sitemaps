@@ -118,9 +118,23 @@ var RTTSync = (() => {
   ];
   var SP = "[\\s\\u00a0\\u202f]+";
   var NUM = "(\\d{1,3}(?:[,.\\u00a0\\u202f]\\d{3})+|\\d+)";
-  var ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|gepr\xFCfte|best\xE4tigte|weihnachtliche)${SP}){0,2}`;
+  var ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|gepr\xFCfte|best\xE4tigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek)${SP}){0,2}`;
   var E_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}${ADJ}(?:${EVENT_WORDS.join("|")})(?![\\w-]))`, "g");
   var F_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${FREE_AFTER.join("|")})(?![\\w-]))`, "g");
+  var FREE_BEFORE = [
+    "joista maksuttomia",
+    "joista ilmaisia",
+    "varav gratis",
+    "hvorav gratis",
+    "heraf gratis",
+    "davon kostenlos",
+    "davon gratis",
+    "w tym bezp\u0142atnych",
+    "ebb\u0151l ingyenes",
+    "of which free",
+    "dont gratuites"
+  ];
+  var FB_RE = new RegExp(`((?:${FREE_BEFORE.join("|")}):?${SP})${NUM}(?![\\d]|[.,]\\d)`, "g");
   var FOUND_RE = /(\b(?:We|we) found )(\d[\d,]*)( for kids)/g;
   var ARE_FREE_RE = /(^|[^\d.,:\/-])(\d+)(?= (?:are|is) free)/g;
   var THEM_RE = /(^|[^\d.,:\/-])(\d+)(?= of them (?:are |is )?free)/g;
@@ -156,6 +170,7 @@ var RTTSync = (() => {
     });
     t = t.replace(PAID_RE, (all, pre, n) => !only || only.p.has(toInt(n)) ? pre + fmtLike(n, P) : all);
     t = t.replace(F_RE, (all, pre, n) => ok(toInt(n), "f") ? pre + fmtLike(n, F) : all);
+    t = t.replace(FB_RE, (all, pre, n) => ok(toInt(n), "f") ? pre + fmtLike(n, F) : all);
     t = t.replace(THEM_RE, (all, pre, n) => ok(toInt(n), "f") ? pre + fmtLike(n, F) : all);
     t = t.replace(FOUND_RE, (all, a, n, b) => ok(toInt(n), "e") ? a + fmtLike(n, N) + b : all);
     t = t.replace(ARE_FREE_RE, (all, pre, n, off, str) => {
@@ -179,6 +194,7 @@ var RTTSync = (() => {
     if (!text) return { e, f };
     for (const m of text.matchAll(OF_RE)) e.add(toInt(m[4]));
     for (const m of text.matchAll(F_RE)) f.add(toInt(m[2]));
+    for (const m of text.matchAll(FB_RE)) f.add(toInt(m[2]));
     for (const m of text.matchAll(THEM_RE)) f.add(toInt(m[2]));
     for (const m of text.matchAll(FOUND_RE)) e.add(toInt(m[2]));
     for (const m of text.matchAll(E_RE)) e.add(toInt(m[2]));
@@ -496,7 +512,7 @@ ${head}
     const nEx = get(/<meta property="og:description" content="([^"]*)"/);
     const body = healed.slice(healed.indexOf("<body>") + 6, healed.lastIndexOf("</body>"));
     const parts = body.split(SEP);
-    if (parts.length !== blocks.length + 2) return { error: `block boundaries moved (${parts.length - 2} vs ${blocks.length})` };
+    if (parts.length !== (blocks.length ? blocks.length + 2 : 3)) return { error: `block boundaries moved (${parts.length - 2} vs ${blocks.length})` };
     const next = JSON.parse(JSON.stringify(item));
     const changes = [];
     const set = (field, before, after, apply) => {
@@ -529,7 +545,24 @@ ${head}
       nextBlocks[i].value.html = after;
     });
     if (!changes.length) return null;
-    return { kind, path, item: next, changes, removedCards };
+    const texts = (o) => [o.seoData && o.seoData.seoTitle, o.seoData && o.seoData.seoDescription, o.title, o.excerpt && o.excerpt.html].map((x) => strip(x || ""));
+    const claims = (arr) => {
+      const c = /* @__PURE__ */ new Set();
+      for (const t of arr) {
+        const k = claimedCounts(t);
+        k.e.forEach((v) => c.add(v));
+        k.f.forEach((v) => c.add(v));
+      }
+      return c;
+    };
+    const was = claims(texts(item)), now = claims(texts(next));
+    const warnings = [];
+    for (const v of was) {
+      if (now.has(v) || v < 2) continue;
+      const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`);
+      for (const [i, t] of texts(next).entries()) if (re.test(t)) warnings.push(`${["seoTitle", "seoDescription", "title", "excerpt"][i] || "text"} still says ${v}`);
+    }
+    return { kind, path, item: next, changes, removedCards, warnings };
   }
   function describe(plan) {
     const lines = [];
@@ -660,8 +693,12 @@ ${head}
         return;
       }
       state.planned++;
-      state.plans.push({ path, id, lines: describe(plan) });
+      state.plans.push({ path, id, lines: describe(plan), warnings: plan.warnings });
       if (!apply) return;
+      if (plan.warnings.length && !opts.allowWarnings) {
+        state.skipped.push({ path, why: "needs a look: " + plan.warnings.join("; ") });
+        return;
+      }
       if (state.written >= limit) {
         state.skipped.push({ path, why: "over the per-run limit; goes next run" });
         return;

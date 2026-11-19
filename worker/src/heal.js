@@ -188,9 +188,13 @@ const FREE_AFTER = ['free', 'Free', 'kostenlos', 'gratis', 'gratuites?', 'gratui
   'δωρεάν', 'besplatnih', 'tasuta', 'bezmaksas', 'nemokamų', 'zadarmo', 'brezplačnih', 'ókeypis', 'free events?'];
 const SP = '[\\s\\u00a0\\u202f]+';
 const NUM = '(\\d{1,3}(?:[,.\\u00a0\\u202f]\\d{3})+|\\d+)';
-const ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|geprüfte|bestätigte|weihnachtliche)${SP}){0,2}`;
+const ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|geprüfte|bestätigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek)${SP}){0,2}`;
 const E_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}${ADJ}(?:${EVENT_WORDS.join('|')})(?![\\w-]))`, 'g');
 const F_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${FREE_AFTER.join('|')})(?![\\w-]))`, 'g');
+// "joista maksuttomia 3", "davon kostenlos: 3" (the free word comes first)
+const FREE_BEFORE = ['joista maksuttomia', 'joista ilmaisia', 'varav gratis', 'hvorav gratis', 'heraf gratis', 'davon kostenlos', 'davon gratis',
+  'w tym bezpłatnych', 'ebből ingyenes', 'of which free', 'dont gratuites'];
+const FB_RE = new RegExp(`((?:${FREE_BEFORE.join('|')}):?${SP})${NUM}(?![\\d]|[.,]\\d)`, 'g');
 // "13 of 39 are free", "13 of the 39 events"
 const FOUND_RE = /(\b(?:We|we) found )(\d[\d,]*)( for kids)/g;
 const ARE_FREE_RE = /(^|[^\d.,:\/-])(\d+)(?= (?:are|is) free)/g;
@@ -235,6 +239,7 @@ export function rewriteCounts(text, N, F, only, base) {
   });
   t = t.replace(PAID_RE, (all, pre, n) => (!only || only.p.has(toInt(n)) ? pre + fmtLike(n, P) : all));
   t = t.replace(F_RE, (all, pre, n) => (ok(toInt(n), 'f') ? pre + fmtLike(n, F) : all));
+  t = t.replace(FB_RE, (all, pre, n) => (ok(toInt(n), 'f') ? pre + fmtLike(n, F) : all));
   t = t.replace(THEM_RE, (all, pre, n) => (ok(toInt(n), 'f') ? pre + fmtLike(n, F) : all));
   t = t.replace(FOUND_RE, (all, a, n, b) => (ok(toInt(n), 'e') ? a + fmtLike(n, N) + b : all));
   t = t.replace(ARE_FREE_RE, (all, pre, n, off, str) => {
@@ -277,6 +282,7 @@ export function claimedCounts(text) {
   if (!text) return { e, f };
   for (const m of text.matchAll(OF_RE)) e.add(toInt(m[4]));
   for (const m of text.matchAll(F_RE)) f.add(toInt(m[2]));
+  for (const m of text.matchAll(FB_RE)) f.add(toInt(m[2]));
   for (const m of text.matchAll(THEM_RE)) f.add(toInt(m[2]));
   for (const m of text.matchAll(FOUND_RE)) e.add(toInt(m[2]));
   for (const m of text.matchAll(E_RE)) e.add(toInt(m[2]));

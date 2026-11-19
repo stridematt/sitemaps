@@ -4,7 +4,7 @@
 //
 // planItem() is pure and runs in Node tests and in the browser. run() talks to the Squarespace
 // admin API and only works inside a signed-in Squarespace admin tab.
-import { healCity, healGuide, refToday } from './heal.js';
+import { healCity, healGuide, refToday, claimedCounts } from './heal.js';
 
 const SEP = '<!--rtt-block-->';
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -65,7 +65,7 @@ export function planItem(item, live, today = refToday()) {
   const nEx = get(/<meta property="og:description" content="([^"]*)"/);
   const body = healed.slice(healed.indexOf('<body>') + 6, healed.lastIndexOf('</body>'));
   const parts = body.split(SEP);
-  if (parts.length !== blocks.length + 2) return { error: `block boundaries moved (${parts.length - 2} vs ${blocks.length})` };
+  if (parts.length !== (blocks.length ? blocks.length + 2 : 3)) return { error: `block boundaries moved (${parts.length - 2} vs ${blocks.length})` };
 
   const next = JSON.parse(JSON.stringify(item));
   const changes = [];
@@ -91,7 +91,19 @@ export function planItem(item, live, today = refToday()) {
     nextBlocks[i].value.html = after;
   });
   if (!changes.length) return null;
-  return { kind, path, item: next, changes, removedCards };
+
+  // Safety net: a count the old text claimed that no longer appears as a claim, but is still
+  // written somewhere in the new text, means a phrase the healer does not know. Flag it.
+  const texts = (o) => [o.seoData && o.seoData.seoTitle, o.seoData && o.seoData.seoDescription, o.title, o.excerpt && o.excerpt.html].map((x) => strip(x || ''));
+  const claims = (arr) => { const c = new Set(); for (const t of arr) { const k = claimedCounts(t); k.e.forEach((v) => c.add(v)); k.f.forEach((v) => c.add(v)); } return c; };
+  const was = claims(texts(item)), now = claims(texts(next));
+  const warnings = [];
+  for (const v of was) {
+    if (now.has(v) || v < 2) continue;
+    const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`);
+    for (const [i, t] of texts(next).entries()) if (re.test(t)) warnings.push(`${['seoTitle', 'seoDescription', 'title', 'excerpt'][i] || 'text'} still says ${v}`);
+  }
+  return { kind, path, item: next, changes, removedCards, warnings };
 }
 
 // A short, readable account of one plan (for dry runs and the run log).
@@ -217,8 +229,9 @@ export async function run(opts = {}) {
     if (plan && plan.error) { state.errors.push({ path, error: plan.error }); return; }
     if (!plan) { state.upToDate++; if (apply) checked[path] = { s: signature(path, live), d: today, at: Date.now() }; return; }
     state.planned++;
-    state.plans.push({ path, id, lines: describe(plan) });
+    state.plans.push({ path, id, lines: describe(plan), warnings: plan.warnings });
     if (!apply) return;
+    if (plan.warnings.length && !opts.allowWarnings) { state.skipped.push({ path, why: 'needs a look: ' + plan.warnings.join('; ') }); return; }
     if (state.written >= limit) { state.skipped.push({ path, why: 'over the per-run limit; goes next run' }); return; }
     if (Date.now() - cur.updatedOn < quietMinutes * 60000) { state.skipped.push({ path, why: 'edited recently' }); return; }
     await backup(cur);

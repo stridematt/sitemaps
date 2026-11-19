@@ -82,4 +82,13 @@ t('quotes and ampersands in SEO text survive the round trip', () => {
   assert.ok(p.item.seoData.seoTitle.startsWith('Denver "Kids" & Families: '));
 });
 
+t('a count the healer cannot read is flagged, so that post is not written', () => {
+  const it = { id: 'f', fullUrl: '/christmas-events/finland', title: 'Joulu', workflowState: 1,
+    seoData: { seoTitle: 'x', seoDescription: 'Suomessa: 26 tapahtumaa, joista maksuttomia 3.' },
+    excerpt: { html: '<p>Vuodelle 2026 meillä on 26 juttua lapsille.</p>' }, body: { layout: { rows: [] } } };
+  const p = planItem(it, live, '2026-11-18');
+  assert.ok(p && !p.error, p && p.error);
+  assert.deepEqual(p.warnings, ['excerpt still says 26']);
+});
+
 console.log(`\n${n} sqsp tests passed`);
