@@ -18,11 +18,13 @@ const pages = {
   '/christmas-eve-services/united-states': 'us.html',
 };
 let githubUp = true;
+const seen = []; // URLs the Worker requested from Squarespace
 let pagesUp = true;
 let robots = 'User-agent: *\nDisallow: /config\n\nSitemap: https://www.rallytakesthetrain.com/sitemap.xml\n';
 
 async function outbound(req) {
   const u = new URL(req.url);
+  if (u.hostname === 'www.rallytakesthetrain.com') seen.push(req.url);
   if (u.hostname === 'raw.githubusercontent.com') {
     return githubUp ? new Response(clustersText, { headers: { 'content-type': 'text/plain' } }) : new Response('down', { status: 503 });
   }
@@ -150,6 +152,42 @@ await t('images, POSTs and 404s pass through', async () => {
   const nf = await get('/nope');
   assert.equal(nf.status, 404);
   assert.equal(nf.headers.get('x-rtt-hreflang'), null);
+});
+
+await t('cache rules: who is cached and who bypasses', async () => {
+  const { cachePlan } = await import(new URL('../src/index.js', import.meta.url));
+  const R = (url, init = {}) => new Request(url, init);
+  const P = SITE + '/christmas-events/houston-tx';
+  assert.deepEqual(cachePlan(R(P)), { url: P });
+  assert.deepEqual(cachePlan(R(P + '?utm_source=fb&utm_medium=cpc&fbclid=abc')), { url: P });
+  assert.deepEqual(cachePlan(R(P + '?offset=12&utm_campaign=x')), { url: P + '?offset=12' });
+  assert.deepEqual(cachePlan(R(P, { headers: { cookie: 'crumb=abc; ss_cvr=1; _ga=GA1.1; _fbp=x' } })), { url: P });
+  for (const c of ['SiteUserInfo=x', 'SiteUserSecureAuthToken=y', 'a=1; hasCart=true', 'Locked=1', '_acloggedin=1', 'siteUserCrumb=z']) {
+    assert.equal(cachePlan(R(P, { headers: { cookie: c } })), null, c);
+  }
+  for (const q of ['?format=json', '?nochrome=true', '?password=1', '?preview=1']) assert.equal(cachePlan(R(P + q)), null, q);
+  assert.equal(cachePlan(R(P, { method: 'POST', body: 'x' })), null);
+  assert.equal(cachePlan(R(P, { headers: { authorization: 'Basic x' } })), null);
+});
+
+await t('tracking parameters are stripped before Squarespace; signed-in visitors keep the full URL', async () => {
+  seen.length = 0;
+  await (await get('/christmas-eve-services/united-states?utm_source=news&gclid=1')).arrayBuffer();
+  assert.equal(seen.at(-1), SITE + '/christmas-eve-services/united-states');
+  await (await get('/christmas-eve-services/united-states?utm_source=news', { headers: { cookie: 'SiteUserInfo=me' } })).arrayBuffer();
+  assert.equal(seen.at(-1), SITE + '/christmas-eve-services/united-states?utm_source=news');
+});
+
+await t('HTML responses tell browsers to recheck (no-cache); files are left alone', async () => {
+  const a = await get('/christmas-eve-services/united-states');
+  assert.equal(a.headers.get('cache-control'), 'no-cache');
+  await a.arrayBuffer();
+  const b = await get('/christmas-events-for-kids');
+  assert.equal(b.headers.get('cache-control'), 'no-cache');
+  await b.arrayBuffer();
+  const img = await get('/logo.png');
+  assert.equal(img.headers.get('cache-control'), null);
+  await img.arrayBuffer();
 });
 
 await mf.dispose();

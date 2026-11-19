@@ -7,7 +7,11 @@
 //      one part switched off on these pages (its links get a harmless rel), so Google
 //      sees a single set.
 //   2. /hreflang-sitemap.xml is served from the main domain, built from the same data.
-// Every other request is handed straight to Squarespace with no processing.
+//   3. Edge cache: anonymous GET requests are cached at Cloudflare for 5 minutes
+//      (Tiered Cache), so visitors and crawlers worldwide get pages from a nearby
+//      data center instead of waiting on Squarespace. Signed-in or cart visitors,
+//      Squarespace special URLs and errors are never cached.
+// Pages not in a cluster are handed to Squarespace (through the cache) unread.
 // If anything fails, the original Squarespace response is returned (fail open).
 //
 // Cost notes:
@@ -27,6 +31,56 @@ const REFRESH_MS = 5 * 60 * 1000;
 const SITEMAP_PATH = '/hreflang-sitemap.xml';
 
 const state = { index: null, text: null, at: 0, refreshing: null };
+
+// ---- Edge cache ---------------------------------------------------------------
+// Squarespace marks every page no-cache and sets a CSRF "crumb" cookie; the page HTML
+// itself is the same for every anonymous visitor (no tokens in it), and Squarespace's
+// own background calls (/api/census etc.) hand out the crumb, so caching is safe.
+const EDGE_TTL = {
+  '200-299': 300, // 5 minutes
+  '300-399': 300, // redirects
+  '404': 60,
+  '400-403': -1, // never store
+  '405-599': -1,
+};
+// Cookies that mean the visitor is signed in, has a cart, or passed a password page.
+const BYPASS_COOKIES = /(?:^|;\s*)(?:SiteUserInfo|SiteUserSecureAuthToken|siteUserCrumb|_acloggedin|hasCart|Locked|SQ_LANGUAGE_SESSION)=/i;
+// Squarespace special URLs that must always go to Squarespace.
+const BYPASS_PARAMS = new Set(['format', 'nochrome', 'preview', 'password', 'ss_preview', 'author']);
+// Ad and email tracking parameters: they don't change the page, so they shouldn't
+// create separate cache copies. They stay in the visitor's address bar for analytics.
+const TRACKING_PARAM = /^(?:utm_[a-z]+|fbclid|gclid|gbraid|wbraid|dclid|msclkid|ttclid|twclid|igshid|li_fat_id|mc_cid|mc_eid|_ga|_gl|srsltid)$/i;
+
+// How to fetch this request from Squarespace: null = no caching, else the URL to use.
+export function cachePlan(request) {
+  if (request.method !== 'GET' && request.method !== 'HEAD') return null;
+  if (request.headers.has('authorization')) return null;
+  if (BYPASS_COOKIES.test(request.headers.get('cookie') || '')) return null;
+  const url = new URL(request.url);
+  for (const k of url.searchParams.keys()) if (BYPASS_PARAMS.has(k.toLowerCase())) return null;
+  let changed = false;
+  for (const k of [...url.searchParams.keys()]) {
+    if (TRACKING_PARAM.test(k)) {
+      url.searchParams.delete(k);
+      changed = true;
+    }
+  }
+  return { url: changed ? url.toString() : request.url };
+}
+
+function originFetch(request) {
+  const plan = cachePlan(request);
+  if (!plan) return fetch(request);
+  const req = plan.url === request.url ? request : new Request(plan.url, request);
+  return fetch(req, { cf: { cacheEverything: true, cacheTtlByStatus: EDGE_TTL } });
+}
+
+// Browsers keep checking back (same as Squarespace's own no-cache); the edge does the caching.
+function forBrowser(resp) {
+  const r = new Response(resp.body, resp);
+  r.headers.set('cache-control', 'no-cache');
+  return r;
+}
 
 function escapeXml(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -180,6 +234,7 @@ function tag(origin, entry) {
     .transform(origin);
   const r = new Response(out.body, out);
   r.headers.delete('content-length');
+  r.headers.set('cache-control', 'no-cache');
   r.headers.set('x-rtt-hreflang', 'tagged');
   return r;
 }
@@ -189,7 +244,7 @@ async function handle(request, ctx) {
   if (method !== 'GET' && method !== 'HEAD') return fetch(request);
   const path = normPath(new URL(request.url).pathname);
   const index = await getIndex(ctx);
-  if (!index) return fetch(request);
+  if (!index) return originFetch(request);
 
   if (path === SITEMAP_PATH) {
     if (!index.sitemap) index.sitemap = buildSitemap(index.data);
@@ -203,10 +258,14 @@ async function handle(request, ctx) {
   }
 
   const entry = method === 'GET' ? index.byPath.get(path) : null;
-  if (!entry) return fetch(request); // not a clustered page: straight through, body untouched
+  if (!entry) {
+    // Not a clustered page: through the edge cache, body untouched.
+    const resp = await originFetch(request);
+    return (resp.headers.get('content-type') || '').includes('text/html') ? forBrowser(resp) : resp;
+  }
 
-  const origin = await fetch(request);
-  if (origin.status !== 200 || !(origin.headers.get('content-type') || '').includes('text/html')) return origin;
+  const origin = await originFetch(request);
+  if (origin.status !== 200 || !(origin.headers.get('content-type') || '').includes('text/html')) return forBrowser(origin);
   return tag(origin, entry);
 }
 
