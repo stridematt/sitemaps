@@ -83,7 +83,11 @@ var RTTSync = (() => {
     "Aktivit\xE4ten",
     "id\xE9es",
     "ideas",
+    "Ideas",
     "Ideen",
+    "Weihnachtsangebote",
+    "Advent- und Weihnachtsangebote",
+    "Angebote",
     "idee",
     "id\xE9ias",
     "ideias",
@@ -138,7 +142,7 @@ var RTTSync = (() => {
   ];
   var SP = "[\\s\\u00a0\\u202f]+";
   var NUM = "(\\d{1,3}(?:[,.\\u00a0\\u202f]\\d{3})+|\\d+)";
-  var ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|gepr\xFCfte|best\xE4tigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek)${SP}){0,2}`;
+  var ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|gepr\xFCfte|best\xE4tigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek|bekreftede|bekr\xE4ftade|bekr\xE6ftede|bevestigde|confirmados|confirmadas|confirm\xE9es|confermati)${SP}){0,2}`;
   var E_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}${ADJ}(?:${EVENT_WORDS.join("|")})(?![\\w-]))`, "g");
   var F_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${FREE_AFTER.join("|")})(?![\\w-]))`, "g");
   var FREE_BEFORE = [
@@ -215,6 +219,10 @@ var RTTSync = (() => {
     for (const m of text.matchAll(OF_RE)) e.add(toInt(m[4]));
     for (const m of text.matchAll(F_RE)) f.add(toInt(m[2]));
     for (const m of text.matchAll(FB_RE)) f.add(toInt(m[2]));
+    for (const m of text.matchAll(ARE_FREE_RE)) {
+      if (/\b(?:of|von|de|sur|van|di) (?:the )?$/.test(text.slice(Math.max(0, m.index - 8), m.index + m[1].length))) continue;
+      f.add(toInt(m[2]));
+    }
     for (const m of text.matchAll(THEM_RE)) f.add(toInt(m[2]));
     for (const m of text.matchAll(FOUND_RE)) e.add(toInt(m[2]));
     for (const m of text.matchAll(E_RE)) e.add(toInt(m[2]));

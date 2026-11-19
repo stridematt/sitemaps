@@ -181,14 +181,14 @@ const EVENT_WORDS = [
   'activiteiten', 'planes', 'eventos', 'actividades', 'eventi', 'programas', 'programmi', 'atividades', 'juleaktiviteter',
   'aktiviteter', 'julevenemang', 'evenemang', 'arrangementer', 'joulutapahtumaa', 'tapahtumaa', 'karácsonyi programot?',
   'programot?', 'programok', 'wydarzeń', 'wydarzenia', 'imprez', 'evenimente', 'події', 'подій', 'події', 'εκδηλώσεις',
-  'εκδήλωση', 'Weihnachtsveranstaltungen', 'Weihnachtsaktivitäten', 'Aktivitäten', 'idées', 'ideas', 'Ideen', 'idee', 'idéias', 'ideias', 'događanja', 'sündmust', 'pasākumi', 'renginių', 'renginiai', 'podujatí', 'prireditev', 'viðburðir', 'viðburði',
+  'εκδήλωση', 'Weihnachtsveranstaltungen', 'Weihnachtsaktivitäten', 'Aktivitäten', 'idées', 'ideas', 'Ideas', 'Ideen', 'Weihnachtsangebote', 'Advent- und Weihnachtsangebote', 'Angebote', 'idee', 'idéias', 'ideias', 'događanja', 'sündmust', 'pasākumi', 'renginių', 'renginiai', 'podujatí', 'prireditev', 'viðburðir', 'viðburði',
 ];
 const FREE_AFTER = ['free', 'Free', 'sont gratuites?', 'sont gratuits', 'son gratuitos', 'son gratuitas', 'sono gratuiti', 'são gratuitos', 'são gratuitas', 'zijn gratis', 'sind kostenlos', 'er gratis', 'är gratis', 'kostenlos', 'gratis', 'gratuites?', 'gratuits?', 'gratuitos', 'gratuitas',
   'gratuiti', 'gratuite', 'ingyenes', 'maksuttomia', 'bezpłatnych', 'bezpłatne', 'darmowych', 'безкоштовних', 'безкоштовні',
   'δωρεάν', 'besplatnih', 'tasuta', 'bezmaksas', 'nemokamų', 'zadarmo', 'brezplačnih', 'ókeypis', 'free events?'];
 const SP = '[\\s\\u00a0\\u202f]+';
 const NUM = '(\\d{1,3}(?:[,.\\u00a0\\u202f]\\d{3})+|\\d+)';
-const ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|geprüfte|bestätigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek)${SP}){0,2}`;
+const ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|geprüfte|bestätigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek|bekreftede|bekräftade|bekræftede|bevestigde|confirmados|confirmadas|confirmées|confermati)${SP}){0,2}`;
 const E_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}${ADJ}(?:${EVENT_WORDS.join('|')})(?![\\w-]))`, 'g');
 const F_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${FREE_AFTER.join('|')})(?![\\w-]))`, 'g');
 // "joista maksuttomia 3", "davon kostenlos: 3" (the free word comes first)
@@ -283,6 +283,10 @@ export function claimedCounts(text) {
   for (const m of text.matchAll(OF_RE)) e.add(toInt(m[4]));
   for (const m of text.matchAll(F_RE)) f.add(toInt(m[2]));
   for (const m of text.matchAll(FB_RE)) f.add(toInt(m[2]));
+  for (const m of text.matchAll(ARE_FREE_RE)) {
+    if (/\b(?:of|von|de|sur|van|di) (?:the )?$/.test(text.slice(Math.max(0, m.index - 8), m.index + m[1].length))) continue;
+    f.add(toInt(m[2]));
+  }
   for (const m of text.matchAll(THEM_RE)) f.add(toInt(m[2]));
   for (const m of text.matchAll(FOUND_RE)) e.add(toInt(m[2]));
   for (const m of text.matchAll(E_RE)) e.add(toInt(m[2]));
