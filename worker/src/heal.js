@@ -147,10 +147,24 @@ export function healHub(html, live, opts = {}) {
   // 5. Headline numbers
   rep(/<ul class="xn-stat" id="xn-stat" role="list">[\s\S]*?<\/ul>/,
     () => `<ul class="xn-stat" id="xn-stat" role="list"><li><b>${num(T.events)}</b>Christmas events</li><li><b>${num(T.cities)}</b>cities</li><li><b>${num(T.countries)}</b>countries</li></ul>`);
-  rep(/(<h2 class="xn-map__h" id="xn-map-h">)[\d,]+( Christmas lights)/, (_, a, b) => a + num(onMap) + b);
-  rep(/(a light for each of the )[\d,]+( cities)/g, (_, a, b) => a + num(onMap) + b);
-  rep(/(<ul class="xn-map__legend" role="list"><li><i aria-hidden="true"><\/i>)[\d,]+( cit(?:y|ies) with confirmed 2026 events<\/li><li><i aria-hidden="true"><\/i>)[\d,]+( cit)/,
-    (_, a, b, c) => a + num(T.cities_with_events) + b + num(T.cities - T.cities_with_events) + c);
+  // Events lead everywhere: "N Christmas events in M cities across K countries".
+  const adding = Math.max(0, T.cities - T.cities_with_events);
+  const evLine = `${num(T.events)} Christmas events for kids in ${num(T.cities)} cities across ${T.countries} countries`;
+  rep(/(<p class="rtt-lp__lede">)[\s\S]*?(<\/p>)/, (_, a, b) =>
+    `${a}${evLine}: Santa visits, story times, tree lightings, markets and holiday shows. Every guide has dates, times, costs and a link straight to the host.${b}`);
+  rep(/(<p class="xn-res__sub" id="xn-sub">)[\s\S]*?(<\/p>)/, (_, a, b) =>
+    `${a}${num(T.events)} Christmas events in ${num(T.cities)} cities across ${T.countries} countries. Type your city above or browse every country below.${b}`);
+  // The map: gold lights are cities with confirmed events (bigger where there are more), gray lights are cities being added
+  rep(/(<h2 class="xn-map__h" id="xn-map-h">)[\s\S]*?(<\/h2>)/, (_, a, b) => `${a}${num(T.events)} Christmas events for kids <em>around the world</em>${b}`);
+  rep(/(<p class="xn-map__p">)[\s\S]*?(<\/p>)/, (_, a, b) =>
+    `${a}Every gold light is a city with confirmed Christmas events for kids, and the bigger the light, the more events it has. Gray lights are cities we are actively adding as hosts post their dates. Tap any part of the map to see the guides closest to that spot.${b}`);
+  rep(/(<canvas class="xn-map__c" id="xn-map-c" role="img" aria-label=")[^"]*(")/, (_, a, b) =>
+    `${a}World map of ${num(T.events)} Christmas events for kids: gold lights for the ${num(T.cities_with_events)} cities with confirmed events, gray lights for ${num(adding)} cities we are adding. Use the search box or the Find guides near me button to reach the same guides.${b}`);
+  rep(/(<ul class="xn-map__legend" role="list"><li><i aria-hidden="true"><\/i>)[^<]*(<\/li><li><i aria-hidden="true"><\/i>)[^<]*(<\/li>)/, (_, a, b, c) =>
+    `${a}${num(T.events)} Christmas events in ${plural(T.cities_with_events, 'city', 'cities')}${b}${plural(adding, 'city', 'cities')} we&rsquo;re actively adding${c}`);
+  // gray (not blue-white) for the cities being added, on the map and in the legend
+  rep(/fillStyle = dim \? 'rgba\(214,226,246,\.14\)' : 'rgba\(214,226,246,\.55\)'/, () => "fillStyle = dim ? 'rgba(170,176,186,.16)' : 'rgba(170,176,186,.62)'");
+  rep(/(\.xn-map__legend li\+li i\{width:8px;height:8px;background:)rgba\(214,226,246,\.7\)/, (_, a) => a + 'rgba(170,176,186,.85)');
   rep(/(Choose a country to see every city we cover there\. )[\d,]+( cities already have confirmed 2026 events)/, (_, a, b) => a + num(T.cities_with_events) + b);
   rep(/The guide covers [\d,]+ cities in \d+ countries/g, () => `The guide covers ${num(T.cities)} cities in ${T.countries} countries`);
   rep(/[\d,]+ of those cities already have confirmed 2026 events, and together the guides answer [\d,]+ questions/g,

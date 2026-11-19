@@ -109,7 +109,8 @@ await t('page not in any cluster passes through byte for byte, no header', async
 
 await t('tagged pages: every inline script still compiles; only the planned lines differ', async () => {
   const HUBFIX = [["cities: a[5], live: a[6], regs: [], list: []}", "cities: a[5], live: a[6], events: a[7] || 0, regs: [], list: []}"],
-    ["plural(n, 'city', 'cities'), 'xn-cta--place');", "(x.events > 0 ? plural(x.events, 'event', 'events') : plural(n, 'city', 'cities')), 'xn-cta--place');"]];
+    ["plural(n, 'city', 'cities'), 'xn-cta--place');", "(x.events > 0 ? plural(x.events, 'event', 'events') : plural(n, 'city', 'cities')), 'xn-cta--place');"],
+    ["fillStyle = dim ? 'rgba(214,226,246,.14)' : 'rgba(214,226,246,.55)'", "fillStyle = dim ? 'rgba(170,176,186,.16)' : 'rgba(170,176,186,.62)'"]];
   for (const [path, file] of Object.entries(pages)) {
     const r = await get(path);
     const out = await r.text();

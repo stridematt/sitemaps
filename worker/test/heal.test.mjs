@@ -63,7 +63,14 @@ t('hub: finder data, rows, A to Z and headline all from live.json', () => {
   const out = healHub(html, live, { day: '2026-11-18' });
   const T = live.total;
   assert.ok(out.includes(`<title>Christmas Events for Kids Near Me 2026: ${(Math.floor(T.events / 1000) * 1000).toLocaleString('en-US')}+ Events</title>`));
-  assert.ok(out.includes('href="/christmas-events/commerce-city-co"'), 'a city missing from the A to Z is listed');
+  const notInHub = Object.entries(live.cities).find(([, c]) => !c[5]);
+  if (notInHub) assert.ok(out.includes(`href="${notInHub[0]}"`), 'a city missing from the A to Z is listed');
+  const n = (x) => x.toLocaleString('en-US');
+  assert.ok(out.includes(`<h2 class="xn-map__h" id="xn-map-h">${n(T.events)} Christmas events for kids <em>around the world</em></h2>`), 'map heading leads with events');
+  assert.ok(out.includes(`${n(T.events)} Christmas events in ${n(T.cities_with_events)} cities</li>`), 'gold legend: events and cities');
+  assert.ok(out.includes(`${n(T.cities - T.cities_with_events)} cities we&rsquo;re actively adding</li>`), 'gray legend: cities being added');
+  assert.ok(out.includes(`<p class="rtt-lp__lede">${n(T.events)} Christmas events for kids in ${n(T.cities)} cities across ${T.countries} countries:`), 'hero line');
+  assert.ok(out.includes("rgba(170,176,186,.62)") && !out.includes("rgba(214,226,246,.55)"), 'cities being added are gray on the map');
   assert.ok(out.includes('Last updated November 18, 2026'));
   const text = out.replace(/<script[\s\S]*?<\/script>/g, '').replace(/a light for each of the [\d,]+ cities/g, '');
   const leftover = (text.match(/\b3,2(42|64)\b[^<]{0,20}(cities|city guides)/) || [null])[0];
