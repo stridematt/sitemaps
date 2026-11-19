@@ -103,7 +103,7 @@ def head_info(path):
     return path, st, html.unescape(title.group(1).strip()) if title else '', html.unescape(desc.group(1)) if desc else ''
 
 
-def many(paths, workers=12):
+def many(paths, workers=6):
     out = {}
     with cf.ThreadPoolExecutor(workers) as ex:
         for p, st, t, d in ex.map(head_info, paths):
@@ -394,7 +394,12 @@ def main():
         st, t, d = got[p]
         if st in (200, 404, 410):
             cache[p] = t if st == 200 else f'#{st}'  # blocked or timed out: try again next run
-    desc = {p: got[p][2] for p in guides}
+    desc = {}
+    for p in guides:
+        st, t, d = got[p]
+        if st == 200 and d:
+            cache['desc:' + p] = d  # keep the last good description
+        desc[p] = cache.get('desc:' + p, '')
     os.makedirs(os.path.dirname(args.cache) or '.', exist_ok=True)
     json.dump(cache, open(args.cache, 'w', encoding='utf-8'), ensure_ascii=False)
     blocked = sum(1 for p in want if got[p][0] not in (200, 404, 410))
