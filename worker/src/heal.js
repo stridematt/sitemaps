@@ -154,6 +154,9 @@ export function healHub(html, live, opts = {}) {
   rep(/The guide covers [\d,]+ cities in \d+ countries/g, () => `The guide covers ${num(T.cities)} cities in ${T.countries} countries`);
   rep(/[\d,]+ of those cities already have confirmed 2026 events, and together the guides answer [\d,]+ questions/g,
     () => `${num(T.cities_with_events)} of those cities already have confirmed 2026 events (${num(T.events)} events in all), and together the guides answer ${num(T.faq)} questions`);
+  rep(/\b[\d,]+( cities across )\d+( countries)/g, (_, a, b) => num(T.cities) + a + T.countries + b);
+  rep(/\b[\d,]+( city guides in )\d+( countries)/g, (_, a, b) => num(T.cities) + a + T.countries + b);
+  rep(/(All )[\d,]+( cities in one place)/g, (_, a, b) => a + num(T.cities) + b);
   rep(/Christmas events for kids in [\d,]+ cities and \d+ countries/g, () => `Christmas events for kids in ${num(T.cities)} cities and ${T.countries} countries`);
   rep(/(Last updated )[A-Z][a-z]+ \d{1,2}, \d{4}/, (_, a) => a + dateLabel(day));
   // Title, description and social cards
