@@ -349,12 +349,11 @@ def main():
         for p in cl['pages']:
             codes[p['url'].replace(SITE, '')] = p['hreflang']
     cache = {}
+    seed = os.path.join(HERE, 'titles-seed.json')
+    if os.path.exists(seed):
+        cache = json.load(open(seed, encoding='utf-8'))
     if os.path.exists(args.cache):
-        cache = json.load(open(args.cache, encoding='utf-8'))
-    else:
-        seed = os.path.join(HERE, 'titles-seed.json')
-        if os.path.exists(seed):
-            cache = json.load(open(seed, encoding='utf-8'))
+        cache.update(json.load(open(args.cache, encoding='utf-8')))  # newer lookups win
 
     log('reading the site...')
     _, hb = get(SITE + '/christmas-events-for-kids')
