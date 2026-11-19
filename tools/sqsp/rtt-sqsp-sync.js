@@ -78,6 +78,15 @@ var RTTSync = (() => {
     "\u043F\u043E\u0434\u0456\u0457",
     "\u03B5\u03BA\u03B4\u03B7\u03BB\u03CE\u03C3\u03B5\u03B9\u03C2",
     "\u03B5\u03BA\u03B4\u03AE\u03BB\u03C9\u03C3\u03B7",
+    "Weihnachtsveranstaltungen",
+    "Weihnachtsaktivit\xE4ten",
+    "Aktivit\xE4ten",
+    "id\xE9es",
+    "ideas",
+    "Ideen",
+    "idee",
+    "id\xE9ias",
+    "ideias",
     "doga\u0111anja",
     "s\xFCndmust",
     "pas\u0101kumi",
@@ -91,6 +100,17 @@ var RTTSync = (() => {
   var FREE_AFTER = [
     "free",
     "Free",
+    "sont gratuites?",
+    "sont gratuits",
+    "son gratuitos",
+    "son gratuitas",
+    "sono gratuiti",
+    "s\xE3o gratuitos",
+    "s\xE3o gratuitas",
+    "zijn gratis",
+    "sind kostenlos",
+    "er gratis",
+    "\xE4r gratis",
     "kostenlos",
     "gratis",
     "gratuites?",
@@ -559,8 +579,16 @@ ${head}
     const warnings = [];
     for (const v of was) {
       if (now.has(v) || v < 2) continue;
-      const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`);
-      for (const [i, t] of texts(next).entries()) if (re.test(t)) warnings.push(`${["seoTitle", "seoDescription", "title", "excerpt"][i] || "text"} still says ${v}`);
+      const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`, "g");
+      for (const [i, t] of texts(next).entries()) {
+        for (const m of t.matchAll(re)) {
+          const at = m.index + m[1].length;
+          const near = t.slice(Math.max(0, at - 14), at) + " " + t.slice(at + String(v).length, at + String(v).length + 16);
+          if (MONTH.test(near)) continue;
+          warnings.push(`${["seoTitle", "seoDescription", "title", "excerpt"][i] || "text"} still says ${v}`);
+          break;
+        }
+      }
     }
     return { kind, path, item: next, changes, removedCards, warnings };
   }
@@ -574,6 +602,72 @@ ${head}
     if (blocks) lines.push(`${blocks} code block${blocks > 1 ? "s" : ""} updated${plan.removedCards ? `, ${plan.removedCards} past event${plan.removedCards > 1 ? "s" : ""} removed` : ""}`);
     return lines;
   }
+  var MONTH = new RegExp("(?:^|[^\\p{L}])(?:" + [
+    "jan(?:uary|uar|uari|vier)?",
+    "feb(?:ruary|ruar|ruari)?",
+    "f[e\xE9]v(?:rier)?",
+    "mar(?:ch|s)?",
+    "m\xE4rz",
+    "apr(?:il)?",
+    "avril",
+    "may",
+    "mai",
+    "mei",
+    "june?",
+    "juin",
+    "juni",
+    "july?",
+    "juillet",
+    "juli",
+    "aug(?:ust|ustus)?",
+    "ao[u\xFB]t",
+    "sep(?:t|tember|tembre)?",
+    "oct(?:ober|obre)?",
+    "okt(?:ober)?",
+    "nov(?:ember|embre)?",
+    "dec(?:ember)?",
+    "d[e\xE9]cembre",
+    "dez(?:ember)?",
+    "desember",
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre",
+    "gennaio",
+    "febbraio",
+    "aprile",
+    "maggio",
+    "giugno",
+    "luglio",
+    "settembre",
+    "ottobre",
+    "dicembre",
+    "janeiro",
+    "fevereiro",
+    "mar\xE7o",
+    "maio",
+    "junho",
+    "julho",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro",
+    "(?:tammi|helmi|maalis|huhti|touko|kes\xE4|hein\xE4|elo|syys|loka|marras|joulu)kuu\\p{L}*",
+    "stycznia",
+    "lutego",
+    "listopada",
+    "grudnia",
+    "janu\xE1ra",
+    "decembra"
+  ].join("|") + ")(?![\\p{L}])", "iu");
   var strip = (s) => String(s).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim().slice(0, 220);
   var COLLECTION = "6ae8c64da7d5c013a6eb8e11";
   var LIVE_URL = "https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/truth/live.json";

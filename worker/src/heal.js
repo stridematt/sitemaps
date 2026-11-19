@@ -181,9 +181,9 @@ const EVENT_WORDS = [
   'activiteiten', 'planes', 'eventos', 'actividades', 'eventi', 'programas', 'programmi', 'atividades', 'juleaktiviteter',
   'aktiviteter', 'julevenemang', 'evenemang', 'arrangementer', 'joulutapahtumaa', 'tapahtumaa', 'karácsonyi programot?',
   'programot?', 'programok', 'wydarzeń', 'wydarzenia', 'imprez', 'evenimente', 'події', 'подій', 'події', 'εκδηλώσεις',
-  'εκδήλωση', 'događanja', 'sündmust', 'pasākumi', 'renginių', 'renginiai', 'podujatí', 'prireditev', 'viðburðir', 'viðburði',
+  'εκδήλωση', 'Weihnachtsveranstaltungen', 'Weihnachtsaktivitäten', 'Aktivitäten', 'idées', 'ideas', 'Ideen', 'idee', 'idéias', 'ideias', 'događanja', 'sündmust', 'pasākumi', 'renginių', 'renginiai', 'podujatí', 'prireditev', 'viðburðir', 'viðburði',
 ];
-const FREE_AFTER = ['free', 'Free', 'kostenlos', 'gratis', 'gratuites?', 'gratuits?', 'gratuitos', 'gratuitas',
+const FREE_AFTER = ['free', 'Free', 'sont gratuites?', 'sont gratuits', 'son gratuitos', 'son gratuitas', 'sono gratuiti', 'são gratuitos', 'são gratuitas', 'zijn gratis', 'sind kostenlos', 'er gratis', 'är gratis', 'kostenlos', 'gratis', 'gratuites?', 'gratuits?', 'gratuitos', 'gratuitas',
   'gratuiti', 'gratuite', 'ingyenes', 'maksuttomia', 'bezpłatnych', 'bezpłatne', 'darmowych', 'безкоштовних', 'безкоштовні',
   'δωρεάν', 'besplatnih', 'tasuta', 'bezmaksas', 'nemokamų', 'zadarmo', 'brezplačnih', 'ókeypis', 'free events?'];
 const SP = '[\\s\\u00a0\\u202f]+';

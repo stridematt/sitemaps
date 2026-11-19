@@ -100,8 +100,16 @@ export function planItem(item, live, today = refToday()) {
   const warnings = [];
   for (const v of was) {
     if (now.has(v) || v < 2) continue;
-    const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`);
-    for (const [i, t] of texts(next).entries()) if (re.test(t)) warnings.push(`${['seoTitle', 'seoDescription', 'title', 'excerpt'][i] || 'text'} still says ${v}`);
+    const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`, 'g');
+    for (const [i, t] of texts(next).entries()) {
+      for (const m of t.matchAll(re)) {
+        const at = m.index + m[1].length;
+        const near = t.slice(Math.max(0, at - 14), at) + ' ' + t.slice(at + String(v).length, at + String(v).length + 16);
+        if (MONTH.test(near)) continue; // a date ("January 31", "13. Dezember")
+        warnings.push(`${['seoTitle', 'seoDescription', 'title', 'excerpt'][i] || 'text'} still says ${v}`);
+        break;
+      }
+    }
   }
   return { kind, path, item: next, changes, removedCards, warnings };
 }
@@ -117,6 +125,14 @@ export function describe(plan) {
   if (blocks) lines.push(`${blocks} code block${blocks > 1 ? 's' : ''} updated${plan.removedCards ? `, ${plan.removedCards} past event${plan.removedCards > 1 ? 's' : ''} removed` : ''}`);
   return lines;
 }
+const MONTH = new RegExp('(?:^|[^\\p{L}])(?:' + [
+  'jan(?:uary|uar|uari|vier)?', 'feb(?:ruary|ruar|ruari)?', 'f[eé]v(?:rier)?', 'mar(?:ch|s)?', 'märz', 'apr(?:il)?', 'avril', 'may', 'mai', 'mei', 'june?', 'juin', 'juni',
+  'july?', 'juillet', 'juli', 'aug(?:ust|ustus)?', 'ao[uû]t', 'sep(?:t|tember|tembre)?', 'oct(?:ober|obre)?', 'okt(?:ober)?', 'nov(?:ember|embre)?', 'dec(?:ember)?',
+  'd[eé]cembre', 'dez(?:ember)?', 'desember', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre',
+  'gennaio', 'febbraio', 'aprile', 'maggio', 'giugno', 'luglio', 'settembre', 'ottobre', 'dicembre', 'janeiro', 'fevereiro', 'março', 'maio', 'junho', 'julho',
+  'setembro', 'outubro', 'novembro', 'dezembro', '(?:tammi|helmi|maalis|huhti|touko|kesä|heinä|elo|syys|loka|marras|joulu)kuu\\p{L}*',
+  'stycznia', 'lutego', 'listopada', 'grudnia', 'januára', 'decembra',
+].join('|') + ')(?![\\p{L}])', 'iu');
 const strip = (s) => String(s).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 220);
 
 // ------------------------------------------------------------------ browser runner

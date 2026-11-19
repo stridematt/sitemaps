@@ -91,4 +91,13 @@ t('a count the healer cannot read is flagged, so that post is not written', () =
   assert.deepEqual(p.warnings, ['excerpt still says 26']);
 });
 
+t('dates are not mistaken for leftover counts', () => {
+  const base = { id: 'u', fullUrl: '/christmas-events/utah', title: 'Utah', workflowState: 1, body: { layout: { rows: [] } },
+    seoData: { seoTitle: 'x', seoDescription: 'Utah: 60 Christmas events for kids, 20 free.' } };
+  const a = planItem({ ...base, excerpt: { html: '<p>Lights run to December 20 and 20. Dezember.</p>' } }, live, '2026-11-18');
+  assert.deepEqual(a.warnings, []);
+  const b = planItem({ ...base, excerpt: { html: '<p>Lights run to December 20, with 20 more to come.</p>' } }, live, '2026-11-18');
+  assert.deepEqual(b.warnings, ['excerpt still says 20']);
+});
+
 console.log(`\n${n} sqsp tests passed`);
