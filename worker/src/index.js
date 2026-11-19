@@ -249,10 +249,12 @@ export function runHealer(kind, html, live, path, today) {
   return null;
 }
 
-// Healed pages are kept for an hour per data version and day, so the work runs rarely.
+// Healed pages are kept for an hour per data version, day and code build, so the work runs rarely
+// and a new deploy never serves pages healed by older code. BUILD is filled in by scripts/oneline.mjs.
+const BUILD = 'dev';
 async function healed(request, path, kind, live, ctx) {
   const today = refToday();
-  const key = `https://rtt-heal.internal${path}?d=${today}&v=${encodeURIComponent(live.generated || '')}`;
+  const key = `https://rtt-heal.internal${path}?d=${today}&v=${encodeURIComponent(live.generated || '')}&b=${BUILD}`;
   try {
     const hit = await caches.default.match(key);
     if (hit) return { html: await hit.text(), status: 'hit' };
