@@ -19,7 +19,8 @@ import argparse, collections, concurrent.futures as cf, datetime, html, json, os
 SITE = 'https://www.rallytakesthetrain.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-UA = 'Mozilla/5.0 (compatible; rtt-llms-builder/1.0; +https://www.rallytakesthetrain.com/llms.txt)'
+UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36'
+MAX_LOOKUPS = 1500  # new pages looked up per run; the rest wait for the next run
 
 ISO = {'Austria': 'AT', 'Belgium': 'BE', 'Croatia': 'HR', 'Cyprus': 'CY', 'Denmark': 'DK', 'Estonia': 'EE', 'Finland': 'FI',
        'France': 'FR', 'Germany': 'DE', 'Greece': 'GR', 'Hungary': 'HU', 'Iceland': 'IS', 'Ireland': 'IE', 'Italy': 'IT',
@@ -72,13 +73,15 @@ def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
 
-def get(url, limit=None, tries=4):
+def get(url, limit=None, tries=4, timeout=60):
     err = None
     for i in range(tries):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60)
+            r = urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=timeout)
             return r.status, r.read(limit) if limit else r.read()
         except urllib.error.HTTPError as e:
+            if e.code in (404, 410, 403, 429) and tries == 1:
+                return e.code, b''
             if e.code in (404, 410):
                 return e.code, b''
             err = e
@@ -91,7 +94,7 @@ def get(url, limit=None, tries=4):
 def head_info(path):
     """(path, status, title, description) from the first 80 KB of a page."""
     try:
-        st, b = get(SITE + path, limit=80000)
+        st, b = get(SITE + path, limit=80000, tries=1, timeout=20)
     except Exception as e:
         return path, 0, '', ''
     t = b.decode('utf-8', 'ignore')
@@ -348,6 +351,10 @@ def main():
     cache = {}
     if os.path.exists(args.cache):
         cache = json.load(open(args.cache, encoding='utf-8'))
+    else:
+        seed = os.path.join(HERE, 'titles-seed.json')
+        if os.path.exists(seed):
+            cache = json.load(open(seed, encoding='utf-8'))
 
     log('reading the site...')
     _, hb = get(SITE + '/christmas-events-for-kids')
@@ -378,13 +385,21 @@ def main():
             continue  # individual events have long slugs
         want.append(p)
     guides = [hr for c in hub for hr, a, tx in c['guides']]
+    if len(want) > MAX_LOOKUPS:
+        log(f'{len(want)} new pages; looking up {MAX_LOOKUPS} now, the rest on later runs')
+        want = want[:MAX_LOOKUPS]
     log(f'{len(want)} new pages to look at, {len(guides)} country guide descriptions')
     got = many(want + guides)
     for p in want:
         st, t, d = got[p]
-        if st:
-            cache[p] = t if st == 200 else f'#{st}'
+        if st in (200, 404, 410):
+            cache[p] = t if st == 200 else f'#{st}'  # blocked or timed out: try again next run
     desc = {p: got[p][2] for p in guides}
+    os.makedirs(os.path.dirname(args.cache) or '.', exist_ok=True)
+    json.dump(cache, open(args.cache, 'w', encoding='utf-8'), ensure_ascii=False)
+    blocked = sum(1 for p in want if got[p][0] not in (200, 404, 410))
+    if blocked:
+        log(f'{blocked} pages could not be read this run (blocked or slow); they will be tried again')
 
     extra = collections.defaultdict(list)
     recent = []
@@ -502,8 +517,6 @@ def main():
     full = re.sub(r'^Links under the headings below are written as paths on this site: put https://www\.rallytakesthetrain\.com in front of each one\. For example, \S+ is \S+\. ?', '', full, flags=re.M)
     full = full.replace(' In those three directories the links are written as paths on this site (https://www.rallytakesthetrain.com plus the path). A copy of this file with every address written in full is at [llms-full.txt](https://www.rallytakesthetrain.com/llms-full.txt).', ' Every address in this copy is written in full.')
 
-    os.makedirs(os.path.dirname(args.cache) or '.', exist_ok=True)
-    json.dump(cache, open(args.cache, 'w', encoding='utf-8'), ensure_ascii=False)
     open(os.path.join(args.out, 'llms.txt'), 'w', encoding='utf-8').write(out)
     open(os.path.join(args.out, 'llms-full.txt'), 'w', encoding='utf-8').write(full)
     print(f'llms.txt: {len(out.encode()):,} bytes, {len(links):,} links; {n_cities:,} city guides in {len(countries)} countries '
