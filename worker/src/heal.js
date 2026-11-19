@@ -273,7 +273,7 @@ function englishGrammar(t) {
     .replace(/\b1 Ausflugstipps\b/g, '1 Ausflugstipp').replace(/\b1 Tipps\b/g, '1 Tipp').replace(/\b1 Veranstaltungen\b/g, '1 Veranstaltung')
     .replace(/\b1 geprüfte Tipps\b/g, '1 geprüfter Tipp').replace(/\b1 uitjes\b/g, '1 uitje').replace(/\b1 uitstappen\b/g, '1 uitstap')
     .replace(/\b1 eventi\b/g, '1 evento').replace(/\b1 programas\b/g, '1 programa').replace(/\b1 atividades\b/g, '1 atividade')
-    .replace(/\b1 eventos\b/g, '1 evento').replace(/\b1 actividades\b/g, '1 actividad');
+    .replace(/\b1 eventos\b/g, '1 evento').replace(/\b1 gratuitos\b/g, '1 gratuito').replace(/\b1 gratuitas\b/g, '1 gratuita').replace(/\b1 gratuites\b/g, '1 gratuite').replace(/\b1 gratuiti\b/g, '1 gratuito').replace(/\b1 actividades\b/g, '1 actividad');
 }
 
 // Numbers a text claims as event and free counts (for finding stale values).
