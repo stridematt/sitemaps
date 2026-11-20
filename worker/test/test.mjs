@@ -7,11 +7,11 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 
 const ROOT = new URL('../../', import.meta.url).pathname;
-const FIX = process.env.FIXTURES || '/home/claude/audit';
+import { FIX } from './paths.mjs';
 const SITE = 'https://www.rallytakesthetrain.com';
 const clustersText = readFileSync(ROOT + 'tools/clusters.json', 'utf8');
 
-const DYN = '/home/claude/dyn/';
+import { DYN } from './paths.mjs';
 const pages = {
   '/christmas-events-for-kids': 'christmas-events-for-kids.html',
   '/christmas-events/denver-co': DYN + 'christmas-events_denver-co.html',

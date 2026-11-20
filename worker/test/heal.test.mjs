@@ -2,7 +2,7 @@
 import { healHub, healCity, healGuide, rewriteCounts, refToday } from '../src/heal.js';
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-const DYN = '/home/claude/dyn/';
+import { DYN } from './paths.mjs';
 const live = JSON.parse(readFileSync(new URL('../../tools/truth/live.json', import.meta.url), 'utf8'));
 let n = 0;
 const t = (name, fn) => { fn(); n++; console.log('ok  ', name); };
