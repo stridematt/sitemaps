@@ -79,4 +79,23 @@ t('hub: finder data, rows, A to Z and headline all from live.json', () => {
   const us = D.c.find((c) => c[0] === 'US');
   assert.equal(us[7], live.countries['United States'].events);
 });
+t('hub: countries live on the site but not on the hub get a row, finder data, and right region counts', () => {
+  const html = readFileSync(DYN + 'christmas-events-for-kids.html', 'utf8');
+  const L = JSON.parse(JSON.stringify(live));
+  L.countries['Chile'] = { events: 27, free: 8, cities: 15, cities_with_events: 15, cc: 'CL', guide: '/christmas-events/navidad-con-ninos-chile' };
+  L.cities['/christmas-events/navidad-con-ninos-buin-cl'] = [1, 0, 'Buin', 'Chile', '', 0, []];
+  L.total.languages = 103;
+  const out = healHub(html, L, { day: '2026-11-19' });
+  assert.ok(out.includes('href="/christmas-events/navidad-con-ninos-chile" data-xn-cc="CL"><span class="xn-row__n">Chile</span><span class="rtt-sr">, 27 events in 15 cities</span>'), 'Chile row');
+  for (const m of out.matchAll(/<h3 class="xn-grp">[^<]*<span class="xn-grp__n">\((\d+) countr(?:y|ies)\)<\/span><\/h3><ul class="xn-list" role="list">([\s\S]*?)<\/ul>/g)) {
+    assert.equal(Number(m[1]), (m[2].match(/<li class="xn-item xn-item--place">/g) || []).length, 'region count matches its rows');
+  }
+  const D = JSON.parse(out.match(/id="xn-data">([\s\S]*?)<\/script>/)[1]);
+  const ci = D.c.findIndex((c) => c[0] === 'CL');
+  assert.ok(ci >= 0 && D.c[ci][7] === 27, 'Chile in the finder data');
+  assert.ok(D.p.some((p) => p[0] === 'Buin' && p[3] === ci), 'Buin in the finder data');
+  assert.ok(out.includes(`setHead('Christmas around the world', "${L.total.events.toLocaleString('en-US')} Christmas events in`), 'results line written on load');
+  assert.ok(!/Merry Christmas in (?!103)\d+ languages/.test(out), 'language count');
+});
+
 console.log(`\n${n} heal tests passed`);

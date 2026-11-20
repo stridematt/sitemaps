@@ -55,6 +55,21 @@ def item_json(path):
     return None
 
 
+def clean_name(name, path=''):
+    """A city's name from a card or title that may be a whole headline
+    ("¿Qué hacer en Navidad con niños en Buin?" -> "Buin")."""
+    n = re.sub(r'\s*\(\d{4}\)\s*$', '', (name or '').strip())
+    if len(n) > 28 or '?' in n or re.search(r'(?i)navidad|natal|no[eë]l|christmas|weihnacht|kerst|natale', n):
+        m = re.search(r'(?i).*\b(?:en|in|à|em|na|a|im|nel|ni|di)\s+([^?¿()]+?)\s*[?!.]*\s*$', n)
+        if m and len(m.group(1)) <= 40:
+            return m.group(1).strip()
+        slug = path.rsplit('/', 1)[-1]
+        slug = re.sub(r'^(navidad-con-ninos|natal-com-criancas|noel-avec-les-enfants|weihnachten-mit-kindern|natale-con-i-bambini|kerst-met-kinderen)-', '', slug)
+        slug = re.sub(r'-[a-z]{2}$', '', slug)
+        return ' '.join(w.capitalize() for w in slug.split('-')) or n
+    return n
+
+
 def plain(s):
     import unicodedata
     return ''.join(c for c in unicodedata.normalize('NFKD', s) if not unicodedata.combining(c))
@@ -258,7 +273,7 @@ def main():
         for sub, sd in fg.get('subs', {}).items():
             guides.setdefault(sub, {'kind': 'region', 'name': sd.get('name', ''), 'country': fg['country']})
         for q, name in fg.get('cities', {}).items():
-            place.setdefault(q, {'country': fg['country'], 'state': None, 'name': name, 'main': q})
+            place.setdefault(q, {'country': fg['country'], 'state': None, 'name': clean_name(name, q), 'main': q})
     gstate = old.get('guide_pages', {})
     # New city pages a country or state guide links to (its city cards and city sections) count too,
     # even before the hub lists them. They are picked up from the last read of each guide.
@@ -272,7 +287,7 @@ def main():
                 continue
             country = gi['name'] if gi['kind'] == 'country' else gi.get('country', '')
             place[q] = {'country': country, 'state': g if gi['kind'] == 'state' and country == 'United States' else None,
-                        'name': gs.get('names', {}).get(q) or q.rsplit('/', 1)[-1], 'main': q}
+                        'name': clean_name(gs.get('names', {}).get(q) or '', q), 'main': q}
             added.append(q)
     if added:
         log(f'{len(added)} city pages found through guides that the hub does not list yet: {added[:10]}')
@@ -387,6 +402,9 @@ def main():
 
     total = agg(list(cities.values()))
     total['countries'] = len(by_country)
+    # Merry Christmas language guides (one /merry-christmas/<language> page each)
+    total['languages'] = len({u for u in re.findall(r'<loc>https://www\.rallytakesthetrain\.com/merry-christmas/([a-z-]+)</loc>', sm.decode('utf-8'))
+                              if not u.startswith('blog-post-title')})
     truth = {
         'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'today': today,
         'total': total,
@@ -397,6 +415,10 @@ def main():
                        'hub': p not in missing} for p, c in sorted(cities.items())},
         'pages': pages, 'odd': odd, 'guide_pages': gstate, 'found': found,
     }
+    # the country's main guide: the found guide with the most city pages
+    for g, fg in sorted(found.get('guides', {}).items(), key=lambda x: len(x[1].get('cities', {})) + len(x[1].get('subs', {}))):
+        if fg.get('kind') == 'country' and fg.get('country') in truth['countries']:
+            truth['countries'][fg['country']].update({'cc': fg.get('cc', ''), 'guide': g, 'hub': 0})
     # Small file for the Worker: only what pages display.
     regions = collections.defaultdict(lambda: {'events': set(), 'free': set(), 'cities': 0, 'cities_with_events': 0})
     for p, c in cities.items():

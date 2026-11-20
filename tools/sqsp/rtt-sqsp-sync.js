@@ -34,6 +34,12 @@ var RTTSync = (() => {
   function refToday(now = Date.now()) {
     return new Date(now - 12 * 3600 * 1e3).toISOString().slice(0, 10);
   }
+  var GROUP = {};
+  for (const n of ["Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Paraguay", "Peru", "Uruguay", "Venezuela", "Mexico", "Canada", "United States", "Dominican Republic", "Puerto Rico", "Cuba", "Jamaica", "Trinidad and Tobago"]) GROUP[n] = "The Americas";
+  for (const n of ["Belize", "Costa Rica", "El Salvador", "Guatemala", "Honduras", "Nicaragua", "Panama"]) GROUP[n] = "Central America";
+  for (const n of ["South Africa", "Kenya", "Nigeria", "Ghana", "Egypt", "Morocco", "Ethiopia", "Madagascar", "Tanzania", "Uganda", "Israel", "Lebanon", "Jordan", "United Arab Emirates", "Qatar", "Saudi Arabia", "Bahrain", "Kuwait", "Oman"]) GROUP[n] = "Africa and the Middle East";
+  for (const n of ["Australia", "New Zealand", "Japan", "South Korea", "Philippines", "Singapore", "Hong Kong", "India", "Indonesia", "Malaysia", "Thailand", "Vietnam", "Taiwan", "China", "Fiji"]) GROUP[n] = "Asia and the Pacific";
+  for (const n of ["Albania", "Andorra", "Austria", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal", "Romania", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Ukraine", "United Kingdom"]) GROUP[n] = "Europe";
   var EVENT_WORDS = [
     "events?",
     "Events?",

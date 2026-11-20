@@ -25,6 +25,24 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 // ---------------------------------------------------------------------------------- hub
 // /christmas-events-for-kids: totals, country and state rows, the finder data, the A to Z.
+
+// Language of a page from its address (for the finder's language chips)
+const LANG_PREFIX = [['navidad-con-ninos-', 'es'], ['natal-com-criancas-', 'pt'], ['noel-avec-les-enfants-', 'fr'], ['activites-de-noel-pour-enfants-', 'fr'],
+  ['weihnachten-mit-kindern-', 'de'], ['natale-con-i-bambini-', 'it'], ['kerst-met-kinderen-', 'nl'], ['kodomo-christmas-', 'ja']];
+const pageRef = (p) => {
+  const s = String(p).replace(/^\/christmas-events\//, '');
+  return `${(LANG_PREFIX.find(([pre]) => s.startsWith(pre)) || [0, 'en'])[1]}:${s}`;
+};
+const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const escAttr = (s) => escText(s).replace(/"/g, '&quot;');
+// Region of the hub's "by country" list for countries added after the hub was built
+const GROUP = {};
+for (const n of ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela', 'Mexico', 'Canada', 'United States', 'Dominican Republic', 'Puerto Rico', 'Cuba', 'Jamaica', 'Trinidad and Tobago']) GROUP[n] = 'The Americas';
+for (const n of ['Belize', 'Costa Rica', 'El Salvador', 'Guatemala', 'Honduras', 'Nicaragua', 'Panama']) GROUP[n] = 'Central America';
+for (const n of ['South Africa', 'Kenya', 'Nigeria', 'Ghana', 'Egypt', 'Morocco', 'Ethiopia', 'Madagascar', 'Tanzania', 'Uganda', 'Israel', 'Lebanon', 'Jordan', 'United Arab Emirates', 'Qatar', 'Saudi Arabia', 'Bahrain', 'Kuwait', 'Oman']) GROUP[n] = 'Africa and the Middle East';
+for (const n of ['Australia', 'New Zealand', 'Japan', 'South Korea', 'Philippines', 'Singapore', 'Hong Kong', 'India', 'Indonesia', 'Malaysia', 'Thailand', 'Vietnam', 'Taiwan', 'China', 'Fiji']) GROUP[n] = 'Asia and the Pacific';
+for (const n of ['Albania', 'Andorra', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Malta', 'Monaco', 'Montenegro', 'Netherlands', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Ukraine', 'United Kingdom']) GROUP[n] = 'Europe';
+
 export function healHub(html, live, opts = {}) {
   if (!live || !live.total || !html.includes('id="xn-data"')) return null;
   const T = live.total;
@@ -69,6 +87,20 @@ export function healHub(html, live, opts = {}) {
         c[6] = g.cities_with_events;
         c[7] = g.events;
       }
+      // countries live on the site that the hub data does not list yet, and city guides it is missing
+      const cIdx = new Map(D.c.map((c, i) => [c[1], i]));
+      for (const [name, g] of Object.entries(live.countries || {})) {
+        if (cIdx.has(name) || !g.guide || !/^[A-Z]{2}$/.test(g.cc || '')) continue;
+        D.c.push([g.cc, name, '', '', pageRef(g.guide), g.cities, g.cities_with_events, g.events]);
+        cIdx.set(name, D.c.length - 1);
+      }
+      const known = new Set();
+      for (const a of D.p) for (const x of String(a[6] || '').split(',')) known.add('/christmas-events/' + x.slice(x.indexOf(':') + 1));
+      for (const [p, c] of Object.entries(live.cities || {})) {
+        if (c[3] === 'United States' || c[3] === 'Canada' || !cIdx.has(c[3])) continue;
+        if (known.has(p) || (c[6] || []).some((q) => known.has(q))) continue;
+        D.p.push([c[2], '', '', cIdx.get(c[3]), '', c[0], [p].concat(c[6] || []).map(pageRef).join(','), null, null, 0]);
+      }
       for (const cc of Object.keys(D.r || {})) {
         for (const r of D.r[cc][1] || []) {
           const g = (live.regions || {})[`${cc}-${r[0]}`];
@@ -109,6 +141,35 @@ export function healHub(html, live, opts = {}) {
       const label = plural(g.events, 'event', 'events');
       return `${a}${label} in ${cities}${b}${label}`;
     });
+
+  // 3b. Countries live on the site that the "by country" list does not show yet, in their region,
+  // alphabetically, with the region's country count kept right.
+  const svg = (out.match(/<span class="xn-cta xn-cta--place" aria-hidden="true">[^<]*(<svg class="xn-cta__ic"[\s\S]*?<\/svg>)/) || [])[1] || '';
+  const listed = new Set([...out.matchAll(/<a class="xn-row" href="[^"]*" data-xn-cc="[A-Z]{2}"><span class="xn-row__n">([^<]+?)\s*(?:<|<\/span>)/g)].map((x) => x[1].trim()));
+  const extra = {};
+  for (const [name, g] of Object.entries(live.countries || {})) {
+    if (listed.has(name) || !g.guide || !GROUP[name] || !/^[A-Z]{2}$/.test(g.cc || '')) continue;
+    const cities = plural(g.cities, 'city', 'cities');
+    const label = g.events > 0 ? plural(g.events, 'event', 'events') : cities;
+    const sr = g.events > 0 ? `${label} in ${cities}` : cities;
+    (extra[GROUP[name]] = extra[GROUP[name]] || []).push([name,
+      `<li class="xn-item xn-item--place"><span class="xn-row__t"><a class="xn-row" href="${escAttr(g.guide)}" data-xn-cc="${g.cc}"><span class="xn-row__n">${escText(name)}</span><span class="rtt-sr">, ${sr}</span></a></span><span class="xn-cta xn-cta--place" aria-hidden="true">${label}${svg}</span></li>`]);
+  }
+  rep(/(<h3 class="xn-grp">)([^<]+?)(\s*<span class="xn-grp__n">\()\d+( countr(?:y|ies)\)<\/span><\/h3><ul class="xn-list" role="list">)([\s\S]*?)(<\/ul>)/g, (all, a, grp, b, c, body, d) => {
+    let rows = [...body.matchAll(/<li class="xn-item xn-item--place">[\s\S]*?<\/li>(?=<li class="xn-item|$)/g)].map((x) => x[0]);
+    if (!rows.length) return all;
+    const name = (r) => ((r.match(/<span class="xn-row__n">([^<]+)/) || [])[1] || '').trim();
+    const add = extra[grp.trim()] || [];
+    if (add.length) rows = rows.concat(add.map((x) => x[1])).sort((x, y) => name(x).localeCompare(name(y)));
+    const n = rows.length;
+    return `${a}${grp}${b}${n}${c.replace(/countr(?:y|ies)/, n === 1 ? 'country' : 'countries')}${rows.join('')}${d}`;
+  });
+
+  // 3c. The results line the finder script writes on load (it counted its own, older data)
+  rep(/setHead\('Christmas around the world', [^;]*?\);/, () =>
+    `setHead('Christmas around the world', ${JSON.stringify(`${num(T.events)} Christmas events in ${num(T.cities)} cities across ${T.countries} countries. Type your city above, start near you, or browse every country below.`)});`);
+  // Merry Christmas language guides
+  if (T.languages > 0) rep(/(Merry Christmas in )\d+( languages)/g, (_, a, b) => `${a}${T.languages}${b}`);
 
   // 4. A to Z: events and cities per country, and every city guide the list was missing.
   const names = Object.keys(live.countries || {});
@@ -153,7 +214,7 @@ export function healHub(html, live, opts = {}) {
   rep(/(<p class="rtt-lp__lede">)[\s\S]*?(<\/p>)/, (_, a, b) =>
     `${a}${evLine}: Santa visits, story times, tree lightings, markets and holiday shows. Every guide has dates, times, costs and a link straight to the host.${b}`);
   rep(/(<p class="xn-res__sub" id="xn-sub">)[\s\S]*?(<\/p>)/, (_, a, b) =>
-    `${a}${num(T.events)} Christmas events in ${num(T.cities)} cities across ${T.countries} countries. Type your city above or browse every country below.${b}`);
+    `${a}${num(T.events)} Christmas events in ${num(T.cities)} cities across ${T.countries} countries. Type your city above, start near you, or browse every country below.${b}`);
   // The map: gold lights are cities with confirmed events (bigger where there are more), gray lights are cities being added
   rep(/(<h2 class="xn-map__h" id="xn-map-h">)[\s\S]*?(<\/h2>)/, (_, a, b) => `${a}${num(T.events)} Christmas events for kids <em>around the world</em>${b}`);
   rep(/(<p class="xn-map__p">)[\s\S]*?(<\/p>)/, (_, a, b) =>
