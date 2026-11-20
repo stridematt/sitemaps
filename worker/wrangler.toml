@@ -14,4 +14,5 @@ routes = [
   { pattern = "www.rallytakesthetrain.com/hreflang-sitemap.xml", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/llms.txt", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/llms-full.txt", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/sitemap.xml", zone_name = "rallytakesthetrain.com" },
 ]

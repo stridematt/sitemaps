@@ -10,3 +10,4 @@ www.rallytakesthetrain.com/treni-di-natale*
 www.rallytakesthetrain.com/hreflang-sitemap.xml
 www.rallytakesthetrain.com/llms.txt
 www.rallytakesthetrain.com/llms-full.txt
+www.rallytakesthetrain.com/sitemap.xml
