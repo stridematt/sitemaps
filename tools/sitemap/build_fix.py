@@ -24,6 +24,8 @@ import build_llms as L  # collection(), EVE_SECTIONS
 
 SITE = 'https://www.rallytakesthetrain.com'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 rtt-sitemap-check'
+# Our own pipeline proves itself to Cloudflare with this header (GitHub secret RTT_BOT_KEY), so bot protection never challenges it.
+HDR = {'User-Agent': UA, **({'x-rtt-key': os.environ['RTT_BOT_KEY']} if os.environ.get('RTT_BOT_KEY') else {})}
 MAX_REMOVE_SHARE = 0.03
 
 
@@ -46,7 +48,7 @@ def status(path):
     """(path, status, redirect target path) without following redirects; status 0 = no answer we trust."""
     for method in ('HEAD', 'GET'):
         try:
-            r = OPENER.open(urllib.request.Request(SITE + path, method=method, headers={'User-Agent': UA}), timeout=25)
+            r = OPENER.open(urllib.request.Request(SITE + path, method=method, headers={**HDR}), timeout=25)
             return path, r.status, None
         except urllib.error.HTTPError as e:
             if e.code == 405 and method == 'HEAD':
@@ -62,7 +64,7 @@ def status(path):
 def indexable(path):
     """True when a page is live, not noindex, and canonical to itself."""
     try:
-        r = OPENER.open(urllib.request.Request(SITE + path, headers={'User-Agent': UA}), timeout=30)
+        r = OPENER.open(urllib.request.Request(SITE + path, headers={**HDR}), timeout=30)
         if r.status != 200:
             return path, False
         head = r.read(120000).decode('utf-8', 'ignore')
@@ -95,7 +97,7 @@ def main():
     added = state.setdefault('added', {})      # path -> date first added (its lastmod)
 
     # Squarespace's own sitemap (the Worker passes it through untouched with this header)
-    req = urllib.request.Request(SITE + '/sitemap.xml', headers={'User-Agent': UA, 'x-rtt-raw': '1'})
+    req = urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR, 'x-rtt-raw': '1'})
     sm = urllib.request.urlopen(req, timeout=120).read().decode('utf-8')
     listed = re.findall(r'<loc>https://www\.rallytakesthetrain\.com([^<]*)</loc>', sm)
     listed_set = set(listed)

@@ -38,6 +38,8 @@ import build_hreflang  # noqa: E402
 
 SITE = 'https://www.rallytakesthetrain.com'
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36'
+# Our own pipeline proves itself to Cloudflare with this header (GitHub secret RTT_BOT_KEY), so bot protection never challenges it.
+HDR = {'User-Agent': UA, **({'x-rtt-key': os.environ['RTT_BOT_KEY']} if os.environ.get('RTT_BOT_KEY') else {})}
 READ_BYTES = 450_000          # the switcher sits ~150 KB into the page
 MAX_NEW_PER_RUN = 3000
 PENDING_DAYS = 7              # keep retrying a declared pair whose partner isn't live yet
@@ -70,7 +72,7 @@ def site_pages(sitemap_file=None):
     if sitemap_file:
         xml = open(sitemap_file, encoding='utf-8').read()
     else:
-        req = urllib.request.Request(SITE + '/sitemap.xml', headers={'User-Agent': UA})
+        req = urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR})
         xml = urllib.request.urlopen(req, timeout=180).read().decode('utf-8')
     locs = re.findall(r'<loc>([^<]+)</loc>', xml)
     return {path_of(l) for l in locs if l.startswith(SITE) and not re.search(r'\.(jpe?g|png|gif|webp)$', l, re.I)}
@@ -90,7 +92,7 @@ def fetch(path):
     info = {'path': path, 'ok': False}
     for attempt in range(3):
         try:
-            r = OPENER.open(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60)
+            r = OPENER.open(urllib.request.Request(url, headers={**HDR}), timeout=60)
             s = r.read(READ_BYTES).decode('utf-8', 'ignore')
             break
         except urllib.error.HTTPError as e:
@@ -143,7 +145,7 @@ def codes_for(locale):
 
 def script_clusters():
     """Read the cluster list from the site-wide language script (variables P and C)."""
-    req = urllib.request.Request(SITE + '/christmas-events-for-kids', headers={'User-Agent': UA})
+    req = urllib.request.Request(SITE + '/christmas-events-for-kids', headers={**HDR})
     s = urllib.request.urlopen(req, timeout=90).read(400_000).decode('utf-8', 'ignore')
     m = re.search(r"C=(\[\".*?\"\]),\s*\n?\s*p=location", s, re.S)
     if not m:

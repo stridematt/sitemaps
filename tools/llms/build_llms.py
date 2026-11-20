@@ -20,6 +20,8 @@ SITE = 'https://www.rallytakesthetrain.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36'
+# Our own pipeline proves itself to Cloudflare with this header (GitHub secret RTT_BOT_KEY), so bot protection never challenges it.
+HDR = {'User-Agent': UA, **({'x-rtt-key': os.environ['RTT_BOT_KEY']} if os.environ.get('RTT_BOT_KEY') else {})}
 MAX_LOOKUPS = 1500  # new pages looked up per run; the rest wait for the next run
 
 ISO = {'Austria': 'AT', 'Belgium': 'BE', 'Croatia': 'HR', 'Cyprus': 'CY', 'Denmark': 'DK', 'Estonia': 'EE', 'Finland': 'FI',
@@ -77,7 +79,7 @@ def get(url, limit=None, tries=4, timeout=60):
     err = None
     for i in range(tries):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=timeout)
+            r = urllib.request.urlopen(urllib.request.Request(url, headers=HDR if url.startswith(SITE) else {'User-Agent': UA}), timeout=timeout)
             return r.status, r.read(limit) if limit else r.read()
         except urllib.error.HTTPError as e:
             if e.code in (404, 410, 403, 429) and tries == 1:

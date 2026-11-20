@@ -18,12 +18,14 @@ from analyze import analyze
 
 SITE = 'https://www.rallytakesthetrain.com'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 rtt-audit'
+# Our own pipeline proves itself to Cloudflare with this header (GitHub secret RTT_BOT_KEY), so bot protection never challenges it.
+HDR = {'User-Agent': UA, **({'x-rtt-key': os.environ['RTT_BOT_KEY']} if os.environ.get('RTT_BOT_KEY') else {})}
 
 
 def body(path):
     for _ in range(3):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(SITE + path + '?format=json', headers={'User-Agent': UA}), timeout=60)
+            r = urllib.request.urlopen(urllib.request.Request(SITE + path + '?format=json', headers={**HDR}), timeout=60)
             it = json.loads(r.read()).get('item') or {}
             return path, it
         except Exception:
@@ -34,7 +36,7 @@ def body(path):
 def main():
     today = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=12)).date().isoformat()
     live = json.load(open(os.path.join(HERE, 'live.json'), encoding='utf-8'))
-    sm = urllib.request.urlopen(urllib.request.Request(SITE + '/sitemap.xml', headers={'User-Agent': UA}), timeout=120).read().decode()
+    sm = urllib.request.urlopen(urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR}), timeout=120).read().decode()
     urls = sorted(set(re.findall(r'<loc>https://www\.rallytakesthetrain\.com(/christmas-events/[^<]+)</loc>', sm)))
     counted = set(live['pages']) | set(live['guides'])
     city_pages = sorted(p for p in counted if p in live['pages'])

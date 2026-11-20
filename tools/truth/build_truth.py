@@ -21,6 +21,8 @@ SITE = 'https://www.rallytakesthetrain.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36'
+# Our own pipeline proves itself to Cloudflare with this header (GitHub secret RTT_BOT_KEY), so bot protection never challenges it.
+HDR = {'User-Agent': UA, **({'x-rtt-key': os.environ['RTT_BOT_KEY']} if os.environ.get('RTT_BOT_KEY') else {})}
 sys.path.insert(0, os.path.join(ROOT, 'tools', 'llms'))
 import build_llms as L  # hub parser, ISO codes, English city guide pattern
 
@@ -48,7 +50,7 @@ def item_json(path):
     """A post's Squarespace JSON (body, title, id), or None."""
     for i in range(5):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(SITE + path + ('&' if '?' in path else '?') + 'format=json', headers={'User-Agent': UA}), timeout=60)
+            r = urllib.request.urlopen(urllib.request.Request(SITE + path + ('&' if '?' in path else '?') + 'format=json', headers={**HDR}), timeout=60)
             return json.loads(r.read())
         except urllib.error.HTTPError as e:
             if e.code in (404, 410):
@@ -167,7 +169,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
 def fetch(path, tries=5):
     for i in range(tries):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(SITE + path, headers={'User-Agent': UA, 'Accept-Encoding': 'gzip'}), timeout=60)
+            r = urllib.request.urlopen(urllib.request.Request(SITE + path, headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=60)
             b = r.read()
             if r.headers.get('Content-Encoding') == 'gzip':
                 b = gzip.decompress(b)

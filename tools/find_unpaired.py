@@ -20,6 +20,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://www.rallytakesthetrain.com'
 CE = '/christmas-events/'
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36'
+# Our own pipeline proves itself to Cloudflare with this header (GitHub secret RTT_BOT_KEY), so bot protection never challenges it.
+HDR = {'User-Agent': UA, **({'x-rtt-key': os.environ['RTT_BOT_KEY']} if os.environ.get('RTT_BOT_KEY') else {})}
 
 # Local-language city guide prefixes in /christmas-events/
 LOCAL_PREFIXES = {
@@ -34,7 +36,7 @@ def site_pages(path=None):
     if path:
         xml = open(path, encoding='utf-8').read()
     else:
-        req = urllib.request.Request(SITE + '/sitemap.xml', headers={'User-Agent': UA})
+        req = urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR})
         xml = urllib.request.urlopen(req, timeout=120).read().decode('utf-8')
     locs = re.findall(r'<loc>([^<]+)</loc>', xml)
     return {l.replace(SITE, '', 1).rstrip('/') or '/' for l in locs if l.startswith(SITE) and not re.search(r'\.(jpe?g|png|gif|webp)$', l, re.I)}

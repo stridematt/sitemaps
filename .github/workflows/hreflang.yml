@@ -31,6 +31,9 @@ jobs:
   auto-pair:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
+    env:
+      # Lets our own requests past Cloudflare bot protection (custom rule "Allow Rally pipeline").
+      RTT_BOT_KEY: ${{ secrets.RTT_BOT_KEY }}
     steps:
       - uses: actions/checkout@v4
 
