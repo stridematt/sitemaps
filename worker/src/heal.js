@@ -132,7 +132,7 @@ export function healHub(html, live, opts = {}) {
       for (const c of JSON.parse(m[2]).c) cc2name[c[0]] = c[1];
     } catch (e) {}
   }
-  rep(/(<a class="xn-row" href="[^"]*" data-xn-cc="([A-Z]{2})">[\s\S]*?<span class="rtt-sr">, )([\d,]+ cit(?:y|ies))(<\/span><\/a><\/span><span class="xn-cta xn-cta--place" aria-hidden="true">)([\d,]+ cit(?:y|ies))/g,
+  rep(/(<a class="xn-row" href="[^"]*" data-xn-cc="([A-Z]{2})"[^>]*>[\s\S]*?<span class="rtt-sr">, )([\d,]+ cit(?:y|ies))(<\/span><\/a><\/span><span class="xn-cta xn-cta--place" aria-hidden="true">)([\d,]+ cit(?:y|ies))/g,
     (all, a, cc, _s, b) => {
       const g = (live.countries || {})[cc2name[cc]];
       if (!g) return all;
@@ -145,7 +145,7 @@ export function healHub(html, live, opts = {}) {
   // 3b. Countries live on the site that the "by country" list does not show yet, in their region,
   // alphabetically, with the region's country count kept right.
   const svg = (out.match(/<span class="xn-cta xn-cta--place" aria-hidden="true">[^<]*(<svg class="xn-cta__ic"[\s\S]*?<\/svg>)/) || [])[1] || '';
-  const listed = new Set([...out.matchAll(/<a class="xn-row" href="[^"]*" data-xn-cc="[A-Z]{2}"><span class="xn-row__n">([^<]+?)\s*(?:<|<\/span>)/g)].map((x) => x[1].trim()));
+  const listed = new Set([...out.matchAll(/<a class="xn-row" href="[^"]*" data-xn-cc="[A-Z]{2}"[^>]*><span class="xn-row__n">([^<]+?)\s*(?:<|<\/span>)/g)].map((x) => x[1].trim()));
   const extra = {};
   for (const [name, g] of Object.entries(live.countries || {})) {
     if (listed.has(name) || !g.guide || !GROUP[name] || !/^[A-Z]{2}$/.test(g.cc || '')) continue;
@@ -168,6 +168,16 @@ export function healHub(html, live, opts = {}) {
   // 3c. The results line the finder script writes on load (it counted its own, older data)
   rep(/setHead\('Christmas around the world', [^;]*?\);/, () =>
     `setHead('Christmas around the world', ${JSON.stringify(`${num(T.events)} Christmas events in ${num(T.cities)} cities across ${T.countries} countries. Type your city above, start near you, or browse every country below.`)});`);
+  // The FAQ's list of countries (visible answer and its structured data) includes every country on the site
+  const listNames = (txt) => txt.split(/, | and /).map((x) => x.trim()).filter(Boolean);
+  const joinNames = (a) => (a.length > 1 ? `${a.slice(0, -1).join(', ')} and ${a[a.length - 1]}` : a.join(''));
+  const allCountries = Object.keys(live.countries || {});
+  rep(/((?:<summary>|"name":")Which countries have Christmas events for kids in the guide\?(?:<\/summary><p>|","acceptedAnswer":\{"@type":"Answer","text":"))([^<"]+?)(\. Choose any country)/g, (all, a, list, b) => {
+    const names = new Set(listNames(list));
+    if (!names.size) return all;
+    for (const n of allCountries) names.add(n);
+    return a + joinNames([...names].sort((x, y) => x.localeCompare(y))) + b;
+  });
   // Merry Christmas language guides
   if (T.languages > 0) rep(/(Merry Christmas in )\d+( languages)/g, (_, a, b) => `${a}${T.languages}${b}`);
 
