@@ -58,9 +58,9 @@ def item_json(path):
 def clean_name(name, path=''):
     """A city's name from a card or title that may be a whole headline
     ("¿Qué hacer en Navidad con niños en Buin?" -> "Buin")."""
-    n = re.sub(r'\s*\(\d{4}\)\s*$', '', (name or '').strip())
-    if len(n) > 28 or '?' in n or re.search(r'(?i)navidad|natal|no[eë]l|christmas|weihnacht|kerst|natale', n):
-        m = re.search(r'(?i).*\b(?:en|in|à|em|na|a|im|nel|ni|di)\s+([^?¿()]+?)\s*[?!.]*\s*$', n)
+    n = re.sub(r'\s*\(?\b20\d\d\)?\s*$', '', (name or '').strip())
+    if '?' in n or re.search(r'(?i)navidad|natal|no[eë]l|christmas|weihnacht|kerst|natale|jul |advent|kar[aá]csony|j[oó]la', n):
+        m = re.search(r'(?i).*(?:^|\s)(?:en|in|à|em|na|a|im|nel|ni|di|i|på|í)\s+([^?¿()]+?)\s*[?!.]*\s*$', n)
         if m and len(m.group(1)) <= 40:
             return m.group(1).strip()
         slug = path.rsplit('/', 1)[-1]
