@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Build tools/truth/truth.json: what the Christmas events pages actually contain.
+"""Build tools/truth/live.json: what the Christmas events pages actually contain.
 
-Every city guide is read for its event cards (dates and free flags), past events are
-dropped, and the result is rolled up by state, country and for the whole hub. Pages are
-only re-read when Squarespace says they changed (sitemap lastmod), when one of their
-events has passed, or once a week, so a normal run reads a few dozen pages.
+Every city guide and country or state guide is read every run (6 threads, with backoff on
+429/503) for its event cards (dates and free flags). Past events are dropped, each city is
+counted once using its fuller language version (twins are not double counted), and the
+result is rolled up by state, country, region and for the whole hub. New country and region
+guides are found from the newest-posts feed (/christmas-events?format=json) and crawled
+down to their city pages. Also writes tools/sqsp/ids.json (path to Squarespace post id).
 
-The Cloudflare Worker reads truth.json to keep every number on the hub, country and
-state pages right, and to list city guides the hub's A to Z has not picked up yet.
+The Cloudflare Worker reads live.json to keep every number on the hub, country and state
+pages and city pages right; the Squarespace sync writes the same numbers into the posts.
+
+Usage: python3 tools/truth/build_truth.py [--state .state/truth.json] [--max 8000]
 """
 import argparse, collections, concurrent.futures as cf, datetime, gzip, json, os, re, sys, time, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
