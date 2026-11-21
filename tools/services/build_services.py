@@ -175,16 +175,29 @@ def main():
     urls = sorted({u for u in re.findall(r'<loc>https?://[^/<]+(/[^<]+)</loc>', sm)
                    if u.count('/') == 2 and u.split('/')[1] in cols and '/category/' not in u and '/tag/' not in u})[:a.max]
     log(f'{len(urls)} services pages in {len(cols)} collections')
-    pages = {}
-    with cf.ThreadPoolExecutor(a.threads) as ex:
-        for p, (s, d) in zip(urls, ex.map(page, urls)):
-            if d is None:
-                continue
-            r = analyze(p, d['body'])
-            r['title'] = d['title']
-            r['sq'] = d['id']
-            pages[p] = r
-    log(f'read {len(pages)} of {len(urls)} from the sitemap')
+    pages, failed = {}, []
+
+    def read_all(paths, threads):
+        miss = []
+        with cf.ThreadPoolExecutor(threads) as ex:
+            for p, (s, d) in zip(paths, ex.map(page, paths)):
+                if d is None:
+                    if s not in (404, 410):
+                        miss.append(p)
+                    continue
+                r = analyze(p, d['body'])
+                r['title'] = d['title']
+                r['sq'] = d['id']
+                pages[p] = r
+        return miss
+
+    failed = read_all(urls, a.threads)
+    if failed:   # Squarespace throttles bursts: a slower second pass picks up what the first missed
+        time.sleep(20)
+        failed = read_all(failed, 2)
+    log(f'read {len(pages)} of {len(urls)} from the sitemap; {len(failed)} could not be read')
+    if len(failed) > max(10, 0.01 * len(urls)):
+        sys.exit(f'{len(failed)} pages could not be read; keeping the last counts rather than writing low ones')
     # the sitemap lags (new pages appear days later): follow every link inside the services collections until nothing new turns up
     tried = set(pages) | set(urls)
     frontier = set()
