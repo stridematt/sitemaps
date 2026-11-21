@@ -1,4 +1,4 @@
-# Deployed by Cloudflare Workers Builds on every merge to main that touches worker/ (connected 2026-11-21).
+# Deployed by Cloudflare Workers Builds on every merge to main that touches worker/ (connected 2026-11-21; GitHub app access granted).
 name = "rtt-hreflang"
 main = "src/index.js"
 compatibility_date = "2026-11-18"
