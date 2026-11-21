@@ -320,6 +320,7 @@ def main():
     src = out_path if os.path.exists(out_path) else seed if os.path.exists(seed) else None
     old = json.load(open(src, encoding='utf-8')) if src else {'pages': {}}
     pages = old.get('pages', {})
+    keys_before = {p: sorted(v.get('k', [])) for p, v in pages.items()}   # to tell which pages' events changed this run
 
     _, hb = L.get(SITE + '/christmas-events-for-kids')
     hub = L.parse_hub(hb.decode('utf-8'))
@@ -698,6 +699,20 @@ def main():
     if prev and strip(prev) == strip(live):
         live['generated'] = prev.get('generated', live['generated'])
     json.dump(live, open(live_path, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+    # Pages whose shown content changed since the last run (their events, or the numbers the Worker writes into
+    # them): sent to IndexNow by the workflow, because Squarespace's sitemap dates lag behind edits by days.
+    if prev:
+        ch = {p for p, v in live['pages'].items() if (prev.get('pages') or {}).get(p) != v}
+        ch |= {p for p, v in live['cities'].items() if ((prev.get('cities') or {}).get(p) or [None, None])[:2] != v[:2]}
+        ch |= {p for p, v in live['guides'].items() if (prev.get('guides') or {}).get(p) != v}
+        for p, v in pages.items():   # same number of events but different events
+            if p in keys_before and not v.get('guide') and keys_before[p] != sorted(v.get('k', [])):
+                ch.add(p)
+        if prev.get('total') != live['total']:
+            ch.add('/christmas-events-for-kids')
+        with open(os.path.join(os.path.dirname(out_path) or '.', 'changed-pages.txt'), 'w', encoding='utf-8') as fh:
+            fh.write('\n'.join('https://www.rallytakesthetrain.com' + p for p in sorted(ch)))
+        log(f'{len(ch)} pages changed since the last run')
     log(f"truth: {total['events']:,} events ({total['free']:,} free) in {total['cities']:,} cities "
         f"({total['cities_with_events']:,} with events) across {total['countries']} countries")
 
