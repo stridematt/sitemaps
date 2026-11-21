@@ -1,29 +1,36 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26608,
- "city_pages": 3722,
+ "sitemap_urls": 26609,
+ "city_pages": 3738,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 21547,
+ "event_pages_listed": 21778,
  "count_mismatch": [
   [
-   "/christmas-events/christmas-in-basel-with-kids",
-   37,
-   36
+   "/christmas-events/nashville-tn",
+   24,
+   39
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-tigre-ar",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-celle",
+   0,
+   13
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-kiel",
+   0,
+   8
   ]
  ],
  "uncounted_city_pages": [
   [
-   "/christmas-events/abu-dhabi-ae",
-   25
-  ],
-  [
    "/christmas-events/borlange-se",
    5
-  ],
-  [
-   "/christmas-events/brno-cz",
-   19
   ],
   [
    "/christmas-events/budapest-1-kerulet-hu",
@@ -106,10 +113,6 @@
    11
   ],
   [
-   "/christmas-events/ceske-budejovice-cz",
-   5
-  ],
-  [
    "/christmas-events/dubai-ae",
    29
   ],
@@ -122,20 +125,8 @@
    4
   ],
   [
-   "/christmas-events/havirov-cz",
-   5
-  ],
-  [
-   "/christmas-events/hradec-kralove-cz",
-   11
-  ],
-  [
    "/christmas-events/huddinge-se",
    5
-  ],
-  [
-   "/christmas-events/kladno-cz",
-   6
   ],
   [
    "/christmas-events/kristianstad-se",
@@ -144,10 +135,6 @@
   [
    "/christmas-events/lakatamia-cy",
    2
-  ],
-  [
-   "/christmas-events/liberec-cz",
-   10
   ],
   [
    "/christmas-events/navidad-con-ninos-acajutla-sv",
@@ -358,32 +345,16 @@
    7
   ],
   [
-   "/christmas-events/olomouc-cz",
-   7
-  ],
-  [
    "/christmas-events/ornskoldsvik-se",
    6
-  ],
-  [
-   "/christmas-events/ostrava-cz",
-   14
   ],
   [
    "/christmas-events/paphos-cy",
    4
   ],
   [
-   "/christmas-events/pardubice-cz",
-   14
-  ],
-  [
    "/christmas-events/parnu-ee",
    8
-  ],
-  [
-   "/christmas-events/plzen-cz",
-   11
   ],
   [
    "/christmas-events/praha-1-cz",
@@ -410,10 +381,6 @@
    3
   ],
   [
-   "/christmas-events/praha-cz",
-   53
-  ],
-  [
    "/christmas-events/rozhdestvo-s-detmi-narva-ru",
    2
   ],
@@ -436,14 +403,6 @@
   [
    "/christmas-events/sundbyberg-se",
    4
-  ],
-  [
-   "/christmas-events/usti-nad-labem-cz",
-   3
-  ],
-  [
-   "/christmas-events/zlin-cz",
-   7
   ]
  ],
  "upcoming_not_listed": [
@@ -586,18 +545,6 @@
    "Advent Óbudán megnyitó és fénygyújtás"
   ],
   [
-   "/christmas-events/advent-s-vuni-perniku-pardubice-cz",
-   "2026-12-24",
-   "",
-   "Advent s vůní perníku"
-  ],
-  [
-   "/christmas-events/advent-u-slechticen-brno-cz",
-   "2026-12-12",
-   "",
-   "Advent u Šlechtičen"
-  ],
-  [
    "/christmas-events/advent-wekerlen-advent-1-es-advent-2-kispest-hu",
    "2026-12-05",
    "/christmas-events/budapest-hu",
@@ -658,54 +605,6 @@
    "Adventi workshop"
   ],
   [
-   "/christmas-events/adventni-dilna-a-jarmark-v-semlerove-rezidenci-plzen-cz",
-   "2026-11-29",
-   "",
-   "Adventní dílna a jarmark v Semlerově rezidenci"
-  ],
-  [
-   "/christmas-events/adventni-divadelni-prohlidky-kostela-sv-jakuba-brno-cz",
-   "2026-12-16",
-   "",
-   "Adventní divadelní prohlídky kostela sv. Jakuba"
-  ],
-  [
-   "/christmas-events/adventni-jarmark-a-vonave-dilny-na-zamku-pardubice-cz",
-   "2026-12-06",
-   "",
-   "Adventní jarmark a voňavé dílny na zámku"
-  ],
-  [
-   "/christmas-events/adventni-koncerty-v-narodnim-divadle-praha-cz",
-   "2026-12-20",
-   "",
-   "Adventní koncerty v Národním divadle"
-  ],
-  [
-   "/christmas-events/adventni-prohlidky-na-zamku-kozel-stahlavy-cz",
-   "2026-12-13",
-   "",
-   "Adventní prohlídky na zámku Kozel"
-  ],
-  [
-   "/christmas-events/adventni-trhy-na-chvalske-tvrzi-praha-cz",
-   "2026-11-29",
-   "",
-   "Adventní trhy na Chvalské tvrzi"
-  ],
-  [
-   "/christmas-events/adventni-trhy-na-namesti-republiky-plzen-cz",
-   "2026-12-23",
-   "",
-   "Adventní trhy na náměstí Republiky"
-  ],
-  [
-   "/christmas-events/adventni-zlin-zahajeni-a-trhy-cz",
-   "2026-11-27",
-   "",
-   "Adventní Zlín : zahájení a trhy"
-  ],
-  [
    "/christmas-events/adventsabenteuer-advent-adventure-leuven-be",
    "2026-12-19",
    "/christmas-events/christmas-in-leuven-with-kids",
@@ -716,12 +615,6 @@
    "2026-12-20",
    "",
    "Ahmed, prince de l’Alhambra, cinéma de fin d’année"
-  ],
-  [
-   "/christmas-events/al-ain-ae",
-   "2026-12-05",
-   "",
-   "فعاليات الكريسماس للأطفال في العين (2026)"
   ],
   [
    "/christmas-events/al-museo-en-familia-las-6-pruebas-de-heraclio-zaragoza-es",
@@ -920,12 +813,6 @@
    "2026-11-22",
    "",
    "Barnens Julvärld med Nassim Al Fakir 2026"
-  ],
-  [
-   "/christmas-events/basova-mikulasska-brno-cz",
-   "2026-12-05",
-   "",
-   "Basová mikulášská"
   ],
   [
    "/christmas-events/bat-gabon-zoriontsuak-san-sebastian-es",
@@ -1222,12 +1109,6 @@
    "Brunch with Santa at the Civic Amarillo Holiday Market"
   ],
   [
-   "/christmas-events/breakfast-with-santa-at-yas-acres-yas-island-ae",
-   "2026-12-20",
-   "",
-   "الإفطار مع بابا نويل في ياس إيكرز"
-  ],
-  [
    "/christmas-events/breakfast-with-santa-la-grange-ky",
    "2026-12-12",
    "/christmas-events/la-grange-ky",
@@ -1238,12 +1119,6 @@
    "2027-01-31",
    "/christmas-events/anchorage-ak",
    "Brighter Winter Nights"
-  ],
-  [
-   "/christmas-events/brnenske-vanoce-brno-cz",
-   "2026-12-23",
-   "",
-   "Brněnské Vánoce"
   ],
   [
    "/christmas-events/buble-christmas-tribute-pamplona-es",
@@ -1390,18 +1265,6 @@
    "Casse-Noisette : conte musical de Noël en aquarelle"
   ],
   [
-   "/christmas-events/certi-na-certovce-praha-cz",
-   "2026-12-05",
-   "",
-   "Čerti na Čertovce"
-  ],
-  [
-   "/christmas-events/certovska-nadilka-s-mikulasem-havirov-cz",
-   "2026-12-05",
-   "",
-   "Čertovská nadílka s Mikulášem"
-  ],
-  [
    "/christmas-events/chinchulina-y-el-ruisenor-de-la-china-madrid-es",
    "2027-01-05",
    "/christmas-events/navidad-con-ninos-madrid",
@@ -1432,12 +1295,6 @@
    "Christmas at Russell Square"
   ],
   [
-   "/christmas-events/christmas-brunch-at-the-park-with-camp-hyatt-park-hyatt-abu-dhabi-saadiyat-ae",
-   "2026-12-25",
-   "",
-   "غداء الكريسماس مع أنشطة Camp Hyatt في بارك حياة أبوظبي"
-  ],
-  [
    "/christmas-events/christmas-concert-with-dubai-city-sound-alserkal-ae",
    "2026-12-12",
    "",
@@ -1448,12 +1305,6 @@
    "2026-12-12",
    "",
    "Christmas Cracker Concert at The Irish Village"
-  ],
-  [
-   "/christmas-events/christmas-day-brunch-with-santa-at-hilton-abu-dhabi-yas-island-ae",
-   "2026-12-25",
-   "",
-   "غداء يوم الكريسماس مع بابا نويل في هيلتون ياس"
   ],
   [
    "/christmas-events/christmas-day-lunch-irish-village-garhoud-dubai-ae",
@@ -1510,12 +1361,6 @@
    "Christmas Market at the Villa Donnersmarck"
   ],
   [
-   "/christmas-events/christmas-on-yas-market-at-yas-links-yas-island-ae",
-   "2026-11-21",
-   "",
-   "سوق Christmas on Yas في ياس لينكس"
-  ],
-  [
    "/christmas-events/christmas-party-with-santa-kids-zone-souk-al-bahar-dubai-ae",
    "2026-12-19",
    "",
@@ -1528,12 +1373,6 @@
    "Christmas Past & Present"
   ],
   [
-   "/christmas-events/christmas-tree-lighting-and-festive-village-at-dusit-thani-abu-dhabi-ae",
-   "2026-12-09",
-   "",
-   "إضاءة الشجرة والقرية الاحتفالية في دوسيت ثاني أبوظبي"
-  ],
-  [
    "/christmas-events/christmas-tree-lighting-at-al-habtoor-polo-resort-dubai-ae",
    "2026-11-30",
    "",
@@ -1542,7 +1381,7 @@
   [
    "/christmas-events/christmas-tree-lighting-at-danat-al-ain-resort-ae",
    "2026-12-05",
-   "",
+   "/christmas-events/al-ain-ae",
    "إضاءة شجرة الكريسماس في منتجع داناة العين"
   ],
   [
@@ -1966,12 +1805,6 @@
    "Downtown Cookie Crawl"
   ],
   [
-   "/christmas-events/draci-betlem-hradec-kralove-cz",
-   "2026-12-22",
-   "",
-   "Dračí Betlém"
-  ],
-  [
    "/christmas-events/eastport-yacht-club-lights-parade-annapolis-md",
    "2026-12-12",
    "/christmas-events/annapolis-md",
@@ -2132,12 +1965,6 @@
    "2026-12-30",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Elurretako erregina"
-  ],
-  [
-   "/christmas-events/emirates-palace-mandarin-oriental-christmas-tree-lighting-abu-dhabi-ae",
-   "2026-12-11",
-   "",
-   "إضاءة الشجرة تحت القبة في قصر الإمارات ماندارين أورينتال"
   ],
   [
    "/christmas-events/emociones-y-mil-lecciones-con-laura-herrera-caro-madrid-es",
@@ -2338,12 +2165,6 @@
    "Exposition Bon appétit les animaux ! à la bibliothèque André Malraux"
   ],
   [
-   "/christmas-events/fairmont-bab-al-bahr-christmas-tree-lighting-abu-dhabi-ae",
-   "2026-12-09",
-   "",
-   "إضاءة شجرة الكريسماس في فيرمونت باب البحر"
-  ],
-  [
    "/christmas-events/fairmonts-23rd-annual-tree-lighting-ceremony-washington-dc",
    "2026-12-01",
    "",
@@ -2458,12 +2279,6 @@
    "Festive Tree Lighting aboard QE2"
   ],
   [
-   "/christmas-events/festive-workshops-at-kids-palace-emirates-palace-abu-dhabi-ae",
-   "2026-12-25",
-   "",
-   "ورش الكريسماس في Kids Palace بقصر الإمارات"
-  ],
-  [
    "/christmas-events/fira-de-nadal-a-la-sagrada-familia-barcelona-es",
    "2026-12-23",
    "/christmas-events/navidad-con-ninos-barcelona",
@@ -2560,28 +2375,10 @@
    "Gingerbread Buffet, Drop in and Play"
   ],
   [
-   "/christmas-events/gingerbread-house-decorating-and-tiny-afternoon-tea-at-st-regis-saadiyat-ae",
-   "2026-12-06",
-   "",
-   "تزيين بيوت الزنجبيل وشاي الصغار في سانت ريجيس السعديات"
-  ],
-  [
-   "/christmas-events/gingerbread-house-decorating-at-hilton-yas-island-kids-club-ae",
-   "2026-12-24",
-   "",
-   "تزيين بيوت الزنجبيل في نادي أطفال هيلتون ياس"
-  ],
-  [
    "/christmas-events/gingerbread-house-decorating-pittsburgh-pa",
    "2026-12-03",
    "/christmas-events/pittsburgh-pa",
    "Gingerbread House Decorating"
-  ],
-  [
-   "/christmas-events/gingerbread-house-workshop-at-yas-acres-yas-island-ae",
-   "2026-12-13",
-   "",
-   "ورشة بيوت الزنجبيل في ياس إيكرز"
   ],
   [
    "/christmas-events/gingerbread-lane-la-quinta-ca",
@@ -2674,12 +2471,6 @@
    "Hetk enne jõule"
   ],
   [
-   "/christmas-events/hilton-abu-dhabi-yas-island-christmas-tree-lighting-ae",
-   "2026-12-11",
-   "",
-   "إضاءة شجرة الكريسماس في هيلتون أبوظبي جزيرة ياس"
-  ],
-  [
    "/christmas-events/historias-de-navidad-madrid-es",
    "2026-12-22",
    "/christmas-events/navidad-con-ninos-madrid",
@@ -2758,18 +2549,6 @@
    "Holly Jolly Jamboree"
   ],
   [
-   "/christmas-events/home-alone-2-lost-in-new-york-live-in-concert-at-etihad-arena-yas-island-ae",
-   "2026-12-19",
-   "",
-   "Home Alone 2 مع أوركسترا حية في الاتحاد أرينا"
-  ],
-  [
-   "/christmas-events/hurvinkuv-mikulas-praha-cz",
-   "2026-12-13",
-   "",
-   "Hurvínkův Mikuláš"
-  ],
-  [
    "/christmas-events/i-drive-district-holiday-tree-lighting-orlando-fl",
    "2026-11-20",
    "/christmas-events/orlando-fl",
@@ -2804,12 +2583,6 @@
    "2027-01-31",
    "/christmas-events/budapest-hu",
    "Ingyenes jégpálya a Fő téren és a Békásmegyeri Piac Közösségi terén"
-  ],
-  [
-   "/christmas-events/intercontinental-abu-dhabi-christmas-tree-lighting-ae",
-   "2026-12-09",
-   "",
-   "إضاءة شجرة الكريسماس في إنتركونتيننتال أبوظبي"
   ],
   [
    "/christmas-events/ipuin-kontaketa-musikatuak-bilbao-es",
@@ -3190,12 +2963,6 @@
    "Kokosnuss feiert Weihnachten: Familientag (Kokosnuss Celebrates Christmas: Family Day)"
   ],
   [
-   "/christmas-events/kralovske-vanocni-trhy-na-velkem-namesti-hradec-kralove-cz",
-   "2026-12-23",
-   "",
-   "Královské vánoční trhy na Velkém náměstí"
-  ],
-  [
    "/christmas-events/krampusz-karacsonya-kobanya-hu",
    "2026-11-25",
    "/christmas-events/budapest-hu",
@@ -3212,12 +2979,6 @@
    "2026-12-02",
    "/christmas-events/christmas-in-namur-with-kids",
    "Kreativ-Tag: Geschenkpapier selbst gestalten (Creative Day: Make Your Own Wrapping Paper)"
-  ],
-  [
-   "/christmas-events/kreativni-jarmark-setrne-vanoce-v-toulcove-dvore-praha-cz",
-   "2026-12-18",
-   "",
-   "Kreativní jarmark Šetrné Vánoce v Toulcově dvoře"
   ],
   [
    "/christmas-events/la-buche-festival-au-supersonic-gouter-et-bingo-de-noel-paris",
@@ -3284,12 +3045,6 @@
    "2026-12-09",
    "",
    "L’Atelier de Noël de Bluey chez Fou de Pâtisserie"
-  ],
-  [
-   "/christmas-events/le-meridien-abu-dhabi-tree-lighting-and-christmas-market-ae",
-   "2026-12-04",
-   "",
-   "إضاءة الشجرة وسوق الكريسماس في لو ميريديان أبوظبي"
   ],
   [
    "/christmas-events/le-noel-dernest-et-celestine-paris",
@@ -3392,12 +3147,6 @@
    "2026-12-31",
    "/christmas-events/navidad-con-ninos-barcelona",
    "L'home del nassos al Mercat del Clot"
-  ],
-  [
-   "/christmas-events/liberecky-advent-cz",
-   "2026-12-23",
-   "",
-   "Liberecký advent"
   ],
   [
    "/christmas-events/light-it-up-long-beach-holiday-house-digital-map-long-beach-ny",
@@ -3506,12 +3255,6 @@
    "2026-12-19",
    "/christmas-events/navidad-con-ninos-bilbao",
    "LOTURAK. Familia Programa"
-  ],
-  [
-   "/christmas-events/louskacek-vanocni-pribeh-v-narodnim-divadle-praha-cz",
-   "2026-12-25",
-   "",
-   "Louskáček, Vánoční příběh v Národním divadle"
   ],
   [
    "/christmas-events/luces-campero-noche-de-los-deseos-san-miguel-sv",
@@ -3676,12 +3419,6 @@
    "Marimorena 2026. Zambombada de Madrid"
   ],
   [
-   "/christmas-events/marina-festive-market-at-intercontinental-abu-dhabi-ae",
-   "2026-12-20",
-   "",
-   "سوق الكريسماس في حديقة المارينا بإنتركونتيننتال أبوظبي"
-  ],
-  [
    "/christmas-events/mary-superchef-madrid-es",
    "2026-12-19",
    "/christmas-events/navidad-con-ninos-madrid",
@@ -3796,58 +3533,16 @@
    "Mikulás Fizika"
   ],
   [
-   "/christmas-events/mikulas-na-kampe-praha-cz",
-   "2026-12-05",
-   "",
-   "Mikuláš na Kampě"
-  ],
-  [
-   "/christmas-events/mikulas-na-ostravskych-vanocich-ostrava-cz",
-   "2026-12-05",
-   "",
-   "Mikuláš na Ostravských Vánocích"
-  ],
-  [
    "/christmas-events/mikulas-nap-a-palota-parkban-rakospalota-pestujhely-ujpalota-hu",
    "2026-12-05",
    "/christmas-events/budapest-hu",
    "Mikulás nap a Palota parkban"
   ],
   [
-   "/christmas-events/mikulas-prahy-7-na-vystavisti-praha-cz",
-   "2026-11-29",
-   "",
-   "Mikuláš Prahy 7 na Výstavišti"
-  ],
-  [
-   "/christmas-events/mikulas-v-muzeu-mhd-ve-stresovicich-praha-cz",
-   "2026-12-05",
-   "",
-   "Mikuláš v Muzeu MHD ve Střešovicích"
-  ],
-  [
-   "/christmas-events/mikulas-v-narodopisnem-muzeu-praha-cz",
-   "2026-12-05",
-   "",
-   "Mikuláš v Národopisném muzeu"
-  ],
-  [
-   "/christmas-events/mikulas-v-zoo-praha-cz",
-   "2026-12-05",
-   "",
-   "Mikuláš v Zoo Praha"
-  ],
-  [
    "/christmas-events/mikulas-varas-a-czakon-dongo-es-helka-budavar-hu",
    "2026-12-05",
    "/christmas-events/budapest-hu",
    "Mikulás-várás a Czakón | Dongó és Helka"
-  ],
-  [
-   "/christmas-events/mikulas-ve-stare-cistirne-praha-cz",
-   "2026-12-05",
-   "",
-   "Mikuláš ve Staré čistírně"
   ],
   [
    "/christmas-events/mikulascsalogato-ujbuda-hu",
@@ -3860,30 +3555,6 @@
    "2026-12-05",
    "/christmas-events/budapest-hu",
    "Mikulásfutás"
-  ],
-  [
-   "/christmas-events/mikulasska-druzina-nadilka-a-certovska-show-zlin-cz",
-   "2026-12-05",
-   "",
-   "Mikulášská družina, nadílka a čertovská show"
-  ],
-  [
-   "/christmas-events/mikulasska-pohadka-s-nadilkou-divadelko-ententyky-havirov-cz",
-   "2026-12-06",
-   "",
-   "Mikulášská pohádka s nadílkou, Divadélko Ententýky"
-  ],
-  [
-   "/christmas-events/mikulasske-jizdy-parnim-vlakem-z-braniku-praha-cz",
-   "2026-11-29",
-   "",
-   "Mikulášské jízdy parním vlakem z Braníku"
-  ],
-  [
-   "/christmas-events/mikulassky-tanec-s-andely-ve-vozovne-pisarky-brno-cz",
-   "2026-12-01",
-   "",
-   "Mikulášský tanec s anděly ve Vozovně Pisárky"
   ],
   [
    "/christmas-events/mikulasvaro-csaladi-delutan-kobanya-hu",
@@ -4018,12 +3689,6 @@
    "Muxin eta Zapotxin: Baserritarrak"
   ],
   [
-   "/christmas-events/muzejni-adventni-trh-hradec-kralove-cz",
-   "2026-11-29",
-   "",
-   "Muzejní adventní trh"
-  ],
-  [
    "/christmas-events/nacho-alvaro-especial-reyes-magos-madrid-es",
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-madrid",
@@ -4138,12 +3803,6 @@
    "North Pole Express"
   ],
   [
-   "/christmas-events/novomestsky-advent-praha-cz",
-   "2026-12-13",
-   "",
-   "Novoměstský advent"
-  ],
-  [
    "/christmas-events/nuestra-navidad-escenario-millennium-san-salvador-sv",
    "2026-12-06",
    "",
@@ -4154,12 +3813,6 @@
    "2027-02-21",
    "",
    "Nuits indiennes, le festival des lanternes du Jardin d’Acclimatation"
-  ],
-  [
-   "/christmas-events/o-linych-strasidlech-s-mikulasem-olomouc-cz",
-   "2026-12-05",
-   "",
-   "O líných strašidlech s Mikulášem"
   ],
   [
    "/christmas-events/oh-du-furzige-weihnachtszeit-oh-you-farty-christmas-season-bruges-be",
@@ -4196,12 +3849,6 @@
    "2027-01-02",
    "/christmas-events/navidad-con-ninos-madrid",
    "Olivia y el terremoto invisible"
-  ],
-  [
-   "/christmas-events/ostravske-vanoce-ostrava-cz",
-   "2027-01-06",
-   "",
-   "Ostravské Vánoce"
   ],
   [
    "/christmas-events/paphos-christmas-avenue-in-the-historic-centre-cy",
@@ -4348,18 +3995,6 @@
    "Pista de hielo en Matadero"
   ],
   [
-   "/christmas-events/pohadkove-muzeum-brno-cz",
-   "2026-12-05",
-   "",
-   "Pohádkové muzeum"
-  ],
-  [
-   "/christmas-events/pohadky-na-adventnim-podiu-ceske-budejovice-cz",
-   "2026-12-06",
-   "",
-   "Pohádky na adventním pódiu"
-  ],
-  [
    "/christmas-events/porrotx-marimotots-pupu-eta-lore-musu-bete-urte-donostia-san-sebastian-es",
    "2026-11-28",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -4370,12 +4005,6 @@
    "2027-01-02",
    "/christmas-events/navidad-con-ninos-madrid",
    "Portentosos polimeros"
-  ],
-  [
-   "/christmas-events/prilet-andela-z-cerne-veze-ceske-budejovice-cz",
-   "2026-12-05",
-   "",
-   "Přílet Anděla z Černé věže"
   ],
   [
    "/christmas-events/projeccio-el-gran-nadal-dels-animals-barcelona-es",
@@ -4426,52 +4055,10 @@
    "Rojo"
   ],
   [
-   "/christmas-events/rozsviceni-vanocniho-stromku-v-zoo-praha-cz",
-   "2026-11-29",
-   "",
-   "Rozsvícení vánočního stromku v Zoo Praha"
-  ],
-  [
-   "/christmas-events/rozsviceni-vanocniho-stromu-na-lidickem-namesti-usti-nad-labem-cz",
-   "2026-11-29",
-   "",
-   "Rozsvícení vánočního stromu na Lidickém náměstí"
-  ],
-  [
-   "/christmas-events/rozsviceni-vanocniho-stromu-na-namesti-svobody-brno-cz",
-   "2026-11-27",
-   "",
-   "Rozsvícení vánočního stromu na náměstí Svobody"
-  ],
-  [
-   "/christmas-events/rozsviceni-vanocniho-stromu-narodniho-divadla-brno-cz",
-   "2026-11-29",
-   "",
-   "Rozsvícení vánočního stromu Národního divadla Brno"
-  ],
-  [
-   "/christmas-events/rozsviceni-vanocniho-stromu-v-ceskych-budejovicich-ceske-budejovice-cz",
-   "2026-11-28",
-   "",
-   "Rozsvícení vánočního stromu v Českých Budějovicích"
-  ],
-  [
-   "/christmas-events/rozsviceni-zlinskeho-vanocniho-stromu-cz",
-   "2026-11-29",
-   "",
-   "Rozsvícení zlínského vánočního stromu"
-  ],
-  [
    "/christmas-events/rutkai-bori-banda-hello-telapo-csaladi-koncert-masodik-kerulet-hu",
    "2026-12-06",
    "/christmas-events/budapest-hu",
    "Rutkai Bori Banda: Helló Télapó! Családi koncert"
-  ],
-  [
-   "/christmas-events/saadiyat-beach-golf-club-christmas-tree-lighting-ae",
-   "2026-12-19",
-   "",
-   "أمسية إضاءة الشجرة في نادي شاطئ السعديات للغولف"
   ],
   [
    "/christmas-events/samedi-des-tout-petits-special-hiver-paris",
@@ -4570,12 +4157,6 @@
    "Season's Greetings Saturdays at the National Aviary"
   ],
   [
-   "/christmas-events/seawonder-celebration-at-seaworld-yas-island-ae",
-   "2027-01-10",
-   "",
-   "SeaWonder Celebration في سي وورلد ياس"
-  ],
-  [
    "/christmas-events/shopping-pont-de-nadal-a-la-barceloneta-2a-fira-de-la-joguina-i-barcelona-es",
    "2026-12-08",
    "/christmas-events/navidad-con-ninos-barcelona",
@@ -4648,30 +4229,6 @@
    "Sr. Scrooge"
   ],
   [
-   "/christmas-events/st-regis-saadiyat-island-christmas-tree-lighting-ae",
-   "2026-12-10",
-   "",
-   "إضاءة شجرة الكريسماس في سانت ريجيس السعديات"
-  ],
-  [
-   "/christmas-events/stastne-a-vedecke-vanocni-science-show-ve-vida-brno-cz",
-   "2027-01-03",
-   "",
-   "Šťastné a vědecké, vánoční science show ve VIDA!"
-  ],
-  [
-   "/christmas-events/stedry-den-v-zoo-olomouc-cz",
-   "2026-12-24",
-   "",
-   "Štědrý den v Zoo Olomouc"
-  ],
-  [
-   "/christmas-events/stedry-den-v-zoo-praha-cz",
-   "2026-12-24",
-   "",
-   "Štědrý den v Zoo Praha"
-  ],
-  [
    "/christmas-events/storytime-at-the-mall-manchester-nh",
    "2026-12-08",
    "/christmas-events/manchester-nh",
@@ -4682,12 +4239,6 @@
    "2026-12-06",
    "/christmas-events/san-francisco-ca",
    "The Sunset Holiday Mercantile"
-  ],
-  [
-   "/christmas-events/svetelny-park-na-spilberku-brno-cz",
-   "2027-01-06",
-   "",
-   "Světelný park na Špilberku"
   ],
   [
    "/christmas-events/swea-atlanta-christmas-market-atlanta-ga",
@@ -5164,12 +4715,6 @@
    "Trenet de Nadal de la Rambleta"
   ],
   [
-   "/christmas-events/trikralovy-pruvod-prahou-praha-cz",
-   "2027-01-06",
-   "",
-   "Tříkrálový průvod Prahou"
-  ],
-  [
    "/christmas-events/tudja-a-mano-babjatek-lazar-ervin-manogyar-cimu-kotete-masodik-kerulet-hu",
    "2026-12-20",
    "/christmas-events/budapest-hu",
@@ -5266,82 +4811,10 @@
    "Ünnepváró: Adventi találkozások a Rózsák terén"
   ],
   [
-   "/christmas-events/ustecke-vanoce-usti-nad-labem-cz",
-   "2026-12-23",
-   "",
-   "Ústecké Vánoce"
-  ],
-  [
    "/christmas-events/vackor-karacsonya-matyasfold-es-kornyeke-hu",
    "2026-12-20",
    "/christmas-events/budapest-hu",
    "Vackor karácsonya"
-  ],
-  [
-   "/christmas-events/vanoce-na-hrade-ostrava-cz",
-   "2026-12-05",
-   "",
-   "Vánoce na hradě"
-  ],
-  [
-   "/christmas-events/vanoce-na-jihu-rozsviceni-stromu-ostrava-cz",
-   "2026-12-01",
-   "",
-   "Vánoce na Jihu, rozsvícení stromu"
-  ],
-  [
-   "/christmas-events/vanoce-na-zamku-ctenice-praha-cz",
-   "2026-11-28",
-   "",
-   "Vánoce na zámku Ctěnice"
-  ],
-  [
-   "/christmas-events/vanoce-s-vecernickem-na-marianskem-namesti-praha-cz",
-   "2027-01-06",
-   "",
-   "Vánoce s Večerníčkem na Mariánském náměstí"
-  ],
-  [
-   "/christmas-events/vanoce-vanoce-stromecek-sviti-v-muzeu-prahy-praha-cz",
-   "2026-11-28",
-   "",
-   "Vánoce, Vánoce, stromeček svítí! v Muzeu Prahy"
-  ],
-  [
-   "/christmas-events/vanocni-mestecko-havirov-cz",
-   "2026-12-20",
-   "",
-   "Vánoční městečko Havířov"
-  ],
-  [
-   "/christmas-events/vanocni-trhy-na-hornim-a-dolnim-namesti-olomouc-cz",
-   "2026-12-24",
-   "",
-   "Vánoční trhy na Horním a Dolním náměstí"
-  ],
-  [
-   "/christmas-events/vanocni-trhy-na-namesti-miru-praha-cz",
-   "2026-12-24",
-   "",
-   "Vánoční trhy na náměstí Míru"
-  ],
-  [
-   "/christmas-events/vanocni-trhy-na-namesti-starosty-pavla-kladno-cz",
-   "2026-12-27",
-   "",
-   "Vánoční trhy na náměstí Starosty Pavla"
-  ],
-  [
-   "/christmas-events/vanocni-trhy-na-staromestskem-namesti-praha-cz",
-   "2027-01-06",
-   "",
-   "Vánoční trhy na Staroměstském náměstí"
-  ],
-  [
-   "/christmas-events/vanocni-trhy-na-vaclavskem-namesti-praha-cz",
-   "2027-01-06",
-   "",
-   "Vánoční trhy na Václavském náměstí"
   ],
   [
    "/christmas-events/varazslatos-mikulasvaro-delelott-pestszentlorinc-pestszentimre-hu",
@@ -5446,12 +4919,6 @@
    "Visite bébé au musée de l’Orangerie"
   ],
   [
-   "/christmas-events/vogo-abu-dhabi-christmas-tree-lighting-khalifa-city-ae",
-   "2026-12-12",
-   "",
-   "إضاءة شجرة الكريسماس في فوغو أبوظبي"
-  ],
-  [
    "/christmas-events/waldweihnacht-forest-christmas-leuven-be",
    "2026-12-20",
    "/christmas-events/christmas-in-leuven-with-kids",
@@ -5494,12 +4961,6 @@
    "Winter City and Disney+: Once upon a holiday"
   ],
   [
-   "/christmas-events/winter-spectacular-at-warner-bros-world-yas-island-ae",
-   "2027-01-10",
-   "",
-   "Winter Spectacular في وارنر براذرز وورلد"
-  ],
-  [
    "/christmas-events/winter-walk-of-lights-vienna-va",
    "2027-01-03",
    "",
@@ -5524,22 +4985,10 @@
    "Winter Wonderland Fun Day"
   ],
   [
-   "/christmas-events/winter-wonderland-meet-santa-at-snow-abu-dhabi-reem-island-ae",
-   "2026-12-25",
-   "",
-   "لقاء بابا نويل في Winter Wonderland بسنو أبوظبي"
-  ],
-  [
    "/christmas-events/winterfest-and-the-tunnel-of-lights-east-windsor-ct",
    "2026-12-30",
    "/christmas-events/hartford-ct",
    "Winterfest and the Tunnel of Lights"
-  ],
-  [
-   "/christmas-events/winterfest-at-ferrari-world-yas-island-ae",
-   "2027-01-10",
-   "",
-   "مهرجان Winterfest في فيراري وورلد ياس"
   ],
   [
    "/christmas-events/winterfest-boat-parade-viewing-area-fort-lauderdale-fl",
@@ -5564,24 +5013,6 @@
    "2026-12-19",
    "/christmas-events/navidad-con-ninos-barcelona",
    "Xocolatada popular"
-  ],
-  [
-   "/christmas-events/yas-acres-golf-and-country-club-christmas-tree-lighting-yas-island-ae",
-   "2026-12-11",
-   "",
-   "أمسية إضاءة الشجرة في ياس إيكرز"
-  ],
-  [
-   "/christmas-events/yas-links-christmas-tree-lighting-yas-island-ae",
-   "2026-12-18",
-   "",
-   "أمسية إضاءة الشجرة في ياس لينكس"
-  ],
-  [
-   "/christmas-events/zahajeni-vanocni-olomouce-a-rozsviceni-stromu-cz",
-   "2026-11-22",
-   "",
-   "Zahájení Vánoční Olomouce a rozsvícení stromu"
   ],
   [
    "/christmas-events/zambomba-villancicos-flamencos-y-cocido-madrileno-madrid-es",
@@ -5622,7 +5053,7 @@
  ],
  "upcoming_not_listed_by_country": {
   "Spain": 346,
-  "?": 290,
+  "?": 201,
   "Hungary": 101,
   "United States": 79,
   "Belgium": 28,
@@ -5630,73 +5061,19 @@
   "United Kingdom": 3,
   "Cyprus": 3,
   "Switzerland": 3,
-  "Luxembourg": 2
+  "Luxembourg": 2,
+  "الامارات العربية المتحدة": 1
  },
  "card_without_link": [
-  [
-   "/christmas-events/a-very-k-pop-christmas-k-pop-superslayers-live-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "A Very K-Pop Christmas: K-Pop Superslayers Live"
-  ],
-  [
-   "/christmas-events/aladdin-the-pantomime-in-ringaskiddy-ie",
-   "/christmas-events/cork-ie",
-   "Aladdin The Pantomime in Ringaskiddy"
-  ],
   [
    "/christmas-events/babies-and-toddlers-storytelling-christmas-wonderland-at-bewleys-dublin-ie",
    "/christmas-events/dublin-ie",
    "Babies and Toddlers Storytelling: Christmas Wonderland at Bewley's Grafton Street"
   ],
   [
-   "/christmas-events/ballyorgan-christmas-market-and-santas-grotto-ie",
-   "/christmas-events/limerick-ie",
-   "Ballyorgan Christmas Market and Santa's Grotto"
-  ],
-  [
-   "/christmas-events/beauty-and-the-beast-christmas-panto-dungarvan-encore-stage-academy-ie",
-   "/christmas-events/waterford-ie",
-   "Beauty and the Beast Christmas Panto (Dungarvan Encore Stage Academy)"
-  ],
-  [
    "/christmas-events/bicton-christmas-craft-fair-and-late-night-shopping-devon-uk",
    "/christmas-events/exeter-uk",
    "Bicton Christmas Craft Fair and Late Night Shopping"
-  ],
-  [
-   "/christmas-events/blarney-community-choir-christmas-concert-with-the-ryan-sisters-ie",
-   "/christmas-events/cork-ie",
-   "Blarney Community Choir Christmas Concert with the Ryan Sisters"
-  ],
-  [
-   "/christmas-events/blue-light-parade-and-showcase-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Blue Light Parade and Showcase"
-  ],
-  [
-   "/christmas-events/boherbuoy-band-christmas-concert-and-family-fun-evening-limerick-ie",
-   "/christmas-events/limerick-ie",
-   "Boherbuoy Band Christmas Concert and Family Fun Evening"
-  ],
-  [
-   "/christmas-events/breakfast-with-santa-at-the-lady-gregory-hotel-gort-ie",
-   "/christmas-events/galway-ie",
-   "Breakfast with Santa at the Lady Gregory Hotel"
-  ],
-  [
-   "/christmas-events/christmas-camp-at-sirius-arts-centre-cobh-ie",
-   "/christmas-events/cork-ie",
-   "Christmas Camp at Sirius Arts Centre"
-  ],
-  [
-   "/christmas-events/christmas-choirs-and-merry-little-christmas-at-cork-city-library-ie",
-   "/christmas-events/cork-ie",
-   "Christmas Choirs and Merry Little Christmas at Cork City Library"
-  ],
-  [
-   "/christmas-events/christmas-classic-how-the-grinch-stole-christmas-at-belltable-limerick-ie",
-   "/christmas-events/limerick-ie",
-   "Christmas Classic: How the Grinch Stole Christmas at Belltable"
   ],
   [
    "/christmas-events/christmas-craft-workshop-for-children-with-kim-jenkinson-at-shankill-dublin-ie",
@@ -5709,49 +5086,9 @@
    "Christmas Decoration Workshop for Children with Wicklow Willow at Deansgrange Library"
   ],
   [
-   "/christmas-events/christmas-family-movie-matinee-in-the-halla-ballinora-waterfall-ie",
-   "/christmas-events/cork-ie",
-   "Christmas Family Movie Matinee in the Halla, Ballinora"
-  ],
-  [
-   "/christmas-events/christmas-in-the-city-city-of-music-studios-christmas-showcase-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Christmas in the City: City of Music Studios Christmas Showcase"
-  ],
-  [
-   "/christmas-events/city-square-viking-elf-trail-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "City Square Viking Elf Trail"
-  ],
-  [
-   "/christmas-events/cobh-santa-express-at-cobh-heritage-centre-ie",
-   "/christmas-events/cork-ie",
-   "Cobh Santa Express at Cobh Heritage Centre"
-  ],
-  [
-   "/christmas-events/come-and-sing-carols-at-st-marys-cathedral-limerick-ie",
-   "/christmas-events/limerick-ie",
-   "Come and Sing Carols at St Mary's Cathedral"
-  ],
-  [
-   "/christmas-events/conscious-crafting-for-all-the-family-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Conscious Crafting for All the Family"
-  ],
-  [
-   "/christmas-events/disneys-a-christmas-carol-screening-at-garter-lane-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Disney's A Christmas Carol screening at Garter Lane"
-  ],
-  [
    "/christmas-events/dlr-elf-dash-dublin-ie",
    "/christmas-events/dublin-ie",
    "dlr Elf Dash 2026"
-  ],
-  [
-   "/christmas-events/draiocht-sa-spideal-cuairt-ar-daidi-na-nollag-an-spideal-ie",
-   "/christmas-events/galway-ie",
-   "Draíocht sa Spidéal: Cuairt ar Daidí na Nollag"
   ],
   [
    "/christmas-events/dubuque-symphony-orchestra-holiday-family-concert-dubuque-ia",
@@ -5759,159 +5096,9 @@
    "Dubuque Symphony Orchestra Holiday Family Concert"
   ],
   [
-   "/christmas-events/enchanted-garden-winter-lights-tramore-ie",
-   "/christmas-events/waterford-ie",
-   "Enchanted Garden Winter Lights"
-  ],
-  [
-   "/christmas-events/family-christmas-festival-at-slieve-aughty-centre-loughrea-ie",
-   "/christmas-events/galway-ie",
-   "Family Christmas Festival at Slieve Aughty Centre"
-  ],
-  [
-   "/christmas-events/festive-lego-workshop-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Festive Lego Workshop"
-  ],
-  [
-   "/christmas-events/festive-sunday-lunch-with-santa-at-the-limerick-strand-hotel-ie",
-   "/christmas-events/limerick-ie",
-   "Festive Sunday Lunch with Santa at the Limerick Strand Hotel"
-  ],
-  [
-   "/christmas-events/garter-lane-christmas-craft-fair-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Garter Lane Christmas Craft Fair"
-  ],
-  [
-   "/christmas-events/gingerbread-house-decorating-party-with-the-gloway-co-galway-ie",
-   "/christmas-events/galway-ie",
-   "Gingerbread House Decorating Party with The Gloway Co."
-  ],
-  [
-   "/christmas-events/kids-christmas-disco-at-the-talbot-hotel-midleton-ie",
-   "/christmas-events/cork-ie",
-   "Kids Christmas Disco at the Talbot Hotel Midleton"
-  ],
-  [
-   "/christmas-events/kilfinane-christmas-moonlight-market-ie",
-   "/christmas-events/limerick-ie",
-   "Kilfinane Christmas Moonlight Market"
-  ],
-  [
-   "/christmas-events/kringletown-christmas-village-and-santa-experience-kilmacthomas-ie",
-   "/christmas-events/waterford-ie",
-   "KringleTown Christmas Village and Santa Experience"
-  ],
-  [
-   "/christmas-events/loughrea-town-hall-christmas-market-and-community-open-day-ie",
-   "/christmas-events/galway-ie",
-   "Loughrea Town Hall Christmas Market and Community Open Day"
-  ],
-  [
-   "/christmas-events/movies-at-the-reg-home-alone-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Movies at The Reg: Home Alone"
-  ],
-  [
-   "/christmas-events/newcastle-west-christmas-craft-fair-and-santa-paws-ie",
-   "/christmas-events/limerick-ie",
-   "Newcastle West Christmas Craft Fair and Santa Paws"
-  ],
-  [
    "/christmas-events/oneiroupoli-drama-gr",
    "/christmas-events/kavala-gr",
    "Ονειρούπολη -"
-  ],
-  [
-   "/christmas-events/oughterard-christmas-street-light-switch-on-ie",
-   "/christmas-events/galway-ie",
-   "Oughterard Christmas Street Light Switch-On"
-  ],
-  [
-   "/christmas-events/oughterard-santa-grotto-ie",
-   "/christmas-events/galway-ie",
-   "Oughterard Santa Grotto"
-  ],
-  [
-   "/christmas-events/paint-your-own-pottery-christmas-ornaments-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Paint Your Own Pottery Christmas Ornaments"
-  ],
-  [
-   "/christmas-events/santa-express-at-waterford-suir-valley-railway-kilmeadan-ie",
-   "/christmas-events/waterford-ie",
-   "Santa Express at Waterford Suir Valley Railway"
-  ],
-  [
-   "/christmas-events/santa-in-the-barn-at-leahys-open-farm-dungourney-ie",
-   "/christmas-events/cork-ie",
-   "Santa in the Barn at Leahy's Open Farm"
-  ],
-  [
-   "/christmas-events/santa-is-coming-to-loughrea-ie",
-   "/christmas-events/galway-ie",
-   "Santa Is Coming to Loughrea"
-  ],
-  [
-   "/christmas-events/santa-land-experience-at-treacys-west-county-hotel-ennis-ie",
-   "/christmas-events/limerick-ie",
-   "Santa Land Experience at Treacys West County Hotel"
-  ],
-  [
-   "/christmas-events/santa-visits-gardenfield-tuam-ie",
-   "/christmas-events/galway-ie",
-   "Santa Visits Gardenfield"
-  ],
-  [
-   "/christmas-events/santas-cottage-milltown-ie",
-   "/christmas-events/galway-ie",
-   "Santa's Cottage Milltown"
-  ],
-  [
-   "/christmas-events/santas-giant-disco-postbox-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Santa's Giant Disco Postbox"
-  ],
-  [
-   "/christmas-events/santas-grotto-at-city-square-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Santa's Grotto at City Square"
-  ],
-  [
-   "/christmas-events/santas-grotto-at-the-south-court-hotel-limerick-ie",
-   "/christmas-events/limerick-ie",
-   "Santa's Grotto at the South Court Hotel"
-  ],
-  [
-   "/christmas-events/santas-post-box-collection-show-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Santa's Post-box Collection Show"
-  ],
-  [
-   "/christmas-events/santas-supershow-galway-ie",
-   "/christmas-events/galway-ie",
-   "Santa's SuperShow: Galway"
-  ],
-  [
-   "/christmas-events/santas-supershow-in-cork-matinee-ie",
-   "/christmas-events/cork-ie",
-   "Santa's SuperShow in Cork (matinee)"
-  ],
-  [
-   "/christmas-events/sensory-santa-and-disney-friends-dreambig-foundation-new-ross-ie",
-   "/christmas-events/waterford-ie",
-   "Sensory Santa and Disney Friends (Dreambig Foundation)"
-  ],
-  [
-   "/christmas-events/sensory-santa-weekend-at-city-square-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Sensory Santa Weekend at City Square"
-  ],
-  [
-   "/christmas-events/sleeping-beauty-panto-sensory-performance-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Sleeping Beauty Panto Sensory Performance"
   ],
   [
    "/christmas-events/snow-white-the-arena-panto-waterford-ie",
@@ -5919,139 +5106,9 @@
    "Snow White: The Arena Panto 2026"
   ],
   [
-   "/christmas-events/snowball-fighting-at-winterval-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Snowball Fighting at Winterval"
-  ],
-  [
-   "/christmas-events/spike-island-charity-christmas-carol-concert-cobh-ie",
-   "/christmas-events/cork-ie",
-   "Spike Island Charity Christmas Carol Concert"
-  ],
-  [
-   "/christmas-events/superkids-christmas-camp-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "SuperKids Christmas Camp"
-  ],
-  [
-   "/christmas-events/the-christmas-market-at-winterval-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "The Christmas Market at Winterval"
-  ],
-  [
-   "/christmas-events/the-elves-workshop-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "The Elves Workshop"
-  ],
-  [
-   "/christmas-events/the-muppet-christmas-carol-at-triskel-christmas-movies-cork-ie",
-   "/christmas-events/cork-ie",
-   "The Muppet Christmas Carol at Triskel Christmas Movies"
-  ],
-  [
-   "/christmas-events/the-polish-christmas-village-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "The Polish Christmas Village"
-  ],
-  [
-   "/christmas-events/the-toy-library-circular-christmas-swap-and-play-cork-ie",
-   "/christmas-events/cork-ie",
-   "The Toy Library Circular Christmas Swap and Play"
-  ],
-  [
-   "/christmas-events/the-toy-library-circular-christmas-swap-and-play-dublin-ie",
-   "/christmas-events/dublin-ie",
-   "The Toy Library Circular Christmas Swap and Play"
-  ],
-  [
-   "/christmas-events/the-winterval-circus-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "The Winterval Circus"
-  ],
-  [
-   "/christmas-events/the-winterval-mini-express-train-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "The Winterval Mini Express Train"
-  ],
-  [
-   "/christmas-events/tidings-of-tradition-at-friars-gate-theatre-kilmallock-ie",
-   "/christmas-events/limerick-ie",
-   "Tidings of Tradition at Friars' Gate Theatre"
-  ],
-  [
    "/christmas-events/tidings-of-tradition-christmas-tour-dungarvan-ie",
    "/christmas-events/waterford-ie",
    "Tidings of Tradition: Christmas Tour 2026"
-  ],
-  [
-   "/christmas-events/university-of-limerick-orchestra-christmas-concert-featuring-the-snowman-ie",
-   "/christmas-events/limerick-ie",
-   "University of Limerick Orchestra Christmas Concert featuring The Snowman"
-  ],
-  [
-   "/christmas-events/victorian-christmas-at-the-bishops-palace-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Victorian Christmas at the Bishop's Palace"
-  ],
-  [
-   "/christmas-events/visit-santa-at-winterval-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Visit Santa at Winterval"
-  ],
-  [
-   "/christmas-events/waterford-panto-sleeping-beauty-ie",
-   "/christmas-events/waterford-ie",
-   "Waterford Panto: Sleeping Beauty"
-  ],
-  [
-   "/christmas-events/waterford-treasures-childrens-christmas-trail-ie",
-   "/christmas-events/waterford-ie",
-   "Waterford Treasures Children's Christmas Trail"
-  ],
-  [
-   "/christmas-events/winter-songs-winter-stories-with-inishlacken-strings-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winter Songs, Winter Stories with Inishlacken Strings"
-  ],
-  [
-   "/christmas-events/winter-wonderland-at-ardmore-open-farm-and-mini-zoo-ie",
-   "/christmas-events/waterford-ie",
-   "Winter Wonderland at Ardmore Open Farm and Mini Zoo"
-  ],
-  [
-   "/christmas-events/winterval-fairground-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winterval Fairground"
-  ],
-  [
-   "/christmas-events/winterval-illuminates-christmas-light-show-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winterval Illuminates Christmas Light Show"
-  ],
-  [
-   "/christmas-events/winterval-olde-worlde-choir-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winterval Olde Worlde Choir"
-  ],
-  [
-   "/christmas-events/winterval-on-ice-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winterval On Ice"
-  ],
-  [
-   "/christmas-events/winterval-photo-orienteering-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winterval Photo Orienteering"
-  ],
-  [
-   "/christmas-events/winterval-santa-cruise-on-the-barrow-princess-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winterval Santa Cruise on the Barrow Princess"
-  ],
-  [
-   "/christmas-events/winterval-truck-and-tractor-parade-waterford-ie",
-   "/christmas-events/waterford-ie",
-   "Winterval Truck and Tractor Parade"
   ]
  ],
  "past_not_listed": 330,
@@ -6074,10 +5131,6 @@
   ],
   [
    "/christmas-events/christmas-in-cyprus-with-kids",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/krismas-dubai-ar",
    "no event dates"
   ],
   [
@@ -6262,10 +5315,6 @@
   ],
   [
    "/christmas-events/the-arrival-de-intocht-helmond-nl",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/united-arab-emirates",
    "no event dates"
   ]
  ]
