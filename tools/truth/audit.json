@@ -4,85 +4,45 @@
  "city_pages": 3981,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23970,
+ "event_pages_listed": 23984,
  "count_mismatch": [
   [
-   "/christmas-events/ann-arbor-mi",
-   1,
-   2
-  ],
-  [
-   "/christmas-events/byron-mi",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/canton-mi",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/dearborn-mi",
-   1,
-   3
-  ],
-  [
    "/christmas-events/detroit-mi",
-   31,
-   47
+   47,
+   48
   ],
   [
-   "/christmas-events/flint-mi",
-   8,
-   10
-  ],
-  [
-   "/christmas-events/garden-city-mi",
+   "/christmas-events/maple-grove-mn",
    3,
    4
-  ],
-  [
-   "/christmas-events/grand-rapids-mi",
-   30,
-   36
-  ],
-  [
-   "/christmas-events/howell-mi",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/livonia-mi",
-   3,
-   5
-  ],
-  [
-   "/christmas-events/muskegon-mi",
-   3,
-   5
   ],
   [
    "/christmas-events/novi-mi",
-   1,
-   2
-  ],
-  [
-   "/christmas-events/ortonville-mi",
-   3,
-   6
-  ],
-  [
-   "/christmas-events/pontiac-mi",
    2,
    4
+  ],
+  [
+   "/christmas-events/rochester-hills-mi",
+   2,
+   4
+  ],
+  [
+   "/christmas-events/royal-oak-mi",
+   2,
+   5
   ],
   [
    "/christmas-events/sterling-heights-mi",
-   2,
-   4
+   4,
+   7
   ],
   [
    "/christmas-events/troy-mi",
+   3,
+   4
+  ],
+  [
+   "/christmas-events/westland-mi",
    2,
    3
   ]
