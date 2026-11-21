@@ -226,7 +226,8 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
             break
     # re-crawl guides found earlier once a day (they gain cities as they are built out)
     for g, v in guides.items():
-        if v.get('at', '') < today and v.get('kind') == 'country':
+        # (v != 2: filed before the country/region test was fixed; read again once)
+        if (v.get('at', '') < today and v.get('kind') == 'country') or v.get('v') != 2:
             j = item_json(g)
             if j and j.get('item'):
                 roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
@@ -277,7 +278,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         # country's own guide would turn into a region and drop off the hub again on the next run.)
         kind = 'region' if cc in code2name and not single and (crumbs(body, root) or not (ld or plain(code2name[cc]).lower() in plain(title).lower())) else 'country'
         guides[root] = {'kind': kind, 'name': country if kind == 'country' else re.sub(r'\s*\(\d{4}\)\s*$', '', title),
-                        'country': country, 'cc': cc, 'cities': cities, 'subs': subs, 'at': today}
+                        'country': country, 'cc': cc, 'cities': cities, 'subs': subs, 'at': today, 'v': 2}
         log(f'found a {kind} guide the hub does not list yet: {root} ({country}, {len(cities)} city pages, {len(subs)} region pages)')
     # a region page found on its own before its country page: keep it under the country only
     subs_all = {s for v in guides.values() for s in v.get('subs', {})}
