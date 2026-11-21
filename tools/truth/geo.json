@@ -1263,9 +1263,21 @@
 38.06,
 -97.93
 ],
+"/christmas-events/hyattsville-md": [
+38.95,
+-76.94
+],
 "/christmas-events/hyderabad-in": [
 17.36,
 78.47
+],
+"/christmas-events/indian-trail-nc": [
+35.08,
+-80.67
+],
+"/christmas-events/inver-grove-heights-mn": [
+44.85,
+-93.04
 ],
 "/christmas-events/isle-of-man": [
 54.19,
@@ -1275,9 +1287,61 @@
 30.81,
 34.86
 ],
+"/christmas-events/issaquah-wa": [
+47.53,
+-122.04
+],
+"/christmas-events/ithaca-ny": [
+42.44,
+-76.55
+],
+"/christmas-events/jacksonville-nc": [
+34.75,
+-77.43
+],
+"/christmas-events/jeffersontown-ky": [
+38.19,
+-85.56
+],
 "/christmas-events/jersey": [
 49.21,
 -2.13
+],
+"/christmas-events/johns-creek-ga": [
+34.02,
+-84.19
+],
+"/christmas-events/johnston-ia": [
+41.67,
+-93.7
+],
+"/christmas-events/joliet-il": [
+41.53,
+-88.08
+],
+"/christmas-events/joliette-qc": [
+46.02,
+-73.44
+],
+"/christmas-events/jupiter-fl": [
+26.93,
+-80.09
+],
+"/christmas-events/jurupa-valley-ca": [
+33.98,
+-117.45
+],
+"/christmas-events/kalispell-mt": [
+48.2,
+-114.32
+],
+"/christmas-events/kankakee-il": [
+41.13,
+-87.85
+],
+"/christmas-events/kannapolis-nc": [
+35.5,
+-80.62
 ],
 "/christmas-events/kanpur-in": [
 26.46,
@@ -1287,13 +1351,49 @@
 24.85,
 67.02
 ],
+"/christmas-events/kearney-ne": [
+40.49,
+-98.95
+],
 "/christmas-events/keffi-ng": [
 8.85,
 7.88
 ],
+"/christmas-events/kenner-la": [
+29.99,
+-90.24
+],
+"/christmas-events/kennesaw-ga": [
+34.02,
+-84.62
+],
+"/christmas-events/kennewick-wa": [
+46.21,
+-119.12
+],
+"/christmas-events/kent-wa": [
+47.38,
+-122.23
+],
+"/christmas-events/kernersville-nc": [
+36.12,
+-80.07
+],
+"/christmas-events/kettering-oh": [
+39.69,
+-84.17
+],
+"/christmas-events/kingman-az": [
+35.19,
+-114.05
+],
 "/christmas-events/kingston-jm": [
 17.97,
 -76.79
+],
+"/christmas-events/kingsville-on": [
+42.04,
+-82.74
 ],
 "/christmas-events/kladno-cz": [
 50.15,
@@ -1311,28 +1411,888 @@
 1.56,
 110.35
 ],
+"/christmas-events/kuna-id": [
+43.49,
+-116.42
+],
+"/christmas-events/la-mesa-ca": [
+32.77,
+-117.02
+],
+"/christmas-events/la-mirada-ca": [
+33.91,
+-118.01
+],
+"/christmas-events/la-porte-tx": [
+29.67,
+-95.02
+],
+"/christmas-events/la-prairie-qc": [
+45.42,
+-73.49
+],
+"/christmas-events/la-puente-ca": [
+34.03,
+-117.95
+],
+"/christmas-events/la-verne-ca": [
+34.1,
+-117.77
+],
+"/christmas-events/la-vista-ne": [
+41.18,
+-96.03
+],
+"/christmas-events/lacey-wa": [
+47.03,
+-122.81
+],
 "/christmas-events/lagos-ng": [
 6.46,
 3.39
+],
+"/christmas-events/laguna-beach-ca": [
+33.54,
+-117.79
+],
+"/christmas-events/laguna-hills-ca": [
+33.59,
+-117.69
+],
+"/christmas-events/laguna-niguel-ca": [
+33.52,
+-117.71
 ],
 "/christmas-events/lahore-pk": [
 31.57,
 74.31
 ],
+"/christmas-events/lake-elsinore-ca": [
+33.67,
+-117.33
+],
+"/christmas-events/lake-forest-ca": [
+33.65,
+-117.69
+],
+"/christmas-events/lake-mary-fl": [
+28.76,
+-81.32
+],
+"/christmas-events/lake-wales-fl": [
+27.9,
+-81.59
+],
+"/christmas-events/lakewood-ca": [
+33.85,
+-118.12
+],
+"/christmas-events/lakewood-wa": [
+47.17,
+-122.52
+],
+"/christmas-events/lancaster-tx": [
+32.59,
+-96.76
+],
+"/christmas-events/lansdale-pa": [
+40.24,
+-75.28
+],
+"/christmas-events/laramie-wy": [
+41.31,
+-105.59
+],
+"/christmas-events/lathrop-ca": [
+37.82,
+-121.28
+],
+"/christmas-events/laurel-md": [
+39.1,
+-76.85
+],
+"/christmas-events/laurel-ms": [
+31.69,
+-89.13
+],
+"/christmas-events/laval-qc": [
+45.56,
+-73.72
+],
+"/christmas-events/lawrence-in": [
+38.84,
+-86.49
+],
+"/christmas-events/league-city-tx": [
+29.51,
+-95.09
+],
+"/christmas-events/lebanon-tn": [
+36.21,
+-86.29
+],
+"/christmas-events/leland-nc": [
+34.24,
+-78.0
+],
+"/christmas-events/lenexa-ks": [
+38.97,
+-94.78
+],
+"/christmas-events/lenoir-nc": [
+35.26,
+-77.65
+],
+"/christmas-events/lexington-ma": [
+42.45,
+-71.22
+],
+"/christmas-events/lexington-sc": [
+33.9,
+-81.28
+],
 "/christmas-events/liberec-cz": [
 50.77,
 15.06
+],
+"/christmas-events/liberty-mo": [
+39.25,
+-94.42
+],
+"/christmas-events/livonia-mi": [
+42.37,
+-83.35
+],
+"/christmas-events/lockport-il": [
+41.59,
+-88.06
+],
+"/christmas-events/lockport-ny": [
+43.17,
+-78.7
+],
+"/christmas-events/long-beach-ny": [
+40.59,
+-73.66
+],
+"/christmas-events/long-branch-nj": [
+40.3,
+-73.99
+],
+"/christmas-events/longmont-co": [
+40.17,
+-105.1
+],
+"/christmas-events/longueuil-qc": [
+45.52,
+-73.46
+],
+"/christmas-events/longview-wa": [
+46.14,
+-122.93
+],
+"/christmas-events/lorain-oh": [
+41.26,
+-82.17
+],
+"/christmas-events/los-altos-ca": [
+37.38,
+-122.12
+],
+"/christmas-events/los-banos-ca": [
+37.06,
+-120.85
+],
+"/christmas-events/los-gatos-ca": [
+37.23,
+-121.97
+],
+"/christmas-events/lower-sackville-ns": [
+44.77,
+-63.69
 ],
 "/christmas-events/lucknow-in": [
 26.84,
 80.93
 ],
+"/christmas-events/lufkin-tx": [
+31.34,
+-94.73
+],
 "/christmas-events/lusaka-zm": [
 -15.42,
 28.28
 ],
+"/christmas-events/madison-ms": [
+32.63,
+-90.0
+],
+"/christmas-events/mahwah-nj": [
+41.09,
+-74.14
+],
 "/christmas-events/malawi": [
 -13.27,
 33.93
+],
+"/christmas-events/manitowoc-wi": [
+44.1,
+-87.83
+],
+"/christmas-events/mansfield-oh": [
+40.76,
+-82.52
+],
+"/christmas-events/mansfield-tx": [
+32.56,
+-97.14
+],
+"/christmas-events/manteca-ca": [
+37.8,
+-121.21
+],
+"/christmas-events/maple-grove-mn": [
+45.1,
+-93.44
+],
+"/christmas-events/maple-valley-wa": [
+47.37,
+-122.04
+],
+"/christmas-events/marana-az": [
+32.45,
+-111.21
+],
+"/christmas-events/marblehead-ma": [
+42.5,
+-70.86
+],
+"/christmas-events/markham-on": [
+43.86,
+-79.34
+],
+"/christmas-events/marshall-tx": [
+32.54,
+-94.37
+],
+"/christmas-events/martinsburg-wv": [
+39.46,
+-77.96
+],
+"/christmas-events/maryland-heights-mo": [
+38.72,
+-90.44
+],
+"/christmas-events/marysville-wa": [
+48.05,
+-122.18
+],
+"/christmas-events/mascouche-qc": [
+45.75,
+-73.6
+],
+"/christmas-events/mauldin-sc": [
+34.78,
+-82.31
+],
+"/christmas-events/maumelle-ar": [
+34.86,
+-92.41
+],
+"/christmas-events/mchenry-il": [
+42.33,
+-88.46
+],
+"/christmas-events/mckinney-tx": [
+33.2,
+-96.62
+],
+"/christmas-events/melrose-ma": [
+42.46,
+-71.06
+],
+"/christmas-events/melrose-park-il": [
+41.9,
+-87.86
+],
+"/christmas-events/menomonee-falls-wi": [
+43.18,
+-88.12
+],
+"/christmas-events/mercer-island-wa": [
+47.58,
+-122.23
+],
+"/christmas-events/meridian-id": [
+43.61,
+-116.39
+],
+"/christmas-events/merrick-ny": [
+40.65,
+-73.55
+],
+"/christmas-events/mesquite-tx": [
+32.77,
+-96.6
+],
+"/christmas-events/metairie-la": [
+29.99,
+-90.15
+],
+"/christmas-events/middletown-ny": [
+41.45,
+-74.42
+],
+"/christmas-events/middletown-oh": [
+39.52,
+-84.4
+],
+"/christmas-events/midland-mi": [
+43.62,
+-84.25
+],
+"/christmas-events/midlothian-tx": [
+32.48,
+-96.99
+],
+"/christmas-events/midwest-city-ok": [
+35.45,
+-97.4
+],
+"/christmas-events/millbrook-al": [
+32.48,
+-86.36
+],
+"/christmas-events/milpitas-ca": [
+37.43,
+-121.9
+],
+"/christmas-events/milton-ga": [
+34.11,
+-84.27
+],
+"/christmas-events/milton-on": [
+43.51,
+-79.88
+],
+"/christmas-events/milwaukie-or": [
+45.44,
+-122.64
+],
+"/christmas-events/minot-nd": [
+48.23,
+-101.3
+],
+"/christmas-events/mint-hill-nc": [
+35.17,
+-80.66
+],
+"/christmas-events/mission-bc": [
+49.16,
+-122.28
+],
+"/christmas-events/mission-viejo-ca": [
+33.6,
+-117.66
+],
+"/christmas-events/mitchell-sd": [
+43.71,
+-98.03
+],
+"/christmas-events/moline-il": [
+41.51,
+-90.51
+],
+"/christmas-events/monroe-la": [
+32.5,
+-92.12
+],
+"/christmas-events/monroeville-pa": [
+40.43,
+-79.76
+],
+"/christmas-events/monterey-park-ca": [
+34.05,
+-118.13
+],
+"/christmas-events/moorpark-ca": [
+34.29,
+-118.88
+],
+"/christmas-events/moose-jaw-sk": [
+50.4,
+-105.54
+],
+"/christmas-events/moraga-ca": [
+37.83,
+-122.13
+],
+"/christmas-events/moreno-valley-ca": [
+33.94,
+-117.23
+],
+"/christmas-events/morgan-hill-ca": [
+37.13,
+-121.65
+],
+"/christmas-events/mount-juliet-tn": [
+36.2,
+-86.52
+],
+"/christmas-events/mount-laurel-nj": [
+39.93,
+-74.89
+],
+"/christmas-events/mount-lebanon-pa": [
+40.38,
+-80.05
+],
+"/christmas-events/mount-pleasant-sc": [
+32.79,
+-79.87
+],
+"/christmas-events/mount-prospect-il": [
+42.07,
+-87.94
+],
+"/christmas-events/mountain-view-ca": [
+37.39,
+-122.08
+],
+"/christmas-events/mumbai-in": [
+19.05,
+72.87
+],
+"/christmas-events/mundelein-il": [
+42.26,
+-88.0
+],
+"/christmas-events/murphy-tx": [
+33.02,
+-96.61
+],
+"/christmas-events/muskegon-mi": [
+43.23,
+-86.25
+],
+"/christmas-events/muskogee-ok": [
+35.66,
+-95.39
+],
+"/christmas-events/nacogdoches-tx": [
+31.6,
+-94.59
+],
+"/christmas-events/natchez-ms": [
+31.56,
+-91.4
+],
+"/christmas-events/natick-ma": [
+42.28,
+-71.35
+],
+"/christmas-events/navarre-fl": [
+30.4,
+-86.87
+],
+"/christmas-events/neenah-wi": [
+44.19,
+-88.46
+],
+"/christmas-events/new-berlin-wi": [
+42.98,
+-88.11
+],
+"/christmas-events/new-delhi-in": [
+28.61,
+77.21
+],
+"/christmas-events/new-haven-in": [
+41.07,
+-85.02
+],
+"/christmas-events/new-iberia-la": [
+30.0,
+-91.82
+],
+"/christmas-events/new-rochelle-ny": [
+40.91,
+-73.78
+],
+"/christmas-events/new-smyrna-beach-fl": [
+29.03,
+-80.93
+],
+"/christmas-events/newburyport-ma": [
+42.81,
+-70.87
+],
+"/christmas-events/newmarket-on": [
+44.06,
+-79.46
+],
+"/christmas-events/newnan-ga": [
+33.38,
+-84.8
+],
+"/christmas-events/newport-beach-ca": [
+33.62,
+-117.93
+],
+"/christmas-events/newport-news-va": [
+36.98,
+-76.43
+],
+"/christmas-events/newport-ri": [
+41.49,
+-71.31
+],
+"/christmas-events/newton-ia": [
+41.7,
+-93.05
+],
+"/christmas-events/niagara-falls-ny": [
+43.08,
+-79.07
+],
+"/christmas-events/niagara-on-the-lake-on": [
+43.26,
+-79.07
+],
+"/christmas-events/niles-il": [
+42.03,
+-87.81
+],
+"/christmas-events/nixa-mo": [
+37.04,
+-93.3
+],
+"/christmas-events/norco-ca": [
+33.93,
+-117.55
+],
+"/christmas-events/norcross-ga": [
+33.94,
+-84.21
+],
+"/christmas-events/norman-ok": [
+35.22,
+-97.44
+],
+"/christmas-events/norristown-pa": [
+40.11,
+-75.34
+],
+"/christmas-events/north-battleford-sk": [
+52.78,
+-108.3
+],
+"/christmas-events/north-charleston-sc": [
+32.85,
+-79.97
+],
+"/christmas-events/north-highlands-ca": [
+38.69,
+-121.37
+],
+"/christmas-events/north-myrtle-beach-sc": [
+33.83,
+-78.68
+],
+"/christmas-events/north-ogden-ut": [
+41.3,
+-111.97
+],
+"/christmas-events/north-plainfield-nj": [
+40.62,
+-74.43
+],
+"/christmas-events/north-platte-ne": [
+41.14,
+-100.76
+],
+"/christmas-events/northbrook-il": [
+42.13,
+-87.83
+],
+"/christmas-events/northglenn-co": [
+39.91,
+-104.99
+],
+"/christmas-events/norwalk-ca": [
+33.91,
+-118.08
+],
+"/christmas-events/novi-mi": [
+42.48,
+-83.48
+],
+"/christmas-events/nutley-nj": [
+40.82,
+-74.16
+],
+"/christmas-events/oak-bay-bc": [
+48.43,
+-123.32
+],
+"/christmas-events/oak-creek-wi": [
+42.9,
+-87.92
+],
+"/christmas-events/oak-forest-il": [
+41.6,
+-87.74
+],
+"/christmas-events/oak-lawn-il": [
+41.71,
+-87.76
+],
+"/christmas-events/oak-park-il": [
+41.89,
+-87.79
+],
+"/christmas-events/oak-ridge-tn": [
+36.01,
+-84.27
+],
+"/christmas-events/oakdale-mn": [
+44.99,
+-92.96
+],
+"/christmas-events/oakley-ca": [
+38.0,
+-121.71
+],
+"/christmas-events/oakville-on": [
+43.45,
+-79.67
+],
+"/christmas-events/oconomowoc-wi": [
+43.11,
+-88.5
+],
+"/christmas-events/ofallon-mo": [
+38.79,
+-90.7
+],
+"/christmas-events/okotoks-ab": [
+50.73,
+-113.98
+],
+"/christmas-events/olive-branch-ms": [
+34.96,
+-89.83
+],
+"/christmas-events/opelika-al": [
+32.65,
+-85.38
+],
+"/christmas-events/orangevale-ca": [
+38.68,
+-121.23
+],
+"/christmas-events/orangeville-on": [
+43.92,
+-80.1
+],
+"/christmas-events/orillia-on": [
+44.61,
+-79.42
+],
+"/christmas-events/orland-park-il": [
+41.63,
+-87.85
+],
+"/christmas-events/ormond-beach-fl": [
+29.29,
+-81.06
+],
+"/christmas-events/oswego-il": [
+41.68,
+-88.35
+],
+"/christmas-events/oswego-ny": [
+43.41,
+-76.13
+],
+"/christmas-events/ottumwa-ia": [
+41.02,
+-92.41
+],
+"/christmas-events/overland-mo": [
+38.7,
+-90.36
+],
+"/christmas-events/oviedo-fl": [
+28.67,
+-81.21
+],
+"/christmas-events/owasso-ok": [
+36.27,
+-95.85
+],
+"/christmas-events/owen-sound-on": [
+44.57,
+-80.94
+],
+"/christmas-events/oxford-oh": [
+39.51,
+-84.74
+],
+"/christmas-events/pacific-grove-ca": [
+36.62,
+-121.92
+],
+"/christmas-events/paducah-ky": [
+37.08,
+-88.6
+],
+"/christmas-events/palatine-il": [
+42.11,
+-88.04
+],
+"/christmas-events/palmdale-ca": [
+34.58,
+-118.12
+],
+"/christmas-events/paradise-ca": [
+39.76,
+-121.62
+],
+"/christmas-events/paragould-ar": [
+36.06,
+-90.5
+],
+"/christmas-events/paramount-ca": [
+33.9,
+-118.17
+],
+"/christmas-events/park-ridge-il": [
+42.01,
+-87.84
+],
+"/christmas-events/pasadena-ca": [
+34.15,
+-118.14
+],
+"/christmas-events/pasadena-md": [
+39.16,
+-76.55
+],
+"/christmas-events/pasadena-tx": [
+29.69,
+-95.21
+],
+"/christmas-events/pasco-wa": [
+46.23,
+-119.09
+],
+"/christmas-events/paso-robles-ca": [
+35.63,
+-120.69
+],
+"/christmas-events/pathanamthitta-in": [
+9.28,
+76.97
+],
+"/christmas-events/pekin-il": [
+40.57,
+-89.65
+],
+"/christmas-events/perth-on": [
+43.49,
+-81.02
+],
+"/christmas-events/petawawa-on": [
+45.9,
+-77.28
+],
+"/christmas-events/pickering-on": [
+43.84,
+-79.09
+],
+"/christmas-events/pico-rivera-ca": [
+33.98,
+-118.1
+],
+"/christmas-events/pierrefonds-roxboro-qc": [
+45.5,
+-73.85
+],
+"/christmas-events/pinellas-park-fl": [
+27.84,
+-82.7
+],
+"/christmas-events/pinole-ca": [
+38.0,
+-122.3
+],
+"/christmas-events/piqua-oh": [
+40.14,
+-84.24
+],
+"/christmas-events/pitt-meadows-bc": [
+49.22,
+-122.69
+],
+"/christmas-events/pittsfield-ma": [
+42.45,
+-73.25
+],
+"/christmas-events/pleasant-grove-ut": [
+40.36,
+-111.74
+],
+"/christmas-events/pleasant-hill-ca": [
+37.95,
+-122.06
+],
+"/christmas-events/pleasanton-ca": [
+37.66,
+-121.87
+],
+"/christmas-events/pointe-claire-qc": [
+45.46,
+-73.81
+],
+"/christmas-events/ponca-city-ok": [
+36.7,
+-97.08
+],
+"/christmas-events/pontiac-mi": [
+42.64,
+-83.29
+],
+"/christmas-events/port-alberni-bc": [
+49.23,
+-124.81
+],
+"/christmas-events/port-colborne-on": [
+42.89,
+-79.25
+],
+"/christmas-events/port-coquitlam-bc": [
+49.26,
+-122.78
+],
+"/christmas-events/port-hope-on": [
+43.95,
+-78.29
+],
+"/christmas-events/port-huron-mi": [
+42.98,
+-82.43
+],
+"/christmas-events/port-moody-bc": [
+49.28,
+-122.83
+],
+"/christmas-events/port-washington-ny": [
+40.83,
+-73.68
+],
+"/christmas-events/portage-in": [
+41.58,
+-87.18
 ]
 }
