@@ -91,7 +91,7 @@ DISTRICT = re.compile(r'^\d{1,2}(?:-kerulet|er|e|eme|-arr|-bezirk)?$')
 LANG_PREFIX = re.compile(r'^/?(?:christmas-events/)?(navidad-con-ninos|noel-avec-les-enfants|activites-de-noel-pour-enfants|weihnachten-mit-kindern|natale-con-i-bambini|kerst-met-kinderen|natal-com-criancas|kodomo-christmas|rozhdestvo-s-detmi)-')
 # The language prefix of a translated city page ("rozhdestvo-s-detmi-", "navidad-con-ninos-"...). Only such a
 # prefix makes a page a twin: "north-charleston" is not a twin of "charleston".
-XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|natale|kerst|kodomo|rozhdestvo|jul\w*|joulu\w*|bozic|vanoce|karacsony|craciun|boze|kalikimaka|kurisumasu|krismas|kerismas)(-|$)')
+XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|natale|kerst|kodomo|rozhdestvo|jul\w*|joulu\w*|bozic|vanoce|karacsony|craciun|boze|kalikimaka|kurisumasu|krismas|kerismas|khrit|novyy)(-|$)')
 
 
 # English country names by code, for guides whose title is in another language (the UAE guide is Arabic).
@@ -241,12 +241,14 @@ def clean_name(name, path=''):
     """A city's name from a card or title that may be a whole headline
     ("¿Qué hacer en Navidad con niños en Buin?" -> "Buin")."""
     n = re.sub(r'\s*\(?\b20\d\d\)?\s*$', '', (name or '').strip())
-    if '?' in n or re.search(r'(?i)navidad|natal|no[eë]l|christmas|weihnacht|kerst|natale|jul |advent|kar[aá]csony|j[oó]la', n):
+    # A headline, or a name with no Latin letters on a page with a plain slug (dubai-ae named in Arabic): the hub's
+    # search is typed in Latin letters, so the name comes from the sentence's last words or from the slug.
+    if '?' in n or not re.search(r'[A-Za-z\u00c0-\u024f]', n) or re.search(r'(?i)navidad|natal|no[eë]l|christmas|weihnacht|kerst|natale|jul |julevenemang|bo[zž]i[cč]|advent|kar[aá]csony|j[oó]la', n):
         m = re.search(r'(?i).*(?:^|\s)(?:en|in|à|em|na|a|im|nel|ni|di|i|på|í)\s+([^?¿()]+?)\s*[?!.]*\s*$', n)
         if m and len(m.group(1)) <= 40:
             return m.group(1).strip()
         slug = path.rsplit('/', 1)[-1]
-        slug = re.sub(r'^(navidad-con-ninos|natal-com-criancas|noel-avec-les-enfants|weihnachten-mit-kindern|natale-con-i-bambini|kerst-met-kinderen)-', '', slug)
+        slug = re.sub(r'^(navidad-con-ninos|natal-com-criancas|noel-avec-les-enfants|weihnachten-mit-kindern|natale-con-i-bambini|kerst-met-kinderen|khrit-mat|novyy-god)-', '', slug)
         slug = re.sub(r'-[a-z]{2}$', '', slug)
         return ' '.join(w.capitalize() for w in slug.split('-')) or n
     return n
@@ -510,7 +512,13 @@ def main():
             st = g['state'][0] if g['state'] else None
             for anchors in g['cities']:
                 for hr, a, tx in anchors:
-                    place.setdefault(hr, {'country': c['name'], 'state': st, 'name': anchors[0][2], 'main': anchors[0][0]})
+                    place.setdefault(hr, {'country': c['name'], 'state': st, 'name': clean_name(anchors[0][2], anchors[0][0]), 'main': anchors[0][0]})
+    # A to Z entries that are another-language page of a city listed on its own (khrit-mat-bangkok-th and
+    # bangkok-th): one city, not two rows in the hub's search.
+    for q in [q for q, o in place.items() if o['main'] == q and XMAS_PREFIX.search(city_base(q))]:
+        twin = twin_of(q, place[q]['country'], place)
+        if twin and place[twin]['main'] != q:
+            place[q] = {**place[twin]}
     titles = {}
     seed = os.path.join(ROOT, 'tools', 'llms', 'titles-seed.json')
     for f in (seed, args.titles):
