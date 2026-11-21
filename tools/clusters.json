@@ -4493,6 +4493,44 @@
           ]
         }
       ]
+    },
+    {
+      "name": "auto:kaliningrad-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/kaliningrad-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/kaliningrad-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-kaliningrad-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:murmansk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/murmansk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/murmansk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-murmansk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
     }
   ]
 }
