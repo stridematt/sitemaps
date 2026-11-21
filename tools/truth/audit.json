@@ -1,43 +1,143 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26652,
- "city_pages": 3953,
+ "sitemap_urls": 27717,
+ "city_pages": 3956,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23240,
+ "event_pages_listed": 23378,
  "count_mismatch": [
   [
-   "/christmas-events/benton-ar",
-   2,
-   3
+   "/christmas-events/bangkok-th",
+   9,
+   10
   ],
   [
-   "/christmas-events/bryant-ar",
-   2,
-   3
+   "/christmas-events/chennai-in",
+   1,
+   2
   ],
   [
-   "/christmas-events/dana-point-ca",
-   4,
-   5
-  ],
-  [
-   "/christmas-events/hot-springs-ar",
-   13,
+   "/christmas-events/gilbert-az",
+   10,
    14
   ],
   [
-   "/christmas-events/little-rock-ar",
-   27,
-   30
+   "/christmas-events/khrit-mat-bangkok-th",
+   9,
+   10
+  ],
+  [
+   "/christmas-events/kuala-lumpur-my",
+   6,
+   7
+  ],
+  [
+   "/christmas-events/lagos-ng",
+   5,
+   6
+  ],
+  [
+   "/christmas-events/los-angeles-ca",
+   74,
+   76
+  ],
+  [
+   "/christmas-events/nairobi-ke",
+   5,
+   9
+  ],
+  [
+   "/christmas-events/palmdale-ca",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/paso-robles-ca",
+   5,
+   6
+  ],
+  [
+   "/christmas-events/penang-my",
+   3,
+   4
+  ],
+  [
+   "/christmas-events/phnom-penh-kh",
+   5,
+   6
   ],
   [
    "/christmas-events/phoenix-az",
-   36,
-   37
+   37,
+   38
+  ],
+  [
+   "/christmas-events/sacramento-ca",
+   50,
+   52
+  ],
+  [
+   "/christmas-events/san-marcos-ca",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/santa-barbara-ca",
+   9,
+   12
+  ],
+  [
+   "/christmas-events/santa-clarita-ca",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/santa-cruz-ca",
+   12,
+   13
+  ],
+  [
+   "/christmas-events/stockton-ca",
+   21,
+   23
+  ],
+  [
+   "/christmas-events/surprise-az",
+   3,
+   6
+  ],
+  [
+   "/christmas-events/temecula-ca",
+   4,
+   6
+  ],
+  [
+   "/christmas-events/tempe-az",
+   6,
+   7
+  ],
+  [
+   "/christmas-events/upland-ca",
+   3,
+   4
+  ],
+  [
+   "/christmas-events/visalia-ca",
+   3,
+   4
+  ],
+  [
+   "/christmas-events/vista-ca",
+   2,
+   4
   ]
  ],
- "uncounted_city_pages": [],
+ "uncounted_city_pages": [
+  [
+   "/christmas-events/navidad-con-ninos-ponce-pr",
+   1
+  ]
+ ],
  "upcoming_not_listed": [
   [
    "/christmas-events/a-christmas-story-eine-weihnachtsgeschichte-nobel-popel-music-theater-leuven-be",
@@ -244,6 +344,12 @@
    "Cabalgata de Reyes de Ciudad Lineal"
   ],
   [
+   "/christmas-events/cae-nieve-y-santa-en-plaza-las-americas-hato-rey-pr",
+   "2027-01-05",
+   "/christmas-events/navidad-con-ninos-san-juan-pr",
+   "Cae Nieve en Plaza Las Américas"
+  ],
+  [
    "/christmas-events/cantajuego-yo-quiero-ser-bilbao-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-bilbao",
@@ -332,6 +438,12 @@
    "2026-12-16",
    "/christmas-events/navidad-con-ninos-madrid",
    "Concierto de Navidad de la Banda de Música de la Policía Municipal de Madrid"
+  ],
+  [
+   "/christmas-events/cranger-weihnachtszauber-herten-de",
+   "2026-12-30",
+   "/christmas-events/weihnachten-mit-kindern-herten",
+   "Cranger Weihnachtszauber in Herten"
   ],
   [
    "/christmas-events/cuentacuentos-izare-rock-zizare-bilbao-es",
@@ -490,6 +602,12 @@
    "Haurtxoko de Aiete: Mari Domingi-ren bisita"
   ],
   [
+   "/christmas-events/holiday-nights-at-the-promenade-at-sunset-walk-kissimmee-fl",
+   "2026-12-25",
+   "/christmas-events/kissimmee-fl",
+   "Holiday Nights at the Promenade at Sunset Walk"
+  ],
+  [
    "/christmas-events/holiday-ride-on-train-atlanta-ga",
    "2027-01-03",
    "/christmas-events/atlanta-ga",
@@ -512,6 +630,12 @@
    "2026-12-12",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Ipuin txiki"
+  ],
+  [
+   "/christmas-events/jacksonville-holly-jolly-event-fl",
+   "2026-12-13",
+   "/christmas-events/jacksonville-fl",
+   "Jacksonville Holly Jolly Event"
   ],
   [
    "/christmas-events/jolaboka-cologne-be",
@@ -790,10 +914,34 @@
    "San Jose Holiday Lights"
   ],
   [
+   "/christmas-events/san-juan-donde-vive-la-navidad-parque-luis-munoz-marin-pr",
+   "2027-01-03",
+   "/christmas-events/navidad-con-ninos-san-juan-pr",
+   "San Juan donde Vive la Navidad"
+  ],
+  [
+   "/christmas-events/santa-boricua-y-tirada-de-nieve-plaza-del-caribe-ponce-pr",
+   "2026-12-31",
+   "",
+   "Navidad en Plaza del Caribe"
+  ],
+  [
    "/christmas-events/santa-reads-in-the-crane-der-weihnachtsmann-liest-im-kran-leuven-be",
    "2026-12-12",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Santa Reads in the Crane (Der Weihnachtsmann liest im Kran)"
+  ],
+  [
+   "/christmas-events/sausalito-winterfest-lighted-boat-parade-ca",
+   "2026-12-13",
+   "/christmas-events/san-rafael-ca",
+   "Sausalito Winterfest Lighted Boat Parade"
+  ],
+  [
+   "/christmas-events/schlossweihnacht-schloss-dyck-juechen-kinder-de",
+   "2026-12-20",
+   "/christmas-events/weihnachten-mit-kindern-dormagen",
+   "Schlossweihnacht Schloss Dyck in Jüchen"
   ],
   [
    "/christmas-events/schulerklausjagen-school-kids-klausjagen-weggis-ch",
@@ -806,6 +954,12 @@
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Scrooge eta mamuak"
+  ],
+  [
+   "/christmas-events/sternenzauber-weihnachtsmarkt-in-der-altstadt-monheim-am-rhein-de",
+   "2026-12-13",
+   "/christmas-events/weihnachten-mit-kindern-dormagen",
+   "Sternenzauber-Weihnachtsmarkt in der Altstadt in Monheim am Rhein"
   ],
   [
    "/christmas-events/szent-miklos-napi-unnepseg-mikulas-varo-a-kalaka-belvaros-lipotvaros-hu",
@@ -856,6 +1010,12 @@
    "Timm Thaler (The Boy Who Sold His Laughter)"
   ],
   [
+   "/christmas-events/tren-navideno-plaza-santiago-r-palmer-caguas-pr",
+   "2026-12-27",
+   "/christmas-events/navidad-con-ninos-caguas-pr",
+   "Tren Navideño de Caguas"
+  ],
+  [
    "/christmas-events/txikijazz-tela-sonora-san-sebastian-es",
    "2026-11-22",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -904,6 +1064,12 @@
    "Winter Weekend (Winterliches Wochenende)"
   ],
   [
+   "/christmas-events/wir-warten-aufs-christkind-koeln-kinder-de",
+   "2026-12-24",
+   "/christmas-events/weihnachten-mit-kindern-dormagen",
+   "Wir warten aufs Christkind in Köln"
+  ],
+  [
    "/christmas-events/xelebreixon-san-sebastian-es",
    "2026-12-26",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -925,14 +1091,16 @@
  "upcoming_not_listed_by_country": {
   "Spain": 97,
   "Belgium": 28,
+  "United States": 8,
   "Portugal": 7,
-  "United States": 5,
   "Cyprus": 4,
+  "Germany": 4,
+  "Puerto Rico": 3,
   "Luxembourg": 2,
+  "?": 2,
   "الامارات العربية المتحدة": 1,
   "Hungary": 1,
-  "Switzerland": 1,
-  "?": 1
+  "Switzerland": 1
  },
  "card_without_link": [
   [
@@ -964,6 +1132,11 @@
    "/christmas-events/oneiroupoli-drama-gr",
    "/christmas-events/kavala-gr",
    "Ονειρούπολη -"
+  ],
+  [
+   "/christmas-events/recklinghaeuser-weihnachtscircus-recklinghausen-kinder-de",
+   "/christmas-events/weihnachten-mit-kindern-herten",
+   "Recklinghäuser Weihnachtscircus"
   ],
   [
    "/christmas-events/snow-white-the-arena-panto-waterford-ie",
