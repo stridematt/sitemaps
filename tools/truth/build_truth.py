@@ -417,6 +417,9 @@ def main():
                 sq_ids[p] = r['sq'] or sq_ids.get(p)
                 pages[p] = {'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
                             'k': r['keys'], 'fk': r['free_keys'], 'lang': r['lang'], 'co': own_country(h), 'lastmod': lastmod.get(p), 'at': today}
+                if p in parent_of:  # a district page links back to its city (any language version)
+                    ups = {q for q, o in place.items() if o['main'] == parent_of[p]}
+                    pages[p]['up'] = any(f'href="{u}"' in h or f'href="{u}#' in h for u in ups)
             elif st in (404, 410):
                 pages.pop(p, None)
             else:
@@ -466,15 +469,20 @@ def main():
                    'cw': sum(1 for q in links if (pages.get(q) or {}).get('e'))}
 
     # Roll up: unique events (an event listed on two city pages counts once).
-    def roll(paths):
+    def scoped(keys, scope):
+        # Cards without an event-page link are keyed n:<name>|<town>|<last>. A city page and its district pages
+        # name the town differently ("Praha" / "Praha 1"), so within one city the town is replaced by the city.
+        return {('n:' + x[2:].split('|')[0] + '|' + scope + '|' + x.rsplit('|', 1)[-1]) if scope and x.startswith('n:') else x for x in keys}
+
+    def roll(paths, scope=None):
         k, fk, e_cities, q = set(), set(), 0, 0
         for p in paths:
             v = pages.get(p)
             if not v:
                 continue
-            k.update(v['k']); fk.update(v['fk']); q += v.get('q', 0)
+            k |= scoped(v['k'], scope); fk |= scoped(v['fk'], scope); q += v.get('q', 0)
             e_cities += 1 if v['e'] else 0
-        return {'events': len(k), 'free': len(fk), 'cities_with_events': e_cities, 'faq': q}
+        return {'events': len(k), 'free': len(fk), 'cities_with_events': e_cities, 'faq': q, '_k': k, '_fk': fk}
 
     cities = {}
     for p, pl in place.items():
@@ -482,8 +490,8 @@ def main():
             continue  # local-language twin of the same city: count the city once
         twins = [q for q, o in place.items() if o['main'] == p]
         best = max(twins, key=lambda q: (pages.get(q) or {}).get('e', 0))  # same as the hub: the fuller language version
-        parts = sorted(q for q, par in parent_of.items() if par == p and (pages.get(q) or {}).get('k') is not None)
-        cities[p] = {'country': pl['country'], 'state': pl['state'], 'name': pl['name'], 'paths': twins, 'best': best, 'parts': parts}
+        parts = sorted(q for q, par in parent_of.items() if par == p and (pages.get(q) or {}).get('up'))
+        cities[p] = {'country': pl['country'], 'state': pl['state'], 'name': pl['name'], 'paths': twins, 'best': best, 'parts': parts, 'key': p}
     by_country, by_state = collections.defaultdict(list), collections.defaultdict(list)
     for p, c in cities.items():
         by_country[c['country']].append(c)
@@ -493,7 +501,11 @@ def main():
     def agg(cs):
         # One language version per city (the fuller one): the English and local-language pages list the
         # same events, sometimes under different card ids, so taking both would count events twice.
-        r = roll([q for c in cs for q in [c['best']] + c['parts']])
+        k, fk, qn, ew = set(), set(), 0, 0
+        for c in cs:
+            x = roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)
+            k |= x['_k']; fk |= x['_fk']; qn += x['faq']; ew += 1 if x['cities_with_events'] else 0
+        r = {'events': len(k), 'free': len(fk), 'cities_with_events': ew, 'faq': qn}
         r['cities'] = len(cs)
         r['cities_with_events'] = sum(1 for c in cs if any((pages.get(q) or {}).get('e') for q in [c['best']] + c['parts']))
         return r
@@ -508,8 +520,8 @@ def main():
         'total': total,
         'countries': {n: agg(cs) for n, cs in by_country.items()},
         'states': {s: agg(cs) for s, cs in by_state.items()},
-        'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': roll([c['best']] + c['parts'])['events'],
-                       'f': roll([c['best']] + c['parts'])['free'], 'alt': [q for q in c['paths'] if q != p],
+        'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)['events'],
+                       'f': roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)['free'], 'alt': [q for q in c['paths'] if q != p],
                        'hub': p not in missing} for p, c in sorted(cities.items())},
         'pages': pages, 'odd': odd, 'guide_pages': gstate, 'found': found,
     }
@@ -527,9 +539,8 @@ def main():
         else:
             continue
         g = regions[key]
-        for q in [c['best']] + c['parts']:
-            v = pages.get(q) or {}
-            g['events'].update(v.get('k', [])); g['free'].update(v.get('fk', []))
+        x = roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)
+        g['events'] |= x['_k']; g['free'] |= x['_fk']
         g['cities'] += 1
         g['cities_with_events'] += 1 if (pages.get(p) or {}).get('e') else 0
     live = {
