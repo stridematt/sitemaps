@@ -1,169 +1,68 @@
 {
  "today": "2026-11-20",
  "sitemap_urls": 26610,
- "city_pages": 3828,
+ "city_pages": 3868,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 22566,
+ "event_pages_listed": 22780,
  "count_mismatch": [
   [
-   "/christmas-events/darwin-nt",
-   3,
-   4
+   "/christmas-events/chula-vista-ca",
+   2,
+   3
   ],
   [
-   "/christmas-events/elk-grove-ca",
-   3,
-   4
+   "/christmas-events/coffs-harbour-nsw",
+   0,
+   1
   ],
   [
-   "/christmas-events/geelong-vic",
-   6,
-   8
+   "/christmas-events/cupertino-ca",
+   2,
+   3
   ],
   [
-   "/christmas-events/gilbert-az",
-   3,
-   8
+   "/christmas-events/hervey-bay-qld",
+   0,
+   1
   ],
   [
-   "/christmas-events/mandurah-wa",
-   3,
-   4
+   "/christmas-events/kissimmee-fl",
+   13,
+   14
   ],
   [
-   "/christmas-events/natale-con-i-bambini-ancona",
+   "/christmas-events/launceston-tas",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/mackay-qld",
    0,
    2
   ],
   [
-   "/christmas-events/natale-con-i-bambini-cagliari",
+   "/christmas-events/mildura-vic",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/port-macquarie-nsw",
    0,
    2
   ],
   [
-   "/christmas-events/natale-con-i-bambini-catania",
+   "/christmas-events/toowoomba-qld",
    0,
    1
   ],
   [
-   "/christmas-events/natale-con-i-bambini-ferrara",
+   "/christmas-events/wagga-wagga-nsw",
    0,
-   1
-  ],
-  [
-   "/christmas-events/natale-con-i-bambini-forli",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/natale-con-i-bambini-la-spezia",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/natale-con-i-bambini-lecce",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/roseville-ca",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/sacramento-ca",
-   44,
-   48
-  ],
-  [
-   "/christmas-events/townsville-qld",
-   6,
-   7
-  ],
-  [
-   "/christmas-events/tucson-az",
-   17,
-   24
+   3
   ]
  ],
  "uncounted_city_pages": [
-  [
-   "/christmas-events/dubai-ae",
-   29
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-acajutla-sv",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-apopa-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-ciudad-arce-sv",
-   4
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-ciudad-delgado-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-cuscatancingo-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-ilobasco-sv",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-ilopango-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-izalco-sv",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-nahuizalco-sv",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-quezaltepeque-sv",
-   4
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-san-juan-opico-sv",
-   4
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-san-marcos-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-san-martin-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-san-pedro-perulapan-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-san-vicente-sv",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-sonsonate-sv",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-tonacatepeque-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-zacatecoluca-sv",
-   3
-  ],
   [
    "/christmas-events/rozhdestvo-s-detmi-narva-ru",
    2
@@ -175,22 +74,10 @@
  ],
  "upcoming_not_listed": [
   [
-   "/christmas-events/a-christmas-carol-theatre-by-qe2-dubai-ae",
-   "2026-12-26",
-   "",
-   "A Christmas Carol at Theatre by QE2"
-  ],
-  [
    "/christmas-events/a-christmas-story-eine-weihnachtsgeschichte-nobel-popel-music-theater-leuven-be",
    "2026-12-20",
    "/christmas-events/christmas-in-leuven-with-kids",
    "A Christmas Story (Eine Weihnachtsgeschichte), Nobel-Popel Music Theater"
-  ],
-  [
-   "/christmas-events/a-season-of-wonder-christmas-concert-dubai-ae",
-   "2026-12-09",
-   "",
-   "A Season of Wonder: A Christmas Concert"
   ],
   [
    "/christmas-events/a-spiders-gift-krohn-conservatory-holiday-show-cincinnati-oh",
@@ -361,12 +248,6 @@
    "Bilbao TX Fest 2026: \"Los cuentos de Sibyla"
   ],
   [
-   "/christmas-events/breakfast-with-santa-at-ski-dubai-ae",
-   "2026-12-25",
-   "",
-   "Breakfast with Santa at Ski Dubai"
-  ],
-  [
    "/christmas-events/buble-christmas-tribute-pamplona-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-pamplona",
@@ -403,52 +284,10 @@
    "Cantajuego: Yo quiero ser"
   ],
   [
-   "/christmas-events/caravana-navidena-del-comercio-apaneca-sv",
-   "2026-12-05",
-   "",
-   "Caravana Navideña del Comercio 2026"
-  ],
-  [
    "/christmas-events/carillon-de-navidad-en-la-plaza-de-espana-madrid-es",
    "2026-12-28",
    "/christmas-events/navidad-con-ninos-madrid",
    "Carillón de Navidad en la Plaza de España"
-  ],
-  [
-   "/christmas-events/carols-by-candlelight-under-the-tree-expo-city-dubai-ae",
-   "2026-12-23",
-   "",
-   "Carols by Candlelight Under the Tree"
-  ],
-  [
-   "/christmas-events/christmas-at-gaylord-national-with-ice-national-harbor-md",
-   "2027-01-03",
-   "",
-   "Christmas at Gaylord National with ICE!"
-  ],
-  [
-   "/christmas-events/christmas-concert-with-dubai-city-sound-alserkal-ae",
-   "2026-12-12",
-   "",
-   "Christmas Concert with Dubai City Sound"
-  ],
-  [
-   "/christmas-events/christmas-cracker-concert-irish-village-dubai-ae",
-   "2026-12-12",
-   "",
-   "Christmas Cracker Concert at The Irish Village"
-  ],
-  [
-   "/christmas-events/christmas-day-lunch-irish-village-garhoud-dubai-ae",
-   "2026-12-25",
-   "",
-   "Christmas Day Family Lunch at The Irish Village"
-  ],
-  [
-   "/christmas-events/christmas-family-brunch-nh-collection-ibn-battuta-dubai-ae",
-   "2026-12-25",
-   "",
-   "Christmas Family Brunch at Taste, NH Collection Ibn Battuta"
   ],
   [
    "/christmas-events/christmas-in-larnaca-with-kids",
@@ -487,52 +326,16 @@
    "Christmas Market at the Villa Donnersmarck"
   ],
   [
-   "/christmas-events/christmas-party-with-santa-kids-zone-souk-al-bahar-dubai-ae",
-   "2026-12-19",
-   "",
-   "Christmas Party with Santa at Kids Zone"
-  ],
-  [
-   "/christmas-events/christmas-tree-lighting-at-al-habtoor-polo-resort-dubai-ae",
-   "2026-11-30",
-   "",
-   "Christmas Tree Lighting at Al Habtoor Polo Resort"
-  ],
-  [
    "/christmas-events/christmas-tree-lighting-at-danat-al-ain-resort-ae",
    "2026-12-05",
    "/christmas-events/al-ain-ae",
    "إضاءة شجرة الكريسماس في منتجع داناة العين"
   ],
   [
-   "/christmas-events/christmas-tree-lighting-at-hilton-dubai-palm-jumeirah-ae",
-   "2026-12-04",
-   "",
-   "Christmas Tree Lighting at Hilton Dubai Palm Jumeirah"
-  ],
-  [
-   "/christmas-events/christmas-tree-lighting-at-metropolitan-hotel-dubai-ae",
-   "2026-12-08",
-   "",
-   "Christmas Tree Lighting at Metropolitan Hotel Dubai"
-  ],
-  [
-   "/christmas-events/christmas-tree-lighting-at-swissotel-al-ghurair-deira-dubai-ae",
-   "2026-12-10",
-   "",
-   "Christmas Tree Lighting at Swissôtel Al Ghurair"
-  ],
-  [
    "/christmas-events/christmas-workshop-for-children-ages-6-to-12-weihnachtswerkstatt-leuven-be",
    "2026-11-21",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Christmas Workshop for Children Ages 6 to 12 (Weihnachtswerkstatt)"
-  ],
-  [
-   "/christmas-events/cinderella-panto-new-covent-garden-theatre-dubai-ae",
-   "2026-12-24",
-   "",
-   "Cinderella at The New Covent Garden Theatre"
   ],
   [
    "/christmas-events/cine-infantil-bihurri-san-sebastian-es",
@@ -553,18 +356,6 @@
    "Cine infantil: \"Los Aristogatos"
   ],
   [
-   "/christmas-events/cinema-under-the-stars-a-christmas-carol-jlt-dubai-ae",
-   "2026-12-26",
-   "",
-   "Cinema Under the Stars: A Christmas Carol"
-  ],
-  [
-   "/christmas-events/coca-cola-arena-winter-market-dubai-ae",
-   "2026-12-20",
-   "",
-   "Coca-Cola Arena Winter Market"
-  ],
-  [
    "/christmas-events/concertos-de-natal-igrejas-alhadas-vila-verde-alqueidao-e-marinha-das-ondas-pt",
    "2026-12-20",
    "/christmas-events/natal-com-criancas-figueira-da-foz",
@@ -575,12 +366,6 @@
    "2026-12-16",
    "/christmas-events/navidad-con-ninos-madrid",
    "Concierto de Navidad de la Banda de Música de la Policía Municipal de Madrid"
-  ],
-  [
-   "/christmas-events/crafts-cocoa-and-community-washington-dc",
-   "2026-12-01",
-   "",
-   "Crafts, Cocoa, and Community"
   ],
   [
    "/christmas-events/cuentacuentos-izare-rock-zizare-bilbao-es",
@@ -599,18 +384,6 @@
    "2026-12-06",
    "/christmas-events/christmas-in-namur-with-kids",
    "Das Geheimnis der Weihnachtswichtel (The Secret of the Christmas Elves)"
-  ],
-  [
-   "/christmas-events/dear-santa-experience-mall-of-the-emirates-dubai-ae",
-   "2026-12-25",
-   "",
-   "Dear Santa Experience"
-  ],
-  [
-   "/christmas-events/decorate-a-gingerbread-house-rockville-md",
-   "2026-12-28",
-   "",
-   "Decorate a Gingerbread House!"
   ],
   [
    "/christmas-events/die-himmelskinder-weihnacht-the-sky-childrens-christmas-leuven-be",
@@ -637,12 +410,6 @@
    "El Gigante y la Navidad de la compañía Sol y Tierra"
   ],
   [
-   "/christmas-events/elf-the-musical-riverland-dubai-parks-and-resorts-ae",
-   "2026-12-20",
-   "",
-   "Elf The Musical at Riverland"
-  ],
-  [
    "/christmas-events/elfinena-el-musical-racun-teatro-zaragoza-es",
    "2026-12-05",
    "/christmas-events/navidad-con-ninos-zaragoza",
@@ -665,12 +432,6 @@
    "2026-11-21",
    "/christmas-events/navidad-con-ninos-madrid",
    "Encendido Navideño 2026 - Distrito de Villaverde"
-  ],
-  [
-   "/christmas-events/enchant-christmas-washington-dc",
-   "2026-12-27",
-   "",
-   "Enchant Christmas"
   ],
   [
    "/christmas-events/ene-kantak-amagoia-dragoia-bilbao-es",
@@ -697,12 +458,6 @@
    "Era uma vez nos Jardins do Marquês, O Natal"
   ],
   [
-   "/christmas-events/fairmonts-23rd-annual-tree-lighting-ceremony-washington-dc",
-   "2026-12-01",
-   "",
-   "Fairmont's 23rd Annual Tree Lighting Ceremony"
-  ],
-  [
    "/christmas-events/family-christmas-market-at-alice-salomon-platz-berlin-be",
    "2026-12-26",
    "/christmas-events/christmas-in-bruges-with-kids",
@@ -719,24 +474,6 @@
    "2026-12-21",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Feria de Santo Tomás en Bilbao"
-  ],
-  [
-   "/christmas-events/festival-of-lights-kensington-md",
-   "2027-01-01",
-   "",
-   "Festival of Lights"
-  ],
-  [
-   "/christmas-events/festive-santa-weekends-at-the-beach-jbr-dubai-ae",
-   "2026-12-20",
-   "",
-   "Santa Weekends at The Beach, JBR"
-  ],
-  [
-   "/christmas-events/festive-tree-lighting-aboard-qe2-dubai-ae",
-   "2026-12-11",
-   "",
-   "Festive Tree Lighting aboard QE2"
   ],
   [
    "/christmas-events/fly-me-to-the-moon-pamplona-es",
@@ -781,24 +518,6 @@
    "Haurtxoko de Aiete: Mari Domingi-ren bisita"
   ],
   [
-   "/christmas-events/holiday-boat-parade-and-party-washington-dc",
-   "2026-12-05",
-   "",
-   "Holiday Boat Parade & Party"
-  ],
-  [
-   "/christmas-events/holiday-market-and-celebration-washington-dc",
-   "2026-11-21",
-   "",
-   "Holiday Market & Celebration"
-  ],
-  [
-   "/christmas-events/holiday-tree-lighting-and-fireworks-national-harbor-md",
-   "2026-12-26",
-   "",
-   "Holiday Tree Lighting & Fireworks"
-  ],
-  [
    "/christmas-events/ibercaja-xplora-el-gran-rastro-de-los-reyes-magos-zaragoza-es",
    "2026-12-30",
    "/christmas-events/navidad-con-ninos-zaragoza",
@@ -815,12 +534,6 @@
    "2026-12-12",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Ipuin txiki"
-  ],
-  [
-   "/christmas-events/irish-village-christmas-tree-lighting-garhoud-dubai-ae",
-   "2026-12-08",
-   "",
-   "The Irish Village Christmas Tree Lighting"
   ],
   [
    "/christmas-events/jolaboka-cologne-be",
@@ -949,18 +662,6 @@
    "Macarrones con tomate"
   ],
   [
-   "/christmas-events/madinat-jumeirah-festive-market-dubai-ae",
-   "2026-12-27",
-   "",
-   "Festive Market at Madinat Jumeirah"
-  ],
-  [
-   "/christmas-events/magic-phils-croc-n-roll-christmas-dubai-ae",
-   "2026-12-13",
-   "",
-   "Magic Phil's Croc 'N' Roll Christmas"
-  ],
-  [
    "/christmas-events/magicus-zaragoza-es",
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-zaragoza",
@@ -991,12 +692,6 @@
    "Me da la Risa de Producciones Kinser"
   ],
   [
-   "/christmas-events/meet-santa-at-ski-dubai-winter-wonderland-dubai-ae",
-   "2026-12-24",
-   "",
-   "Meet Santa at Ski Dubai"
-  ],
-  [
    "/christmas-events/mercadillo-solidario-fundacion-mas-vida-zaragoza-es",
    "2026-11-22",
    "/christmas-events/navidad-con-ninos-zaragoza",
@@ -1021,12 +716,6 @@
    "Mercado de Natal de Matosinhos (FaMa )"
   ],
   [
-   "/christmas-events/mission-elf-possible-theatre-by-qe2-dubai-ae",
-   "2026-12-12",
-   "",
-   "Mission Elf Possible"
-  ],
-  [
    "/christmas-events/moko-pamplona-es",
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-pamplona",
@@ -1037,12 +726,6 @@
    "2026-12-27",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Motxila"
-  ],
-  [
-   "/christmas-events/movie-elf-pg-and-hot-cocoa-bar-hyattsville-md",
-   "2026-12-15",
-   "",
-   "Movie: Elf (PG) and Hot Cocoa Bar"
   ],
   [
    "/christmas-events/murren-bidaia-san-sebastian-es",
@@ -1069,22 +752,10 @@
    "Natal na Vila"
   ],
   [
-   "/christmas-events/national-christmas-tree-and-america-celebrates-display-washington-dc",
-   "2027-01-01",
-   "",
-   "National Christmas Tree and America Celebrates Display"
-  ],
-  [
    "/christmas-events/navidad-en-villaverde-madrid-es",
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-madrid",
    "Navidad en Villaverde"
-  ],
-  [
-   "/christmas-events/navidad-entre-cuentos-sensuntepeque-sv",
-   "2026-12-05",
-   "",
-   "Navidad entre cuentos 2026"
   ],
   [
    "/christmas-events/neguko-haur-jaia-olentzero-eta-mari-domingirekin-bilbao-es",
@@ -1103,12 +774,6 @@
    "2026-12-23",
    "/christmas-events/christmas-in-bruges-with-kids",
    "Oh, du furzige Weihnachtszeit! (Oh, You Farty Christmas Season)"
-  ],
-  [
-   "/christmas-events/old-town-alexandria-christmas-market-and-holiday-craft-show-va",
-   "2026-12-12",
-   "",
-   "Old Town Alexandria Christmas Market & Holiday Craft Show"
   ],
   [
    "/christmas-events/olentzeroren-sekretua-san-sebastian-es",
@@ -1147,12 +812,6 @@
    "Santa Reads in the Crane (Der Weihnachtsmann liest im Kran)"
   ],
   [
-   "/christmas-events/santas-suite-at-the-fairmont-washington-dc",
-   "2026-12-20",
-   "",
-   "Santa's Suite at the Fairmont"
-  ],
-  [
    "/christmas-events/schulerklausjagen-school-kids-klausjagen-weggis-ch",
    "2026-12-03",
    "/christmas-events/christmas-in-lucerne-with-kids",
@@ -1163,18 +822,6 @@
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Scrooge eta mamuak"
-  ],
-  [
-   "/christmas-events/seasons-greenings-national-parks-and-historic-places-washington-dc",
-   "2027-01-03",
-   "",
-   "Season's Greenings: National Parks and Historic Places"
-  ],
-  [
-   "/christmas-events/snow-white-and-the-seven-dwarfs-panto-jumeirah-beach-hotel-dubai-ae",
-   "2026-12-28",
-   "",
-   "Snow White and the Seven Dwarfs"
   ],
   [
    "/christmas-events/szent-miklos-napi-unnepseg-mikulas-varo-a-kalaka-belvaros-lipotvaros-hu",
@@ -1213,34 +860,10 @@
    "The Christmas Bakery: The Musical (Die Weihnachtsbäckerei)"
   ],
   [
-   "/christmas-events/the-grinch-washington-dc",
-   "2026-12-19",
-   "",
-   "The Grinch"
-  ],
-  [
-   "/christmas-events/the-nutcracker-bolshoi-ballet-dubai-opera-ae",
-   "2026-12-06",
-   "",
-   "The Nutcracker by the Bolshoi Ballet"
-  ],
-  [
    "/christmas-events/the-nutcracker-manchester-nh",
    "2026-11-22",
    "/christmas-events/manchester-nh",
    "The Nutcracker"
-  ],
-  [
-   "/christmas-events/the-nutcracker-washington-dc",
-   "2026-12-27",
-   "",
-   "The Nutcracker"
-  ],
-  [
-   "/christmas-events/the-nutcracker-with-the-fairfax-symphony-and-fairfax-ballet-va",
-   "2026-12-20",
-   "",
-   "The Nutcracker with the Fairfax Symphony and Fairfax Ballet"
   ],
   [
    "/christmas-events/timm-thaler-the-boy-who-sold-his-laughter-leuven-be",
@@ -1253,12 +876,6 @@
    "2026-11-22",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Txikijazz: Tela sonora"
-  ],
-  [
-   "/christmas-events/uae-national-orchestra-festival-evening-dubai-opera-ae",
-   "2026-12-09",
-   "",
-   "UAE National Orchestra: A Festival Evening"
   ],
   [
    "/christmas-events/una-noche-de-reyes-de-daniel-tejero-zaragoza-es",
@@ -1297,28 +914,10 @@
    "Who, How, What Christmas? (Wer Wie Was Weihnachten?)"
   ],
   [
-   "/christmas-events/winter-city-once-upon-a-holiday-expo-city-dubai-ae",
-   "2026-12-31",
-   "",
-   "Winter City and Disney+: Once upon a holiday"
-  ],
-  [
-   "/christmas-events/winter-walk-of-lights-vienna-va",
-   "2027-01-03",
-   "",
-   "Winter Walk of Lights"
-  ],
-  [
    "/christmas-events/winter-weekend-winterliches-wochenende-leuven-be",
    "2027-01-10",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Winter Weekend (Winterliches Wochenende)"
-  ],
-  [
-   "/christmas-events/winter-wonderland-fun-day-washington-dc",
-   "2026-12-17",
-   "",
-   "Winter Wonderland Fun Day"
   ],
   [
    "/christmas-events/xelebreixon-san-sebastian-es",
@@ -1337,17 +936,10 @@
    "2026-12-27",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Zinetxiki Zinemaldia 2026"
-  ],
-  [
-   "/christmas-events/zoolights-washington-dc",
-   "2027-01-03",
-   "",
-   "ZooLights"
   ]
  ],
  "upcoming_not_listed_by_country": {
   "Spain": 97,
-  "?": 52,
   "Belgium": 28,
   "Portugal": 7,
   "Cyprus": 4,
@@ -1355,7 +947,8 @@
   "Luxembourg": 2,
   "الامارات العربية المتحدة": 1,
   "Hungary": 1,
-  "Switzerland": 1
+  "Switzerland": 1,
+  "?": 1
  },
  "card_without_link": [
   [
