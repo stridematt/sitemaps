@@ -46,6 +46,11 @@ for (const n of ['South Africa', 'Kenya', 'Nigeria', 'Ghana', 'Egypt', 'Morocco'
 for (const n of ['Australia', 'New Zealand', 'Japan', 'South Korea', 'Philippines', 'Singapore', 'Hong Kong', 'India', 'Indonesia', 'Malaysia', 'Thailand', 'Vietnam', 'Taiwan', 'China', 'Fiji']) GROUP[n] = 'Asia and the Pacific';
 for (const n of ['Albania', 'Andorra', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Malta', 'Monaco', 'Montenegro', 'Netherlands', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Ukraine', 'United Kingdom']) GROUP[n] = 'Europe';
 
+for (const n of ['The Bahamas', 'Bahamas', 'Barbados', 'Bermuda', 'Cayman Islands', 'Guyana', 'Grenada', 'Saint Lucia', 'Saint Kitts and Nevis', 'Saint Vincent and the Grenadines', 'Antigua and Barbuda', 'Turks and Caicos Islands', 'US Virgin Islands', 'British Virgin Islands', 'Republica Dominicana', 'Haiti', 'Suriname', 'Dominica', 'Aruba', 'Curacao', 'Anguilla', 'Montserrat', 'Sint Maarten', 'Greenland']) GROUP[n] = 'The Americas';
+for (const n of ['The Gambia', 'Gambia', 'Sierra Leone', 'Liberia', 'Mauritius', 'Rwanda', 'Zambia', 'Zimbabwe', 'Namibia', 'Botswana', 'Malawi', 'Senegal', 'Cameroon', 'Angola', 'Mozambique', 'Seychelles', 'Cape Verde', 'Equatorial Guinea', 'Tunisia', 'Algeria', 'Ivory Coast', 'Lesotho', 'Eswatini', 'South Sudan', 'Turkey', 'Palestine', 'Iraq', 'Syria']) GROUP[n] = 'Africa and the Middle East';
+for (const n of ['Cambodia', 'Bangladesh', 'Sri Lanka', 'Pakistan', 'Guam', 'Vanuatu', 'Samoa', 'Tonga', 'Papua New Guinea', 'Solomon Islands', 'Nepal', 'Mongolia', 'Laos', 'Myanmar', 'Brunei', 'Macau', 'Kazakhstan', 'Uzbekistan', 'Kyrgyzstan', 'Northern Mariana Islands', 'New Caledonia', 'French Polynesia']) GROUP[n] = 'Asia and the Pacific';
+for (const n of ['Gibraltar', 'Guernsey', 'Jersey', 'Isle of Man', 'Czechia', 'Armenia', 'Georgia', 'Moldova', 'Belarus', 'San Marino', 'Faroe Islands', 'Kosovo', 'Russia']) GROUP[n] = 'Europe';
+
 function healHub(html, live, opts = {}) {
   if (!live || !live.total || !html.includes('id="xn-data"')) return null;
   const T = live.total;
@@ -258,6 +263,20 @@ function healHub(html, live, opts = {}) {
     const g = (live.countries || {})[name];
     return g ? `${a}${plural(g.cities, 'city guide', 'city guides')}, ${num(g.cities_with_events)} with confirmed 2026 events, ${plural(g.events, 'event', 'events')}"` : all;
   });
+  // The hub's own structured data carries today's date (Matt, 2026-11-21: the hub is republished
+  // with new counts every day, so its CollectionPage is dated the counts' day).
+  if (day) {
+    out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, o, js, c) => {
+      if (!js.includes('CollectionPage')) return all;
+      let J;
+      try { J = JSON.parse(js); } catch (e) { return all; }
+      let hit = false;
+      for (const n of J['@graph'] || [J]) {
+        if (n && n['@type'] === 'CollectionPage') { n.datePublished = day; n.dateModified = day; hit = true; }
+      }
+      return hit ? o + JSON.stringify(J).replace(/<\//g, '<\\/') + c : all;
+    });
+  }
   return out === html ? null : out;
 }
 

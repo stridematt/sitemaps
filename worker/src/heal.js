@@ -260,6 +260,20 @@ export function healHub(html, live, opts = {}) {
     const g = (live.countries || {})[name];
     return g ? `${a}${plural(g.cities, 'city guide', 'city guides')}, ${num(g.cities_with_events)} with confirmed 2026 events, ${plural(g.events, 'event', 'events')}"` : all;
   });
+  // The hub's own structured data carries today's date (Matt, 2026-11-21: the hub is republished
+  // with new counts every day, so its CollectionPage is dated the counts' day).
+  if (day) {
+    out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, o, js, c) => {
+      if (!js.includes('CollectionPage')) return all;
+      let J;
+      try { J = JSON.parse(js); } catch (e) { return all; }
+      let hit = false;
+      for (const n of J['@graph'] || [J]) {
+        if (n && n['@type'] === 'CollectionPage') { n.datePublished = day; n.dateModified = day; hit = true; }
+      }
+      return hit ? o + JSON.stringify(J).replace(/<\//g, '<\\/') + c : all;
+    });
+  }
   return out === html ? null : out;
 }
 
