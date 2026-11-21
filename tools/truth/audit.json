@@ -1,115 +1,70 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26626,
- "city_pages": 3902,
+ "sitemap_urls": 26633,
+ "city_pages": 3908,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 22907,
+ "event_pages_listed": 22974,
  "count_mismatch": [
   [
-   "/christmas-events/bakersfield-ca",
-   12,
-   14
+   "/christmas-events/los-angeles-ca",
+   69,
+   71
   ],
   [
-   "/christmas-events/buena-park-ca",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/chico-ca",
-   8,
-   9
-  ],
-  [
-   "/christmas-events/clovis-ca",
-   3,
-   5
-  ],
-  [
-   "/christmas-events/cupertino-ca",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/dana-point-ca",
-   2,
-   4
-  ],
-  [
-   "/christmas-events/fort-smith-ar",
-   13,
-   15
-  ],
-  [
-   "/christmas-events/fresno-ca",
-   12,
-   20
-  ],
-  [
-   "/christmas-events/gilbert-az",
-   8,
-   10
-  ],
-  [
-   "/christmas-events/glendale-az",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/hermosa-beach-ca",
-   2,
-   5
-  ],
-  [
-   "/christmas-events/huntington-beach-ca",
-   2,
+   "/christmas-events/napa-ca",
+   5,
    6
   ],
   [
-   "/christmas-events/irvine-ca",
-   22,
-   25
+   "/christmas-events/pasadena-ca",
+   2,
+   5
   ],
   [
-   "/christmas-events/laguna-beach-ca",
+   "/christmas-events/pico-rivera-ca",
+   3,
+   9
+  ],
+  [
+   "/christmas-events/rancho-palos-verdes-ca",
    3,
    4
   ],
   [
-   "/christmas-events/livermore-ca",
-   6,
-   8
+   "/christmas-events/riverside-ca",
+   31,
+   32
   ],
   [
-   "/christmas-events/long-beach-ca",
+   "/christmas-events/roseville-ca",
    6,
    7
   ],
   [
-   "/christmas-events/los-angeles-ca",
-   59,
-   64
+   "/christmas-events/sacramento-ca",
+   48,
+   50
   ],
   [
-   "/christmas-events/mesa-az",
-   19,
-   23
+   "/christmas-events/san-francisco-ca",
+   40,
+   41
   ],
   [
-   "/christmas-events/phoenix-az",
-   29,
-   36
+   "/christmas-events/san-jose-ca",
+   48,
+   49
   ],
   [
-   "/christmas-events/scottsdale-az",
-   18,
-   21
-  ],
-  [
-   "/christmas-events/tempe-az",
+   "/christmas-events/san-rafael-ca",
    2,
-   6
+   7
+  ],
+  [
+   "/christmas-events/santa-rosa-ca",
+   27,
+   32
   ]
  ],
  "uncounted_city_pages": [],
