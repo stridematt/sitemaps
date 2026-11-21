@@ -39,7 +39,7 @@ def own_country(h):
 
 # The language prefix of a translated city page ("rozhdestvo-s-detmi-", "navidad-con-ninos-"...). Only such a
 # prefix makes a page a twin: "north-charleston" is not a twin of "charleston".
-XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|natale|kerst|kodomo|rozhdestvo|jul\w*|joulu\w*|bozic|vanoce|karacsony|craciun|boze|kalikimaka|kurisumasu)(-|$)')
+XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|natale|kerst|kodomo|rozhdestvo|jul\w*|joulu\w*|bozic|vanoce|karacsony|craciun|boze|kalikimaka|kurisumasu|krismas|kerismas)(-|$)')
 
 
 def city_base(path):
@@ -146,13 +146,21 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
             p, b = it.get('fullUrl', ''), it.get('body') or ''
             if p in known_guides or p in guides or p in known_places or '<section class="rtt-pe-ride"' in b:
                 continue
-            if '<li class="rtt-rc">' in b:
+            if '<li class="rtt-rc">' in b or 'class="rtt-rcs"' in b:
                 roots.append((p, it.get('title', ''), b))
         nxt = (j.get('pagination') or {}).get('nextPageUrl')
         if stop or not nxt:
             break
         url = nxt
     found['hw'] = newest
+    # Guides published before the walk reached them (or in a list format the walk didn't know yet): tools/truth/guide-seed.txt
+    seed = os.path.join(HERE, 'guide-seed.txt')
+    if os.path.exists(seed):
+        for g in (l.strip() for l in open(seed, encoding='utf-8')):
+            if g.startswith('/christmas-events/') and g not in known_guides and g not in guides:
+                j = item_json(g)
+                if j and j.get('item'):
+                    roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
     # re-crawl guides found earlier once a day (they gain cities as they are built out)
     for g, v in guides.items():
         if v.get('at', '') < today and v.get('kind') == 'country':
@@ -319,8 +327,11 @@ def main():
         guides[g] = {'kind': fg['kind'], 'name': fg['name'], 'country': fg['country']}
         for sub, sd in fg.get('subs', {}).items():
             guides.setdefault(sub, {'kind': 'region', 'name': sd.get('name', ''), 'country': fg['country']})
-        for q, name in fg.get('cities', {}).items():
-            place.setdefault(q, {'country': fg['country'], 'state': None, 'name': clean_name(name, q), 'main': q})
+        for q, name in sorted(fg.get('cities', {}).items(), key=lambda kv: (len(kv[0].split('-')), kv[0])):
+            if q in place:
+                continue
+            twin = twin_of(q, fg['country'], place)
+            place[q] = {**place[twin]} if twin else {'country': fg['country'], 'state': None, 'name': clean_name(name, q), 'main': q}
     gstate = old.get('guide_pages', {})
     # New city pages a country or state guide links to (its city cards and city sections) count too,
     # even before the hub lists them. They are picked up from the last read of each guide.
@@ -329,7 +340,7 @@ def main():
         gi = guides.get(g)
         if not gi:
             continue
-        for q in gs.get('cities', []):
+        for q in sorted(gs.get('cities', []), key=lambda x: (len(x.split('-')), x)):
             if q in place or q in guides or q in odd or 'duplicate' in q:
                 continue
             country = gi['name'] if gi['kind'] == 'country' else gi.get('country', '')

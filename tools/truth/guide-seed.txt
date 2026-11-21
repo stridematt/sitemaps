@@ -1,0 +1,3 @@
+# Country and region guides to (re)discover even if the newest-posts walk passed them.
+/christmas-events/united-arab-emirates
+/christmas-events/czechia
