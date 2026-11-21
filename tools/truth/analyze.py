@@ -23,6 +23,20 @@ def last_day(cal):
     return m
 
 
+def signature(cal):
+    # The same event in two language versions of a city page has the same place and the same dates, whatever
+    # its name and event page. Used to count an event once when both language versions are counted.
+    try:
+        c = json.loads(cal)
+    except Exception:
+        return None
+    # The host's link first: the place is written in each page's language ("Munich" / "München"), the link is not.
+    link = re.sub(r'^https?://(www\.)?', '', (c.get('u') or '').split('#')[0].rstrip('/').lower())
+    place = link or slug(c.get('l') or '')
+    days = sorted({(r[0] or '', (r[1] if len(r) > 1 else '') or '', (r[3] if len(r) > 3 else '') or '') for r in (c.get('d') or []) if r})
+    return place + '|' + ';'.join('~'.join(x) for x in days) if place and days else None
+
+
 def slug(s):
     s = unicodedata.normalize('NFKD', H.unescape(re.sub(r'<[^>]+>', ' ', s or ''))).encode('ascii', 'ignore').decode().lower()
     return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
@@ -42,7 +56,7 @@ def cards(html):
         # so the same event on a city page and on its district page (or two city pages) counts once.
         nm = re.search(r'<h3[^>]*>(.*?)</h3>', seg, re.S)
         key = k.group(1) if k else ('n:' + slug(nm.group(1)) + '|' + slug(attr(tag, 'data-xf-town') or '') + '|' + last if nm else cid)
-        out.append({'id': cid, 'key': key, 'last': last,
+        out.append({'id': cid, 'key': key, 'last': last, 'sig': signature(attr(tag, 'data-cal') or '{}'),
                     'free': 'free' in (attr(tag, 'data-xf-fl') or '').split(),
                     'town': attr(tag, 'data-xf-town') or '', 'types': (attr(tag, 'data-xf-ty') or '').split()})
     return out
@@ -71,6 +85,7 @@ def analyze(html, today):
     faq = len(re.findall(r'"@type"\s*:\s*"Question"', html))
     return {
         'keys': [c['key'] for c in live], 'free_keys': [c['key'] for c in live if c['free']],
+        'sigs': [c['sig'] or '' for c in live],
         'cards': len(cs), 'events': len(live), 'free': sum(c['free'] for c in live),
         'past': len(cs) - len(live), 'next_expiry': future[0] if future else None,
         'towns': towns, 'faq': faq,
