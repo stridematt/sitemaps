@@ -1,25 +1,25 @@
 {
  "today": "2026-11-21",
  "sitemap_urls": 27722,
- "city_pages": 3948,
+ "city_pages": 3970,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23816,
+ "event_pages_listed": 23901,
  "count_mismatch": [
+  [
+   "/christmas-events/allendale-mi",
+   2,
+   5
+  ],
   [
    "/christmas-events/annapolis-md",
    7,
-   9
+   10
   ],
   [
-   "/christmas-events/baton-rouge-la",
-   34,
-   35
-  ],
-  [
-   "/christmas-events/boston-ma",
-   38,
-   48
+   "/christmas-events/baltimore-md",
+   55,
+   56
   ],
   [
    "/christmas-events/bowie-md",
@@ -47,54 +47,39 @@
    5
   ],
   [
+   "/christmas-events/grand-rapids-mi",
+   29,
+   30
+  ],
+  [
    "/christmas-events/hagerstown-md",
    1,
    3
   ],
   [
-   "/christmas-events/lowell-ma",
-   10,
-   13
+   "/christmas-events/kalamazoo-mi",
+   6,
+   7
   ],
   [
-   "/christmas-events/natick-ma",
-   2,
-   5
-  ],
-  [
-   "/christmas-events/norwood-ma",
+   "/christmas-events/kittery-me",
    3,
    4
   ],
   [
-   "/christmas-events/rehoboth-ma",
-   3,
-   7
+   "/christmas-events/lansing-mi",
+   28,
+   31
   ],
   [
    "/christmas-events/rockville-md",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/seekonk-ma",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/springfield-ma",
-   4,
-   8
-  ],
-  [
-   "/christmas-events/westwood-ma",
    3,
-   8
+   4
   ],
   [
-   "/christmas-events/worcester-ma",
-   20,
-   21
+   "/christmas-events/severna-park-md",
+   3,
+   4
   ]
  ],
  "uncounted_city_pages": [
@@ -1233,7 +1218,7 @@
   "Germany": 4,
   "Puerto Rico": 3,
   "Luxembourg": 2,
-  "الامارات العربية المتحدة": 1,
+  "United Arab Emirates": 1,
   "Hungary": 1,
   "Switzerland": 1
  },
