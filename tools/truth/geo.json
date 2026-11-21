@@ -35,6 +35,10 @@
 33.24,
 -86.82
 ],
+"/christmas-events/alabel-ph": [
+6.1,
+125.29
+],
 "/christmas-events/alameda-ca": [
 37.61,
 -121.9
@@ -67,6 +71,10 @@
 40.52,
 -78.4
 ],
+"/christmas-events/alytus-lt": [
+54.4,
+24.05
+],
 "/christmas-events/american-fork-ut": [
 40.38,
 -111.8
@@ -83,6 +91,14 @@
 34.53,
 -82.65
 ],
+"/christmas-events/angeles-ph": [
+15.13,
+120.59
+],
+"/christmas-events/angono-ph": [
+14.53,
+121.15
+],
 "/christmas-events/ankeny-ia": [
 41.73,
 -93.61
@@ -90,6 +106,10 @@
 "/christmas-events/antigua-and-barbuda": [
 17.22,
 -61.96
+],
+"/christmas-events/antipolo-ph": [
+14.59,
+121.18
 ],
 "/christmas-events/apache-junction-az": [
 33.42,
@@ -134,6 +154,10 @@
 "/christmas-events/aurora-on": [
 44.0,
 -79.47
+],
+"/christmas-events/bacoor-ph": [
+14.46,
+120.94
 ],
 "/christmas-events/bahrain": [
 26.16,
@@ -199,6 +223,10 @@
 40.03,
 -78.52
 ],
+"/christmas-events/belize-city-bz": [
+17.5,
+-88.2
+],
 "/christmas-events/bellaire-tx": [
 29.71,
 -95.46
@@ -210,6 +238,14 @@
 "/christmas-events/bellevue-wa": [
 47.61,
 -122.19
+],
+"/christmas-events/bellville-za": [
+-33.91,
+18.63
+],
+"/christmas-events/belmopan-bz": [
+17.25,
+-88.77
 ],
 "/christmas-events/beloeil-qc": [
 45.56,
@@ -271,6 +307,7 @@
 26.36,
 -80.08
 ],
+"/christmas-events/borlange-se": [],
 "/christmas-events/boucherville-qc": [
 45.61,
 -73.45
@@ -379,6 +416,18 @@
 4.98,
 8.34
 ],
+"/christmas-events/calapan-ph": [
+13.41,
+121.18
+],
+"/christmas-events/calasiao-ph": [
+16.01,
+120.36
+],
+"/christmas-events/calbayog-ph": [
+12.08,
+124.55
+],
 "/christmas-events/caldwell-id": [
 43.67,
 -116.69
@@ -406,6 +455,10 @@
 "/christmas-events/cape-girardeau-mo": [
 37.3,
 -89.52
+],
+"/christmas-events/cape-town-za": [
+-33.93,
+18.42
 ],
 "/christmas-events/carbondale-il": [
 37.73,
@@ -659,6 +712,14 @@
 37.32,
 -122.03
 ],
+"/christmas-events/da-nang-vn": [
+16.07,
+108.22
+],
+"/christmas-events/daet-ph": [
+14.11,
+122.96
+],
 "/christmas-events/dana-point-ca": [
 33.47,
 -117.7
@@ -747,6 +808,10 @@
 36.54,
 -119.39
 ],
+"/christmas-events/dipolog-ph": [
+8.59,
+123.34
+],
 "/christmas-events/dorval-qc": [
 45.45,
 -73.75
@@ -783,6 +848,10 @@
 28.01,
 -82.79
 ],
+"/christmas-events/durbanville-za": [
+-33.84,
+18.65
+],
 "/christmas-events/eagan-mn": [
 44.82,
 -93.17
@@ -798,6 +867,10 @@
 "/christmas-events/east-peoria-il": [
 40.67,
 -89.58
+],
+"/christmas-events/east-singapore-sg": [
+1.32,
+103.76
 ],
 "/christmas-events/edgewater-fl": [
 28.99,
@@ -831,6 +904,10 @@
 35.53,
 -97.96
 ],
+"/christmas-events/el-salvador-ph": [
+8.56,
+124.52
+],
 "/christmas-events/elizabethtown-ky": [
 37.69,
 -85.86
@@ -862,6 +939,10 @@
 "/christmas-events/enterprise-al": [
 31.32,
 -85.86
+],
+"/christmas-events/erd-hu": [
+47.38,
+18.92
 ],
 "/christmas-events/esquimalt-bc": [
 48.43,
@@ -919,6 +1000,10 @@
 34.2,
 -79.77
 ],
+"/christmas-events/florida": [
+27.25,
+-81.25
+],
 "/christmas-events/flower-mound-tx": [
 33.03,
 -97.09
@@ -946,6 +1031,10 @@
 "/christmas-events/franklin-tn": [
 35.93,
 -86.87
+],
+"/christmas-events/frederiksberg-dk": [
+55.68,
+12.53
 ],
 "/christmas-events/freeport-bs": [
 26.54,
@@ -987,6 +1076,10 @@
 13.47,
 -15.49
 ],
+"/christmas-events/gapan-ph": [
+15.31,
+120.95
+],
 "/christmas-events/garden-city-mi": [
 42.33,
 -83.33
@@ -1007,9 +1100,21 @@
 32.91,
 -96.64
 ],
+"/christmas-events/general-mariano-alvarez-ph": [
+14.3,
+121.01
+],
+"/christmas-events/general-trias-ph": [
+14.39,
+120.88
+],
 "/christmas-events/geneva-il": [
 41.89,
 -88.31
+],
+"/christmas-events/gentofte-dk": [
+55.75,
+12.54
 ],
 "/christmas-events/ghana": [
 8.03,
@@ -1018,6 +1123,10 @@
 "/christmas-events/gibraltar": [
 36.13,
 -5.35
+],
+"/christmas-events/gladsaxe-dk": [
+55.74,
+12.47
 ],
 "/christmas-events/glen-burnie-md": [
 39.16,
@@ -1066,6 +1175,10 @@
 "/christmas-events/grapevine-tx": [
 32.93,
 -97.08
+],
+"/christmas-events/grassy-park-za": [
+-34.05,
+18.5
 ],
 "/christmas-events/gravenhurst-on": [
 44.92,
@@ -1135,6 +1248,7 @@
 37.03,
 -76.34
 ],
+"/christmas-events/haninge-se": [],
 "/christmas-events/hannibal-mo": [
 39.71,
 -91.36
@@ -1151,6 +1265,7 @@
 -17.86,
 31.06
 ],
+"/christmas-events/hassleholm-se": [],
 "/christmas-events/havelock-nc": [
 34.88,
 -76.9
@@ -1239,6 +1354,7 @@
 50.21,
 15.83
 ],
+"/christmas-events/huddinge-se": [],
 "/christmas-events/hudson-oh": [
 41.24,
 -81.44
@@ -1263,6 +1379,10 @@
 38.06,
 -97.93
 ],
+"/christmas-events/hvidovre-dk": [
+55.64,
+12.48
+],
 "/christmas-events/hyattsville-md": [
 38.95,
 -76.94
@@ -1270,6 +1390,10 @@
 "/christmas-events/hyderabad-in": [
 17.36,
 78.47
+],
+"/christmas-events/imus-ph": [
+14.43,
+120.94
 ],
 "/christmas-events/indian-trail-nc": [
 35.08,
@@ -1331,6 +1455,10 @@
 33.98,
 -117.45
 ],
+"/christmas-events/kaliningrad-ru": [
+54.73,
+21.15
+],
 "/christmas-events/kalispell-mt": [
 48.2,
 -114.32
@@ -1350,6 +1478,14 @@
 "/christmas-events/karachi-pk": [
 24.85,
 67.02
+],
+"/christmas-events/kawit-ph": [
+14.44,
+120.9
+],
+"/christmas-events/kazan-ru": [
+55.79,
+49.11
 ],
 "/christmas-events/kearney-ne": [
 40.49,
@@ -1383,6 +1519,9 @@
 39.69,
 -84.17
 ],
+"/christmas-events/khrit-mat-bangkok-th": [],
+"/christmas-events/khrit-mat-chiang-mai-th": [],
+"/christmas-events/khrit-mat-phuket-th": [],
 "/christmas-events/kingman-az": [
 35.19,
 -114.05
@@ -1403,6 +1542,17 @@
 22.57,
 88.36
 ],
+"/christmas-events/koper-si": [],
+"/christmas-events/kostroma-ru": [
+57.77,
+40.93
+],
+"/christmas-events/kranj-si": [],
+"/christmas-events/krasnodar-ru": [
+45.04,
+38.98
+],
+"/christmas-events/kristianstad-se": [],
 "/christmas-events/kuala-lumpur-my": [
 3.15,
 101.69
@@ -1467,6 +1617,10 @@
 31.57,
 74.31
 ],
+"/christmas-events/lakatamia-cy": [
+35.12,
+33.31
+],
 "/christmas-events/lake-elsinore-ca": [
 33.67,
 -117.33
@@ -1498,6 +1652,10 @@
 "/christmas-events/lansdale-pa": [
 40.24,
 -75.28
+],
+"/christmas-events/lapu-lapu-ph": [
+7.1,
+125.64
 ],
 "/christmas-events/laramie-wy": [
 41.31,
@@ -1559,6 +1717,10 @@
 39.25,
 -94.42
 ],
+"/christmas-events/ligao-ph": [
+13.24,
+123.54
+],
 "/christmas-events/livonia-mi": [
 42.37,
 -83.35
@@ -1611,6 +1773,10 @@
 44.77,
 -63.69
 ],
+"/christmas-events/lubao-ph": [
+14.94,
+120.6
+],
 "/christmas-events/lucknow-in": [
 26.84,
 80.93
@@ -1623,6 +1789,10 @@
 -15.42,
 28.28
 ],
+"/christmas-events/lyngby-taarbaek-dk": [
+55.78,
+12.5
+],
 "/christmas-events/madison-ms": [
 32.63,
 -90.0
@@ -1631,9 +1801,33 @@
 41.09,
 -74.14
 ],
+"/christmas-events/makati-ph": [
+14.56,
+121.02
+],
 "/christmas-events/malawi": [
 -13.27,
 33.93
+],
+"/christmas-events/malaybalay-ph": [
+8.15,
+125.13
+],
+"/christmas-events/malolos-ph": [
+14.84,
+120.81
+],
+"/christmas-events/malta": [
+35.93,
+14.4
+],
+"/christmas-events/mandaluyong-ph": [
+14.58,
+121.03
+],
+"/christmas-events/mandaue-ph": [
+10.34,
+123.95
 ],
 "/christmas-events/manitowoc-wi": [
 44.1,
@@ -1667,6 +1861,7 @@
 42.5,
 -70.86
 ],
+"/christmas-events/marina-bay-singapore-sg": [],
 "/christmas-events/markham-on": [
 43.86,
 -79.34
@@ -1687,6 +1882,10 @@
 48.05,
 -122.18
 ],
+"/christmas-events/masbate-ph": [
+12.37,
+123.62
+],
 "/christmas-events/mascouche-qc": [
 45.75,
 -73.6
@@ -1698,6 +1897,10 @@
 "/christmas-events/maumelle-ar": [
 34.86,
 -92.41
+],
+"/christmas-events/mauritius": [
+-20.28,
+57.57
 ],
 "/christmas-events/mchenry-il": [
 42.33,
@@ -1763,6 +1966,10 @@
 32.48,
 -86.36
 ],
+"/christmas-events/milnerton-za": [
+-33.88,
+18.5
+],
 "/christmas-events/milpitas-ca": [
 37.43,
 -121.9
@@ -1803,6 +2010,10 @@
 41.51,
 -90.51
 ],
+"/christmas-events/mombasa-ke": [
+-4.05,
+39.67
+],
 "/christmas-events/monroe-la": [
 32.5,
 -92.12
@@ -1810,6 +2021,10 @@
 "/christmas-events/monroeville-pa": [
 40.43,
 -79.76
+],
+"/christmas-events/montego-bay-jm": [
+18.47,
+-77.92
 ],
 "/christmas-events/monterey-park-ca": [
 34.05,
@@ -1834,6 +2049,14 @@
 "/christmas-events/morgan-hill-ca": [
 37.13,
 -121.65
+],
+"/christmas-events/moscow-ru": [
+55.63,
+37.61
+],
+"/christmas-events/mosfellsbaer-is": [
+64.17,
+-21.69
 ],
 "/christmas-events/mount-juliet-tn": [
 36.2,
@@ -1867,6 +2090,14 @@
 42.26,
 -88.0
 ],
+"/christmas-events/muntinlupa-ph": [
+14.39,
+121.04
+],
+"/christmas-events/murmansk-ru": [
+68.97,
+33.07
+],
 "/christmas-events/murphy-tx": [
 33.02,
 -96.61
@@ -1883,6 +2114,14 @@
 31.6,
 -94.59
 ],
+"/christmas-events/nairobi-ke": [
+-1.29,
+36.82
+],
+"/christmas-events/nassau-bs": [
+25.08,
+-77.34
+],
 "/christmas-events/natchez-ms": [
 31.56,
 -91.4
@@ -1894,6 +2133,685 @@
 "/christmas-events/navarre-fl": [
 30.4,
 -86.87
+],
+"/christmas-events/navidad-con-ninos-acajutla-sv": [
+13.62,
+-89.83
+],
+"/christmas-events/navidad-con-ninos-ahuachapan-sv": [
+13.86,
+-89.93
+],
+"/christmas-events/navidad-con-ninos-alajuela-cr": [
+10.45,
+-84.47
+],
+"/christmas-events/navidad-con-ninos-alderetes-ar": [
+-26.81,
+-65.14
+],
+"/christmas-events/navidad-con-ninos-almirante-brown-ar": [
+-25.77,
+-61.45
+],
+"/christmas-events/navidad-con-ninos-alta-gracia-ar": [
+-31.66,
+-64.43
+],
+"/christmas-events/navidad-con-ninos-apopa-sv": [
+13.8,
+-89.18
+],
+"/christmas-events/navidad-con-ninos-asuncion-py": [
+-25.28,
+-57.63
+],
+"/christmas-events/navidad-con-ninos-avellaneda-ar": [
+-34.66,
+-58.36
+],
+"/christmas-events/navidad-con-ninos-azul-ar": [
+-36.78,
+-59.86
+],
+"/christmas-events/navidad-con-ninos-bahia-blanca-ar": [
+-38.72,
+-62.27
+],
+"/christmas-events/navidad-con-ninos-banda-del-rio-sali-ar": [
+-26.84,
+-65.16
+],
+"/christmas-events/navidad-con-ninos-bariloche-ar": [
+-41.13,
+-71.31
+],
+"/christmas-events/navidad-con-ninos-barranqueras-ar": [
+-27.48,
+-58.91
+],
+"/christmas-events/navidad-con-ninos-berazategui-ar": [
+-34.76,
+-58.21
+],
+"/christmas-events/navidad-con-ninos-berisso-ar": [
+-34.87,
+-57.88
+],
+"/christmas-events/navidad-con-ninos-bluefields-ni": [
+11.56,
+-83.97
+],
+"/christmas-events/navidad-con-ninos-boaco-ni": [
+12.5,
+-85.5
+],
+"/christmas-events/navidad-con-ninos-buenos-aires-ar": [
+-34.61,
+-58.39
+],
+"/christmas-events/navidad-con-ninos-buenos-aires-cr": [
+9.08,
+-83.23
+],
+"/christmas-events/navidad-con-ninos-buin-cl": [
+-33.73,
+-70.74
+],
+"/christmas-events/navidad-con-ninos-caguas-pr": [],
+"/christmas-events/navidad-con-ninos-caleta-olivia-ar": [
+-46.44,
+-67.52
+],
+"/christmas-events/navidad-con-ninos-campana-ar": [
+-34.16,
+-58.96
+],
+"/christmas-events/navidad-con-ninos-canuelas-ar": [
+-35.05,
+-58.76
+],
+"/christmas-events/navidad-con-ninos-caracas-ve": [
+10.51,
+-66.91
+],
+"/christmas-events/navidad-con-ninos-cartago-cr": [
+9.82,
+-83.69
+],
+"/christmas-events/navidad-con-ninos-catacamas-hn": [
+14.85,
+-85.89
+],
+"/christmas-events/navidad-con-ninos-catamarca-ar": [
+-27.78,
+-67.17
+],
+"/christmas-events/navidad-con-ninos-chacabuco-ar": [
+-32.74,
+-65.21
+],
+"/christmas-events/navidad-con-ninos-chacao-ve": [
+10.49,
+-66.85
+],
+"/christmas-events/navidad-con-ninos-chalchuapa-sv": [
+13.99,
+-89.68
+],
+"/christmas-events/navidad-con-ninos-chichigalpa-ni": [
+12.56,
+-87.04
+],
+"/christmas-events/navidad-con-ninos-chiclayo-pe": [
+-6.77,
+-79.84
+],
+"/christmas-events/navidad-con-ninos-chimbas-ar": [
+-31.48,
+-68.51
+],
+"/christmas-events/navidad-con-ninos-chinandega-ni": [
+12.8,
+-87.1
+],
+"/christmas-events/navidad-con-ninos-chivilcoy-ar": [
+-34.9,
+-60.02
+],
+"/christmas-events/navidad-con-ninos-choloma-hn": [
+15.61,
+-87.95
+],
+"/christmas-events/navidad-con-ninos-choluteca-hn": [
+13.37,
+-87.07
+],
+"/christmas-events/navidad-con-ninos-cipolletti-ar": [
+-38.93,
+-67.99
+],
+"/christmas-events/navidad-con-ninos-ciudad-arce-sv": [
+13.84,
+-89.44
+],
+"/christmas-events/navidad-con-ninos-ciudad-dario-ni": [
+12.68,
+-86.1
+],
+"/christmas-events/navidad-con-ninos-ciudad-de-guatemala-gt": [
+14.64,
+-90.51
+],
+"/christmas-events/navidad-con-ninos-ciudad-de-panama-pa": [
+8.97,
+-79.53
+],
+"/christmas-events/navidad-con-ninos-ciudad-delgado-sv": [
+13.72,
+-89.17
+],
+"/christmas-events/navidad-con-ninos-ciudad-sandino-ni": [
+12.14,
+-86.36
+],
+"/christmas-events/navidad-con-ninos-clorinda-ar": [
+-25.29,
+-57.71
+],
+"/christmas-events/navidad-con-ninos-colon-sv": [
+13.7,
+-89.34
+],
+"/christmas-events/navidad-con-ninos-comayagua-hn": [
+14.45,
+-87.64
+],
+"/christmas-events/navidad-con-ninos-comodoro-rivadavia-ar": [
+-45.86,
+-67.48
+],
+"/christmas-events/navidad-con-ninos-concepcion-del-uruguay-ar": [
+-32.49,
+-58.23
+],
+"/christmas-events/navidad-con-ninos-concepcion-tucuman-ar": [
+-27.35,
+-65.59
+],
+"/christmas-events/navidad-con-ninos-concordia-ar": [
+-31.34,
+-58.03
+],
+"/christmas-events/navidad-con-ninos-cordoba-ar": [
+-31.42,
+-64.18
+],
+"/christmas-events/navidad-con-ninos-corredores-cr": [
+8.54,
+-82.95
+],
+"/christmas-events/navidad-con-ninos-corrientes-ar": [
+-29.02,
+-57.89
+],
+"/christmas-events/navidad-con-ninos-cuenca-ec": [
+-2.9,
+-79.0
+],
+"/christmas-events/navidad-con-ninos-cundinamarca": [
+4.78,
+-73.67
+],
+"/christmas-events/navidad-con-ninos-curridabat-cr": [
+9.92,
+-84.03
+],
+"/christmas-events/navidad-con-ninos-cuscatancingo-sv": [
+13.78,
+-89.18
+],
+"/christmas-events/navidad-con-ninos-cusco-pe": [
+-13.52,
+-71.98
+],
+"/christmas-events/navidad-con-ninos-cutral-co-ar": [
+-38.94,
+-69.23
+],
+"/christmas-events/navidad-con-ninos-danli-hn": [
+14.03,
+-86.57
+],
+"/christmas-events/navidad-con-ninos-desamparados-cr": [
+9.81,
+-84.07
+],
+"/christmas-events/navidad-con-ninos-diriamba-ni": [
+11.77,
+-86.33
+],
+"/christmas-events/navidad-con-ninos-el-hatillo-ve": [
+10.42,
+-66.83
+],
+"/christmas-events/navidad-con-ninos-el-negrito-hn": [
+15.31,
+-87.7
+],
+"/christmas-events/navidad-con-ninos-el-progreso-hn": [
+15.4,
+-87.81
+],
+"/christmas-events/navidad-con-ninos-el-rama-ni": [
+12.24,
+-84.31
+],
+"/christmas-events/navidad-con-ninos-el-triunfo-hn": [
+13.12,
+-86.99
+],
+"/christmas-events/navidad-con-ninos-el-viejo-ni": [
+12.81,
+-87.41
+],
+"/christmas-events/navidad-con-ninos-eldorado-ar": [
+-26.4,
+-54.63
+],
+"/christmas-events/navidad-con-ninos-ensenada-ar": [
+-34.86,
+-57.91
+],
+"/christmas-events/navidad-con-ninos-escazu-cr": [
+9.92,
+-84.14
+],
+"/christmas-events/navidad-con-ninos-escobar-ar": [
+-34.35,
+-58.8
+],
+"/christmas-events/navidad-con-ninos-esteban-echeverria-ar": [
+-35.59,
+-57.99
+],
+"/christmas-events/navidad-con-ninos-esteli-ni": [
+13.13,
+-86.35
+],
+"/christmas-events/navidad-con-ninos-ezeiza-ar": [
+-34.82,
+-58.55
+],
+"/christmas-events/navidad-con-ninos-florencio-varela-ar": [
+-34.8,
+-58.28
+],
+"/christmas-events/navidad-con-ninos-formosa-ar": [
+-24.6,
+-60.43
+],
+"/christmas-events/navidad-con-ninos-general-pico-ar": [
+-35.66,
+-63.76
+],
+"/christmas-events/navidad-con-ninos-general-roca-ar": [
+-39.03,
+-67.58
+],
+"/christmas-events/navidad-con-ninos-general-rodriguez-ar": [
+-34.61,
+-58.95
+],
+"/christmas-events/navidad-con-ninos-general-san-martin-ar": [
+-34.58,
+-58.54
+],
+"/christmas-events/navidad-con-ninos-godoy-cruz-ar": [
+-32.93,
+-68.91
+],
+"/christmas-events/navidad-con-ninos-goya-ar": [
+-29.14,
+-59.26
+],
+"/christmas-events/navidad-con-ninos-gracias-hn": [
+14.59,
+-88.58
+],
+"/christmas-events/navidad-con-ninos-granada-ni": [
+11.98,
+-85.95
+],
+"/christmas-events/navidad-con-ninos-grecia-cr": [
+10.09,
+-84.3
+],
+"/christmas-events/navidad-con-ninos-gualeguaychu-ar": [
+-33.01,
+-58.51
+],
+"/christmas-events/navidad-con-ninos-guayaquil-ec": [
+-2.19,
+-79.89
+],
+"/christmas-events/navidad-con-ninos-guaymallen-ar": [
+-32.9,
+-68.79
+],
+"/christmas-events/navidad-con-ninos-heredia-cr": [
+10.38,
+-84.01
+],
+"/christmas-events/navidad-con-ninos-huancayo-pe": [
+-12.07,
+-75.21
+],
+"/christmas-events/navidad-con-ninos-hurlingham-ar": [
+-34.59,
+-58.64
+],
+"/christmas-events/navidad-con-ninos-ilobasco-sv": [
+13.84,
+-88.85
+],
+"/christmas-events/navidad-con-ninos-ilopango-sv": [
+13.67,
+-89.04
+],
+"/christmas-events/navidad-con-ninos-independencia-cl": [
+-33.42,
+-70.66
+],
+"/christmas-events/navidad-con-ninos-intibuca-hn": [
+14.26,
+-88.23
+],
+"/christmas-events/navidad-con-ninos-ituzaingo-ar": [
+-34.66,
+-58.67
+],
+"/christmas-events/navidad-con-ninos-izalco-sv": [
+13.75,
+-89.68
+],
+"/christmas-events/navidad-con-ninos-jesus-maria-ar": [
+-30.98,
+-64.1
+],
+"/christmas-events/navidad-con-ninos-jinotega-ni": [
+13.8,
+-85.5
+],
+"/christmas-events/navidad-con-ninos-jinotepe-ni": [
+11.71,
+-86.25
+],
+"/christmas-events/navidad-con-ninos-jose-c-paz-ar": [
+-34.51,
+-58.78
+],
+"/christmas-events/navidad-con-ninos-juana-diaz-pr": [],
+"/christmas-events/navidad-con-ninos-juigalpa-ni": [
+12.06,
+-85.39
+],
+"/christmas-events/navidad-con-ninos-jujuy-ar": [
+-24.19,
+-65.3
+],
+"/christmas-events/navidad-con-ninos-junin-ar": [
+-34.59,
+-60.95
+],
+"/christmas-events/navidad-con-ninos-juticalpa-hn": [
+14.67,
+-86.22
+],
+"/christmas-events/navidad-con-ninos-la-banda-ar": [
+-27.74,
+-64.24
+],
+"/christmas-events/navidad-con-ninos-la-ceiba-hn": [
+15.78,
+-86.79
+],
+"/christmas-events/navidad-con-ninos-la-florida-cl": [
+-33.52,
+-70.6
+],
+"/christmas-events/navidad-con-ninos-la-lima-hn": [
+15.44,
+-87.93
+],
+"/christmas-events/navidad-con-ninos-la-matanza-ar": [
+-26.57,
+-60.17
+],
+"/christmas-events/navidad-con-ninos-la-paz-hn": [
+14.13,
+-87.96
+],
+"/christmas-events/navidad-con-ninos-la-plata-ar": [
+-34.92,
+-57.95
+],
+"/christmas-events/navidad-con-ninos-la-reina-cl": [
+-33.44,
+-70.54
+],
+"/christmas-events/navidad-con-ninos-la-rioja-ar": [
+-29.78,
+-67.11
+],
+"/christmas-events/navidad-con-ninos-la-romana-do": [
+18.42,
+-68.97
+],
+"/christmas-events/navidad-con-ninos-lanus-ar": [
+-34.71,
+-58.39
+],
+"/christmas-events/navidad-con-ninos-las-condes-cl": [
+-33.41,
+-70.57
+],
+"/christmas-events/navidad-con-ninos-las-heras-ar": [
+-34.59,
+-58.4
+],
+"/christmas-events/navidad-con-ninos-las-talitas-ar": [
+-26.79,
+-65.19
+],
+"/christmas-events/navidad-con-ninos-leon-ni": [
+12.4,
+-86.87
+],
+"/christmas-events/navidad-con-ninos-lima-pe": [
+-12.05,
+-77.03
+],
+"/christmas-events/navidad-con-ninos-limon-cr": [
+10.1,
+-83.34
+],
+"/christmas-events/navidad-con-ninos-lo-barnechea-cl": [
+-33.36,
+-70.51
+],
+"/christmas-events/navidad-con-ninos-lomas-de-zamora-ar": [
+-34.76,
+-58.4
+],
+"/christmas-events/navidad-con-ninos-lujan-ar": [
+-34.57,
+-59.12
+],
+"/christmas-events/navidad-con-ninos-lujan-de-cuyo-ar": [
+-33.11,
+-69.01
+],
+"/christmas-events/navidad-con-ninos-madrid-matadero-conciertos": [
+40.42,
+-3.7
+],
+"/christmas-events/navidad-con-ninos-maipu-ar": [
+-32.98,
+-68.79
+],
+"/christmas-events/navidad-con-ninos-malvinas-argentinas-ar": [
+-31.38,
+-64.05
+],
+"/christmas-events/navidad-con-ninos-managua-ni": [
+12.11,
+-86.25
+],
+"/christmas-events/navidad-con-ninos-mar-del-plata-ar": [
+-38.0,
+-57.55
+],
+"/christmas-events/navidad-con-ninos-marcos-paz-ar": [
+-34.79,
+-58.83
+],
+"/christmas-events/navidad-con-ninos-masaya-ni": [
+12.01,
+-86.07
+],
+"/christmas-events/navidad-con-ninos-matagalpa-ni": [
+12.9,
+-85.7
+],
+"/christmas-events/navidad-con-ninos-mateare-ni": [
+12.21,
+-86.41
+],
+"/christmas-events/navidad-con-ninos-mayaguez-pr": [],
+"/christmas-events/navidad-con-ninos-mejicanos-sv": [
+13.72,
+-89.19
+],
+"/christmas-events/navidad-con-ninos-mendoza-ar": [
+-34.6,
+-68.73
+],
+"/christmas-events/navidad-con-ninos-mercedes-ar": [
+-34.65,
+-59.43
+],
+"/christmas-events/navidad-con-ninos-merlo-ar": [
+-34.66,
+-58.73
+],
+"/christmas-events/navidad-con-ninos-metapan-sv": [
+14.33,
+-89.45
+],
+"/christmas-events/navidad-con-ninos-miraflores-pe": [
+-12.12,
+-77.03
+],
+"/christmas-events/navidad-con-ninos-montes-de-oca-cr": [
+9.94,
+-84.03
+],
+"/christmas-events/navidad-con-ninos-montevideo-uy": [
+-34.91,
+-56.19
+],
+"/christmas-events/navidad-con-ninos-moravia-cr": [
+10.01,
+-84.01
+],
+"/christmas-events/navidad-con-ninos-morazan-hn": [
+15.32,
+-87.6
+],
+"/christmas-events/navidad-con-ninos-moreno-ar": [
+-34.64,
+-58.79
+],
+"/christmas-events/navidad-con-ninos-moron-ar": [
+-34.65,
+-58.62
+],
+"/christmas-events/navidad-con-ninos-nacaome-hn": [
+13.53,
+-87.49
+],
+"/christmas-events/navidad-con-ninos-nahuizalco-sv": [
+13.78,
+-89.74
+],
+"/christmas-events/navidad-con-ninos-necochea-ar": [
+-38.55,
+-58.74
+],
+"/christmas-events/navidad-con-ninos-neuquen-ar": [
+-38.85,
+-69.83
+],
+"/christmas-events/navidad-con-ninos-nindiri-ni": [
+12.05,
+-86.14
+],
+"/christmas-events/navidad-con-ninos-nueva-guinea-ni": [
+11.7,
+-84.34
+],
+"/christmas-events/navidad-con-ninos-nueve-de-julio-ar": [
+-35.44,
+-60.88
+],
+"/christmas-events/navidad-con-ninos-obera-ar": [
+-27.48,
+-55.12
+],
+"/christmas-events/navidad-con-ninos-ocotal-ni": [
+13.64,
+-86.49
+],
+"/christmas-events/navidad-con-ninos-olanchito-hn": [
+15.48,
+-86.57
+],
+"/christmas-events/navidad-con-ninos-olavarria-ar": [
+-36.89,
+-60.32
+],
+"/christmas-events/navidad-con-ninos-omoa-hn": [
+15.78,
+-88.04
+],
+"/christmas-events/navidad-con-ninos-oran-ar": [
+-23.33,
+-64.32
+],
+"/christmas-events/navidad-con-ninos-ovalle-cl": [
+-30.6,
+-71.2
+],
+"/christmas-events/navidad-con-ninos-palpala-ar": [
+-24.26,
+-65.21
+],
+"/christmas-events/navidad-con-ninos-parana-ar": [
+-27.42,
+-56.6
+],
+"/christmas-events/navidad-con-ninos-partido-de-la-costa-ar": [
+-36.66,
+-56.69
+],
+"/christmas-events/navidad-con-ninos-paso-de-los-libres-ar": [
+-29.71,
+-57.09
+],
+"/christmas-events/navidad-con-ninos-perez-zeledon-cr": [
+9.34,
+-83.65
 ],
 "/christmas-events/neenah-wi": [
 44.19,
