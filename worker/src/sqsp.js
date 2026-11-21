@@ -85,10 +85,34 @@ export function planItem(item, live, today = refToday()) {
   blocks.forEach((b, i) => {
     const after = parts[i + 1];
     if (after === b.value.html) return;
-    const cards = (s) => (s.match(/<section class="rtt-pe-ride"/g) || []).length;
+    const cards = (s) => (s.match(/<section class="rtt-pe-ride[" ]/g) || []).length;
     removedCards += cards(b.value.html) - cards(after);
     changes.push({ field: `block:${b.id}`, before: b.value.html, after });
     nextBlocks[i].value.html = after;
+  });
+  // The editor's copy of each code block (wysiwyg.source) can differ from the served html. Heal it on its
+  // own too, or the next save from the Squarespace editor would put the stale counts back.
+  const srcOf = (b) => (b.value.wysiwyg && typeof b.value.wysiwyg.source === 'string' ? b.value.wysiwyg.source : null);
+  if (blocks.some((b) => srcOf(b) !== null && srcOf(b) !== b.value.html)) {
+    const docS = `<html><head>\n${head}\n</head><body>${SEP}${blocks.map((b) => srcOf(b) ?? b.value.html).join(SEP)}${SEP}</body></html>`;
+    let hs = null;
+    try { hs = kind === 'guide' ? healGuide(docS, today, live, path) : healCity(docS, today, live.pages, path); } catch (e) { hs = null; }
+    const ps = hs ? hs.slice(hs.indexOf('<body>') + 6, hs.lastIndexOf('</body>')).split(SEP) : null;
+    if (ps && ps.length === parts.length) {
+      blocks.forEach((b, i) => {
+        const before = srcOf(b);
+        if (before === null || ps[i + 1] === before) return;
+        changes.push({ field: `source:${b.id}`, before, after: ps[i + 1] });
+        nextBlocks[i].value.wysiwyg.source = ps[i + 1];
+      });
+    }
+  }
+  blocks.forEach((b, i) => {   // where both copies were identical, keep them identical
+    const before = srcOf(b);
+    if (before !== null && before === b.value.html && nextBlocks[i].value.html !== b.value.html) {
+      nextBlocks[i].value.wysiwyg.source = nextBlocks[i].value.html;
+      changes.push({ field: `source:${b.id}`, before, after: nextBlocks[i].value.html });
+    }
   });
   if (!changes.length) return null;
 

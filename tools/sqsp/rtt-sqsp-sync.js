@@ -1,843 +1,924 @@
+// Built from worker/src/heal.js and worker/src/sqsp.js (same code as the Worker). Rebuild: node scripts/bundle_sqsp.mjs
 var RTTSync = (() => {
-  var __defProp = Object.defineProperty;
-  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-  var __getOwnPropNames = Object.getOwnPropertyNames;
-  var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __export = (target, all) => {
-    for (var name in all)
-      __defProp(target, name, { get: all[name], enumerable: true });
-  };
-  var __copyProps = (to, from, except, desc) => {
-    if (from && typeof from === "object" || typeof from === "function") {
-      for (let key of __getOwnPropNames(from))
-        if (!__hasOwnProp.call(to, key) && key !== except)
-          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-    }
-    return to;
-  };
-  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+const { healCity, healGuide, refToday, claimedCounts } = (() => {
+// Self-healing numbers for the Christmas events pages.
+//
+// Pages are written once and then go stale: events pass, cities are added, counts drift
+// between the title, the meta description, the body and the structured data. These
+// functions recompute every count from the facts (the event cards themselves, or the
+// registry built every 3 hours in tools/truth/live.json) and write the right number back
+// into every place it appears. Each function returns null when it has nothing to change,
+// and the caller then serves the original page untouched.
 
-  // src/sqsp.js
-  var sqsp_exports = {};
-  __export(sqsp_exports, {
-    backups: () => backups,
-    describe: () => describe,
-    htmlBlocks: () => htmlBlocks,
-    kindFor: () => kindFor,
-    planItem: () => planItem,
-    restore: () => restore,
-    run: () => run,
-    signature: () => signature
+const num = (n) => Number(n).toLocaleString('en-US');
+const plural = (n, one, many) => `${num(n)} ${n === 1 ? one : many}`;
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+function dateLabel(iso, short) {
+  const [y, m, d] = iso.split('-').map(Number);
+  return short ? `${MONTHS[m - 1].slice(0, 3)} ${d}` : `${MONTHS[m - 1]} ${d}, ${y}`;
+}
+
+// Today for event expiry: an event stays listed until its last day is over everywhere (UTC-12).
+function refToday(now = Date.now()) {
+  return new Date(now - 12 * 3600 * 1000).toISOString().slice(0, 10);
+}
+
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// ---------------------------------------------------------------------------------- hub
+// /christmas-events-for-kids: totals, country and state rows, the finder data, the A to Z.
+
+// Language of a page from its address (for the finder's language chips)
+const LANG_PREFIX = [['navidad-con-ninos-', 'es'], ['natal-com-criancas-', 'pt'], ['noel-avec-les-enfants-', 'fr'], ['activites-de-noel-pour-enfants-', 'fr'],
+  ['weihnachten-mit-kindern-', 'de'], ['natale-con-i-bambini-', 'it'], ['kerst-met-kinderen-', 'nl'], ['kodomo-christmas-', 'ja']];
+const pageRef = (p) => {
+  const s = String(p).replace(/^\/christmas-events\//, '');
+  return `${(LANG_PREFIX.find(([pre]) => s.startsWith(pre)) || [0, 'en'])[1]}:${s}`;
+};
+const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const escAttr = (s) => escText(s).replace(/"/g, '&quot;');
+// Region of the hub's "by country" list for countries added after the hub was built
+const GROUP = {};
+for (const n of ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela', 'Mexico', 'Canada', 'United States', 'Dominican Republic', 'Puerto Rico', 'Cuba', 'Jamaica', 'Trinidad and Tobago']) GROUP[n] = 'The Americas';
+for (const n of ['Belize', 'Costa Rica', 'El Salvador', 'Guatemala', 'Honduras', 'Nicaragua', 'Panama']) GROUP[n] = 'Central America';
+for (const n of ['South Africa', 'Kenya', 'Nigeria', 'Ghana', 'Egypt', 'Morocco', 'Ethiopia', 'Madagascar', 'Tanzania', 'Uganda', 'Israel', 'Lebanon', 'Jordan', 'United Arab Emirates', 'Qatar', 'Saudi Arabia', 'Bahrain', 'Kuwait', 'Oman']) GROUP[n] = 'Africa and the Middle East';
+for (const n of ['Australia', 'New Zealand', 'Japan', 'South Korea', 'Philippines', 'Singapore', 'Hong Kong', 'India', 'Indonesia', 'Malaysia', 'Thailand', 'Vietnam', 'Taiwan', 'China', 'Fiji']) GROUP[n] = 'Asia and the Pacific';
+for (const n of ['Albania', 'Andorra', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Malta', 'Monaco', 'Montenegro', 'Netherlands', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Ukraine', 'United Kingdom']) GROUP[n] = 'Europe';
+
+function healHub(html, live, opts = {}) {
+  if (!live || !live.total || !html.includes('id="xn-data"')) return null;
+  const T = live.total;
+  const day = opts.day || live.today;
+  let out = html;
+  const rep = (re, fn) => {
+    out = out.replace(re, fn);
+  };
+  const rounded = `${num(Math.floor(T.events / 1000) * 1000)}+`;
+
+  // 1. Finder data: live event counts per city, cities and events per country and state.
+  const dataRe = /(<script type="application\/json" id="xn-data">)([\s\S]*?)(<\/script>)/;
+  const m = out.match(dataRe);
+  let mapped = 0;
+  let onMap = 0;
+  if (m) {
+    let D;
+    try {
+      D = JSON.parse(m[2]);
+    } catch (e) {
+      D = null;
+    }
+    if (D && Array.isArray(D.c) && Array.isArray(D.p)) {
+      const byPath = new Map();
+      for (const [p, c] of Object.entries(live.cities || {})) {
+        byPath.set(p, c);
+        for (const a of c[6] || []) byPath.set(a, c);
+      }
+      for (const a of D.p) {
+        const slugs = String(a[6] || '').split(',').map((x) => x.slice(x.indexOf(':') + 1));
+        const c = slugs.map((s) => byPath.get('/christmas-events/' + s)).find(Boolean);
+        if (c) {
+          a[5] = c[0];
+          mapped++;
+        }
+        if (a[7] != null) onMap++;
+      }
+      for (const c of D.c) {
+        const g = (live.countries || {})[c[1]];
+        if (!g) continue;
+        c[5] = g.cities;
+        c[6] = g.cities_with_events;
+        c[7] = g.events;
+      }
+      // countries live on the site that the hub data does not list yet, and city guides it is missing
+      const cIdx = new Map(D.c.map((c, i) => [c[1], i]));
+      for (const [name, g] of Object.entries(live.countries || {})) {
+        if (cIdx.has(name) || !g.guide || !/^[A-Z]{2}$/.test(g.cc || '')) continue;
+        D.c.push([g.cc, name, '', '', pageRef(g.guide), g.cities, g.cities_with_events, g.events]);
+        cIdx.set(name, D.c.length - 1);
+      }
+      const known = new Set();
+      for (const a of D.p) for (const x of String(a[6] || '').split(',')) known.add('/christmas-events/' + x.slice(x.indexOf(':') + 1));
+      for (const [p, c] of Object.entries(live.cities || {})) {
+        if (c[3] === 'United States' || c[3] === 'Canada' || !cIdx.has(c[3])) continue;
+        if (known.has(p) || (c[6] || []).some((q) => known.has(q))) continue;
+        D.p.push([c[2], '', '', cIdx.get(c[3]), '', c[0], [p].concat(c[6] || []).map(pageRef).join(','), null, null, 0]);
+      }
+      for (const cc of Object.keys(D.r || {})) {
+        for (const r of D.r[cc][1] || []) {
+          const g = (live.regions || {})[`${cc}-${r[0]}`];
+          if (!g) continue;
+          r[3] = g.events;
+          r[4] = g.cities;
+        }
+      }
+      const json = JSON.stringify(D).replace(/</g, '\\u003c');
+      out = out.replace(dataRe, (_, a, __, b) => a + json + b);
+    }
+  }
+  if (!mapped) return null; // the data block changed shape: leave the page alone
+
+  // 2. Country and state rows lead with events (the finder script builds these rows).
+  out = out.replace(
+    "cities: a[5], live: a[6], regs: [], list: []}",
+    "cities: a[5], live: a[6], events: a[7] || 0, regs: [], list: []}",
+  );
+  out = out.replace(
+    "sub || (x.t === 'r' && q ? x.c.name : ''), plural(n, 'city', 'cities'), 'xn-cta--place');",
+    "sub || (x.t === 'r' && q ? x.c.name : ''), (x.events > 0 ? plural(x.events, 'event', 'events') : plural(n, 'city', 'cities')), 'xn-cta--place');",
+  );
+
+  // 3. The same rows as served before the script runs (and as crawlers see them).
+  const cc2name = {};
+  if (m) {
+    try {
+      for (const c of JSON.parse(m[2]).c) cc2name[c[0]] = c[1];
+    } catch (e) {}
+  }
+  rep(/(<a class="xn-row" href="[^"]*" data-xn-cc="([A-Z]{2})"[^>]*>[\s\S]*?<span class="rtt-sr">, )([\d,]+ cit(?:y|ies))(<\/span><\/a><\/span><span class="xn-cta xn-cta--place" aria-hidden="true">)([\d,]+ cit(?:y|ies))/g,
+    (all, a, cc, _s, b) => {
+      const g = (live.countries || {})[cc2name[cc]];
+      if (!g) return all;
+      const cities = plural(g.cities, 'city', 'cities');
+      if (!(g.events > 0)) return `${a}${cities}${b}${cities}`;
+      const label = plural(g.events, 'event', 'events');
+      return `${a}${label} in ${cities}${b}${label}`;
+    });
+
+  // 3b. Countries live on the site that the "by country" list does not show yet, in their region,
+  // alphabetically, with the region's country count kept right.
+  const svg = (out.match(/<span class="xn-cta xn-cta--place" aria-hidden="true">[^<]*(<svg class="xn-cta__ic"[\s\S]*?<\/svg>)/) || [])[1] || '';
+  const listed = new Set([...out.matchAll(/<a class="xn-row" href="[^"]*" data-xn-cc="[A-Z]{2}"[^>]*><span class="xn-row__n">([^<]+?)\s*(?:<|<\/span>)/g)].map((x) => x[1].trim()));
+  const extra = {};
+  for (const [name, g] of Object.entries(live.countries || {})) {
+    if (listed.has(name) || !g.guide || !GROUP[name] || !/^[A-Z]{2}$/.test(g.cc || '')) continue;
+    const cities = plural(g.cities, 'city', 'cities');
+    const label = g.events > 0 ? plural(g.events, 'event', 'events') : cities;
+    const sr = g.events > 0 ? `${label} in ${cities}` : cities;
+    (extra[GROUP[name]] = extra[GROUP[name]] || []).push([name,
+      `<li class="xn-item xn-item--place"><span class="xn-row__t"><a class="xn-row" href="${escAttr(g.guide)}" data-xn-cc="${g.cc}"><span class="xn-row__n">${escText(name)}</span><span class="rtt-sr">, ${sr}</span></a></span><span class="xn-cta xn-cta--place" aria-hidden="true">${label}${svg}</span></li>`]);
+  }
+  rep(/(<h3 class="xn-grp">)([^<]+?)(\s*<span class="xn-grp__n">\()\d+( countr(?:y|ies)\)<\/span><\/h3><ul class="xn-list" role="list">)([\s\S]*?)(<\/ul>)/g, (all, a, grp, b, c, body, d) => {
+    let rows = [...body.matchAll(/<li class="xn-item xn-item--place">[\s\S]*?<\/li>(?=<li class="xn-item|$)/g)].map((x) => x[0]);
+    if (!rows.length) return all;
+    const name = (r) => ((r.match(/<span class="xn-row__n">([^<]+)/) || [])[1] || '').trim();
+    const add = extra[grp.trim()] || [];
+    if (add.length) rows = rows.concat(add.map((x) => x[1])).sort((x, y) => name(x).localeCompare(name(y)));
+    const n = rows.length;
+    return `${a}${grp}${b}${n}${c.replace(/countr(?:y|ies)/, n === 1 ? 'country' : 'countries')}${rows.join('')}${d}`;
   });
 
-  // src/heal.js
-  function refToday(now = Date.now()) {
-    return new Date(now - 12 * 3600 * 1e3).toISOString().slice(0, 10);
+  // 3c. The results line the finder script writes on load (it counted its own, older data)
+  rep(/setHead\('Christmas around the world', [^;]*?\);/, () =>
+    `setHead('Christmas around the world', ${JSON.stringify(`${num(T.events)} Christmas events in ${num(T.cities)} cities across ${T.countries} countries. Type your city above, start near you, or browse every country below.`)});`);
+  // The FAQ's list of countries (visible answer and its structured data) includes every country on the site
+  const listNames = (txt) => txt.split(/, | and /).map((x) => x.trim()).filter(Boolean);
+  const joinNames = (a) => (a.length > 1 ? `${a.slice(0, -1).join(', ')} and ${a[a.length - 1]}` : a.join(''));
+  const allCountries = Object.keys(live.countries || {});
+  rep(/((?:<summary>|"name":")Which countries have Christmas events for kids in the guide\?(?:<\/summary><p>|","acceptedAnswer":\{"@type":"Answer","text":"))([^<"]+?)(\. Choose any country)/g, (all, a, list, b) => {
+    const names = new Set(listNames(list));
+    if (!names.size) return all;
+    for (const n of allCountries) names.add(n);
+    return a + joinNames([...names].sort((x, y) => x.localeCompare(y))) + b;
+  });
+  // Merry Christmas language guides
+  if (T.languages > 0) rep(/(Merry Christmas in )\d+( languages)/g, (_, a, b) => `${a}${T.languages}${b}`);
+
+  // 4. A to Z: events and cities per country, and every city guide the list was missing.
+  const names = Object.keys(live.countries || {});
+  rep(/(<summary>Christmas events for kids in (?:the )?([^<]+)<span>)([\d,]+ cit(?:y|ies))(<\/span><\/summary>)/g, (all, a, name, _c, b) => {
+    const g = (live.countries || {})[name];
+    if (!g) return all;
+    return `${a}${g.events > 0 ? plural(g.events, 'event', 'events') + ' · ' : ''}${plural(g.cities, 'city', 'cities')}${b}`;
+  });
+  const missing = {};
+  for (const [p, c] of Object.entries(live.cities || {})) {
+    if (c[5]) continue;
+    const key = c[3] === 'United States' ? 'st:' + c[4] : 'co:' + c[3];
+    (missing[key] = missing[key] || []).push([c[2], p]);
   }
-  var GROUP = {};
-  for (const n of ["Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Paraguay", "Peru", "Uruguay", "Venezuela", "Mexico", "Canada", "United States", "Dominican Republic", "Puerto Rico", "Cuba", "Jamaica", "Trinidad and Tobago"]) GROUP[n] = "The Americas";
-  for (const n of ["Belize", "Costa Rica", "El Salvador", "Guatemala", "Honduras", "Nicaragua", "Panama"]) GROUP[n] = "Central America";
-  for (const n of ["South Africa", "Kenya", "Nigeria", "Ghana", "Egypt", "Morocco", "Ethiopia", "Madagascar", "Tanzania", "Uganda", "Israel", "Lebanon", "Jordan", "United Arab Emirates", "Qatar", "Saudi Arabia", "Bahrain", "Kuwait", "Oman"]) GROUP[n] = "Africa and the Middle East";
-  for (const n of ["Australia", "New Zealand", "Japan", "South Korea", "Philippines", "Singapore", "Hong Kong", "India", "Indonesia", "Malaysia", "Thailand", "Vietnam", "Taiwan", "China", "Fiji"]) GROUP[n] = "Asia and the Pacific";
-  for (const n of ["Albania", "Andorra", "Austria", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal", "Romania", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Ukraine", "United Kingdom"]) GROUP[n] = "Europe";
-  var EVENT_WORDS = [
-    "events?",
-    "Events?",
-    "Christmas events?",
-    "family events?",
-    "kids events?",
-    "kids Christmas events?",
-    "confirmed events?",
-    "activit\xE9s?",
-    "sorties",
-    "Veranstaltungen",
-    "Tipps",
-    "gepr\xFCfte Tipps",
-    "Ausflugstipps",
-    "Termine",
-    "uitjes",
-    "uitstappen",
-    "activiteiten",
-    "planes",
-    "eventos",
-    "actividades",
-    "eventi",
-    "programas",
-    "programmi",
-    "atividades",
-    "juleaktiviteter",
-    "aktiviteter",
-    "julevenemang",
-    "evenemang",
-    "arrangementer",
-    "joulutapahtumaa",
-    "tapahtumaa",
-    "kar\xE1csonyi programot?",
-    "programot?",
-    "programok",
-    "wydarze\u0144",
-    "wydarzenia",
-    "imprez",
-    "evenimente",
-    "\u043F\u043E\u0434\u0456\u0457",
-    "\u043F\u043E\u0434\u0456\u0439",
-    "\u043F\u043E\u0434\u0456\u0457",
-    "\u03B5\u03BA\u03B4\u03B7\u03BB\u03CE\u03C3\u03B5\u03B9\u03C2",
-    "\u03B5\u03BA\u03B4\u03AE\u03BB\u03C9\u03C3\u03B7",
-    "Weihnachtsveranstaltungen",
-    "Weihnachtsaktivit\xE4ten",
-    "Aktivit\xE4ten",
-    "id\xE9es",
-    "ideas",
-    "Ideas",
-    "Ideen",
-    "Weihnachtsangebote",
-    "Advent- und Weihnachtsangebote",
-    "Angebote",
-    "idee",
-    "id\xE9ias",
-    "ideias",
-    "doga\u0111anja",
-    "s\xFCndmust",
-    "pas\u0101kumi",
-    "rengini\u0173",
-    "renginiai",
-    "podujat\xED",
-    "prireditev",
-    "vi\xF0bur\xF0ir",
-    "vi\xF0bur\xF0i"
-  ];
-  var FREE_AFTER = [
-    "free",
-    "Free",
-    "sont gratuites?",
-    "sont gratuits",
-    "son gratuitos",
-    "son gratuitas",
-    "sono gratuiti",
-    "s\xE3o gratuitos",
-    "s\xE3o gratuitas",
-    "zijn gratis",
-    "sind kostenlos",
-    "er gratis",
-    "\xE4r gratis",
-    "kostenlos",
-    "gratis",
-    "gratuites?",
-    "gratuits?",
-    "gratuitos",
-    "gratuitas",
-    "gratuiti",
-    "gratuite",
-    "ingyenes",
-    "maksuttomia",
-    "bezp\u0142atnych",
-    "bezp\u0142atne",
-    "darmowych",
-    "\u0431\u0435\u0437\u043A\u043E\u0448\u0442\u043E\u0432\u043D\u0438\u0445",
-    "\u0431\u0435\u0437\u043A\u043E\u0448\u0442\u043E\u0432\u043D\u0456",
-    "\u03B4\u03C9\u03C1\u03B5\u03AC\u03BD",
-    "besplatnih",
-    "tasuta",
-    "bezmaksas",
-    "nemokam\u0173",
-    "zadarmo",
-    "brezpla\u010Dnih",
-    "\xF3keypis",
-    "free events?"
-  ];
-  var SP = "[\\s\\u00a0\\u202f]+";
-  var NUM = "(\\d{1,3}(?:[,.\\u00a0\\u202f]\\d{3})+|\\d+)";
-  var ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|gepr\xFCfte|best\xE4tigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek|bekreftede|bekr\xE4ftade|bekr\xE6ftede|bevestigde|confirmados|confirmadas|confirm\xE9es|confermati)${SP}){0,2}`;
-  var E_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}${ADJ}(?:${EVENT_WORDS.join("|")})(?![\\w-]))`, "g");
-  var F_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${FREE_AFTER.join("|")})(?![\\w-]))`, "g");
-  var FREE_BEFORE = [
-    "joista maksuttomia",
-    "joista ilmaisia",
-    "varav gratis",
-    "hvorav gratis",
-    "heraf gratis",
-    "davon kostenlos",
-    "davon gratis",
-    "w tym bezp\u0142atnych",
-    "ebb\u0151l ingyenes",
-    "of which free",
-    "dont gratuites"
-  ];
-  var FB_RE = new RegExp(`((?:${FREE_BEFORE.join("|")}):?${SP})${NUM}(?![\\d]|[.,]\\d)`, "g");
-  var FOUND_RE = /(\b(?:We|we) found )(\d[\d,]*)( for kids)/g;
-  var ARE_FREE_RE = /(^|[^\d.,:\/-])(\d+)(?= (?:are|is) free)/g;
-  var THEM_RE = /(^|[^\d.,:\/-])(\d+)(?= of them (?:are |is )?free)/g;
-  var OF_WORDS = "(?:of(?: the)?|von|de|sur|van|van de|di|av|af|z|din|\u03B1\u03C0\u03CC|od|i\u0161|\u0438\u0437|\u0437|af|af de)";
-  var OF_RE = new RegExp(`(^|[^\\d.,:/-])(\\d+)(${SP}${OF_WORDS}${SP})(\\d+)(?=${SP}(?:are free|is free|${EVENT_WORDS.join("|")})(?![\\w-]))`, "g");
-  var JA_RE = /(\d+)件/g;
-  var JA_FREE_RE = /(無料|무료\s?)(\d+)(件|개)/g;
-  var KO_RE = /(행사\s?)(\d+)(개)/g;
-  function fmtLike(old, n) {
-    const sep = (old.match(/[,.  ]/) || [""])[0];
-    const s = String(n);
-    return sep && n >= 1e3 ? s.replace(/\B(?=(\d{3})+(?!\d))/g, sep) : s;
+  const addLis = (ul, list) => {
+    const items = ul.match(/<li>[\s\S]*?<\/li>/g) || [];
+    const all = items.map((li) => [((li.match(/>([^<]+)<\/a>/) || [])[1] || '').toLowerCase(), li]);
+    for (const [n, p] of list) {
+      if (ul.includes(`href="${p}"`)) continue;
+      all.push([n.toLowerCase(), `<li><a href="${p}">${esc(n)}</a></li>`]);
+    }
+    all.sort((x, y) => x[0].localeCompare(y[0]));
+    return all.map((x) => x[1]).join('');
+  };
+  // US: city lists sit under each state heading
+  rep(/(<h4 class="xn-az__st" id="st-[a-z]+"><a href="([^"]+)">[^<]*<\/a><\/h4><ul class="xn-az__l" role="list">)([\s\S]*?)(<\/ul>)/g, (all, a, statePath, ul, b) => {
+    const list = missing['st:' + statePath];
+    return list ? a + addLis(ul, list) + b : all;
+  });
+  // Other countries: one list per country
+  rep(/(<details class="xn-az__c" id="az-[a-z]+"><summary>Christmas events for kids in (?:the )?([^<]+)<span>[\s\S]*?<\/summary>[\s\S]*?<ul class="xn-az__l" role="list">)([\s\S]*?)(<\/ul><\/div><\/details>)/g, (all, a, name, ul, b) => {
+    const list = missing['co:' + name];
+    return list && name !== 'United States' ? a + addLis(ul, list) + b : all;
+  });
+
+  // 5. Headline numbers
+  rep(/<ul class="xn-stat" id="xn-stat" role="list">[\s\S]*?<\/ul>/,
+    () => `<ul class="xn-stat" id="xn-stat" role="list"><li><b>${num(T.events)}</b>Christmas events</li><li><b>${num(T.cities)}</b>cities</li><li><b>${num(T.countries)}</b>countries</li></ul>`);
+  // Events lead everywhere: "N Christmas events in M cities across K countries".
+  const adding = Math.max(0, T.cities - T.cities_with_events);
+  const evLine = `${num(T.events)} Christmas events for kids in ${num(T.cities)} cities across ${T.countries} countries`;
+  rep(/(<p class="rtt-lp__lede">)[\s\S]*?(<\/p>)/, (_, a, b) =>
+    `${a}${evLine}: Santa visits, story times, tree lightings, markets and holiday shows. Every guide has dates, times, costs and a link straight to the host.${b}`);
+  rep(/(<p class="xn-res__sub" id="xn-sub">)[\s\S]*?(<\/p>)/, (_, a, b) =>
+    `${a}${num(T.events)} Christmas events in ${num(T.cities)} cities across ${T.countries} countries. Type your city above, start near you, or browse every country below.${b}`);
+  // The map: gold lights are cities with confirmed events (bigger where there are more), gray lights are cities being added
+  rep(/(<h2 class="xn-map__h" id="xn-map-h">)[\s\S]*?(<\/h2>)/, (_, a, b) => `${a}${num(T.events)} Christmas events for kids <em>around the world</em>${b}`);
+  rep(/(<p class="xn-map__p">)[\s\S]*?(<\/p>)/, (_, a, b) =>
+    `${a}Every gold light is a city with confirmed Christmas events for kids, and the bigger the light, the more events it has. Gray lights are cities we are actively adding as hosts post their dates. Tap any part of the map to see the guides closest to that spot.${b}`);
+  rep(/(<canvas class="xn-map__c" id="xn-map-c" role="img" aria-label=")[^"]*(")/, (_, a, b) =>
+    `${a}World map of ${num(T.events)} Christmas events for kids: gold lights for the ${num(T.cities_with_events)} cities with confirmed events, gray lights for ${num(adding)} cities we are adding. Use the search box or the Find guides near me button to reach the same guides.${b}`);
+  rep(/(<ul class="xn-map__legend" role="list"><li><i aria-hidden="true"><\/i>)[^<]*(<\/li><li><i aria-hidden="true"><\/i>)[^<]*(<\/li>)/, (_, a, b, c) =>
+    `${a}${num(T.events)} Christmas events in ${plural(T.cities_with_events, 'city', 'cities')}${b}${plural(adding, 'city', 'cities')} we&rsquo;re actively adding${c}`);
+  // gray (not blue-white) for the cities being added, on the map and in the legend
+  rep(/fillStyle = dim \? 'rgba\(214,226,246,\.14\)' : 'rgba\(214,226,246,\.55\)'/, () => "fillStyle = dim ? 'rgba(170,176,186,.16)' : 'rgba(170,176,186,.62)'");
+  rep(/(\.xn-map__legend li\+li i\{width:8px;height:8px;background:)rgba\(214,226,246,\.7\)/, (_, a) => a + 'rgba(170,176,186,.85)');
+  rep(/(Choose a country to see every city we cover there\. )[\d,]+( cities already have confirmed 2026 events)/, (_, a, b) => a + num(T.cities_with_events) + b);
+  rep(/The guide covers [\d,]+ cities in \d+ countries/g, () => `The guide covers ${num(T.cities)} cities in ${T.countries} countries`);
+  rep(/[\d,]+ of those cities already have confirmed 2026 events, and together the guides answer [\d,]+ questions/g,
+    () => `${num(T.cities_with_events)} of those cities already have confirmed 2026 events (${num(T.events)} events in all), and together the guides answer ${num(T.faq)} questions`);
+  rep(/\b[\d,]+( cities across )\d+( countries)/g, (_, a, b) => num(T.cities) + a + T.countries + b);
+  rep(/\b[\d,]+( city guides in )\d+( countries)/g, (_, a, b) => num(T.cities) + a + T.countries + b);
+  rep(/(All )[\d,]+( cities in one place)/g, (_, a, b) => a + num(T.cities) + b);
+  rep(/Christmas events for kids in [\d,]+ cities and \d+ countries/g, () => `Christmas events for kids in ${num(T.cities)} cities and ${T.countries} countries`);
+  rep(/(Last updated )[A-Z][a-z]+ \d{1,2}, \d{4}/, (_, a) => a + dateLabel(day));
+  // Title, description and social cards
+  rep(/(Christmas Events for Kids Near Me 2026: )[\d,]+\+( Events)/g, (_, a, b) => a + rounded + b);
+  rep(/Updated [A-Z][a-z]{2} \d{1,2}: [\d,]+\+ Christmas events for kids, ([^"]*?) in [\d,]+ cities across \d+ countries\./g,
+    (_, mid) => `Updated ${dateLabel(day, true)}: ${rounded} Christmas events for kids, ${mid} in ${num(T.cities)} cities across ${T.countries} countries.`);
+  // Structured data: one entry per country with its city and event counts
+  rep(/("name":"Christmas events for kids in (?:the )?([^"]+)","about":\{"@id":"#c-[a-z]+"\},"description":")[\d,]+ city guides?, [\d,]+ with confirmed 2026 events"/g, (all, a, name) => {
+    const g = (live.countries || {})[name];
+    return g ? `${a}${plural(g.cities, 'city guide', 'city guides')}, ${num(g.cities_with_events)} with confirmed 2026 events, ${plural(g.events, 'event', 'events')}"` : all;
+  });
+  return out === html ? null : out;
+}
+
+// --------------------------------------------------------------------------- count words
+// A number is an event count only when an event word follows it (a free count when a free
+// word follows or leads it). Dates, times, ages, prices and years never match.
+const EVENT_WORDS = [
+  'events?', 'Events?', 'Christmas events?', 'family events?', 'kids events?', 'kids Christmas events?', 'confirmed events?',
+  'activités?', 'sorties', 'Veranstaltungen', 'Tipps', 'geprüfte Tipps', 'Ausflugstipps', 'Termine', 'uitjes', 'uitstappen',
+  'activiteiten', 'planes', 'eventos', 'actividades', 'eventi', 'programas', 'programmi', 'atividades', 'juleaktiviteter',
+  'aktiviteter', 'julevenemang', 'evenemang', 'arrangementer', 'joulutapahtumaa', 'tapahtumaa', 'karácsonyi programot?',
+  'programot?', 'programok', 'wydarzeń', 'wydarzenia', 'imprez', 'evenimente', 'події', 'подій', 'події', 'εκδηλώσεις',
+  'εκδήλωση', 'Weihnachtsveranstaltungen', 'Weihnachtsaktivitäten', 'Aktivitäten', 'idées', 'ideas', 'Ideas', 'Ideen', 'Weihnachtsangebote', 'Advent- und Weihnachtsangebote', 'Angebote', 'idee', 'idéias', 'ideias', 'događanja', 'sündmust', 'pasākumi', 'renginių', 'renginiai', 'podujatí', 'prireditev', 'viðburðir', 'viðburði',
+  'akcí', 'akce', 'akci', 'událostí', 'فعالية', 'فعاليات',
+];
+const FREE_AFTER = ['free', 'Free', 'sont gratuites?', 'sont gratuits', 'son gratuitos', 'son gratuitas', 'sono gratuiti', 'são gratuitos', 'são gratuitas', 'zijn gratis', 'sind kostenlos', 'er gratis', 'är gratis', 'kostenlos', 'gratis', 'gratuites?', 'gratuits?', 'gratuitos', 'gratuitas',
+  'gratuiti', 'gratuite', 'ingyenes', 'maksuttomia', 'bezpłatnych', 'bezpłatne', 'darmowych', 'безкоштовних', 'безкоштовні',
+  'δωρεάν', 'besplatnih', 'tasuta', 'bezmaksas', 'nemokamų', 'zadarmo', 'brezplačnih', 'ókeypis', 'free events?', 'zdarma', 'مجانية', 'مجانًا', 'مجانا'];
+const SP = '[\\s\\u00a0\\u202f]+';
+const NUM = '(\\d{1,3}(?:[,.\\u00a0\\u202f]\\d{3})+|\\d+)';
+const ADJ = `(?:(?:confirmed|verified|family|Christmas|holiday|festive|kids|geprüfte|bestätigte|weihnachtliche|lasten|vahvistettua|barnens|gyerek|bekreftede|bekräftade|bekræftede|bevestigde|confirmados|confirmadas|confirmées|confermati|vánočních|adventních|ověřených)${SP}){0,2}`;
+const E_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}${ADJ}(?:${EVENT_WORDS.join('|')})(?![\\w-]))`, 'g');
+const F_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${FREE_AFTER.join('|')})(?![\\w-]))`, 'g');
+// "joista maksuttomia 3", "davon kostenlos: 3" (the free word comes first)
+const FREE_BEFORE = ['joista maksuttomia', 'joista ilmaisia', 'varav gratis', 'hvorav gratis', 'heraf gratis', 'davon kostenlos', 'davon gratis',
+  'w tym bezpłatnych', 'ebből ingyenes', 'of which free', 'dont gratuites'];
+const FB_RE = new RegExp(`((?:${FREE_BEFORE.join('|')}):?${SP})${NUM}(?![\\d]|[.,]\\d)`, 'g');
+// "13 of 39 are free", "13 of the 39 events"
+const FOUND_RE = /(\b(?:We|we) found )(\d[\d,]*)( for kids)/g;
+const ARE_FREE_RE = /(^|[^\d.,:\/-])(\d+)(?= (?:are|is) free)/g;
+const THEM_RE = /(^|[^\d.,:\/-])(\d+)(?= of them (?:are |is )?free)/g;
+const OF_WORDS = '(?:of(?: the)?|von|de|sur|van|van de|di|av|af|z|din|από|od|iš|из|з|af|af de)';
+const OF_RE = new RegExp(`(^|[^\\d.,:/-])(\\d+)(${SP}${OF_WORDS}${SP})(\\d+)(?=${SP}(?:are free|is free|${EVENT_WORDS.join('|')})(?![\\w-]))`, 'g');
+// Japanese and Korean counters: "1534件（うち無料412件）", "행사 12개, 무료 3개"
+const JA_RE = /(\d+)件/g;
+const JA_FREE_RE = /(無料|무료\s?)(\d+)(件|개)/g;
+const KO_RE = /(행사\s?)(\d+)(개)/g;
+
+function fmtLike(old, n) {
+  // keep the page's own thousands separator
+  const sep = (old.match(/[,.  ]/) || [''])[0];
+  const s = String(n);
+  return sep && n >= 1000 ? s.replace(/\B(?=(\d{3})+(?!\d))/g, sep) : s;
+}
+const toInt = (s) => parseInt(String(s).replace(/[^\d]/g, ''), 10);
+
+// Rewrite event, free and paid counts in a piece of text. `only` limits changes to numbers
+// that equal one of the given old values (used in page bodies, where it is safest). `base`
+// holds the counts the page was built with; counters that are often used for subsets
+// (Japanese 件, Korean 개) only change when they equal those.
+const PAID_RE = /(^|[^\d.,:\/-])(\d+)(?= (?:are|is) (?:ticketed|paid))/g;
+const FREE_HINT = /\b(?:free|kostenlos|gratis|gratuit|gratuites?|gratuitos?|gratuiti|ingyenes|maksuttom|bezpłatn|δωρεάν|tasuta|bezmaksas|nemokam|zadarmo|brezplačn|ókeypis)/i;
+const PAID_HINT = /\b(?:tickets?|ticketed|paid|sign up ahead|book ahead|kostenpflichtig|payant|payantes?|de pago|a pagamento|pagos)/i;
+function rewriteCounts(text, N, F, only, base) {
+  if (!text || !/\d/.test(text)) return text;
+  const P = N - F;
+  const ok = (v, kind) => !only || only[kind].has(v);
+  let t = text.replace(OF_RE, (all, pre, a, mid, b, off, str) => {
+    const va = toInt(a), vb = toInt(b);
+    if (!ok(vb, 'e')) return all;
+    const rest = str.slice(off + all.length, off + all.length + 160).split(/[.!?。]/)[0];
+    const lead = str.slice(Math.max(0, off - 60), off);
+    let x = a;
+    const paid = PAID_HINT.test(rest) || (!FREE_HINT.test(rest) && PAID_HINT.test(lead));
+    const free = !paid && (FREE_HINT.test(rest) || FREE_HINT.test(lead));
+    if (paid) x = only && !only.p.has(va) ? a : fmtLike(a, P);
+    else if (free) x = ok(va, 'f') ? fmtLike(a, F) : a;
+    return pre + x + mid + fmtLike(b, N);
+  });
+  t = t.replace(PAID_RE, (all, pre, n) => (!only || only.p.has(toInt(n)) ? pre + fmtLike(n, P) : all));
+  t = t.replace(F_RE, (all, pre, n) => (ok(toInt(n), 'f') ? pre + fmtLike(n, F) : all));
+  t = t.replace(FB_RE, (all, pre, n) => (ok(toInt(n), 'f') ? pre + fmtLike(n, F) : all));
+  t = t.replace(THEM_RE, (all, pre, n) => (ok(toInt(n), 'f') ? pre + fmtLike(n, F) : all));
+  t = t.replace(FOUND_RE, (all, a, n, b) => (ok(toInt(n), 'e') ? a + fmtLike(n, N) + b : all));
+  t = t.replace(ARE_FREE_RE, (all, pre, n, off, str) => {
+    if (/\b(?:of|von|de|sur|van|di) (?:the )?$/.test(str.slice(Math.max(0, off - 8), off + pre.length))) return all;
+    return ok(toInt(n), 'f') ? pre + fmtLike(n, F) : all;
+  });
+  t = t.replace(E_RE, (all, pre, n) => (ok(toInt(n), 'e') ? pre + fmtLike(n, N) : all));
+  if (base) {
+    t = t.replace(JA_FREE_RE, (all, a, n, b) => (toInt(n) === base.f ? a + F + b : all));
+    t = t.replace(/(\d+)(件が無料)/g, (all, n, b) => (toInt(n) === base.f ? F + b : all));
+    t = t.replace(KO_RE, (all, a, n, b) => (toInt(n) === base.e ? a + N + b : all));
+    t = t.replace(JA_RE, (all, n, off, str) => (str.slice(Math.max(0, off - 3), off).includes('無料') || toInt(n) !== base.e ? all : N + '件'));
   }
-  var toInt = (s) => parseInt(String(s).replace(/[^\d]/g, ""), 10);
-  var PAID_RE = /(^|[^\d.,:\/-])(\d+)(?= (?:are|is) (?:ticketed|paid))/g;
-  var FREE_HINT = /\b(?:free|kostenlos|gratis|gratuit|gratuites?|gratuitos?|gratuiti|ingyenes|maksuttom|bezpłatn|δωρεάν|tasuta|bezmaksas|nemokam|zadarmo|brezplačn|ókeypis)/i;
-  var PAID_HINT = /\b(?:tickets?|ticketed|paid|sign up ahead|book ahead|kostenpflichtig|payant|payantes?|de pago|a pagamento|pagos)/i;
-  function rewriteCounts(text, N, F, only, base) {
-    if (!text || !/\d/.test(text)) return text;
-    const P = N - F;
-    const ok = (v, kind) => !only || only[kind].has(v);
-    let t = text.replace(OF_RE, (all, pre, a, mid, b, off, str) => {
-      const va = toInt(a), vb = toInt(b);
-      if (!ok(vb, "e")) return all;
-      const rest = str.slice(off + all.length, off + all.length + 160).split(/[.!?。]/)[0];
-      const lead = str.slice(Math.max(0, off - 60), off);
-      let x = a;
-      const paid = PAID_HINT.test(rest) || !FREE_HINT.test(rest) && PAID_HINT.test(lead);
-      const free = !paid && (FREE_HINT.test(rest) || FREE_HINT.test(lead));
-      if (paid) x = only && !only.p.has(va) ? a : fmtLike(a, P);
-      else if (free) x = ok(va, "f") ? fmtLike(a, F) : a;
-      return pre + x + mid + fmtLike(b, N);
-    });
-    t = t.replace(PAID_RE, (all, pre, n) => !only || only.p.has(toInt(n)) ? pre + fmtLike(n, P) : all);
-    t = t.replace(F_RE, (all, pre, n) => ok(toInt(n), "f") ? pre + fmtLike(n, F) : all);
-    t = t.replace(FB_RE, (all, pre, n) => ok(toInt(n), "f") ? pre + fmtLike(n, F) : all);
-    t = t.replace(THEM_RE, (all, pre, n) => ok(toInt(n), "f") ? pre + fmtLike(n, F) : all);
-    t = t.replace(FOUND_RE, (all, a, n, b) => ok(toInt(n), "e") ? a + fmtLike(n, N) + b : all);
-    t = t.replace(ARE_FREE_RE, (all, pre, n, off, str) => {
-      if (/\b(?:of|von|de|sur|van|di) (?:the )?$/.test(str.slice(Math.max(0, off - 8), off + pre.length))) return all;
-      return ok(toInt(n), "f") ? pre + fmtLike(n, F) : all;
-    });
-    t = t.replace(E_RE, (all, pre, n) => ok(toInt(n), "e") ? pre + fmtLike(n, N) : all);
-    if (base) {
-      t = t.replace(JA_FREE_RE, (all, a, n, b) => toInt(n) === base.f ? a + F + b : all);
-      t = t.replace(/(\d+)(件が無料)/g, (all, n, b) => toInt(n) === base.f ? F + b : all);
-      t = t.replace(KO_RE, (all, a, n, b) => toInt(n) === base.e ? a + N + b : all);
-      t = t.replace(JA_RE, (all, n, off, str) => str.slice(Math.max(0, off - 3), off).includes("\u7121\u6599") || toInt(n) !== base.e ? all : N + "\u4EF6");
-    }
-    return t === text ? t : englishGrammar(t);
+  return t === text ? t : englishGrammar(t);
+}
+
+// After a count changes, keep English sentences grammatical ("1 event", "none of them free").
+function englishGrammar(t) {
+  return t
+    .replace(/\b1 ((?:(?:confirmed|verified|family|Christmas|holiday|kids|free) )*)events\b/g, '1 $1event')
+    .replace(/\b1 ((?:(?:Christmas|Holiday) )*)Events\b/g, '1 $1Event')
+    .replace(/\b1 of them are free\b/g, '1 of them is free')
+    .replace(/\b([2-9]|\d{2,}) of them is free\b/g, '$1 of them are free')
+    .replace(/, 0 of them free\b/g, ', none of them free')
+    .replace(/\band 0 of them (?:are|is) free\b/g, 'and none of them are free')
+    .replace(/\b0 free events?\b/g, 'no free events')
+    .replace(/\bAll 1 events\b/g, '1 event')
+    .replace(/(^|[.!?] )0 of the (\d+)/g, '$1None of the $2')
+    // singular in the other main languages
+    .replace(/\b1 planes\b/g, '1 plan').replace(/\b1 activités\b/g, '1 activité').replace(/\b1 sorties\b/g, '1 sortie')
+    .replace(/\b1 Ausflugstipps\b/g, '1 Ausflugstipp').replace(/\b1 Tipps\b/g, '1 Tipp').replace(/\b1 Veranstaltungen\b/g, '1 Veranstaltung')
+    .replace(/\b1 geprüfte Tipps\b/g, '1 geprüfter Tipp').replace(/\b1 uitjes\b/g, '1 uitje').replace(/\b1 uitstappen\b/g, '1 uitstap')
+    .replace(/\b1 eventi\b/g, '1 evento').replace(/\b1 programas\b/g, '1 programa').replace(/\b1 atividades\b/g, '1 atividade')
+    .replace(/\b1 eventos\b/g, '1 evento').replace(/\b1 gratuitos\b/g, '1 gratuito').replace(/\b1 gratuitas\b/g, '1 gratuita').replace(/\b1 gratuites\b/g, '1 gratuite').replace(/\b1 gratuiti\b/g, '1 gratuito').replace(/\b1 actividades\b/g, '1 actividad');
+}
+
+// Numbers a text claims as event and free counts (for finding stale values).
+function claimedCounts(text) {
+  const e = new Set(), f = new Set();
+  if (!text) return { e, f };
+  for (const m of text.matchAll(OF_RE)) e.add(toInt(m[4]));
+  for (const m of text.matchAll(F_RE)) f.add(toInt(m[2]));
+  for (const m of text.matchAll(FB_RE)) f.add(toInt(m[2]));
+  for (const m of text.matchAll(ARE_FREE_RE)) {
+    if (/\b(?:of|von|de|sur|van|di) (?:the )?$/.test(text.slice(Math.max(0, m.index - 8), m.index + m[1].length))) continue;
+    f.add(toInt(m[2]));
   }
-  function englishGrammar(t) {
-    return t.replace(/\b1 ((?:(?:confirmed|verified|family|Christmas|holiday|kids|free) )*)events\b/g, "1 $1event").replace(/\b1 ((?:(?:Christmas|Holiday) )*)Events\b/g, "1 $1Event").replace(/\b1 of them are free\b/g, "1 of them is free").replace(/\b([2-9]|\d{2,}) of them is free\b/g, "$1 of them are free").replace(/, 0 of them free\b/g, ", none of them free").replace(/\band 0 of them (?:are|is) free\b/g, "and none of them are free").replace(/\b0 free events?\b/g, "no free events").replace(/\bAll 1 events\b/g, "1 event").replace(/(^|[.!?] )0 of the (\d+)/g, "$1None of the $2").replace(/\b1 planes\b/g, "1 plan").replace(/\b1 activités\b/g, "1 activit\xE9").replace(/\b1 sorties\b/g, "1 sortie").replace(/\b1 Ausflugstipps\b/g, "1 Ausflugstipp").replace(/\b1 Tipps\b/g, "1 Tipp").replace(/\b1 Veranstaltungen\b/g, "1 Veranstaltung").replace(/\b1 geprüfte Tipps\b/g, "1 gepr\xFCfter Tipp").replace(/\b1 uitjes\b/g, "1 uitje").replace(/\b1 uitstappen\b/g, "1 uitstap").replace(/\b1 eventi\b/g, "1 evento").replace(/\b1 programas\b/g, "1 programa").replace(/\b1 atividades\b/g, "1 atividade").replace(/\b1 eventos\b/g, "1 evento").replace(/\b1 gratuitos\b/g, "1 gratuito").replace(/\b1 gratuitas\b/g, "1 gratuita").replace(/\b1 gratuites\b/g, "1 gratuite").replace(/\b1 gratuiti\b/g, "1 gratuito").replace(/\b1 actividades\b/g, "1 actividad");
+  for (const m of text.matchAll(THEM_RE)) f.add(toInt(m[2]));
+  for (const m of text.matchAll(FOUND_RE)) e.add(toInt(m[2]));
+  for (const m of text.matchAll(E_RE)) e.add(toInt(m[2]));
+  return { e, f };
+}
+
+// Links to another city's page carry that city's own counts ("Aurora, CO · 26 events").
+function healCityLinks(html, pages, self, mask) {
+  return html.replace(/<a href="(\/christmas-events\/[a-z0-9-]+)"([^>]*)>([\s\S]*?)<\/a>/g, (all, p, attrs, inner) => {
+    if (p === self || !/\d/.test(inner)) return all;
+    const c = pages && pages[p];
+    return mask(c && c[0] ? `<a href="${p}"${attrs}>${rewriteCounts(inner, c[0], c[1])}</a>` : all);
+  });
+}
+
+// ---------------------------------------------------------------------------- city pages
+const CARD_RE = /<section class="rtt-pe-ride(?: [^"]*)?"([^>]*)>/g;
+function lastDay(tag) {
+  const m = tag.match(/data-cal="([^"]*)"/);
+  if (!m) return '';
+  try {
+    const c = JSON.parse(m[1].replace(/&quot;/g, '"').replace(/&amp;/g, '&'));
+    let best = '';
+    for (const r of c.d || []) {
+      const x = r[3] || r[0] || '';
+      if (x > best) best = x;
+    }
+    return best;
+  } catch (e) {
+    return '';
   }
-  function claimedCounts(text) {
-    const e = /* @__PURE__ */ new Set(), f = /* @__PURE__ */ new Set();
-    if (!text) return { e, f };
-    for (const m of text.matchAll(OF_RE)) e.add(toInt(m[4]));
-    for (const m of text.matchAll(F_RE)) f.add(toInt(m[2]));
-    for (const m of text.matchAll(FB_RE)) f.add(toInt(m[2]));
-    for (const m of text.matchAll(ARE_FREE_RE)) {
-      if (/\b(?:of|von|de|sur|van|di) (?:the )?$/.test(text.slice(Math.max(0, m.index - 8), m.index + m[1].length))) continue;
-      f.add(toInt(m[2]));
-    }
-    for (const m of text.matchAll(THEM_RE)) f.add(toInt(m[2]));
-    for (const m of text.matchAll(FOUND_RE)) e.add(toInt(m[2]));
-    for (const m of text.matchAll(E_RE)) e.add(toInt(m[2]));
-    return { e, f };
+}
+function attrOf(tag, name) {
+  const m = tag.match(new RegExp(`\\b${name}="([^"]*)"`));
+  return m ? m[1] : '';
+}
+// End of the <section> that starts at i (cards contain no nested sections, but count anyway).
+function sectionEnd(html, i) {
+  const re = /<section\b|<\/section>/g;
+  re.lastIndex = i + 1;
+  let depth = 1, m;
+  while ((m = re.exec(html))) {
+    depth += m[0] === '</section>' ? -1 : 1;
+    if (!depth) return m.index + 10;
   }
-  function healCityLinks(html, pages, self, mask) {
-    return html.replace(/<a href="(\/christmas-events\/[a-z0-9-]+)"([^>]*)>([\s\S]*?)<\/a>/g, (all, p, attrs, inner) => {
-      if (p === self || !/\d/.test(inner)) return all;
-      const c = pages && pages[p];
-      return mask(c && c[0] ? `<a href="${p}"${attrs}>${rewriteCounts(inner, c[0], c[1])}</a>` : all);
-    });
+  return -1;
+}
+
+function healCity(html, today, pages, self) {
+  if (!html.includes('class="rtt-pe-ride')) return null;
+  const cards = [];
+  for (const m of html.matchAll(CARD_RE)) {
+    const tag = m[1];
+    cards.push({ start: m.index, id: attrOf(tag, 'id'), last: lastDay(tag), fl: attrOf(tag, 'data-xf-fl').split(' '), ty: attrOf(tag, 'data-xf-ty').split(' ') });
   }
-  var CARD_RE = /<section class="rtt-pe-ride"([^>]*)>/g;
-  function lastDay(tag) {
-    const m = tag.match(/data-cal="([^"]*)"/);
-    if (!m) return "";
-    try {
-      const c = JSON.parse(m[1].replace(/&quot;/g, '"').replace(/&amp;/g, "&"));
-      let best = "";
-      for (const r of c.d || []) {
-        const x = r[3] || r[0] || "";
-        if (x > best) best = x;
-      }
-      return best;
-    } catch (e) {
-      return "";
+  if (!cards.length) return null;
+  const N0 = cards.length, F0 = cards.filter((c) => c.fl.includes('free')).length;
+  const past = cards.filter((c) => c.last && c.last < today);
+  const live = cards.filter((c) => !(c.last && c.last < today));
+  const N = live.length, F = live.filter((c) => c.fl.includes('free')).length;
+  if (!N) return null; // everything has happened: the page's own script shows the end-of-season note
+
+  const head = html.slice(0, html.indexOf('</head>') + 1);
+  const claimed = claimedCounts(
+    [...head.matchAll(/<title>([^<]*)<\/title>|<meta (?:name|property|itemprop)="(?:description|og:title|og:description|twitter:title|twitter:description|name)" content="([^"]*)"/g)]
+      .map((m) => m[1] || m[2]).join(' | '),
+  );
+  const headStale = [...claimed.e].some((v) => v !== N) || [...claimed.f].some((v) => v !== F);
+  let linksStale = false;
+  if (pages) {
+    for (const m of html.matchAll(/<a href="(\/christmas-events\/[a-z0-9-]+)"[^>]*>(?:(?!<\/a>)[\s\S]){0,300}?(\d+) events?</g)) {
+      const c = pages[m[1]];
+      if (m[1] !== self && c && c[0] && c[0] !== toInt(m[2])) { linksStale = true; break; }
     }
   }
-  function attrOf(tag, name) {
-    const m = tag.match(new RegExp(`\\b${name}="([^"]*)"`));
-    return m ? m[1] : "";
+  if (!past.length && N === N0 && F === F0 && !headStale && !linksStale) return null;
+
+  // Old values the text may carry: what the cards said when the page was built, and what the head claims.
+  const only = { e: new Set([N0, ...claimed.e]), f: new Set([F0, ...claimed.f]), p: new Set([N0 - F0]) };
+  const base = { e: N0, f: F0 };
+  let out = html;
+
+  // 1. Remove events that have passed (back to front so indexes stay valid).
+  const gone = new Set(past.map((c) => c.id));
+  for (const c of [...past].sort((a, b) => b.start - a.start)) {
+    const end = sectionEnd(out, c.start);
+    if (end > 0) out = out.slice(0, c.start) + out.slice(end);
   }
-  function sectionEnd(html, i) {
-    const re = /<section\b|<\/section>/g;
-    re.lastIndex = i + 1;
-    let depth = 1, m;
-    while (m = re.exec(html)) {
-      depth += m[0] === "</section>" ? -1 : 1;
-      if (!depth) return m.index + 10;
-    }
-    return -1;
-  }
-  function healCity(html, today, pages, self) {
-    if (!html.includes('class="rtt-pe-ride"')) return null;
-    const cards = [];
-    for (const m of html.matchAll(CARD_RE)) {
-      const tag = m[1];
-      cards.push({ start: m.index, id: attrOf(tag, "id"), last: lastDay(tag), fl: attrOf(tag, "data-xf-fl").split(" "), ty: attrOf(tag, "data-xf-ty").split(" ") });
-    }
-    if (!cards.length) return null;
-    const N0 = cards.length, F0 = cards.filter((c) => c.fl.includes("free")).length;
-    const past = cards.filter((c) => c.last && c.last < today);
-    const live = cards.filter((c) => !(c.last && c.last < today));
-    const N = live.length, F = live.filter((c) => c.fl.includes("free")).length;
-    if (!N) return null;
-    const head = html.slice(0, html.indexOf("</head>") + 1);
-    const claimed = claimedCounts(
-      [...head.matchAll(/<title>([^<]*)<\/title>|<meta (?:name|property|itemprop)="(?:description|og:title|og:description|twitter:title|twitter:description|name)" content="([^"]*)"/g)].map((m) => m[1] || m[2]).join(" | ")
-    );
-    const headStale = [...claimed.e].some((v) => v !== N) || [...claimed.f].some((v) => v !== F);
-    let linksStale = false;
-    if (pages) {
-      for (const m of html.matchAll(/<a href="(\/christmas-events\/[a-z0-9-]+)"[^>]*>(?:(?!<\/a>)[\s\S]){0,300}?(\d+) events?</g)) {
-        const c = pages[m[1]];
-        if (m[1] !== self && c && c[0] && c[0] !== toInt(m[2])) {
-          linksStale = true;
-          break;
-        }
-      }
-    }
-    if (!past.length && N === N0 && F === F0 && !headStale && !linksStale) return null;
-    const only = { e: /* @__PURE__ */ new Set([N0, ...claimed.e]), f: /* @__PURE__ */ new Set([F0, ...claimed.f]), p: /* @__PURE__ */ new Set([N0 - F0]) };
-    const base = { e: N0, f: F0 };
-    let out = html;
-    const gone = new Set(past.map((c) => c.id));
-    for (const c of [...past].sort((a, b) => b.start - a.start)) {
-      const end = sectionEnd(out, c.start);
-      if (end > 0) out = out.slice(0, c.start) + out.slice(end);
-    }
-    if (gone.size) {
-      out = out.replace(/<li\b[^>]*>(?:(?!<\/?li\b)[\s\S]){0,1500}?href="#([^"]+)"[\s\S]{0,1500}?<\/li>/g, (li, id) => gone.has(id) && !/<li\b/.test(li.slice(3)) ? "" : li);
-    }
-    out = out.replace(/<title>([^<]*)<\/title>/, (all, t) => `<title>${rewriteCounts(t, N, F, null, base)}</title>`);
-    out = out.replace(
-      /(<meta (?:name|property|itemprop)="(?:description|og:title|og:description|twitter:title|twitter:description|name)" content=")([^"]*)(")/g,
-      (all, a, t, b) => a + rewriteCounts(t, N, F, null, base) + b
-    );
-    out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, a, body, b) => {
-      let j;
-      try {
-        j = JSON.parse(body);
-      } catch (e) {
-        return all;
-      }
-      let g = j["@graph"] || [j];
-      const drop = /* @__PURE__ */ new Set();
-      g = g.filter((x) => {
-        if (x["@type"] !== "Event") return true;
-        const id = String(x["@id"] || ""), u = String(x.url || "");
-        const key = "ev-" + (id.split("#event-")[1] || "");
-        const end = String(x.endDate || x.startDate || "").slice(0, 10);
-        if (gone.has(key) || gone.has(u.split("#")[1]) || end && end < today) {
-          drop.add(id);
-          return false;
-        }
-        return true;
-      });
-      const fix = (o) => {
-        if (Array.isArray(o)) return o.forEach(fix);
-        if (!o || typeof o !== "object") return;
-        if (o["@type"] === "ItemList" && Array.isArray(o.itemListElement)) {
-          o.itemListElement = o.itemListElement.filter((e) => !(e.item && drop.has(e.item["@id"])));
-          o.itemListElement.forEach((e, i) => {
-            e.position = i + 1;
-          });
-          if ("numberOfItems" in o && o.numberOfItems === N0) o.numberOfItems = N;
-          else if ("numberOfItems" in o) o.numberOfItems = o.itemListElement.length;
-        }
-        for (const k of ["name", "description", "headline", "text"]) if (typeof o[k] === "string") o[k] = rewriteCounts(o[k], N, F, only, base);
-        for (const v of Object.values(o)) if (v && typeof v === "object") fix(v);
-      };
-      if (j["@graph"]) {
-        j["@graph"] = g;
-        fix(j["@graph"]);
-      } else if (!g.length) return "";
-      else fix(j);
-      return a + JSON.stringify(j).replace(/</g, "\\u003c") + b;
-    });
-    const has = (attr, v) => live.filter((c) => !v || c[attr].includes(v)).length;
-    out = out.replace(/data-xf-total="\d+"/g, `data-xf-total="${N}"`);
-    out = out.replace(/(<p class="rtt-xf__count"[^>]*>)([^<]*?)(\d+)([^<]*<\/p>)/g, (all, a, x, n, b) => englishGrammar(a + x + N + b));
-    out = out.replace(/(<button[^>]*data-xf-type="([^"]*)"[^>]*>(?:(?!<\/button>)[\s\S])*?<b>)(\d+)(<\/b>)/g, (all, a, v, n, b) => a + has("ty", v) + b);
-    out = out.replace(/(<(?:button|a)[^>]*data-xf-flag="([^"]*)"[^>]*>(?:(?!<\/(?:button|a)>)[\s\S])*?<b>)(\d+)(<\/b>)/g, (all, a, v, n, b) => a + has("fl", v) + b);
-    out = out.replace(/(<h2[^>]*\bdata-n=")(\d+)("[^>]*>)/g, (all, a, n, b, off) => {
-      const rest = out.slice(off + all.length);
-      const nxt = rest.search(/<h2\b[^>]*\bdata-n=/);
-      const seg = nxt < 0 ? rest : rest.slice(0, nxt);
-      return a + (seg.match(/<section class="rtt-pe-ride"/g) || []).length + b;
-    });
-    const delta = N0 - N;
-    if (delta > 0) {
-      out = out.replace(/(<span class="rtt-ul__more"[^>]*>\+)(\d+)/g, (all, a, n) => a + Math.max(0, toInt(n) - delta));
-      out = out.replace(/(<span class="rtt-ul__one"[^>]*>)(\d+)/g, (all, a, n) => a + Math.max(0, toInt(n) - delta));
-    }
-    const masks = [];
-    if (pages) out = healCityLinks(out, pages, self, (x) => `\0${masks.push(x) - 1}\0`);
-    const bodyAt = out.indexOf("</head>");
-    const olds = [.../* @__PURE__ */ new Set([...only.e, ...only.f, ...only.p])].map(String);
-    const parts = out.slice(bodyAt).split(/(<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>)/);
-    for (let i = 0; i < parts.length; i += 2) {
-      if (!olds.some((v) => parts[i].includes(v))) continue;
-      parts[i] = parts[i].replace(/>([^<>]*\d[^<>]*)</g, (all, t) => olds.some((v) => t.includes(v)) ? ">" + rewriteCounts(t, N, F, only, base) + "<" : all);
-    }
-    out = out.slice(0, bodyAt) + parts.join("");
-    out = out.replace(/\u0000(\d+)\u0000/g, (m0, i) => masks[+i]);
-    return out === html ? null : out;
-  }
-  var CITY_WORDS = [
-    "cities",
-    "Canadian cities",
-    "cities across",
-    "villes",
-    "St\xE4dten",
-    "St\xE4dte",
-    "ciudades",
-    "citt\xE0",
-    "cidades",
-    "steden",
-    "byer",
-    "st\xE4der",
-    "kaupungissa",
-    "kaupunkia",
-    "v\xE1rosban",
-    "v\xE1rosban",
-    "miastach",
-    "ora\u0219e",
-    "\u043C\u0456\u0441\u0442\u0430\u0445",
-    "\u03C0\u03CC\u03BB\u03B5\u03B9\u03C2",
-    "gradova",
-    "linnas",
-    "pils\u0113t\u0101s",
-    "miestuose",
-    "mest\xE1ch",
-    "mestih",
-    "b\xE6jum",
-    "st\xF6\xF0um",
-    "towns and cities"
-  ];
-  var C_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${CITY_WORDS.join("|")})(?![\\w-]))`, "g");
-  var JA_CITY_RE = /(\d+)(の都市)/g;
-  function dropPastItems(html, today) {
-    return html.replace(/<li\b([^>]*\bdata-cal="[^"]*"[^>]*)>[\s\S]*?<\/li>/g, (li, attrs) => {
-      const last = lastDay(attrs);
-      return last && last < today ? "" : li;
-    });
-  }
-  function healGuide(html, today, live, path) {
-    const g = live && live.guides && live.guides[path];
-    if (!g || !g.e) return null;
-    const pages = live.pages || {};
-    let out = dropPastItems(html, today);
-    const items = (out.match(/\bdata-xf-ty="/g) || []).length;
-    const masks = [];
-    const mask = (s) => `\0${masks.push(s) - 1}\0`;
-    out = out.replace(/<h2 id="city-[^"]*"[^>]*>[\s\S]*?(?=<h2\b|<\/article>|$)/g, (sec) => {
-      const m = sec.match(/href="(\/christmas-events\/[a-z0-9-]+)(?:#[^"]*)?"/);
-      const c = m && pages[m[1]];
-      if (!c || !c[0]) return sec;
-      return mask(healCityLinks(rewriteCounts(sec, c[0], c[1]), pages, path, (x) => x));
-    });
-    out = out.replace(/<li class="rtt-rc">[\s\S]*?<\/li>/g, (li) => {
-      const m = li.match(/href="(\/christmas-events\/[a-z0-9-]+)"/);
-      const c = m && pages[m[1]];
-      return mask(c && c[0] ? rewriteCounts(li, c[0], c[1]) : li);
-    });
-    out = healCityLinks(out, pages, path, mask);
-    out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, a, body, b) => {
-      let j;
-      try {
-        j = JSON.parse(body);
-      } catch (e) {
-        return mask(all);
-      }
-      const walk = (o, E, F) => {
-        if (Array.isArray(o)) return o.forEach((x) => walk(x, E, F));
-        if (!o || typeof o !== "object") return;
-        const u = String(o.url || o["@id"] || "");
-        const p = u.replace("https://www.rallytakesthetrain.com", "").split("#")[0];
-        const c = pages[p];
-        const [e, f] = c && c[0] && p !== path ? c : [E, F];
-        for (const k of ["name", "description", "headline", "text"]) {
-          if (typeof o[k] !== "string") continue;
-          let s = rewriteCounts(o[k], e, f);
-          if (p === path || !c) s = s.replace(C_RE, (m0, pre, n) => pre + fmtLike(n, g.c));
-          s = s.replace(/\((\d+) events?\)/, (m0, n) => `(${e} ${e === 1 ? "event" : "events"})`);
-          o[k] = s;
-        }
-        for (const v of Object.values(o)) if (v && typeof v === "object") walk(v, e, f);
-      };
-      const before = JSON.stringify(j);
-      walk(j, g.e, g.f);
-      const after = JSON.stringify(j);
-      return mask(after === before ? all : a + after.replace(/</g, "\\u003c") + b);
-    });
-    if (items) {
-      out = out.replace(/data-xf-total="\d+"/g, `data-xf-total="${items}"`);
-      out = out.replace(/(<p class="rtt-xf__count"[^>]*>)([^<]*?)(\d+)([^<]*<\/p>)/g, (all, a, x, n, b) => mask(a + x + items + b));
-    }
-    out = out.replace(/<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>/g, mask);
-    const fixText = (t) => rewriteCounts(t, g.e, g.f).replace(C_RE, (m0, pre, n) => pre + fmtLike(n, g.c)).replace(JA_CITY_RE, (m0, n, b) => g.c + b);
-    out = out.replace(/<title>([^<]*)<\/title>/, (all, t) => `<title>${fixText(t)}</title>`);
-    out = out.replace(
-      /(<meta (?:name|property|itemprop)="(?:description|og:title|og:description|twitter:title|twitter:description|name)" content=")([^"]*)(")/g,
-      (all, a, t, b) => a + fixText(t) + b
-    );
-    const bodyAt = out.indexOf("</head>");
-    out = out.slice(0, bodyAt) + out.slice(bodyAt).replace(/>([^<>]*\d[^<>]*)</g, (all, t) => ">" + fixText(t) + "<");
-    out = out.replace(/\u0000(\d+)\u0000/g, (m0, i) => masks[+i]);
-    return out === html ? null : out;
+  if (gone.size) {
+    // links to removed cards in "top picks" and plan lists
+    out = out.replace(/<li\b[^>]*>(?:(?!<\/?li\b)[\s\S]){0,1500}?href="#([^"]+)"[\s\S]{0,1500}?<\/li>/g, (li, id) => (gone.has(id) && !/<li\b/.test(li.slice(3)) ? '' : li));
   }
 
-  // src/sqsp.js
-  var SEP = "<!--rtt-block-->";
-  var esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  var unesc = (s) => String(s).replace(/&quot;/g, '"').replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&amp;/g, "&");
-  function kindFor(path, live) {
-    if (!live || !path || !path.startsWith("/christmas-events/")) return null;
-    if (live.guides && live.guides[path]) return "guide";
-    if (live.pages && live.pages[path]) return "city";
-    return null;
+  // 2. Head: title, description and social cards say the live counts.
+  out = out.replace(/<title>([^<]*)<\/title>/, (all, t) => `<title>${rewriteCounts(t, N, F, null, base)}</title>`);
+  out = out.replace(/(<meta (?:name|property|itemprop)="(?:description|og:title|og:description|twitter:title|twitter:description|name)" content=")([^"]*)(")/g,
+    (all, a, t, b) => a + rewriteCounts(t, N, F, null, base) + b);
+
+  // 3. Structured data: drop past events, fix list sizes and count sentences.
+  out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, a, body, b) => {
+    let j;
+    try { j = JSON.parse(body); } catch (e) { return all; }
+    let g = j['@graph'] || [j];
+    const drop = new Set();
+    g = g.filter((x) => {
+      if (x['@type'] !== 'Event') return true;
+      const id = String(x['@id'] || ''), u = String(x.url || '');
+      const key = 'ev-' + (id.split('#event-')[1] || '');
+      const end = String(x.endDate || x.startDate || '').slice(0, 10);
+      if (gone.has(key) || gone.has(u.split('#')[1]) || (end && end < today)) { drop.add(id); return false; }
+      return true;
+    });
+    const fix = (o) => {
+      if (Array.isArray(o)) return o.forEach(fix);
+      if (!o || typeof o !== 'object') return;
+      if (o['@type'] === 'ItemList' && Array.isArray(o.itemListElement)) {
+        o.itemListElement = o.itemListElement.filter((e) => !(e.item && drop.has(e.item['@id'])));
+        o.itemListElement.forEach((e, i) => { e.position = i + 1; });
+        if ('numberOfItems' in o && o.numberOfItems === N0) o.numberOfItems = N;
+        else if ('numberOfItems' in o) o.numberOfItems = o.itemListElement.length;
+      }
+      for (const k of ['name', 'description', 'headline', 'text']) if (typeof o[k] === 'string') o[k] = rewriteCounts(o[k], N, F, only, base);
+      for (const v of Object.values(o)) if (v && typeof v === 'object') fix(v);
+    };
+    if (j['@graph']) { j['@graph'] = g; fix(j['@graph']); } else if (!g.length) return ''; else fix(j);
+    return a + JSON.stringify(j).replace(/</g, '\\u003c') + b;
+  });
+
+  // 4. Filter bar, section headings and "more events" lines
+  const has = (attr, v) => live.filter((c) => !v || c[attr].includes(v)).length;
+  out = out.replace(/data-xf-total="\d+"/g, `data-xf-total="${N}"`);
+  out = out.replace(/(<p class="rtt-xf__count"[^>]*>)([^<]*?)(\d+)([^<]*<\/p>)/g, (all, a, x, n, b) => englishGrammar(a + x + N + b));
+  out = out.replace(/(<button[^>]*data-xf-type="([^"]*)"[^>]*>(?:(?!<\/button>)[\s\S])*?<b>)(\d+)(<\/b>)/g, (all, a, v, n, b) => a + has('ty', v) + b);
+  out = out.replace(/(<(?:button|a)[^>]*data-xf-flag="([^"]*)"[^>]*>(?:(?!<\/(?:button|a)>)[\s\S])*?<b>)(\d+)(<\/b>)/g, (all, a, v, n, b) => a + has('fl', v) + b);
+  out = out.replace(/(<h2[^>]*\bdata-n=")(\d+)("[^>]*>)/g, (all, a, n, b, off) => {
+    // count the cards up to the next h2
+    const rest = out.slice(off + all.length);
+    const nxt = rest.search(/<h2\b[^>]*\bdata-n=/);
+    const seg = nxt < 0 ? rest : rest.slice(0, nxt);
+    return a + (seg.match(/<section class="rtt-pe-ride[" ]/g) || []).length + b;
+  });
+  const delta = N0 - N;
+  if (delta > 0) {
+    out = out.replace(/(<span class="rtt-ul__more"[^>]*>\+)(\d+)/g, (all, a, n) => a + Math.max(0, toInt(n) - delta));
+    out = out.replace(/(<span class="rtt-ul__one"[^>]*>)(\d+)/g, (all, a, n) => a + Math.max(0, toInt(n) - delta));
   }
-  function htmlBlocks(layout) {
+
+  // 5. Links to nearby cities carry their own counts; body sentences state this page's counts.
+  const masks = [];
+  if (pages) out = healCityLinks(out, pages, self, (x) => `\u0000${masks.push(x) - 1}\u0000`);
+  const bodyAt = out.indexOf('</head>');
+  const olds = [...new Set([...only.e, ...only.f, ...only.p])].map(String);
+  const parts = out.slice(bodyAt).split(/(<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>)/);
+  for (let i = 0; i < parts.length; i += 2) {
+    if (!olds.some((v) => parts[i].includes(v))) continue;
+    parts[i] = parts[i].replace(/>([^<>]*\d[^<>]*)</g, (all, t) => (olds.some((v) => t.includes(v)) ? '>' + rewriteCounts(t, N, F, only, base) + '<' : all));
+  }
+  out = out.slice(0, bodyAt) + parts.join('');
+  out = out.replace(/\u0000(\d+)\u0000/g, (m0, i) => masks[+i]);
+  return out === html ? null : out;
+}
+
+// ------------------------------------------------------------------ country and state guides
+const CITY_WORDS = ['cities', 'Canadian cities', 'cities across', 'villes', 'Städten', 'Städte', 'ciudades', 'città', 'cidades', 'steden',
+  'byer', 'städer', 'kaupungissa', 'kaupunkia', 'városban', 'városban', 'miastach', 'orașe', 'містах', 'πόλεις', 'gradova', 'linnas',
+  'pilsētās', 'miestuose', 'mestách', 'mestih', 'bæjum', 'stöðum', 'towns and cities'];
+const C_RE = new RegExp(`(^|[^\\d.,:/-])${NUM}(?=${SP}(?:${CITY_WORDS.join('|')})(?![\\w-]))`, 'g');
+const JA_CITY_RE = /(\d+)(の都市)/g;
+
+// Drop list items for events whose last day has passed (state pages list events this way).
+function dropPastItems(html, today) {
+  return html.replace(/<li\b([^>]*\bdata-cal="[^"]*"[^>]*)>[\s\S]*?<\/li>/g, (li, attrs) => {
+    const last = lastDay(attrs);
+    return last && last < today ? '' : li;
+  });
+}
+
+function healGuide(html, today, live, path) {
+  const g = live && live.guides && live.guides[path];
+  if (!g || !g.e) return null;
+  const pages = live.pages || {};
+  let out = dropPastItems(html, today);
+  const items = (out.match(/\bdata-xf-ty="/g) || []).length; // events the page's filter shows
+  const masks = [];
+  const mask = (s) => `\u0000${masks.push(s) - 1}\u0000`;
+
+  // 1. City sections (state pages: an h2 per city, then its next events) say that city's counts.
+  out = out.replace(/<h2 id="city-[^"]*"[^>]*>[\s\S]*?(?=<h2\b|<\/article>|$)/g, (sec) => {
+    const m = sec.match(/href="(\/christmas-events\/[a-z0-9-]+)(?:#[^"]*)?"/);
+    const c = m && pages[m[1]];
+    if (!c || !c[0]) return sec;
+    return mask(healCityLinks(rewriteCounts(sec, c[0], c[1]), pages, path, (x) => x));
+  });
+  // Each city card says that city's own counts.
+  out = out.replace(/<li class="rtt-rc">[\s\S]*?<\/li>/g, (li) => {
+    const m = li.match(/href="(\/christmas-events\/[a-z0-9-]+)"/);
+    const c = m && pages[m[1]];
+    return mask(c && c[0] ? rewriteCounts(li, c[0], c[1]) : li);
+  });
+  out = healCityLinks(out, pages, path, mask);
+  // 2. Structured data: city entries get city counts, the page gets the guide totals.
+  out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, a, body, b) => {
+    let j;
+    try { j = JSON.parse(body); } catch (e) { return mask(all); }
+    const walk = (o, E, F) => {
+      if (Array.isArray(o)) return o.forEach((x) => walk(x, E, F));
+      if (!o || typeof o !== 'object') return;
+      const u = String(o.url || o['@id'] || '');
+      const p = u.replace('https://www.rallytakesthetrain.com', '').split('#')[0];
+      const c = pages[p];
+      const [e, f] = c && c[0] && p !== path ? c : [E, F];
+      for (const k of ['name', 'description', 'headline', 'text']) {
+        if (typeof o[k] !== 'string') continue;
+        let s = rewriteCounts(o[k], e, f);
+        if (p === path || !c) s = s.replace(C_RE, (m0, pre, n) => pre + fmtLike(n, g.c));
+        // "Christmas events for kids in Denver (36 events)"
+        s = s.replace(/\((\d+) events?\)/, (m0, n) => `(${e} ${e === 1 ? 'event' : 'events'})`);
+        o[k] = s;
+      }
+      for (const v of Object.values(o)) if (v && typeof v === 'object') walk(v, e, f);
+    };
+    const before = JSON.stringify(j);
+    walk(j, g.e, g.f);
+    const after = JSON.stringify(j);
+    return mask(after === before ? all : a + after.replace(/</g, '\\u003c') + b);
+  });
+  // The filter's own line counts the events the filter shows on this page.
+  if (items) {
+    out = out.replace(/data-xf-total="\d+"/g, `data-xf-total="${items}"`);
+    out = out.replace(/(<p class="rtt-xf__count"[^>]*>)([^<]*?)(\d+)([^<]*<\/p>)/g, (all, a, x, n, b) => mask(a + x + items + b));
+  }
+  // Scripts and styles are never touched.
+  out = out.replace(/<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>/g, mask);
+
+  // 3. Everything else on the page quotes the guide's totals.
+  const fixText = (t) => rewriteCounts(t, g.e, g.f).replace(C_RE, (m0, pre, n) => pre + fmtLike(n, g.c)).replace(JA_CITY_RE, (m0, n, b) => g.c + b);
+  out = out.replace(/<title>([^<]*)<\/title>/, (all, t) => `<title>${fixText(t)}</title>`);
+  out = out.replace(/(<meta (?:name|property|itemprop)="(?:description|og:title|og:description|twitter:title|twitter:description|name)" content=")([^"]*)(")/g,
+    (all, a, t, b) => a + fixText(t) + b);
+  const bodyAt = out.indexOf('</head>');
+  out = out.slice(0, bodyAt) + out.slice(bodyAt).replace(/>([^<>]*\d[^<>]*)</g, (all, t) => '>' + fixText(t) + '<');
+  out = out.replace(/\u0000(\d+)\u0000/g, (m0, i) => masks[+i]);
+  return out === html ? null : out;
+}
+
+return { healCity, healGuide, refToday, claimedCounts };
+})();
+// Squarespace sync: write the healed counts back into the stored posts, so Squarespace itself
+// (editor, RSS, search previews, any copy served without the Worker) says the same as the live site.
+// The same healer code as the Worker is used, so both always agree.
+//
+// planItem() is pure and runs in Node tests and in the browser. run() talks to the Squarespace
+// admin API and only works inside a signed-in Squarespace admin tab.
+
+
+const SEP = '<!--rtt-block-->';
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const unesc = (s) => String(s).replace(/&quot;/g, '"').replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&');
+
+function kindFor(path, live) {
+  if (!live || !path || !path.startsWith('/christmas-events/')) return null;
+  if (live.guides && live.guides[path]) return 'guide';
+  if (live.pages && live.pages[path]) return 'city';
+  return null;
+}
+
+// Every block that carries HTML (code blocks and text blocks), in page order.
+function htmlBlocks(layout) {
+  const out = [];
+  const walk = (o) => {
+    if (Array.isArray(o)) return o.forEach(walk);
+    if (!o || typeof o !== 'object') return;
+    if (o.value && typeof o.value.html === 'string' && o.id) out.push(o);
+    for (const k of Object.keys(o)) if (k !== 'value' && o[k] && typeof o[k] === 'object') walk(o[k]);
+  };
+  walk(layout);
+  return out;
+}
+
+// Work out what a stored post should say today. Returns null when nothing needs to change,
+// otherwise { item (patched copy), changes: [{ field, before, after }], removedCards }.
+function planItem(item, live, today = refToday()) {
+  const path = item.fullUrl;
+  const kind = kindFor(path, live);
+  if (!kind) return null;
+  const seo = item.seoData || {};
+  const layout = item.body && item.body.layout;
+  const blocks = layout && typeof layout === 'object' ? htmlBlocks(layout) : [];
+  const excerpt = (item.excerpt && item.excerpt.html) || '';
+
+  const head = [
+    `<title>${esc(seo.seoTitle || '')}</title>`,
+    `<meta name="description" content="${esc(seo.seoDescription || '')}">`,
+    `<meta property="og:title" content="${esc(item.title || '')}">`,
+    `<meta property="og:description" content="${esc(excerpt)}">`,
+  ].join('\n');
+  const doc = `<html><head>\n${head}\n</head><body>${SEP}${blocks.map((b) => b.value.html).join(SEP)}${SEP}</body></html>`;
+
+  let healed = null;
+  try {
+    healed = kind === 'guide' ? healGuide(doc, today, live, path) : healCity(doc, today, live.pages, path);
+  } catch (e) {
+    return { error: 'healer: ' + e.message };
+  }
+  if (!healed) return null;
+
+  const hd = healed.slice(0, healed.indexOf('</head>'));
+  const get = (re) => { const m = hd.match(re); return m ? unesc(m[1]) : null; };
+  const nTitle = get(/<title>([^<]*)<\/title>/);
+  const nDesc = get(/<meta name="description" content="([^"]*)"/);
+  const nPost = get(/<meta property="og:title" content="([^"]*)"/);
+  const nEx = get(/<meta property="og:description" content="([^"]*)"/);
+  const body = healed.slice(healed.indexOf('<body>') + 6, healed.lastIndexOf('</body>'));
+  const parts = body.split(SEP);
+  if (parts.length !== (blocks.length ? blocks.length + 2 : 3)) return { error: `block boundaries moved (${parts.length - 2} vs ${blocks.length})` };
+
+  const next = JSON.parse(JSON.stringify(item));
+  const changes = [];
+  const set = (field, before, after, apply) => {
+    if (after == null || after === before) return;
+    changes.push({ field, before, after });
+    apply(after);
+  };
+  next.seoData = next.seoData || {};
+  if (seo.seoTitle) set('seoTitle', seo.seoTitle, nTitle, (v) => { next.seoData.seoTitle = v; });
+  if (seo.seoDescription) set('seoDescription', seo.seoDescription, nDesc, (v) => { next.seoData.seoDescription = v; });
+  set('title', item.title || '', nPost, (v) => { next.title = v; });
+  if (excerpt) set('excerpt', excerpt, nEx, (v) => { next.excerpt.html = v; if (typeof next.excerpt.raw === 'string') next.excerpt.raw = v; });
+
+  const nextBlocks = htmlBlocks(next.body && next.body.layout);
+  let removedCards = 0;
+  blocks.forEach((b, i) => {
+    const after = parts[i + 1];
+    if (after === b.value.html) return;
+    const cards = (s) => (s.match(/<section class="rtt-pe-ride[" ]/g) || []).length;
+    removedCards += cards(b.value.html) - cards(after);
+    changes.push({ field: `block:${b.id}`, before: b.value.html, after });
+    nextBlocks[i].value.html = after;
+  });
+  // The editor's copy of each code block (wysiwyg.source) can differ from the served html. Heal it on its
+  // own too, or the next save from the Squarespace editor would put the stale counts back.
+  const srcOf = (b) => (b.value.wysiwyg && typeof b.value.wysiwyg.source === 'string' ? b.value.wysiwyg.source : null);
+  if (blocks.some((b) => srcOf(b) !== null && srcOf(b) !== b.value.html)) {
+    const docS = `<html><head>\n${head}\n</head><body>${SEP}${blocks.map((b) => srcOf(b) ?? b.value.html).join(SEP)}${SEP}</body></html>`;
+    let hs = null;
+    try { hs = kind === 'guide' ? healGuide(docS, today, live, path) : healCity(docS, today, live.pages, path); } catch (e) { hs = null; }
+    const ps = hs ? hs.slice(hs.indexOf('<body>') + 6, hs.lastIndexOf('</body>')).split(SEP) : null;
+    if (ps && ps.length === parts.length) {
+      blocks.forEach((b, i) => {
+        const before = srcOf(b);
+        if (before === null || ps[i + 1] === before) return;
+        changes.push({ field: `source:${b.id}`, before, after: ps[i + 1] });
+        nextBlocks[i].value.wysiwyg.source = ps[i + 1];
+      });
+    }
+  }
+  blocks.forEach((b, i) => {   // where both copies were identical, keep them identical
+    const before = srcOf(b);
+    if (before !== null && before === b.value.html && nextBlocks[i].value.html !== b.value.html) {
+      nextBlocks[i].value.wysiwyg.source = nextBlocks[i].value.html;
+      changes.push({ field: `source:${b.id}`, before, after: nextBlocks[i].value.html });
+    }
+  });
+  if (!changes.length) return null;
+
+  // Safety net: a count the old text claimed that no longer appears as a claim, but is still
+  // written somewhere in the new text, means a phrase the healer does not know. Flag it.
+  const texts = (o) => [o.seoData && o.seoData.seoTitle, o.seoData && o.seoData.seoDescription, o.title, o.excerpt && o.excerpt.html].map((x) => strip(x || ''));
+  const claims = (arr) => { const c = new Set(); for (const t of arr) { const k = claimedCounts(t); k.e.forEach((v) => c.add(v)); k.f.forEach((v) => c.add(v)); } return c; };
+  const was = claims(texts(item)), now = claims(texts(next));
+  const warnings = [];
+  for (const v of was) {
+    if (now.has(v) || v < 2) continue;
+    const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`, 'g');
+    for (const [i, t] of texts(next).entries()) {
+      for (const m of t.matchAll(re)) {
+        const at = m.index + m[1].length;
+        const near = t.slice(Math.max(0, at - 14), at) + ' ' + t.slice(at + String(v).length, at + String(v).length + 16);
+        if (MONTH.test(near)) continue; // a date ("January 31", "13. Dezember")
+        warnings.push(`${['seoTitle', 'seoDescription', 'title', 'excerpt'][i] || 'text'} still says ${v}`);
+        break;
+      }
+    }
+  }
+  return { kind, path, item: next, changes, removedCards, warnings };
+}
+
+// A short, readable account of one plan (for dry runs and the run log).
+function describe(plan) {
+  const lines = [];
+  for (const c of plan.changes) {
+    if (c.field.startsWith('block:')) continue;
+    lines.push(`${c.field}: ${strip(c.before)} => ${strip(c.after)}`);
+  }
+  const blocks = plan.changes.filter((c) => c.field.startsWith('block:')).length;
+  if (blocks) lines.push(`${blocks} code block${blocks > 1 ? 's' : ''} updated${plan.removedCards ? `, ${plan.removedCards} past event${plan.removedCards > 1 ? 's' : ''} removed` : ''}`);
+  return lines;
+}
+const MONTH = new RegExp('(?:^|[^\\p{L}])(?:' + [
+  'jan(?:uary|uar|uari|vier)?', 'feb(?:ruary|ruar|ruari)?', 'f[eé]v(?:rier)?', 'mar(?:ch|s)?', 'märz', 'apr(?:il)?', 'avril', 'may', 'mai', 'mei', 'june?', 'juin', 'juni',
+  'july?', 'juillet', 'juli', 'aug(?:ust|ustus)?', 'ao[uû]t', 'sep(?:t|tember|tembre)?', 'oct(?:ober|obre)?', 'okt(?:ober)?', 'nov(?:ember|embre)?', 'dec(?:ember)?',
+  'd[eé]cembre', 'dez(?:ember)?', 'desember', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre',
+  'gennaio', 'febbraio', 'aprile', 'maggio', 'giugno', 'luglio', 'settembre', 'ottobre', 'dicembre', 'janeiro', 'fevereiro', 'março', 'maio', 'junho', 'julho',
+  'setembro', 'outubro', 'novembro', 'dezembro', '(?:tammi|helmi|maalis|huhti|touko|kesä|heinä|elo|syys|loka|marras|joulu)kuu\\p{L}*',
+  'stycznia', 'lutego', 'listopada', 'grudnia', 'januára', 'decembra',
+].join('|') + ')(?![\\p{L}])', 'iu');
+const strip = (s) => String(s).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 220);
+
+// ------------------------------------------------------------------ browser runner
+const COLLECTION = '6ae8c64da7d5c013a6eb8e11'; // "Christmas Events for Kids" blog
+const LIVE_URL = 'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/truth/live.json';
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+function crumb() {
+  const m = document.cookie.match(/(?:^|; )crumb=([^;]+)/);
+  if (!m) throw new Error('not signed in to the Squarespace admin (no crumb cookie)');
+  return decodeURIComponent(m[1]);
+}
+
+const DB = 'rtt-sqsp-sync';
+function idb() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open(DB, 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('backups', { keyPath: 'key' });
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+async function backup(item) {
+  const db = await idb();
+  await new Promise((res, rej) => {
+    const tx = db.transaction('backups', 'readwrite');
+    tx.objectStore('backups').put({ key: `${item.id}@${item.updatedOn}`, id: item.id, path: item.fullUrl, at: Date.now(), item });
+    tx.oncomplete = res;
+    tx.onerror = () => rej(tx.error);
+  });
+}
+async function backups(id) {
+  const db = await idb();
+  return new Promise((res) => {
     const out = [];
-    const walk = (o) => {
-      if (Array.isArray(o)) return o.forEach(walk);
-      if (!o || typeof o !== "object") return;
-      if (o.value && typeof o.value.html === "string" && o.id) out.push(o);
-      for (const k of Object.keys(o)) if (k !== "value" && o[k] && typeof o[k] === "object") walk(o[k]);
+    const c = db.transaction('backups').objectStore('backups').openCursor();
+    c.onsuccess = () => {
+      const cur = c.result;
+      if (!cur) return res(out.sort((a, b) => b.at - a.at));
+      if (!id || cur.value.id === id || cur.value.path === id) out.push(cur.value);
+      cur.continue();
     };
-    walk(layout);
-    return out;
-  }
-  function planItem(item, live, today = refToday()) {
-    const path = item.fullUrl;
-    const kind = kindFor(path, live);
-    if (!kind) return null;
-    const seo = item.seoData || {};
-    const layout = item.body && item.body.layout;
-    const blocks = layout && typeof layout === "object" ? htmlBlocks(layout) : [];
-    const excerpt = item.excerpt && item.excerpt.html || "";
-    const head = [
-      `<title>${esc(seo.seoTitle || "")}</title>`,
-      `<meta name="description" content="${esc(seo.seoDescription || "")}">`,
-      `<meta property="og:title" content="${esc(item.title || "")}">`,
-      `<meta property="og:description" content="${esc(excerpt)}">`
-    ].join("\n");
-    const doc = `<html><head>
-${head}
-</head><body>${SEP}${blocks.map((b) => b.value.html).join(SEP)}${SEP}</body></html>`;
-    let healed = null;
-    try {
-      healed = kind === "guide" ? healGuide(doc, today, live, path) : healCity(doc, today, live.pages, path);
-    } catch (e) {
-      return { error: "healer: " + e.message };
-    }
-    if (!healed) return null;
-    const hd = healed.slice(0, healed.indexOf("</head>"));
-    const get = (re) => {
-      const m = hd.match(re);
-      return m ? unesc(m[1]) : null;
-    };
-    const nTitle = get(/<title>([^<]*)<\/title>/);
-    const nDesc = get(/<meta name="description" content="([^"]*)"/);
-    const nPost = get(/<meta property="og:title" content="([^"]*)"/);
-    const nEx = get(/<meta property="og:description" content="([^"]*)"/);
-    const body = healed.slice(healed.indexOf("<body>") + 6, healed.lastIndexOf("</body>"));
-    const parts = body.split(SEP);
-    if (parts.length !== (blocks.length ? blocks.length + 2 : 3)) return { error: `block boundaries moved (${parts.length - 2} vs ${blocks.length})` };
-    const next = JSON.parse(JSON.stringify(item));
-    const changes = [];
-    const set = (field, before, after, apply) => {
-      if (after == null || after === before) return;
-      changes.push({ field, before, after });
-      apply(after);
-    };
-    next.seoData = next.seoData || {};
-    if (seo.seoTitle) set("seoTitle", seo.seoTitle, nTitle, (v) => {
-      next.seoData.seoTitle = v;
-    });
-    if (seo.seoDescription) set("seoDescription", seo.seoDescription, nDesc, (v) => {
-      next.seoData.seoDescription = v;
-    });
-    set("title", item.title || "", nPost, (v) => {
-      next.title = v;
-    });
-    if (excerpt) set("excerpt", excerpt, nEx, (v) => {
-      next.excerpt.html = v;
-      if (typeof next.excerpt.raw === "string") next.excerpt.raw = v;
-    });
-    const nextBlocks = htmlBlocks(next.body && next.body.layout);
-    let removedCards = 0;
-    blocks.forEach((b, i) => {
-      const after = parts[i + 1];
-      if (after === b.value.html) return;
-      const cards = (s) => (s.match(/<section class="rtt-pe-ride"/g) || []).length;
-      removedCards += cards(b.value.html) - cards(after);
-      changes.push({ field: `block:${b.id}`, before: b.value.html, after });
-      nextBlocks[i].value.html = after;
-    });
-    if (!changes.length) return null;
-    const texts = (o) => [o.seoData && o.seoData.seoTitle, o.seoData && o.seoData.seoDescription, o.title, o.excerpt && o.excerpt.html].map((x) => strip(x || ""));
-    const claims = (arr) => {
-      const c = /* @__PURE__ */ new Set();
-      for (const t of arr) {
-        const k = claimedCounts(t);
-        k.e.forEach((v) => c.add(v));
-        k.f.forEach((v) => c.add(v));
-      }
-      return c;
-    };
-    const was = claims(texts(item)), now = claims(texts(next));
-    const warnings = [];
-    for (const v of was) {
-      if (now.has(v) || v < 2) continue;
-      const re = new RegExp(`(^|[^\\d.,:/-])${v}(?![\\d]|[.,:]\\d)`, "g");
-      for (const [i, t] of texts(next).entries()) {
-        for (const m of t.matchAll(re)) {
-          const at = m.index + m[1].length;
-          const near = t.slice(Math.max(0, at - 14), at) + " " + t.slice(at + String(v).length, at + String(v).length + 16);
-          if (MONTH.test(near)) continue;
-          warnings.push(`${["seoTitle", "seoDescription", "title", "excerpt"][i] || "text"} still says ${v}`);
-          break;
-        }
-      }
-    }
-    return { kind, path, item: next, changes, removedCards, warnings };
-  }
-  function describe(plan) {
-    const lines = [];
-    for (const c of plan.changes) {
-      if (c.field.startsWith("block:")) continue;
-      lines.push(`${c.field}: ${strip(c.before)} => ${strip(c.after)}`);
-    }
-    const blocks = plan.changes.filter((c) => c.field.startsWith("block:")).length;
-    if (blocks) lines.push(`${blocks} code block${blocks > 1 ? "s" : ""} updated${plan.removedCards ? `, ${plan.removedCards} past event${plan.removedCards > 1 ? "s" : ""} removed` : ""}`);
-    return lines;
-  }
-  var MONTH = new RegExp("(?:^|[^\\p{L}])(?:" + [
-    "jan(?:uary|uar|uari|vier)?",
-    "feb(?:ruary|ruar|ruari)?",
-    "f[e\xE9]v(?:rier)?",
-    "mar(?:ch|s)?",
-    "m\xE4rz",
-    "apr(?:il)?",
-    "avril",
-    "may",
-    "mai",
-    "mei",
-    "june?",
-    "juin",
-    "juni",
-    "july?",
-    "juillet",
-    "juli",
-    "aug(?:ust|ustus)?",
-    "ao[u\xFB]t",
-    "sep(?:t|tember|tembre)?",
-    "oct(?:ober|obre)?",
-    "okt(?:ober)?",
-    "nov(?:ember|embre)?",
-    "dec(?:ember)?",
-    "d[e\xE9]cembre",
-    "dez(?:ember)?",
-    "desember",
-    "enero",
-    "febrero",
-    "marzo",
-    "abril",
-    "mayo",
-    "junio",
-    "julio",
-    "agosto",
-    "septiembre",
-    "octubre",
-    "noviembre",
-    "diciembre",
-    "gennaio",
-    "febbraio",
-    "aprile",
-    "maggio",
-    "giugno",
-    "luglio",
-    "settembre",
-    "ottobre",
-    "dicembre",
-    "janeiro",
-    "fevereiro",
-    "mar\xE7o",
-    "maio",
-    "junho",
-    "julho",
-    "setembro",
-    "outubro",
-    "novembro",
-    "dezembro",
-    "(?:tammi|helmi|maalis|huhti|touko|kes\xE4|hein\xE4|elo|syys|loka|marras|joulu)kuu\\p{L}*",
-    "stycznia",
-    "lutego",
-    "listopada",
-    "grudnia",
-    "janu\xE1ra",
-    "decembra"
-  ].join("|") + ")(?![\\p{L}])", "iu");
-  var strip = (s) => String(s).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim().slice(0, 220);
-  var COLLECTION = "6ae8c64da7d5c013a6eb8e11";
-  var LIVE_URL = "https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/truth/live.json";
-  var sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  function crumb() {
-    const m = document.cookie.match(/(?:^|; )crumb=([^;]+)/);
-    if (!m) throw new Error("not signed in to the Squarespace admin (no crumb cookie)");
-    return decodeURIComponent(m[1]);
-  }
-  var DB = "rtt-sqsp-sync";
-  function idb() {
-    return new Promise((res, rej) => {
-      const r = indexedDB.open(DB, 1);
-      r.onupgradeneeded = () => r.result.createObjectStore("backups", { keyPath: "key" });
-      r.onsuccess = () => res(r.result);
-      r.onerror = () => rej(r.error);
-    });
-  }
-  async function backup(item) {
-    const db = await idb();
-    await new Promise((res, rej) => {
-      const tx = db.transaction("backups", "readwrite");
-      tx.objectStore("backups").put({ key: `${item.id}@${item.updatedOn}`, id: item.id, path: item.fullUrl, at: Date.now(), item });
-      tx.oncomplete = res;
-      tx.onerror = () => rej(tx.error);
-    });
-  }
-  async function backups(id) {
-    const db = await idb();
-    return new Promise((res) => {
-      const out = [];
-      const c = db.transaction("backups").objectStore("backups").openCursor();
-      c.onsuccess = () => {
-        const cur = c.result;
-        if (!cur) return res(out.sort((a, b) => b.at - a.at));
-        if (!id || cur.value.id === id || cur.value.path === id) out.push(cur.value);
-        cur.continue();
-      };
-    });
-  }
-  var postUrl = (id) => `/api/content/blogs/${COLLECTION}/text-posts/${id}`;
-  async function put(item) {
-    const r = await fetch(postUrl(item.id), {
-      method: "PUT",
-      headers: { Accept: "application/json, text/plain, */*", "Content-Type": "application/json", "X-CSRF-Token": crumb() },
-      body: JSON.stringify(item)
-    });
-    if (!r.ok) throw new Error(`PUT ${r.status}`);
-    return r.json().catch(() => ({}));
-  }
-  async function restore(idOrPath, which = 0) {
-    const list = await backups(idOrPath);
-    if (!list[which]) throw new Error("no backup for " + idOrPath);
-    const cur = await fetch(postUrl(list[which].id)).then((r) => r.json());
-    const old = { ...list[which].item, updatedOn: cur.updatedOn };
-    await put(old);
-    return `restored ${list[which].path} to its copy from ${new Date(list[which].at).toISOString()}`;
-  }
-  function signature(path, live) {
-    const g = live.guides && live.guides[path];
-    if (g) return `g:${g.e},${g.f},${g.c}`;
-    const c = live.pages && live.pages[path];
-    return c ? `c:${c[0]},${c[1]}` : "";
-  }
-  var CHECKED = "rtt-sqsp-checked";
-  var loadChecked = () => {
-    try {
-      return JSON.parse(localStorage.getItem(CHECKED) || "{}");
-    } catch (e) {
-      return {};
+  });
+}
+
+const postUrl = (id) => `/api/content/blogs/${COLLECTION}/text-posts/${id}`;
+async function put(item) {
+  const r = await fetch(postUrl(item.id), {
+    method: 'PUT',
+    headers: { Accept: 'application/json, text/plain, */*', 'Content-Type': 'application/json', 'X-CSRF-Token': crumb() },
+    body: JSON.stringify(item),
+  });
+  if (!r.ok) throw new Error(`PUT ${r.status}`);
+  return r.json().catch(() => ({}));
+}
+
+// Put a post back the way it was before a sync (latest backup by default).
+async function restore(idOrPath, which = 0) {
+  const list = await backups(idOrPath);
+  if (!list[which]) throw new Error('no backup for ' + idOrPath);
+  const cur = await fetch(postUrl(list[which].id)).then((r) => r.json());
+  const old = { ...list[which].item, updatedOn: cur.updatedOn };
+  await put(old);
+  return `restored ${list[which].path} to its copy from ${new Date(list[which].at).toISOString()}`;
+}
+
+// Signature of what a page should say today; a page is checked again when it changes.
+function signature(path, live) {
+  const g = live.guides && live.guides[path];
+  if (g) return `g:${g.e},${g.f},${g.c}`;
+  const c = live.pages && live.pages[path];
+  return c ? `c:${c[0]},${c[1]}` : '';
+}
+const CHECKED = 'rtt-sqsp-checked';
+const loadChecked = () => { try { return JSON.parse(localStorage.getItem(CHECKED) || '{}'); } catch (e) { return {}; } };
+const saveChecked = (m) => { try { localStorage.setItem(CHECKED, JSON.stringify(m)); } catch (e) {} };
+const IDS_URL = 'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/sqsp/ids.json';
+
+// Check every Christmas events post whose live counts changed since its last check (or that was
+// last checked a week ago), and with apply, write the ones that differ, up to `limit` per run.
+// Posts edited in the last `quietMinutes` are left alone so a sync never overwrites live editing.
+async function run(opts = {}) {
+  const { apply = false, limit = 400, delayMs = 250, quietMinutes = 15, only = null, force = false, workers = 4, onProgress = null } = opts;
+  const state = { started: new Date().toISOString(), apply, targets: 0, checked: 0, upToDate: 0, planned: 0, written: 0, skipped: [], errors: [], plans: [], done: false };
+  if (typeof window !== 'undefined') window.__rttSyncState = state;
+  const bust = '?t=' + Date.now();
+  const live = opts.live || (await fetch(LIVE_URL + bust).then((r) => r.json()));
+  const ids = opts.ids || (await fetch(IDS_URL + bust).then((r) => r.json()));
+  const today = opts.today || refToday();
+  state.today = today;
+  state.liveGenerated = live.generated;
+  const checked = loadChecked();
+  const week = 7 * 86400000;
+  const todo = Object.keys(ids).filter((p) => kindFor(p, live) && (!only || only.includes(p))).filter((p) => {
+    const c = checked[p];
+    const fresh = c && c.s === signature(p, live) && Date.now() - c.at < week;
+    return force || !fresh;
+  });
+  state.targets = todo.length;
+
+  let next = 0;
+  const one = async (path) => {
+    const id = ids[path];
+    const r = await fetch(postUrl(id));
+    if (!r.ok) { state.errors.push({ path, error: `GET ${r.status}` }); return; }
+    const cur = await r.json();
+    state.checked++;
+    if (cur.workflowState !== 1) return;
+    const plan = planItem(cur, live, today);
+    if (plan && plan.error) { state.errors.push({ path, error: plan.error }); return; }
+    if (!plan) { state.upToDate++; if (apply) checked[path] = { s: signature(path, live), d: today, at: Date.now() }; return; }
+    state.planned++;
+    state.plans.push({ path, id, lines: describe(plan), warnings: plan.warnings });
+    if (!apply) return;
+    if (plan.warnings.length && !opts.allowWarnings) { state.skipped.push({ path, why: 'needs a look: ' + plan.warnings.join('; ') }); return; }
+    if (state.written >= limit) { state.skipped.push({ path, why: 'over the per-run limit; goes next run' }); return; }
+    if (Date.now() - cur.updatedOn < quietMinutes * 60000) { state.skipped.push({ path, why: 'edited recently' }); return; }
+    await backup(cur);
+    await put(plan.item);
+    state.written++;
+    checked[path] = { s: signature(path, live), d: today, at: Date.now() };
+    await sleep(delayMs);
+  };
+  const worker = async () => {
+    while (next < todo.length) {
+      const path = todo[next++];
+      try { await one(path); } catch (e) { state.errors.push({ path, error: e.message }); }
+      if (onProgress && state.checked % 50 === 0) onProgress(state);
+      if (apply && state.checked % 100 === 0) saveChecked(checked);
     }
   };
-  var saveChecked = (m) => {
-    try {
-      localStorage.setItem(CHECKED, JSON.stringify(m));
-    } catch (e) {
-    }
-  };
-  var IDS_URL = "https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/sqsp/ids.json";
-  async function run(opts = {}) {
-    const { apply = false, limit = 400, delayMs = 250, quietMinutes = 15, only = null, force = false, workers = 4, onProgress = null } = opts;
-    const state = { started: (/* @__PURE__ */ new Date()).toISOString(), apply, targets: 0, checked: 0, upToDate: 0, planned: 0, written: 0, skipped: [], errors: [], plans: [], done: false };
-    if (typeof window !== "undefined") window.__rttSyncState = state;
-    const bust = "?t=" + Date.now();
-    const live = opts.live || await fetch(LIVE_URL + bust).then((r) => r.json());
-    const ids = opts.ids || await fetch(IDS_URL + bust).then((r) => r.json());
-    const today = opts.today || refToday();
-    state.today = today;
-    state.liveGenerated = live.generated;
-    const checked = loadChecked();
-    const week = 7 * 864e5;
-    const todo = Object.keys(ids).filter((p) => kindFor(p, live) && (!only || only.includes(p))).filter((p) => {
-      const c = checked[p];
-      const fresh = c && c.s === signature(p, live) && Date.now() - c.at < week;
-      return force || !fresh;
-    });
-    state.targets = todo.length;
-    let next = 0;
-    const one = async (path) => {
-      const id = ids[path];
-      const r = await fetch(postUrl(id));
-      if (!r.ok) {
-        state.errors.push({ path, error: `GET ${r.status}` });
-        return;
-      }
-      const cur = await r.json();
-      state.checked++;
-      if (cur.workflowState !== 1) return;
-      const plan = planItem(cur, live, today);
-      if (plan && plan.error) {
-        state.errors.push({ path, error: plan.error });
-        return;
-      }
-      if (!plan) {
-        state.upToDate++;
-        if (apply) checked[path] = { s: signature(path, live), d: today, at: Date.now() };
-        return;
-      }
-      state.planned++;
-      state.plans.push({ path, id, lines: describe(plan), warnings: plan.warnings });
-      if (!apply) return;
-      if (plan.warnings.length && !opts.allowWarnings) {
-        state.skipped.push({ path, why: "needs a look: " + plan.warnings.join("; ") });
-        return;
-      }
-      if (state.written >= limit) {
-        state.skipped.push({ path, why: "over the per-run limit; goes next run" });
-        return;
-      }
-      if (Date.now() - cur.updatedOn < quietMinutes * 6e4) {
-        state.skipped.push({ path, why: "edited recently" });
-        return;
-      }
-      await backup(cur);
-      await put(plan.item);
-      state.written++;
-      checked[path] = { s: signature(path, live), d: today, at: Date.now() };
-      await sleep(delayMs);
-    };
-    const worker = async () => {
-      while (next < todo.length) {
-        const path = todo[next++];
-        try {
-          await one(path);
-        } catch (e) {
-          state.errors.push({ path, error: e.message });
-        }
-        if (onProgress && state.checked % 50 === 0) onProgress(state);
-        if (apply && state.checked % 100 === 0) saveChecked(checked);
-      }
-    };
-    await Promise.all(Array.from({ length: Math.max(1, workers) }, worker));
-    if (apply) saveChecked(checked);
-    state.done = true;
-    state.finished = (/* @__PURE__ */ new Date()).toISOString();
-    return state;
-  }
-  return __toCommonJS(sqsp_exports);
+  await Promise.all(Array.from({ length: Math.max(1, workers) }, worker));
+  if (apply) saveChecked(checked);
+  state.done = true;
+  state.finished = new Date().toISOString();
+  return state;
+}
+
+return { backups, describe, htmlBlocks, kindFor, planItem, restore, run, signature };
 })();

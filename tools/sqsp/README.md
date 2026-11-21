@@ -10,7 +10,9 @@ copy served without the Worker say exactly what the live site says.
   * SEO title and SEO description
   * Post title (only counts, never years or dates)
   * Excerpt
-  * Code and text blocks: counts, filter totals, structured data, and past events removed
+  * Code and text blocks: counts, filter totals, structured data, and past events removed, in both
+    copies of each code block (the served html and the editor's wysiwyg.source), so an editor save
+    never puts stale counts back
 * Which posts: every path in `tools/sqsp/ids.json` (Squarespace post ids, refreshed by the truth build).
   A post is checked again when its live counts change, and at least once a week.
 * What it never touches: posts outside `/christmas-events/`, drafts, and posts edited in the
@@ -51,6 +53,6 @@ await RTTSync.restore('/christmas-events/denver-co')   // restore the latest one
 
 ```sh
 cd worker
-npm run bundle:sqsp   # writes tools/sqsp/rtt-sqsp-sync.js
+npm run bundle:sqsp   # writes tools/sqsp/rtt-sqsp-sync.js (plain Node, no npm install needed)
 npm run test:sqsp
 ```

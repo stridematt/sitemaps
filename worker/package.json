@@ -6,7 +6,7 @@
     "test": "mkdir -p dist && cp deploy/rtt-hreflang.min.js dist/index.js && node test/test.mjs",
     "deploy": "wrangler deploy",
     "bundle": "esbuild src/index.js --bundle --format=esm --minify --legal-comments=none --outfile=deploy/rtt-hreflang.min.js && node scripts/oneline.mjs",
-    "bundle:sqsp": "esbuild src/sqsp.js --bundle --format=iife --global-name=RTTSync --legal-comments=none --outfile=../tools/sqsp/rtt-sqsp-sync.js",
+    "bundle:sqsp": "node scripts/bundle_sqsp.mjs",
     "test:sqsp": "node test/sqsp.test.mjs",
     "test:sitemap": "node test/sitemap.test.mjs"
   },
