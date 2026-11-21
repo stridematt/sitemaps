@@ -1,196 +1,23 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26609,
- "city_pages": 3738,
+ "sitemap_urls": 26610,
+ "city_pages": 3828,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 21778,
- "count_mismatch": [
-  [
-   "/christmas-events/nashville-tn",
-   24,
-   39
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-tigre-ar",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/weihnachten-mit-kindern-celle",
-   0,
-   13
-  ],
-  [
-   "/christmas-events/weihnachten-mit-kindern-kiel",
-   0,
-   8
-  ]
- ],
+ "event_pages_listed": 22501,
+ "count_mismatch": [],
  "uncounted_city_pages": [
-  [
-   "/christmas-events/borlange-se",
-   5
-  ],
-  [
-   "/christmas-events/budapest-1-kerulet-hu",
-   5
-  ],
-  [
-   "/christmas-events/budapest-10-kerulet-hu",
-   3
-  ],
-  [
-   "/christmas-events/budapest-11-kerulet-hu",
-   6
-  ],
-  [
-   "/christmas-events/budapest-12-kerulet-hu",
-   15
-  ],
-  [
-   "/christmas-events/budapest-13-kerulet-hu",
-   4
-  ],
-  [
-   "/christmas-events/budapest-14-kerulet-hu",
-   4
-  ],
-  [
-   "/christmas-events/budapest-15-kerulet-hu",
-   2
-  ],
-  [
-   "/christmas-events/budapest-16-kerulet-hu",
-   4
-  ],
-  [
-   "/christmas-events/budapest-17-kerulet-hu",
-   3
-  ],
-  [
-   "/christmas-events/budapest-18-kerulet-hu",
-   12
-  ],
-  [
-   "/christmas-events/budapest-19-kerulet-hu",
-   7
-  ],
-  [
-   "/christmas-events/budapest-2-kerulet-hu",
-   8
-  ],
-  [
-   "/christmas-events/budapest-20-kerulet-hu",
-   2
-  ],
-  [
-   "/christmas-events/budapest-21-kerulet-hu",
-   6
-  ],
-  [
-   "/christmas-events/budapest-22-kerulet-hu",
-   10
-  ],
-  [
-   "/christmas-events/budapest-3-kerulet-hu",
-   11
-  ],
-  [
-   "/christmas-events/budapest-4-kerulet-hu",
-   8
-  ],
-  [
-   "/christmas-events/budapest-7-kerulet-hu",
-   5
-  ],
-  [
-   "/christmas-events/budapest-8-kerulet-hu",
-   9
-  ],
-  [
-   "/christmas-events/budapest-9-kerulet-hu",
-   11
-  ],
   [
    "/christmas-events/dubai-ae",
    29
-  ],
-  [
-   "/christmas-events/haninge-se",
-   2
-  ],
-  [
-   "/christmas-events/hassleholm-se",
-   4
-  ],
-  [
-   "/christmas-events/huddinge-se",
-   5
-  ],
-  [
-   "/christmas-events/kristianstad-se",
-   5
-  ],
-  [
-   "/christmas-events/lakatamia-cy",
-   2
   ],
   [
    "/christmas-events/navidad-con-ninos-acajutla-sv",
    3
   ],
   [
-   "/christmas-events/navidad-con-ninos-ahuachapan-sv",
-   3
-  ],
-  [
    "/christmas-events/navidad-con-ninos-apopa-sv",
    5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-ciutat-vella",
-   15
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-eixample",
-   22
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-gracia",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-horta-guinardo",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-les-corts",
-   4
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-nou-barris",
-   10
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-sant-andreu",
-   8
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-sant-marti",
-   13
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-sants-montjuic",
-   13
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-barcelona-sarria-sant-gervasi",
-   14
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-chalchuapa-sv",
-   4
   ],
   [
    "/christmas-events/navidad-con-ninos-ciudad-arce-sv",
@@ -199,10 +26,6 @@
   [
    "/christmas-events/navidad-con-ninos-ciudad-delgado-sv",
    5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-colon-sv",
-   4
   ],
   [
    "/christmas-events/navidad-con-ninos-cuscatancingo-sv",
@@ -218,54 +41,6 @@
   ],
   [
    "/christmas-events/navidad-con-ninos-izalco-sv",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-arganzuela",
-   27
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-centro",
-   13
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-chamartin",
-   31
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-hortaleza",
-   4
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-latina",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-matadero",
-   14
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-matadero-conciertos",
-   12
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-retiro",
-   28
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-salamanca",
-   3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-madrid-usera",
-   6
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-mejicanos-sv",
-   5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-metapan-sv",
    3
   ],
   [
@@ -289,95 +64,23 @@
    5
   ],
   [
-   "/christmas-events/navidad-con-ninos-san-miguel-sv",
-   2
-  ],
-  [
    "/christmas-events/navidad-con-ninos-san-pedro-perulapan-sv",
    5
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-san-salvador-sv",
-   9
   ],
   [
    "/christmas-events/navidad-con-ninos-san-vicente-sv",
    3
   ],
   [
-   "/christmas-events/navidad-con-ninos-santa-ana-sv",
-   4
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-santa-tecla-sv",
-   4
-  ],
-  [
    "/christmas-events/navidad-con-ninos-sonsonate-sv",
    3
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-soyapango-sv",
-   5
   ],
   [
    "/christmas-events/navidad-con-ninos-tonacatepeque-sv",
    5
   ],
   [
-   "/christmas-events/navidad-con-ninos-usulutan-sv",
-   2
-  ],
-  [
    "/christmas-events/navidad-con-ninos-zacatecoluca-sv",
-   3
-  ],
-  [
-   "/christmas-events/noel-avec-les-enfants-paris-1er",
-   6
-  ],
-  [
-   "/christmas-events/noel-avec-les-enfants-paris-20e",
-   6
-  ],
-  [
-   "/christmas-events/norrtalje-se",
-   7
-  ],
-  [
-   "/christmas-events/ornskoldsvik-se",
-   6
-  ],
-  [
-   "/christmas-events/paphos-cy",
-   4
-  ],
-  [
-   "/christmas-events/parnu-ee",
-   8
-  ],
-  [
-   "/christmas-events/praha-1-cz",
-   20
-  ],
-  [
-   "/christmas-events/praha-2-cz",
-   4
-  ],
-  [
-   "/christmas-events/praha-5-cz",
-   7
-  ],
-  [
-   "/christmas-events/praha-6-cz",
-   3
-  ],
-  [
-   "/christmas-events/praha-7-cz",
-   10
-  ],
-  [
-   "/christmas-events/praha-8-cz",
    3
   ],
   [
@@ -387,49 +90,9 @@
   [
    "/christmas-events/rozhdestvo-s-detmi-tallinn-ru",
    19
-  ],
-  [
-   "/christmas-events/sigtuna-se",
-   5
-  ],
-  [
-   "/christmas-events/sollentuna-se",
-   2
-  ],
-  [
-   "/christmas-events/strovolos-cy",
-   2
-  ],
-  [
-   "/christmas-events/sundbyberg-se",
-   4
   ]
  ],
  "upcoming_not_listed": [
-  [
-   "/christmas-events/16e-mercat-solidari-de-nadal-de-pedralbes-barcelona-es",
-   "2026-11-29",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "16è Mercat solidari de Nadal de Pedralbes"
-  ],
-  [
-   "/christmas-events/31e-circ-dhivern-de-lateneu-popular-de-nou-barris-el-peix-daurat-barcelona-es",
-   "2027-01-17",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "31è Circ d'Hivern de l'Ateneu Popular de Nou Barris 'El peix daurat'"
-  ],
-  [
-   "/christmas-events/33a-diada-de-les-tradicions-i-els-costums-nadalencs-a-catalunya-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "33a Diada de les Tradicions i els Costums Nadalencs a Catalunya,"
-  ],
-  [
-   "/christmas-events/42nd-annual-tree-lighting-ceremony-portland-or",
-   "2026-11-27",
-   "/christmas-events/portland-or",
-   "42nd Annual Tree Lighting Ceremony"
-  ],
   [
    "/christmas-events/a-christmas-carol-theatre-by-qe2-dubai-ae",
    "2026-12-26",
@@ -441,24 +104,6 @@
    "2026-12-20",
    "/christmas-events/christmas-in-leuven-with-kids",
    "A Christmas Story (Eine Weihnachtsgeschichte), Nobel-Popel Music Theater"
-  ],
-  [
-   "/christmas-events/a-corpo-libero-compagnie-la-baracca-testoni-ragazzi-paris",
-   "2026-11-29",
-   "",
-   "A corpo libero, Compagnie La Baracca - Testoni Ragazzi"
-  ],
-  [
-   "/christmas-events/a-mikulas-ajandeka-fabula-babszinhaz-ujpest-hu",
-   "2026-12-03",
-   "/christmas-events/budapest-hu",
-   "A Mikulás ajándéka: Fabula Bábszínház"
-  ],
-  [
-   "/christmas-events/a-rendithetetlen-olomkatona-tancmese-ujpest-hu",
-   "2026-12-13",
-   "/christmas-events/budapest-hu",
-   "A Rendíthetetlen Ólomkatona: táncmese"
   ],
   [
    "/christmas-events/a-season-of-wonder-christmas-concert-dubai-ae",
@@ -473,12 +118,6 @@
    "A Spider's Gift: Krohn Conservatory Holiday Show"
   ],
   [
-   "/christmas-events/a-trail-of-tails-christmas-in-the-house-altrincham-uk",
-   "2026-12-24",
-   "/christmas-events/manchester-uk",
-   "A Trail of Tails: Christmas in the House"
-  ],
-  [
    "/christmas-events/abao-txiki-ali-baba-y-los-40-ladrones-bilbao-es",
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-bilbao",
@@ -491,166 +130,16 @@
    "Abentura Historiaurrean"
   ],
   [
-   "/christmas-events/acasa-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "ACASA"
-  ],
-  [
-   "/christmas-events/acte-contes-de-nadal-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Acte \"Contes de Nadal\""
-  ],
-  [
-   "/christmas-events/acte-dencesa-de-llums-de-nadal-al-passeig-de-gracia-barcelona-es",
-   "2026-11-26",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Acte d'encesa de Llums de Nadal al Passeig de Gràcia"
-  ],
-  [
-   "/christmas-events/acte-guarniment-dels-arbres-de-nadal-del-districte-barcelona-es",
-   "2026-12-03",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Acte \"Guarniment dels arbres de Nadal del districte\""
-  ],
-  [
-   "/christmas-events/activitat-familiar-recerca-i-cagatio-barcelona-es",
-   "2026-12-16",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Activitat familiar \"Recerca i Cagatió\""
-  ],
-  [
-   "/christmas-events/activitat-nadal-familiar-a-la-cerca-del-tio-barcelona-es",
-   "2026-12-21",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Activitat: Nadal familiar: 'A la cerca del Tió'"
-  ],
-  [
-   "/christmas-events/advent-a-hegyvideken-hu",
-   "2026-12-23",
-   "/christmas-events/budapest-hu",
-   "Advent a Hegyvidéken"
-  ],
-  [
-   "/christmas-events/advent-obudan-adventi-vasar-a-fo-teren-obuda-bekasmegyer-hu",
-   "2026-12-23",
-   "/christmas-events/budapest-hu",
-   "Advent Óbudán : adventi vásár a Fő téren"
-  ],
-  [
-   "/christmas-events/advent-obudan-megnyito-es-fenygyujtas-obuda-bekasmegyer-hu",
-   "2026-11-27",
-   "/christmas-events/budapest-hu",
-   "Advent Óbudán megnyitó és fénygyújtás"
-  ],
-  [
-   "/christmas-events/advent-wekerlen-advent-1-es-advent-2-kispest-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Advent Wekerlén (Advent 1. és Advent 2.)"
-  ],
-  [
-   "/christmas-events/adventi-fenyek-budafok-teteny-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Adventi fények"
-  ],
-  [
-   "/christmas-events/adventi-forgatag-budafok-teteny-hu",
-   "2026-12-13",
-   "/christmas-events/budapest-hu",
-   "Adventi forgatag"
-  ],
-  [
-   "/christmas-events/adventi-gondolatnaptar-kispest-hu",
-   "2026-12-24",
-   "/christmas-events/budapest-hu",
-   "Adventi gondolatnaptár"
-  ],
-  [
-   "/christmas-events/adventi-gyertyagyujtas-a-horvath-mihaly-teren-jozsefvaros-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Adventi gyertyagyújtás a Horváth Mihály téren"
-  ],
-  [
-   "/christmas-events/adventi-gyertyagyujtas-a-szent-istvan-teren-ujpest-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Adventi gyertyagyújtás a Szent István téren"
-  ],
-  [
-   "/christmas-events/adventi-gyertyagyujtas-a-szentharomsag-teren-budavar-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Adventi gyertyagyújtás a Szentháromság téren"
-  ],
-  [
-   "/christmas-events/adventi-idoutazas-budafok-teteny-hu",
-   "2026-11-29",
-   "/christmas-events/budapest-hu",
-   "Adventi időutazás"
-  ],
-  [
-   "/christmas-events/adventi-kezmuveskedes-rakosmente-hu",
-   "2026-11-29",
-   "/christmas-events/budapest-hu",
-   "ADVENTI KÉZMŰVESKEDÉS"
-  ],
-  [
-   "/christmas-events/adventi-workshop-pestszentlorinc-pestszentimre-hu",
-   "2026-12-12",
-   "/christmas-events/budapest-hu",
-   "Adventi workshop"
-  ],
-  [
    "/christmas-events/adventsabenteuer-advent-adventure-leuven-be",
    "2026-12-19",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Adventsabenteuer (Advent Adventure)"
   ],
   [
-   "/christmas-events/ahmed-prince-de-lalhambra-cinema-de-fin-dannee-paris",
-   "2026-12-20",
-   "",
-   "Ahmed, prince de l’Alhambra, cinéma de fin d’année"
-  ],
-  [
    "/christmas-events/al-museo-en-familia-las-6-pruebas-de-heraclio-zaragoza-es",
    "2026-12-20",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Al museo en familia: Las 6 pruebas de Heraclio"
-  ],
-  [
-   "/christmas-events/alas-un-cuento-de-luces-y-sombras-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Alas, un cuento de luces y sombras"
-  ],
-  [
-   "/christmas-events/aleluyas-navidenas-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Aleluyas navideñas"
-  ],
-  [
-   "/christmas-events/alkalmi-csibeszek-golyalabon-jon-a-mikulas-jozsefvaros-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Alkalmi csibészek: Gólyalábon jön a Mikulás"
-  ],
-  [
-   "/christmas-events/alytaus-egles-iziebimo-muge-lt",
-   "2026-12-05",
-   "",
-   "Alytaus eglutės įžiebimo šventės mugė Alytuje 2026"
-  ],
-  [
-   "/christmas-events/alytaus-kaledu-egles-iziebimas-lt",
-   "2026-12-05",
-   "",
-   "Alytaus Kalėdų eglutės įžiebimas Alytuje 2026"
   ],
   [
    "/christmas-events/an-advent-day-for-the-whole-family-bruges-be",
@@ -665,18 +154,6 @@
    "Angels. Heavenly Messengers (Engel. Himmlische Boten)"
   ],
   [
-   "/christmas-events/animacio-familiar-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Animació familiar"
-  ],
-  [
-   "/christmas-events/animales-madrid-es",
-   "2026-12-24",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Animales"
-  ],
-  [
    "/christmas-events/annie-el-musical-pamplona-es",
    "2026-12-06",
    "/christmas-events/navidad-con-ninos-pamplona",
@@ -687,30 +164,6 @@
    "2026-12-19",
    "/christmas-events/navidad-con-ninos-pamplona",
    "Anónima (Baluarte Txiki)"
-  ],
-  [
-   "/christmas-events/aprok-szinhaza-csala-es-a-telapo-pesterzsebet-hu",
-   "2026-12-04",
-   "/christmas-events/budapest-hu",
-   "Aprók Színháza - Csala és a Télapó"
-  ],
-  [
-   "/christmas-events/aranyszamar-babszinhaz-poruljart-krampuszok-jozsefvaros-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Aranyszamár Bábszínház: Póruljárt Krampuszok"
-  ],
-  [
-   "/christmas-events/arbol-navideno-plaza-salvador-del-mundo-san-salvador-sv",
-   "2027-01-06",
-   "",
-   "Árbol navideño de la Plaza Salvador del Mundo 2026"
-  ],
-  [
-   "/christmas-events/arigato-cuento-que-te-canto-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Arigato. Cuento que te canto"
   ],
   [
    "/christmas-events/asteburuak-familiak-programa-bilbao-es",
@@ -725,94 +178,10 @@
    "Atearen bestaldean"
   ],
   [
-   "/christmas-events/atelier-cartes-de-voeux-a-la-bibliotheque-buffon-paris",
-   "2026-12-16",
-   "",
-   "Atelier cartes de vœux à la bibliothèque Buffon"
-  ],
-  [
-   "/christmas-events/atelier-decoration-de-sapin-a-la-bibliotheque-georges-brassens-paris",
-   "2026-12-16",
-   "",
-   "Atelier décoration de sapin à la bibliothèque Georges Brassens"
-  ],
-  [
-   "/christmas-events/ateliers-de-decorations-de-noel-a-la-mairie-du-14e-paris",
-   "2026-12-05",
-   "",
-   "Ateliers de décorations de Noël à la mairie du 14e"
-  ],
-  [
-   "/christmas-events/ateliers-de-noel-en-famille-au-musee-des-plans-reliefs-paris",
-   "2026-12-30",
-   "",
-   "Ateliers de Noël en famille au musée des Plans-Reliefs"
-  ],
-  [
-   "/christmas-events/atrapasoles-de-navidad-con-cera-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Atrapasoles de Navidad con cera"
-  ],
-  [
-   "/christmas-events/automata-carrousel-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Autómata Carrousel"
-  ],
-  [
-   "/christmas-events/autry-museum-holiday-events-los-angeles-ca",
-   "2026-12-05",
-   "/christmas-events/los-angeles-ca",
-   "Autry Museum Holiday Events: Tree Lighting & Santa's Winter Wonderland"
-  ],
-  [
-   "/christmas-events/aventuras-en-carton-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Aventuras en cartón"
-  ],
-  [
-   "/christmas-events/az-igazi-mikulas-az-ametiszt-babszinhaz-zenes-babeloadasa-csepel-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Az igazi Mikulás, az Ametiszt Bábszínház zenés bábelőadása"
-  ],
-  [
-   "/christmas-events/babusgato-mikulasmoka-pestszentlorinc-pestszentimre-hu",
-   "2026-12-07",
-   "/christmas-events/budapest-hu",
-   "Babusgató Mikulásmóka"
-  ],
-  [
-   "/christmas-events/baby-steps-with-santa-irvine-ca",
-   "2026-12-01",
-   "/christmas-events/irvine-ca",
-   "Baby Steps with Santa"
-  ],
-  [
-   "/christmas-events/barcelona-christmas-tour-recorregut-en-bus-turistic-per-gaudir-de-la-ciutat-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "\"Barcelona Christmas Tour\" Recorregut en bus turístic per gaudir de la ciutat i del llums de Nadal"
-  ],
-  [
    "/christmas-events/barcelona-llums-de-nadal-es",
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-barcelona",
    "Barcelona Llums de Nadal"
-  ],
-  [
-   "/christmas-events/barnens-jul-med-teater-slava-huddinge-se",
-   "2026-12-06",
-   "",
-   "Barnens jul med Teater Sláva 2026"
-  ],
-  [
-   "/christmas-events/barnens-julvarld-med-nassim-al-fakir-kristianstad-se",
-   "2026-11-22",
-   "",
-   "Barnens Julvärld med Nassim Al Fakir 2026"
   ],
   [
    "/christmas-events/bat-gabon-zoriontsuak-san-sebastian-es",
@@ -821,136 +190,16 @@
    "Bat-gabon zoriontsuak"
   ],
   [
-   "/christmas-events/batyu-szinhaz-morcos-borz-unnepe-rakospalota-pestujhely-ujpalota-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Batyu Színház: Morcos borz ünnepe"
-  ],
-  [
-   "/christmas-events/batyu-szinhaz-ravaszdi-mester-es-a-mikulas-csizmaja-jozsefvaros-hu",
-   "2026-11-27",
-   "/christmas-events/budapest-hu",
-   "Batyu Színház: Ravaszdi mester és a Mikulás csizmája"
-  ],
-  [
-   "/christmas-events/batyu-szinhaz-titokzatos-hoember-jozsefvaros-hu",
-   "2026-11-29",
-   "/christmas-events/budapest-hu",
-   "Batyu Színház: Titokzatos hóember"
-  ],
-  [
-   "/christmas-events/beau-commun-marche-de-noel-paris",
-   "2026-12-06",
-   "",
-   "Beau Commun, Marché de Noël"
-  ],
-  [
-   "/christmas-events/bee-el-rebano-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Bee! (El rebaño)"
-  ],
-  [
-   "/christmas-events/bel-air-christmas-parade-and-tree-lighting-bel-air-md",
-   "2026-12-06",
-   "/christmas-events/baltimore-md",
-   "Bel Air Christmas Parade & Tree Lighting Ceremony"
-  ],
-  [
-   "/christmas-events/belamuhely-hangszerkeszito-muhely-extra-masodik-kerulet-hu",
-   "2026-12-12",
-   "/christmas-events/budapest-hu",
-   "Bélaműhely: hangszerkészítő műhely EXTRA"
-  ],
-  [
-   "/christmas-events/belen-de-la-basilica-pontificia-de-san-miguel-madrid-es",
-   "2027-01-10",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén de la Basílica Pontificia de San Miguel"
-  ],
-  [
-   "/christmas-events/belen-de-la-comunidad-de-madrid-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén de la Comunidad de Madrid"
-  ],
-  [
    "/christmas-events/belen-de-la-junta-de-fuencarral-el-pardo-madrid-es",
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-madrid",
    "Belén de la Junta de Fuencarral - El Pardo"
   ],
   [
-   "/christmas-events/belen-de-la-junta-municipal-de-latina-en-el-auditorio-paco-de-lucia-madrid-es",
-   "2027-01-11",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén de la Junta Municipal de Latina en el Auditorio Paco de Lucía"
-  ],
-  [
-   "/christmas-events/belen-de-la-parroquia-de-san-bonifacio-madrid-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén de la Parroquia de San Bonifacio"
-  ],
-  [
-   "/christmas-events/belen-de-san-rafael-en-chamartin-madrid-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén de San Rafael en Chamartín"
-  ],
-  [
-   "/christmas-events/belen-del-ayuntamiento-de-madrid-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén del Ayuntamiento de Madrid"
-  ],
-  [
    "/christmas-events/belen-del-centro-cultural-francisco-fatou-madrid-es",
    "2027-01-08",
    "/christmas-events/navidad-con-ninos-madrid",
    "Belén del Centro Cultural Francisco Fatou"
-  ],
-  [
-   "/christmas-events/belen-del-centro-cultural-nicolas-salmeron-madrid-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén del Centro Cultural Nicolás Salmerón"
-  ],
-  [
-   "/christmas-events/belen-del-centro-dotacional-integrado-angel-del-rio-madrid-es",
-   "2027-01-08",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén del Centro Dotacional Integrado Angel del Río"
-  ],
-  [
-   "/christmas-events/belen-del-museo-de-historia-de-madrid-es",
-   "2027-02-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén del Museo de Historia de Madrid"
-  ],
-  [
-   "/christmas-events/belen-del-museo-de-san-isidro-madrid-es",
-   "2027-01-17",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén del Museo de San Isidro"
-  ],
-  [
-   "/christmas-events/belen-del-principe-en-el-palacio-real-de-madrid-es",
-   "2027-01-10",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén del Príncipe en el Palacio Real de Madrid"
-  ],
-  [
-   "/christmas-events/belen-monumental-siciliano-madrid-es",
-   "2027-01-08",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén Monumental Siciliano"
-  ],
-  [
-   "/christmas-events/belen-monumental-un-sueno-hecho-belen-madrid-es",
-   "2027-01-07",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén monumental Un sueño hecho Belén"
   ],
   [
    "/christmas-events/belen-napolitano-del-convento-de-san-jose-y-santa-ana-madrid-es",
@@ -965,22 +214,10 @@
    "Belén tipo napolitano"
   ],
   [
-   "/christmas-events/belen-tradicional-popular-en-la-imprenta-municipal-madrid-es",
-   "2027-01-17",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belén Tradicional Popular en la Imprenta Municipal"
-  ],
-  [
    "/christmas-events/belenes-del-templo-de-madrid-es",
    "2027-01-11",
    "/christmas-events/navidad-con-ninos-madrid",
    "Belenes del Templo de Madrid"
-  ],
-  [
-   "/christmas-events/belenes-el-corte-ingles-madrid-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belenes El Corte Inglés"
   ],
   [
    "/christmas-events/belenes-en-barajas-madrid-es",
@@ -1001,58 +238,16 @@
    "Belenes en Chamberí"
   ],
   [
-   "/christmas-events/belenes-en-hortaleza-madrid-es",
-   "2027-01-07",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belenes en Hortaleza"
-  ],
-  [
-   "/christmas-events/belenes-en-retiro-madrid-es",
-   "2027-01-10",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belenes en Retiro"
-  ],
-  [
    "/christmas-events/belenes-puente-de-vallecas-madrid-es",
    "2027-01-05",
    "/christmas-events/navidad-con-ninos-madrid",
    "Belenes Puente de Vallecas"
   ],
   [
-   "/christmas-events/belter-souls-tributo-a-la-navidad-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Belter Souls - Tributo a la Navidad"
-  ],
-  [
-   "/christmas-events/bentleyville-tour-of-lights-duluth-mn",
-   "2026-12-26",
-   "/christmas-events/duluth-mn",
-   "Bentleyville Tour of Lights"
-  ],
-  [
    "/christmas-events/berriro-mundu-berri-bat-pamplona-es",
    "2026-11-29",
    "/christmas-events/navidad-con-ninos-pamplona",
    "Berriro mundu berri bat"
-  ],
-  [
-   "/christmas-events/betlehem-csodaja-a-kalimpa-babszinhaz-eloadasa-erzsebetvaros-hu",
-   "2026-12-10",
-   "/christmas-events/budapest-hu",
-   "Betlehem csodája, a Kalimpa Bábszínház előadása"
-  ],
-  [
-   "/christmas-events/bienvenida-al-solsticio-de-invierno-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Bienvenida al solsticio de invierno"
-  ],
-  [
-   "/christmas-events/bikas-parki-jegpalya-megnyito-ujbuda-hu",
-   "2027-02-28",
-   "/christmas-events/budapest-hu",
-   "Bikás parki jégpálya megnyitó"
   ],
   [
    "/christmas-events/bilbao-gabonak-programa-navidad-en-bilbao-es",
@@ -1085,58 +280,16 @@
    "Bilbao TX Fest 2026: \"Los cuentos de Sibyla"
   ],
   [
-   "/christmas-events/bosnyak-teri-jegpalya-es-adventi-vasar-zuglo-hu",
-   "2026-12-27",
-   "/christmas-events/budapest-hu",
-   "Bosnyák téri jégpálya és adventi vásár"
-  ],
-  [
-   "/christmas-events/bosnyak-teri-megnyito-es-adventi-gyertyagyujtas-zuglo-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Bosnyák téri megnyitó és adventi gyertyagyújtás"
-  ],
-  [
    "/christmas-events/breakfast-with-santa-at-ski-dubai-ae",
    "2026-12-25",
    "",
    "Breakfast with Santa at Ski Dubai"
   ],
   [
-   "/christmas-events/breakfast-with-santa-at-the-civic-amarillo-holiday-market-tx",
-   "2026-12-05",
-   "/christmas-events/amarillo-tx",
-   "Brunch with Santa at the Civic Amarillo Holiday Market"
-  ],
-  [
-   "/christmas-events/breakfast-with-santa-la-grange-ky",
-   "2026-12-12",
-   "/christmas-events/la-grange-ky",
-   "Breakfast with Santa"
-  ],
-  [
-   "/christmas-events/brighter-winter-nights-anchorage-ak",
-   "2027-01-31",
-   "/christmas-events/anchorage-ak",
-   "Brighter Winter Nights"
-  ],
-  [
    "/christmas-events/buble-christmas-tribute-pamplona-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-pamplona",
    "Bublé Christmas Tribute"
-  ],
-  [
-   "/christmas-events/budapest-5-kerulet-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Mikulás és advent az V. kerületben, Belváros-Lipótvárosban (2026)"
-  ],
-  [
-   "/christmas-events/budavari-adventi-vasar-hu",
-   "2027-01-03",
-   "/christmas-events/budapest-hu",
-   "Budavári Adventi Vásár"
   ],
   [
    "/christmas-events/cabalgata-de-los-reyes-magos-de-villa-de-vallecas-madrid-es",
@@ -1163,64 +316,16 @@
    "Cabalgata de Reyes de Ciudad Lineal"
   ],
   [
-   "/christmas-events/cabalgata-de-reyes-en-chamartin-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cabalgata de Reyes en Chamartín"
-  ],
-  [
-   "/christmas-events/cabalgata-de-reyes-magos-de-usera-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cabalgata de Reyes Magos de Usera"
-  ],
-  [
-   "/christmas-events/cabalgata-de-reyes-magos-distrito-latina-madrid-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cabalgata de Reyes Magos 2027 Distrito Latina"
-  ],
-  [
-   "/christmas-events/caga-tio-solidari-centre-civic-navas-barcelona-es",
-   "2026-12-18",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Caga Tió Solidari en el Centre Cívic Navas"
-  ],
-  [
-   "/christmas-events/camphor-heights-holiday-festival-lakeland-fl",
-   "2026-12-05",
-   "/christmas-events/lakeland-fl",
-   "Camphor Heights Holiday Festival"
-  ],
-  [
    "/christmas-events/cantajuego-yo-quiero-ser-bilbao-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Cantajuego: Yo quiero ser"
   ],
   [
-   "/christmas-events/caramel-et-nougat-ferme-la-porte-il-fait-froid-paris",
-   "2026-12-05",
-   "",
-   "Caramel et nougat, ferme la porte il fait froid !"
-  ],
-  [
    "/christmas-events/caravana-navidena-del-comercio-apaneca-sv",
    "2026-12-05",
    "",
    "Caravana Navideña del Comercio 2026"
-  ],
-  [
-   "/christmas-events/carillon-de-navidad-en-el-centro-cultural-daoiz-y-velarde-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Carillón de Navidad en el Centro Cultural Daoíz y Velarde"
-  ],
-  [
-   "/christmas-events/carillon-de-navidad-en-el-parque-de-berlin-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Carillón de Navidad en el Parque de Berlín"
   ],
   [
    "/christmas-events/carillon-de-navidad-en-la-plaza-de-espana-madrid-es",
@@ -1235,64 +340,10 @@
    "Carols by Candlelight Under the Tree"
   ],
   [
-   "/christmas-events/cartoonest-pas-si-mal-cine-concert-pour-enfants-paris",
-   "2026-12-20",
-   "",
-   "Cartoon’est pas si mal, ciné-concert pour enfants"
-  ],
-  [
-   "/christmas-events/casalet-de-nadal-carta-a-ses-majestats-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Casalet de Nadal: Carta a ses Majestats"
-  ],
-  [
-   "/christmas-events/casalet-de-nadal-taller-decoracions-de-fusta-per-a-penjar-a-larbre-barcelona-es",
-   "2026-12-21",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Casalet de Nadal: Taller 'Decoracions de fusta per a penjar a l'arbre'"
-  ],
-  [
-   "/christmas-events/casse-noisette-bolero-et-lac-des-cygnes-a-saint-sulpice-paris",
-   "2026-12-30",
-   "",
-   "Casse-Noisette, Boléro et Lac des cygnes à Saint-Sulpice"
-  ],
-  [
-   "/christmas-events/casse-noisette-conte-musical-de-noel-en-aquarelle-paris",
-   "2026-11-28",
-   "",
-   "Casse-Noisette : conte musical de Noël en aquarelle"
-  ],
-  [
-   "/christmas-events/chinchulina-y-el-ruisenor-de-la-china-madrid-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Chinchulina y el Ruiseñor de la China"
-  ],
-  [
-   "/christmas-events/chorales-gospel-lectures-et-atelier-casse-noisette-a-beaugrenelle",
-   "2026-12-19",
-   "",
-   "Chorales gospel, lectures et atelier casse-noisette à Beaugrenelle"
-  ],
-  [
    "/christmas-events/christmas-at-gaylord-national-with-ice-national-harbor-md",
    "2027-01-03",
    "",
    "Christmas at Gaylord National with ICE!"
-  ],
-  [
-   "/christmas-events/christmas-at-old-fort-concho-san-angelo-tx",
-   "2026-12-06",
-   "/christmas-events/san-angelo-tx",
-   "Christmas at Old Fort Concho"
-  ],
-  [
-   "/christmas-events/christmas-at-russell-square-waterloo-ia",
-   "2026-12-05",
-   "/christmas-events/waterloo-ia",
-   "Christmas at Russell Square"
   ],
   [
    "/christmas-events/christmas-concert-with-dubai-city-sound-alserkal-ae",
@@ -1311,12 +362,6 @@
    "2026-12-25",
    "",
    "Christmas Day Family Lunch at The Irish Village"
-  ],
-  [
-   "/christmas-events/christmas-family-ball-fort-lauderdale-fl",
-   "2026-12-29",
-   "/christmas-events/fort-lauderdale-fl",
-   "Christmas Family Ball"
   ],
   [
    "/christmas-events/christmas-family-brunch-nh-collection-ibn-battuta-dubai-ae",
@@ -1345,7 +390,7 @@
   [
    "/christmas-events/christmas-in-paphos-with-kids",
    "2027-01-03",
-   "",
+   "/christmas-events/paphos-cy",
    "Christmas in Paphos with Kids (2026)"
   ],
   [
@@ -1365,12 +410,6 @@
    "2026-12-19",
    "",
    "Christmas Party with Santa at Kids Zone"
-  ],
-  [
-   "/christmas-events/christmas-past-and-present-grand-island-ne",
-   "2026-12-12",
-   "/christmas-events/grand-island-ne",
-   "Christmas Past & Present"
   ],
   [
    "/christmas-events/christmas-tree-lighting-at-al-habtoor-polo-resort-dubai-ae",
@@ -1409,18 +448,6 @@
    "Christmas Workshop for Children Ages 6 to 12 (Weihnachtswerkstatt)"
   ],
   [
-   "/christmas-events/cibeles-sobre-hielo-madrid-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cibeles sobre hielo"
-  ],
-  [
-   "/christmas-events/ciclo-navidad-en-familia-en-la-cineteca-de-matadero-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Ciclo Navidad en familia en la Cineteca de Matadero"
-  ],
-  [
    "/christmas-events/cinderella-panto-new-covent-garden-theatre-dubai-ae",
    "2026-12-24",
    "",
@@ -1445,52 +472,10 @@
    "Cine infantil: \"Los Aristogatos"
   ],
   [
-   "/christmas-events/cinema-des-petits-paris",
-   "2026-12-26",
-   "",
-   "Cinéma des petits"
-  ],
-  [
-   "/christmas-events/cinema-el-gran-nadal-dels-animals-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Cinema \"El gran nadal dels animals\""
-  ],
-  [
    "/christmas-events/cinema-under-the-stars-a-christmas-carol-jlt-dubai-ae",
    "2026-12-26",
    "",
    "Cinema Under the Stars: A Christmas Carol"
-  ],
-  [
-   "/christmas-events/circoland-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "CircOland"
-  ],
-  [
-   "/christmas-events/city-ballet-the-nutcracker-escondido-ca",
-   "2026-12-23",
-   "/christmas-events/escondido-ca",
-   "City Ballet’s The Nutcracker"
-  ],
-  [
-   "/christmas-events/clasicos-de-jordi-bertran-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Clásicos de Jordi Bertran"
-  ],
-  [
-   "/christmas-events/clic-clac-mu-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Clic, Clac, Mú!"
-  ],
-  [
-   "/christmas-events/cluedo-de-arboles-en-fuente-del-berro-madrid-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cluedo de árboles en Fuente del Berro"
   ],
   [
    "/christmas-events/coca-cola-arena-winter-market-dubai-ae",
@@ -1499,88 +484,10 @@
    "Coca-Cola Arena Winter Market"
   ],
   [
-   "/christmas-events/community-christmas-tree-lighting-folsom-ca",
-   "2026-12-04",
-   "/christmas-events/folsom-ca",
-   "Community Christmas Tree Lighting"
-  ],
-  [
-   "/christmas-events/concert-alondra-bentley-sings-for-children-its-holidays-barcelona-es",
-   "2026-12-13",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concert \"Alondra Bentley Sings for Children, It’s Holidays!\""
-  ],
-  [
-   "/christmas-events/concert-cloenda-de-lany-gaudi-a-sagrada-familia-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concert cloenda de l’any Gaudí a Sagrada Família"
-  ],
-  [
-   "/christmas-events/concert-conte-de-nadal-de-charles-dickens-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concert \"Conte de Nadal\", de Charles Dickens"
-  ],
-  [
-   "/christmas-events/concert-de-la-sainte-lucie-paris",
-   "2026-12-07",
-   "",
-   "Concert de la Sainte-Lucie"
-  ],
-  [
-   "/christmas-events/concert-de-nadal-banda-simfonica-de-les-corts-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concert de Nadal \"Banda Simfònica de les Corts\""
-  ],
-  [
-   "/christmas-events/concert-de-nadales-per-al-barri-sagrada-familia-barcelona-es",
-   "2026-12-17",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concert de Nadales per al barri Sagrada Família"
-  ],
-  [
-   "/christmas-events/concert-de-noel-du-choeur-denfants-sotto-voce-paris",
-   "2026-12-06",
-   "",
-   "Concert de Noël du Chœur d’enfants Sotto Voce"
-  ],
-  [
-   "/christmas-events/concert-de-noel-du-conservatoire-mozart-paris",
-   "2026-12-17",
-   "",
-   "Concert de Noël du Conservatoire Mozart"
-  ],
-  [
-   "/christmas-events/concert-densemble-de-saxophones-a-la-gaite-lyrique-paris",
-   "2026-12-12",
-   "",
-   "Concert d’ensemble de saxophones à la Gaîté Lyrique"
-  ],
-  [
-   "/christmas-events/concert-dinauguracio-del-pessebre-de-pedralbes-barcelona-es",
-   "2026-12-11",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concert d'inauguració del pessebre de Pedralbes"
-  ],
-  [
-   "/christmas-events/concert-el-elfo-cantor-una-microopera-nadalenca-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concert \"El elfo cantor: una microòpera nadalenca\""
-  ],
-  [
    "/christmas-events/concertos-de-natal-igrejas-alhadas-vila-verde-alqueidao-e-marinha-das-ondas-pt",
    "2026-12-20",
    "/christmas-events/natal-com-criancas-figueira-da-foz",
    "Concertos de Natal - Igrejas do concelho"
-  ],
-  [
-   "/christmas-events/concierto-de-la-orquesta-la-musica-del-reciclaje-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Concierto de la Orquesta La Música del Reciclaje"
   ],
   [
    "/christmas-events/concierto-de-navidad-de-la-banda-de-musica-de-la-policia-municipal-de-madrid-es",
@@ -1589,106 +496,10 @@
    "Concierto de Navidad de la Banda de Música de la Policía Municipal de Madrid"
   ],
   [
-   "/christmas-events/concierto-de-navidad-talentos-en-ascenso-madrid-es",
-   "2026-12-26",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Concierto de Navidad Talentos en Ascenso"
-  ],
-  [
-   "/christmas-events/concierto-de-navidad-voces-para-la-convivencia-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Concierto de Navidad Voces para la convivencia"
-  ],
-  [
-   "/christmas-events/conciertos-para-bebes-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Conciertos para bebés"
-  ],
-  [
-   "/christmas-events/conciertos-para-bebes-musicalmente-con-paulo-lameiro-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Conciertos para bebés. Musicalmente con Paulo Lameiro"
-  ],
-  [
-   "/christmas-events/concurs-de-punts-de-llibre-al-mercat-dominical-de-sant-antoni-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Concurs de punts de llibre al Mercat Dominical de Sant Antoni"
-  ],
-  [
-   "/christmas-events/contacontes-als-patis-oberts-de-les-escoles-bressol-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Contacontes als patis oberts de les escoles bressol"
-  ],
-  [
-   "/christmas-events/conte-taller-en-angles-a-carrec-de-my-english-house-academy-les-barcelona-es",
-   "2026-12-10",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Conte - taller en anglès, a càrrec de \"My English House Academy - Les Corts\""
-  ],
-  [
-   "/christmas-events/contes-du-ventre-rond-avec-nathalie-bondoux-paris",
-   "2026-12-05",
-   "",
-   "Contes du ventre rond, avec Nathalie Bondoux"
-  ],
-  [
-   "/christmas-events/contes-du-vietnam-cetait-le-debut-paris",
-   "2026-12-12",
-   "",
-   "Contes du Vietnam : C’était le début"
-  ],
-  [
-   "/christmas-events/contes-explicam-un-nadal-torre-llobeta-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Explica'm un Nadal: cuentos en la Torre Llobeta"
-  ],
-  [
-   "/christmas-events/copiar-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Copiar"
-  ],
-  [
-   "/christmas-events/cowboy-christmas-meet-cowboy-santa-at-the-briscoe-san-antonio-tx",
-   "2026-12-06",
-   "/christmas-events/san-antonio-tx",
-   "Cowboy Christmas: Meet Cowboy Santa at the Briscoe"
-  ],
-  [
    "/christmas-events/crafts-cocoa-and-community-washington-dc",
    "2026-12-01",
    "",
    "Crafts, Cocoa, and Community"
-  ],
-  [
-   "/christmas-events/crassh-babies-1-0-de-wetumtum-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Crassh_Babies 1.0, de WeTumTum"
-  ],
-  [
-   "/christmas-events/csaladi-csodavaro-adventi-keszulodes-kispest-hu",
-   "2026-11-28",
-   "/christmas-events/budapest-hu",
-   "Családi csodaváró adventi készülődés"
-  ],
-  [
-   "/christmas-events/csepeli-jegpark-hu",
-   "2026-11-20",
-   "/christmas-events/budapest-hu",
-   "Csepeli Jégpark"
-  ],
-  [
-   "/christmas-events/cuentacuentos-el-hada-de-los-deseos-madrid-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cuentacuentos: El Hada de los Deseos"
   ],
   [
    "/christmas-events/cuentacuentos-izare-rock-zizare-bilbao-es",
@@ -1697,46 +508,10 @@
    "Cuentacuentos: \"Izare Rock Zizare"
   ],
   [
-   "/christmas-events/cuentacuentos-navidades-en-la-granja-madrid-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cuentacuentos: Navidades en la Granja"
-  ],
-  [
    "/christmas-events/cuentacuentos-shh-we-have-a-plan-bilbao-es",
    "2026-11-28",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Cuentacuentos: \"SHH! WE HAVE A PLAN"
-  ],
-  [
-   "/christmas-events/cuentacuentos-una-navidad-diferente-cia-colores-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Cuentacuentos: Una Navidad Diferente, Cía Colores"
-  ],
-  [
-   "/christmas-events/cuentos-navidenos-con-andrea-ortuzar-madrid-es",
-   "2026-12-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "'Cuentos navideños' con Andrea Ortúzar"
-  ],
-  [
-   "/christmas-events/dalanota-y-las-navidades-del-mundo-madrid-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "DaLaNota y las navidades del mundo"
-  ],
-  [
-   "/christmas-events/danny-bain-es-agoston-bela-zenes-meses-hangszerbemutatoja-erzsebetvaros-hu",
-   "2026-12-11",
-   "/christmas-events/budapest-hu",
-   "Danny Bain és Ágoston Béla zenés-mesés hangszerbemutatója"
-  ],
-  [
-   "/christmas-events/dans-le-panier-du-petit-chaperon-rouge-atelier-serigraphie-paris",
-   "2026-12-05",
-   "",
-   "Dans le panier du petit chaperon rouge, atelier sérigraphie"
   ],
   [
    "/christmas-events/das-geheimnis-der-weihnachtswichtel-the-secret-of-the-christmas-elves-namur-be",
@@ -1757,64 +532,10 @@
    "Decorate a Gingerbread House!"
   ],
   [
-   "/christmas-events/dentro-del-laberinto-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Dentro del laberinto"
-  ],
-  [
    "/christmas-events/die-himmelskinder-weihnacht-the-sky-childrens-christmas-leuven-be",
    "2026-12-05",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Die Himmelskinder-Weihnacht (The Sky Children's Christmas)"
-  ],
-  [
-   "/christmas-events/diotoro-magyar-tancmuveszeti-egyetem-matyasfold-es-kornyeke-hu",
-   "2026-12-08",
-   "/christmas-events/budapest-hu",
-   "Diótörő, Magyar Táncművészeti Egyetem"
-  ],
-  [
-   "/christmas-events/diotoro-marika-alma-kobanya-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Diótörő-Marika álma"
-  ],
-  [
-   "/christmas-events/dissabte-festiu-de-nadal-al-mercat-del-felip-ii-barcelona-es",
-   "2026-11-28",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Dissabte Festiu de Nadal al Mercat del Felip II"
-  ],
-  [
-   "/christmas-events/donde-viven-los-comelibros-madrid-es",
-   "2026-11-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Donde viven los comelibros"
-  ],
-  [
-   "/christmas-events/donem-la-benvinguda-al-nadal-encesa-dels-llums-de-nadal-a-nou-barcelona-es",
-   "2026-11-26",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Donem la benvinguda al Nadal: Encesa dels llums de Nadal a Nou Barris"
-  ],
-  [
-   "/christmas-events/downtown-cookie-crawl-menomonee-falls-wi",
-   "2026-12-05",
-   "/christmas-events/menomonee-falls-wi",
-   "Downtown Cookie Crawl"
-  ],
-  [
-   "/christmas-events/eastport-yacht-club-lights-parade-annapolis-md",
-   "2026-12-12",
-   "/christmas-events/annapolis-md",
-   "Eastport Yacht Club Lights Parade"
-  ],
-  [
-   "/christmas-events/eco-artesanos-de-oriente-regalos-para-los-reyes-magos-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Eco-artesanos de Oriente: regalos para los Reyes Magos"
   ],
   [
    "/christmas-events/egerszegi-advent-zalaegerszeg-hu",
@@ -1823,112 +544,16 @@
    "Egerszegi Advent"
   ],
   [
-   "/christmas-events/el-arbol-jugueton-la-arana-la-mariposa-y-el-pulpo-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El Árbol Juguetón, la Araña, la Mariposa y el Pulpo"
-  ],
-  [
-   "/christmas-events/el-bistro-de-julieta-madrid-es",
-   "2026-12-31",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El Bistró de Julieta"
-  ],
-  [
-   "/christmas-events/el-cascanueces-alcira-alonso-teatro-presidente-san-salvador-sv",
-   "2026-12-20",
-   "",
-   "El Cascanueces de Alcira Alonso 2026"
-  ],
-  [
    "/christmas-events/el-cascanueces-y-el-rey-de-los-gatos-de-almozandia-teatro-zaragoza-es",
    "2026-12-28",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "El Cascanueces y el rey de los gatos de Almozandia Teatro"
   ],
   [
-   "/christmas-events/el-cascanueces-y-el-rey-de-los-ratones-teatro-nacional-santa-ana-sv",
-   "2026-12-13",
-   "",
-   "El Cascanueces y el Rey de los Ratones 2026"
-  ],
-  [
-   "/christmas-events/el-circo-de-las-marionetas-madrid-es",
-   "2026-12-13",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El circo de las marionetas"
-  ],
-  [
-   "/christmas-events/el-conejito-que-queria-bizcocho-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El conejito que quería bizcocho"
-  ],
-  [
    "/christmas-events/el-gigante-y-la-navidad-de-la-compania-sol-y-tierra-zaragoza-es",
    "2026-12-28",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "El Gigante y la Navidad de la compañía Sol y Tierra"
-  ],
-  [
-   "/christmas-events/el-madrid-de-todos-los-cielos-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El Madrid de todos los cielos"
-  ],
-  [
-   "/christmas-events/el-mejor-regalo-de-los-reyes-magos-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El mejor regalo de los Reyes Magos"
-  ],
-  [
-   "/christmas-events/el-pare-noel-visita-el-mercat-dominical-de-sant-antoni-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "El Pare Noel visita el Mercat Dominical de Sant Antoni"
-  ],
-  [
-   "/christmas-events/el-patge-reial-visita-lesseps-barcelona-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "El Patge Reial visita Lesseps"
-  ],
-  [
-   "/christmas-events/el-principe-que-no-sabia-jugar-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El príncipe que no sabía jugar"
-  ],
-  [
-   "/christmas-events/el-tesoro-escondido-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El tesoro escondido"
-  ],
-  [
-   "/christmas-events/el-tour-de-los-muppets-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El tour de los Muppets"
-  ],
-  [
-   "/christmas-events/el-traje-nuevo-del-emperador-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "El traje nuevo del emperador"
-  ],
-  [
-   "/christmas-events/el-trenet-de-la-verneda-de-sant-marti-barcelona-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "El Trenet de la Verneda de Sant Martí"
-  ],
-  [
-   "/christmas-events/elf-the-musical-montgomery-al",
-   "2026-12-27",
-   "/christmas-events/montgomery-al",
-   "Elf The Musical"
   ],
   [
    "/christmas-events/elf-the-musical-riverland-dubai-parks-and-resorts-ae",
@@ -1943,40 +568,10 @@
    "Elfiñena el musical -Racún Teatro"
   ],
   [
-   "/christmas-events/elmer-el-elefante-de-colores-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Elmer, el elefante de colores"
-  ],
-  [
-   "/christmas-events/els-pastorets-del-foment-martinenc-a-carrec-dabraxas-teatre-barcelona-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Els Pastorets del Foment Martinenc, a càrrec d'Abraxas Teatre"
-  ],
-  [
-   "/christmas-events/els-pastorets-dels-lluisos-barcelona-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Els Pastorets dels Lluïsos"
-  ],
-  [
    "/christmas-events/elurretako-erregina-san-sebastian-es",
    "2026-12-30",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Elurretako erregina"
-  ],
-  [
-   "/christmas-events/emociones-y-mil-lecciones-con-laura-herrera-caro-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "¡Emociones y mil lecciones! con Laura Herrera Caro"
-  ],
-  [
-   "/christmas-events/encendido-del-alumbrado-madrileno-madrid-es",
-   "2026-11-23",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Encendido del alumbrado madrileño"
   ],
   [
    "/christmas-events/encendido-del-arbol-de-la-navidad-madrid-es",
@@ -2021,160 +616,10 @@
    "Era uma vez nos Jardins do Marquês, O Natal"
   ],
   [
-   "/christmas-events/espectacle-de-magia-strafalari-a-carrec-del-mag-lari-barcelona-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle de màgia \"Strafalari\", a càrrec del Mag Lari"
-  ],
-  [
-   "/christmas-events/espectacle-de-titelles-laneguet-lleig-amb-la-cia-la-puntual-nestor-barcelona-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle de titelles \"L'aneguet lleig\", amb la Cia. La Puntual - Néstor Navarro"
-  ],
-  [
-   "/christmas-events/espectacle-el-secret-lluminos-del-super3-el-musical-barcelona-es",
-   "2027-01-17",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle 'El secret lluminós del Super3, el musical'"
-  ],
-  [
-   "/christmas-events/espectacle-els-pastorets-de-vallvidrera-barcelona-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle \"Els Pastorets de Vallvidrera\""
-  ],
-  [
-   "/christmas-events/espectacle-en-tomeu-el-ratoli-que-anava-a-peu-cia-deliri-barcelona-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle \"En Tomeu, el ratolí que anava a peu - Cia Deliri\""
-  ],
-  [
-   "/christmas-events/espectacle-familiar-el-baul-magico-tributo-a-disney-barcelona-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle familiar \"El Baul Mágico - Tributo a Disney\""
-  ],
-  [
-   "/christmas-events/espectacle-familiar-el-fil-invisible-a-carrec-de-la-cia-viu-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle familiar \"El fil invisible\", a càrrec de la Cia., Viu el teatre!"
-  ],
-  [
-   "/christmas-events/espectacle-familiar-el-petit-princep-barcelona-es",
-   "2027-01-31",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle familiar \"El Petit Príncep\""
-  ],
-  [
-   "/christmas-events/espectacle-familiar-la-biblioteca-secreta-de-magia-kids-barcelona-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle familiar \"La biblioteca secreta\", de Màgia Kids"
-  ],
-  [
-   "/christmas-events/espectacle-familiar-la-nit-mes-magica-amb-mariona-trias-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle familiar \"La nit més màgica\", amb Mariona Trias"
-  ],
-  [
-   "/christmas-events/espectacle-familiar-mac-mec-mic-a-carrec-de-la-cia-la-perla-29-barcelona-es",
-   "2027-01-17",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle familiar \"MAC MEC MIC\", a càrrec de la Cia. La Perla 29"
-  ],
-  [
-   "/christmas-events/espectacle-familiar-nadales-en-familia-barcelona-es",
-   "2026-12-17",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle familiar \"Nadales en família\""
-  ],
-  [
-   "/christmas-events/espectacle-fofito-presenta-viva-el-circo-barcelona-es",
-   "2027-01-10",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle \"Fofito presenta: Viva el circo\""
-  ],
-  [
-   "/christmas-events/espectacle-mal-de-closca-cia-la-cabuda-barcelona-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle \"Mal de Closca- Cia La Cabuda\""
-  ],
-  [
-   "/christmas-events/espectacle-nallar-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle \"Nallar\""
-  ],
-  [
-   "/christmas-events/espectacle-operacio-opera-barcelona-es",
-   "2026-12-31",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle 'Operació Òpera'"
-  ],
-  [
-   "/christmas-events/espectacle-planeta-jurasico-experience-barcelona-es",
-   "2027-01-10",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Espectacle \"Planeta Jurásico Experience\""
-  ],
-  [
-   "/christmas-events/estampacion-de-postales-navidenas-sostenible-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Estampación de postales navideñas sostenible"
-  ],
-  [
-   "/christmas-events/eszter-lanc-mesezenekar-gyerekkoncertje-es-a-mikulas-erzsebetvaros-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Eszter-lánc mesezenekar gyerekkoncertje és a Mikulás az Ünnepvárón"
-  ],
-  [
-   "/christmas-events/et-si-on-racontait-des-salades-contes-du-potager-paris",
-   "2026-12-12",
-   "",
-   "Et si on racontait des salades, contes du potager"
-  ],
-  [
-   "/christmas-events/european-christmas-market-huntington-beach-ca",
-   "2027-01-03",
-   "/christmas-events/huntington-beach-ca",
-   "European Christmas Market"
-  ],
-  [
-   "/christmas-events/exposicio-diorama-de-nadal-barcelona-es",
-   "2027-01-08",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Exposició \"Diorama de Nadal\""
-  ],
-  [
-   "/christmas-events/exposicio-per-nadal-tota-joguina-val-barcelona-es",
-   "2026-11-28",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Exposició 'Per Nadal, tota joguina val?'"
-  ],
-  [
-   "/christmas-events/exposition-bon-appetit-les-animaux-a-la-bibliotheque-andre-malraux-paris",
-   "2026-12-31",
-   "",
-   "Exposition Bon appétit les animaux ! à la bibliothèque André Malraux"
-  ],
-  [
    "/christmas-events/fairmonts-23rd-annual-tree-lighting-ceremony-washington-dc",
    "2026-12-01",
    "",
    "Fairmont's 23rd Annual Tree Lighting Ceremony"
-  ],
-  [
-   "/christmas-events/faites-vos-fetes-paris",
-   "2026-12-05",
-   "",
-   "Faites vos Fêtes"
   ],
   [
    "/christmas-events/family-christmas-market-at-alice-salomon-platz-berlin-be",
@@ -2189,82 +634,16 @@
    "Family Concert: Christmas with Astrid Lindgren"
   ],
   [
-   "/christmas-events/fanfare-au-cirque-electrique-paris",
-   "2026-12-27",
-   "",
-   "Fanfare au Cirque Électrique"
-  ],
-  [
-   "/christmas-events/fantasia-de-navidad-orquesta-filarmonica-teatro-presidente-san-salvador-sv",
-   "2026-12-02",
-   "",
-   "Fantasía de Navidad, Orquesta Filarmónica de El Salvador 2026"
-  ],
-  [
-   "/christmas-events/ferencvarosi-adventi-vasar-es-elmenyter-a-ferenc-teren-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Ferencvárosi Adventi Vásár és Élménytér a Ferenc téren"
-  ],
-  [
    "/christmas-events/feria-de-santo-tomas-en-bilbao-es",
    "2026-12-21",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Feria de Santo Tomás en Bilbao"
   ],
   [
-   "/christmas-events/festa-de-nadal-amb-xocolatada-solidaria-barcelona-es",
-   "2026-12-18",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Festa de Nadal amb xocolatada solidària"
-  ],
-  [
-   "/christmas-events/festa-pintacares-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Festa Pintacares"
-  ],
-  [
-   "/christmas-events/festival-cap-nen-sense-joguina-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Festival 'Cap Nen Sense Joguina'"
-  ],
-  [
-   "/christmas-events/festival-coros-en-el-barrio-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Festival Coros en el Barrio 2026"
-  ],
-  [
-   "/christmas-events/festival-de-bandas-navidenas-plaza-mundo-usulutan-sv",
-   "2026-11-22",
-   "",
-   "Festival de Bandas Navideñas 2026"
-  ],
-  [
-   "/christmas-events/festival-navideno-parque-central-metapan-sv",
-   "2026-12-27",
-   "",
-   "Festival Navideño de Metapán 2026"
-  ],
-  [
-   "/christmas-events/festival-of-christmas-petaluma-ca",
-   "2026-12-13",
-   "/christmas-events/santa-rosa-ca",
-   "Festival of Christmas"
-  ],
-  [
    "/christmas-events/festival-of-lights-kensington-md",
    "2027-01-01",
    "",
    "Festival of Lights"
-  ],
-  [
-   "/christmas-events/festival-of-trees-white-bear-lake-mn",
-   "2026-12-19",
-   "/christmas-events/white-bear-lake-mn",
-   "Festival of Trees"
   ],
   [
    "/christmas-events/festive-santa-weekends-at-the-beach-jbr-dubai-ae",
@@ -2279,36 +658,6 @@
    "Festive Tree Lighting aboard QE2"
   ],
   [
-   "/christmas-events/fira-de-nadal-a-la-sagrada-familia-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Fira de Nadal a la Sagrada Família"
-  ],
-  [
-   "/christmas-events/fira-de-santa-llucia-als-voltants-de-la-catedral-de-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Fira de Santa Llúcia als voltants de la Catedral de Barcelona"
-  ],
-  [
-   "/christmas-events/fira-nadal-al-port-barcelona-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Fira \"Nadal al Port\""
-  ],
-  [
-   "/christmas-events/fira-viu-el-nadal-a-la-barceloneta-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Fira 'Viu el Nadal a la Barceloneta'"
-  ],
-  [
-   "/christmas-events/flopi-flopi-contes-de-bretagne-et-ditalie-paris",
-   "2026-12-12",
-   "",
-   "Flopi Flopi, contes de Bretagne et d’Italie"
-  ],
-  [
    "/christmas-events/fly-me-to-the-moon-pamplona-es",
    "2026-12-29",
    "/christmas-events/navidad-con-ninos-pamplona",
@@ -2321,40 +670,10 @@
    "Fly me to the moon"
   ],
   [
-   "/christmas-events/folkids-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Folkids"
-  ],
-  [
-   "/christmas-events/fordul-az-esztendo-csaladi-vigassag-nemcsics-pestszentlorinc-pestszentimre-hu",
-   "2026-12-29",
-   "/christmas-events/budapest-hu",
-   "„Fordul az esztendő”: családi vígasság Nemcsics Detti vezetésével"
-  ],
-  [
-   "/christmas-events/fort-selden-noches-de-las-luminarias-radium-springs-nm",
-   "2026-12-19",
-   "/christmas-events/las-cruces-nm",
-   "Fort Selden Noche de las Luminarias"
-  ],
-  [
    "/christmas-events/frau-holle-leuven-be",
    "2026-11-21",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Frau Holle"
-  ],
-  [
-   "/christmas-events/garabato-de-escultura-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Garabato de Escultura"
-  ],
-  [
-   "/christmas-events/garabato-de-imaginacion-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Garabato de Imaginación"
   ],
   [
    "/christmas-events/garbeo-cosmico-zaragoza-es",
@@ -2363,52 +682,10 @@
    "Garbeo cósmico"
   ],
   [
-   "/christmas-events/gata-brass-band-en-matadero-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Gata Brass Band en Matadero"
-  ],
-  [
-   "/christmas-events/gingerbread-buffet-drop-in-and-play-green-bay-wi",
-   "2026-12-18",
-   "/christmas-events/green-bay-wi",
-   "Gingerbread Buffet, Drop in and Play"
-  ],
-  [
-   "/christmas-events/gingerbread-house-decorating-pittsburgh-pa",
-   "2026-12-03",
-   "/christmas-events/pittsburgh-pa",
-   "Gingerbread House Decorating"
-  ],
-  [
-   "/christmas-events/gingerbread-lane-la-quinta-ca",
-   "2026-12-19",
-   "/christmas-events/palm-springs-ca",
-   "Gingerbread Lane"
-  ],
-  [
    "/christmas-events/glittery-and-the-sparkle-elf-glittery-und-der-funkelwichtel-bruges-be",
    "2026-12-12",
    "/christmas-events/christmas-in-bruges-with-kids",
    "Glittery and the Sparkle Elf (Glittery und der Funkelwichtel)"
-  ],
-  [
-   "/christmas-events/glowing-gardens-jacksonville-fl",
-   "2027-01-03",
-   "/christmas-events/jacksonville-fl",
-   "Glowing Gardens"
-  ],
-  [
-   "/christmas-events/golgota-gospel-korus-koncertje-karacsonyi-pestszentlorinc-pestszentimre-hu",
-   "2026-12-13",
-   "/christmas-events/budapest-hu",
-   "Golgota Gospel Kórus koncertje: Karácsonyi dallamok"
-  ],
-  [
-   "/christmas-events/graine-de-livres-bebes-paris",
-   "2026-12-19",
-   "",
-   "Graine de livres bébés"
   ],
   [
    "/christmas-events/gran-cabalgata-de-los-reyes-magos-en-tetuan-madrid-es",
@@ -2417,64 +694,10 @@
    "Gran Cabalgata de los Reyes Magos en Tetuán"
   ],
   [
-   "/christmas-events/grand-concert-de-chants-de-noel-a-saint-sulpice-paris",
-   "2026-12-26",
-   "",
-   "Grand concert de chants de Noël à Saint-Sulpice"
-  ],
-  [
-   "/christmas-events/grincs-az-ellophatatlan-karacsony-csepel-hu",
-   "2026-12-19",
-   "/christmas-events/budapest-hu",
-   "Grincs - Az ellophatatlan Karácsony"
-  ],
-  [
-   "/christmas-events/gyermekszinhaz-suszter-es-a-karacsonyi-manok-pesterzsebet-hu",
-   "2026-12-10",
-   "/christmas-events/budapest-hu",
-   "Gyermekszínház - Suszter és a karácsonyi manók"
-  ],
-  [
-   "/christmas-events/hallcrest-vineyards-holiday-market-felton-ca",
-   "2026-12-06",
-   "/christmas-events/santa-cruz-ca",
-   "Hallcrest Vineyards Holiday Market"
-  ],
-  [
-   "/christmas-events/harley-niggi-naggi-basel-ch",
-   "2026-12-05",
-   "/christmas-events/weihnachten-mit-kindern-basel",
-   "Harley Niggi-Näggi"
-  ],
-  [
-   "/christmas-events/harley-niggi-naggi-basel-en-ch",
-   "2026-12-05",
-   "/christmas-events/christmas-in-basel-with-kids",
-   "Harley Niggi-Näggi"
-  ],
-  [
    "/christmas-events/haurtxoko-de-aiete-mari-domingi-ren-bisita-san-sebastian-es",
    "2026-12-24",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Haurtxoko de Aiete: Mari Domingi-ren bisita"
-  ],
-  [
-   "/christmas-events/heartland-music-together-holiday-mini-session-louisville-ky",
-   "2026-12-19",
-   "/christmas-events/louisville-ky",
-   "Heartland Music Together Holiday Mini Session"
-  ],
-  [
-   "/christmas-events/hetk-enne-joule-parnu-ee",
-   "2026-12-06",
-   "",
-   "Hetk enne jõule"
-  ],
-  [
-   "/christmas-events/historias-de-navidad-madrid-es",
-   "2026-12-22",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Historias de Navidad"
   ],
   [
    "/christmas-events/holiday-boat-parade-and-party-washington-dc",
@@ -2483,46 +706,10 @@
    "Holiday Boat Parade & Party"
   ],
   [
-   "/christmas-events/holiday-lamplight-tours-bakersfield-ca",
-   "2026-12-05",
-   "/christmas-events/bakersfield-ca",
-   "Holiday Lamplight Tours"
-  ],
-  [
-   "/christmas-events/holiday-lights-parade-flagstaff-az",
-   "2026-12-12",
-   "/christmas-events/flagstaff-az",
-   "Greater Flagstaff Chamber and Wecom Holiday Lights Parade"
-  ],
-  [
-   "/christmas-events/holiday-makers-market-and-light-the-green-middleton-wi",
-   "2026-11-22",
-   "/christmas-events/madison-wi",
-   "Holiday Makers Market & Light the Green"
-  ],
-  [
    "/christmas-events/holiday-market-and-celebration-washington-dc",
    "2026-11-21",
    "",
    "Holiday Market & Celebration"
-  ],
-  [
-   "/christmas-events/holiday-movies-on-the-plaza-mesa-az",
-   "2027-01-01",
-   "/christmas-events/mesa-az",
-   "Holiday Movies on the Plaza"
-  ],
-  [
-   "/christmas-events/holiday-ride-on-train-atlanta-ga",
-   "2027-01-03",
-   "/christmas-events/atlanta-ga",
-   "Holiday Ride-on Train"
-  ],
-  [
-   "/christmas-events/holiday-spectacular-san-jose-ca",
-   "2026-12-13",
-   "/christmas-events/san-jose-ca",
-   "Holiday Spectacular"
   ],
   [
    "/christmas-events/holiday-tree-lighting-and-fireworks-national-harbor-md",
@@ -2531,58 +718,10 @@
    "Holiday Tree Lighting & Fireworks"
   ],
   [
-   "/christmas-events/holiday-tree-lighting-san-gabriel-ca",
-   "2026-12-01",
-   "/christmas-events/san-gabriel-ca",
-   "Holiday Tree Lighting"
-  ],
-  [
-   "/christmas-events/holle-anyo-a-harlekin-babszinhaz-eloadasa-masodik-kerulet-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Holle anyó: a Harlekin Bábszínház előadása"
-  ],
-  [
-   "/christmas-events/holly-jolly-jamboree-soddy-daisy-tn",
-   "2026-12-04",
-   "/christmas-events/chattanooga-tn",
-   "Holly Jolly Jamboree"
-  ],
-  [
-   "/christmas-events/i-drive-district-holiday-tree-lighting-orlando-fl",
-   "2026-11-20",
-   "/christmas-events/orlando-fl",
-   "I-Drive District Official Holiday Tree Lighting"
-  ],
-  [
    "/christmas-events/ibercaja-xplora-el-gran-rastro-de-los-reyes-magos-zaragoza-es",
    "2026-12-30",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Ibercaja Xplora: El Gran Rastro de los Reyes Magos"
-  ],
-  [
-   "/christmas-events/il-etait-une-fois-larc-de-triomphe-visite-contee-en-famille-paris",
-   "2026-12-19",
-   "",
-   "Il était une fois l’Arc de triomphe, visite contée en famille"
-  ],
-  [
-   "/christmas-events/imaginando-las-cuatro-estaciones-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Imaginando las cuatro estaciones"
-  ],
-  [
-   "/christmas-events/inauguracion-navidena-plaza-kristal-santa-ana-sv",
-   "2026-11-20",
-   "",
-   "Inauguración navideña de Plaza Kristal 2026"
-  ],
-  [
-   "/christmas-events/ingyenes-jegpalya-a-fo-teren-es-a-bekasmegyeri-piac-obuda-bekasmegyer-hu",
-   "2027-01-31",
-   "/christmas-events/budapest-hu",
-   "Ingyenes jégpálya a Fő téren és a Békásmegyeri Piac Közösségi terén"
   ],
   [
    "/christmas-events/ipuin-kontaketa-musikatuak-bilbao-es",
@@ -2603,274 +742,10 @@
    "The Irish Village Christmas Tree Lighting"
   ],
   [
-   "/christmas-events/jakten-pa-jultomtens-verkstad-pa-grona-ladan-sigtuna-se",
-   "2026-11-28",
-   "",
-   "Jakten på jultomtens verkstad på Gröna Ladan 2026"
-  ],
-  [
-   "/christmas-events/jazz-gouter-au-sunset-paris",
-   "2026-12-27",
-   "",
-   "Jazz & Goûter au Sunset"
-  ],
-  [
-   "/christmas-events/jegterasz-budafok-teteny-hu",
-   "2026-12-13",
-   "/christmas-events/budapest-hu",
-   "Jégterasz"
-  ],
-  [
-   "/christmas-events/jo-canto-en-familia-al-nadal-caixaforum-barcelona-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Jo canto en família al Nadal en CaixaForum Barcelona"
-  ],
-  [
    "/christmas-events/jolaboka-cologne-be",
    "2026-12-09",
    "/christmas-events/christmas-in-namur-with-kids",
    "Jolaboka (Cologne)"
-  ],
-  [
-   "/christmas-events/jolabokaflod-burlington-vt",
-   "2026-12-02",
-   "/christmas-events/burlington-vt",
-   "Jolabokaflod"
-  ],
-  [
-   "/christmas-events/jornada-solidaria-de-recollida-de-joguines-juga-te-la-barcelona-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Jornada solidària de recollida de joguines 'Juga-te-la'"
-  ],
-  [
-   "/christmas-events/jozsefvarosi-jegpalya-hu",
-   "2027-01-31",
-   "/christmas-events/budapest-hu",
-   "Józsefvárosi Jégpálya"
-  ],
-  [
-   "/christmas-events/juegos-en-navidad-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Juegos en Navidad"
-  ],
-  [
-   "/christmas-events/jul-och-vinterpyssel-pa-huvudbiblioteket-huddinge-se",
-   "2026-12-21",
-   "",
-   "Jul- och vinterpyssel på Huvudbiblioteket 2026"
-  ],
-  [
-   "/christmas-events/julkonsert-for-hela-familjen-pa-thuleteatern-ornskoldsvik-se",
-   "2026-12-12",
-   "",
-   "Julkonsert för hela familjen på Thuleteatern 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-edsbergs-centrum-se",
-   "2026-12-05",
-   "",
-   "Julmarknad i Edsbergs centrum 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-fullerstaparken-huddinge-se",
-   "2026-12-05",
-   "",
-   "Julmarknad i Fullerstaparken 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-herrang-se",
-   "2026-11-21",
-   "",
-   "Julmarknad i Herräng 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-huddinge-kulturhus-se",
-   "2026-11-28",
-   "",
-   "Julmarknad i Huddinge Kulturhus 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-loharad-se",
-   "2026-11-22",
-   "",
-   "Julmarknad i Lohärad 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-murbo-se",
-   "2026-12-13",
-   "",
-   "Julmarknad i Murbo 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-rissnekyrkan-se",
-   "2026-11-28",
-   "",
-   "Julmarknad i Rissnekyrkan 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-stortorpsparken-huddinge-se",
-   "2026-12-06",
-   "",
-   "Julmarknad i Stortorpsparken 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-tallparken-i-vinslov-se",
-   "2026-11-29",
-   "",
-   "Julmarknad i Tallparken i Vinslöv 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-tralogen-i-steninge-slottsby-sigtuna-se",
-   "2026-12-06",
-   "",
-   "Julmarknad i Trälogen i Steninge slottsby 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-i-tungelsta-tradgardspark-se",
-   "2026-12-12",
-   "",
-   "Julmarknad i Tungelsta trädgårdspark 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-med-luciatag-pa-edenborg-bjasta-se",
-   "2026-12-06",
-   "",
-   "Julmarknad med luciatåg på Edenborg 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-brogardens-bygdegard-norrtalje-se",
-   "2026-11-28",
-   "",
-   "Julmarknad på Brogårdens bygdegård 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-dalaro-se",
-   "2026-12-05",
-   "",
-   "Julmarknad på Dalarö 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-grosshandlartorget-norrtalje-se",
-   "2026-11-29",
-   "",
-   "Julmarknad på Grosshandlartorget 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-lantboa-bredbyn-se",
-   "2026-12-13",
-   "",
-   "Julmarknad på Lantboa 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-odbergska-garden-ornskoldsvik-se",
-   "2026-11-21",
-   "",
-   "Julmarknad på Ödbergska gården 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-overby-gard-sollentuna-se",
-   "2026-12-06",
-   "",
-   "Julmarknad på Överby gård 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-regionmuseet-jul-som-1910-kristianstad-se",
-   "2026-11-29",
-   "",
-   "Julmarknad på Regionmuseet: jul som 1910 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-pa-sjalevads-hembygdsgard-se",
-   "2026-11-28",
-   "",
-   "Julmarknad på Själevads hembygdsgård 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-under-jord-i-tykarpsgrottan-se",
-   "2026-12-04",
-   "",
-   "Julmarknad under jord i Tykarpsgrottan 2026"
-  ],
-  [
-   "/christmas-events/julmarknad-vid-nybergs-torg-sundbyberg-se",
-   "2026-12-05",
-   "",
-   "Julmarknad vid Nybergs torg 2026"
-  ],
-  [
-   "/christmas-events/julpyssel-pa-sahlins-struts-borlange-se",
-   "2026-12-11",
-   "",
-   "Julpyssel på Sahlins Struts 2026"
-  ],
-  [
-   "/christmas-events/julskyltning-och-tomtens-grand-kristianstad-se",
-   "2026-11-29",
-   "",
-   "Julskyltning och Tomtens gränd 2026"
-  ],
-  [
-   "/christmas-events/julskyltning-pa-tyringe-bibliotek-se",
-   "2026-11-29",
-   "",
-   "Julskyltning på Tyringe bibliotek 2026"
-  ],
-  [
-   "/christmas-events/julstuga-i-vittsjo-museum-se",
-   "2026-11-22",
-   "",
-   "Julstuga i Vittsjö museum 2026"
-  ],
-  [
-   "/christmas-events/kai-i-biblioteka-uzsuka-kaledos-alytus-lt",
-   "2026-12-16",
-   "",
-   "Kalėdinė popietė Kai į biblioteką užsuka Kalėdos Alytuje 2026"
-  ],
-  [
-   "/christmas-events/kai-suskamba-kaledos-alytaus-jaunimo-centras-lt",
-   "2026-12-15",
-   "",
-   "Koncertas Kai suskamba Kalėdos Alytuje 2026"
-  ],
-  [
-   "/christmas-events/kakao-parti-polarka-tortenete-rakosmente-hu",
-   "2026-11-21",
-   "/christmas-events/budapest-hu",
-   "KAKAÓ PARTI - Polárka története"
-  ],
-  [
-   "/christmas-events/kalaka-koncert-szabad-e-bejonni-ide-betlehemmel-kispest-hu",
-   "2026-12-13",
-   "/christmas-events/budapest-hu",
-   "Kaláka koncert: Szabad-e bejönni ide betlehemmel?"
-  ],
-  [
-   "/christmas-events/kaledu-senelio-rezidencija-alytaus-teatre-lt",
-   "2026-12-26",
-   "",
-   "Kalėdų Senelio rezidencija Alytaus miesto teatre Alytuje 2026"
-  ],
-  [
-   "/christmas-events/kaledu-senelio-rezidencija-dainu-slenyje-alytus-lt",
-   "2026-12-27",
-   "",
-   "Kalėdų Senelio rezidencija Dainų slėnyje Alytuje 2026"
-  ],
-  [
-   "/christmas-events/kaledu-senelio-susitikimai-prie-egles-alytus-lt",
-   "2026-12-27",
-   "",
-   "Kalėdų Senelio susitikimai prie miesto eglės Alytuje 2026"
-  ],
-  [
-   "/christmas-events/kaledziaus-pagrobimas-alytaus-kulturos-centras-lt",
-   "2026-12-20",
-   "",
-   "Muzikinė pasaka Kalėdžiaus pagrobimas Alytuje 2026"
   ],
   [
    "/christmas-events/kameleoiak-gara-artes-vivas-nuur-san-sebastian-es",
@@ -2897,82 +772,10 @@
    "Kameleoiak gara! Taller de arte: Kooperatiba"
   ],
   [
-   "/christmas-events/karacsonyi-ajandekkeszito-csaladi-delelott-gyertyadiszites-kispest-hu",
-   "2026-12-12",
-   "/christmas-events/budapest-hu",
-   "Karácsonyi ajándékkészítő családi délelőtt: gyertyadíszítés"
-  ],
-  [
-   "/christmas-events/karacsonyi-csaladi-delelott-a-kiralyerdei-muvelodesi-hazban-csepel-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Karácsonyi családi délelőtt a Királyerdei Művelődési Házban"
-  ],
-  [
-   "/christmas-events/karacsonyi-fenyjatek-tuzzsonglor-show-pestszentlorinc-pestszentimre-hu",
-   "2026-12-03",
-   "/christmas-events/budapest-hu",
-   "Karácsonyi fényjáték: tűzzsonglőr show"
-  ],
-  [
-   "/christmas-events/karacsonyi-kezmuves-muhely-pestszentlorinc-pestszentimre-hu",
-   "2026-12-21",
-   "/christmas-events/budapest-hu",
-   "Karácsonyi kézműves műhely"
-  ],
-  [
-   "/christmas-events/karacsonynak-unnepe-meseillusztracios-kiallitas-masodik-kerulet-hu",
-   "2027-01-10",
-   "/christmas-events/budapest-hu",
-   "Karácsonynak ünnepe: meseillusztrációs kiállítás"
-  ],
-  [
-   "/christmas-events/kartu-po-kaledu-zvaigzde-alytus-lt",
-   "2026-12-16",
-   "",
-   "Kalėdinis renginys Kartu po Kalėdų žvaigžde Alytuje 2026"
-  ],
-  [
-   "/christmas-events/kicsinyek-adventje-unnepi-gyertyagyujtas-es-adventi-koncert-budavar-hu",
-   "2026-11-29",
-   "/christmas-events/budapest-hu",
-   "Kicsinyek adventje: ünnepi gyertyagyújtás és adventi koncert a Városházán"
-  ],
-  [
-   "/christmas-events/kings-avenue-mall-13th-birthday-and-tree-lighting-paphos-cy",
-   "2026-11-21",
-   "",
-   "Γενέθλια και φωταγώγηση δέντρου στο Kings Avenue Mall"
-  ],
-  [
-   "/christmas-events/kingsburg-kids-craft-gingerbread-train-ca",
-   "2026-12-15",
-   "/christmas-events/fresno-ca",
-   "Gingerbread Train Engine Craft at the Kingsburg Library"
-  ],
-  [
-   "/christmas-events/klin-doeil-5e-edition-speciale-noel-du-marche-de-createurrices-au",
-   "2026-12-13",
-   "",
-   "Klin d’œil, 5e édition spéciale Noël du marché de créateur·rices au Carreau du Temple"
-  ],
-  [
    "/christmas-events/kokosnuss-feiert-weihnachten-familientag-kokosnuss-celebrates-christmas-namur-be",
    "2026-12-27",
    "/christmas-events/christmas-in-namur-with-kids",
    "Kokosnuss feiert Weihnachten: Familientag (Kokosnuss Celebrates Christmas: Family Day)"
-  ],
-  [
-   "/christmas-events/krampusz-karacsonya-kobanya-hu",
-   "2026-11-25",
-   "/christmas-events/budapest-hu",
-   "Krampusz karácsonya"
-  ],
-  [
-   "/christmas-events/kreativ-karacsonyi-rahangolo-a-rakoczi-kertben-csepel-hu",
-   "2026-11-28",
-   "/christmas-events/budapest-hu",
-   "Kreatív karácsonyi ráhangoló a Rákóczi kertben"
   ],
   [
    "/christmas-events/kreativ-tag-geschenkpapier-selbst-gestalten-creative-day-make-your-own-namur-be",
@@ -2981,88 +784,10 @@
    "Kreativ-Tag: Geschenkpapier selbst gestalten (Creative Day: Make Your Own Wrapping Paper)"
   ],
   [
-   "/christmas-events/la-buche-festival-au-supersonic-gouter-et-bingo-de-noel-paris",
-   "2026-12-05",
-   "",
-   "La Bûche Festival au Supersonic, goûter et Bingo de Noël"
-  ],
-  [
-   "/christmas-events/la-cabane-des-grandes-histoires-paris",
-   "2026-12-19",
-   "",
-   "La cabane des grandes histoires"
-  ],
-  [
-   "/christmas-events/la-chef-pipa-en-navidad-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "La chef Pipa en navidad"
-  ],
-  [
    "/christmas-events/la-leyenda-de-los-gigantes-pamplona-es",
    "2026-12-06",
    "/christmas-events/navidad-con-ninos-pamplona",
    "La leyenda de los Gigantes"
-  ],
-  [
-   "/christmas-events/la-navidad-de-el-grinch-plaza-merliot-santa-tecla-sv",
-   "2026-12-20",
-   "",
-   "La Navidad de El Grinch 2026"
-  ],
-  [
-   "/christmas-events/la-ratita-presumida-madrid-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "La ratita presumida"
-  ],
-  [
-   "/christmas-events/la-voix-de-noel-spectacle-immersif-paris",
-   "2026-12-23",
-   "",
-   "La Voix de Noël, spectacle immersif"
-  ],
-  [
-   "/christmas-events/lakatamia-christmas-village-cy",
-   "2026-12-06",
-   "",
-   "Χριστουγεννιάτικο Χωριό Δήμου Λακατάμειας"
-  ],
-  [
-   "/christmas-events/lapprenti-pere-noel-cine-gouter-en-famille-paris",
-   "2026-12-13",
-   "",
-   "L’apprenti Père Noël, ciné-goûter en famille"
-  ],
-  [
-   "/christmas-events/larbre-a-contes-en-langue-des-signes-francaise-et-en-francais-paris",
-   "2026-12-12",
-   "",
-   "L'Arbre à contes en Langue des Signes Française et en français"
-  ],
-  [
-   "/christmas-events/latelier-de-noel-de-bluey-chez-fou-de-patisserie-paris",
-   "2026-12-09",
-   "",
-   "L’Atelier de Noël de Bluey chez Fou de Pâtisserie"
-  ],
-  [
-   "/christmas-events/le-noel-dernest-et-celestine-paris",
-   "2026-11-22",
-   "",
-   "Le Noël d'Ernest et Célestine"
-  ],
-  [
-   "/christmas-events/le-pere-noel-est-enrhume-paris",
-   "2027-01-02",
-   "",
-   "Le Père Noël est enrhumé"
-  ],
-  [
-   "/christmas-events/le-petit-atelier-special-noel-paris",
-   "2026-12-16",
-   "",
-   "Le petit atelier spécial Noël"
   ],
   [
    "/christmas-events/le-studio-cinekrafte-special-noel-dudelange",
@@ -3083,88 +808,16 @@
    "Lectura y juego en familia con alfombras de cuentos"
   ],
   [
-   "/christmas-events/legyen-ho-koncert-csepel-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "LEGYEN HÓ - koncert"
-  ],
-  [
-   "/christmas-events/les-enfantines-de-sylvain-gagnier-paris",
-   "2026-12-09",
-   "",
-   "Les enfantines de Sylvain Gagnier"
-  ],
-  [
-   "/christmas-events/les-entitats-fan-nadal-barcelona-es",
-   "2026-12-16",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "\"Les entitats fan Nadal\""
-  ],
-  [
-   "/christmas-events/les-fabuleuses-histoires-du-doudou-de-france-inter-paris",
-   "2026-12-06",
-   "",
-   "Les fabuleuses histoires du doudou de France Inter"
-  ],
-  [
-   "/christmas-events/les-feeries-retrouvees-de-melies-seance-jeune-public-paris",
-   "2026-12-22",
-   "",
-   "Les féeries retrouvées de Méliès, séance jeune public"
-  ],
-  [
-   "/christmas-events/les-souliers-magiques-du-pere-noel-paris",
-   "2027-01-03",
-   "",
-   "Les souliers magiques du Père Noël"
-  ],
-  [
-   "/christmas-events/les-tres-torres-christmas-market-barcelona-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Les Tres Torres Christmas Market"
-  ],
-  [
    "/christmas-events/letraragon-taller-de-comic-infantil-luis-orus-zaragoza-es",
    "2026-12-18",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "LetrAragón: taller de cómic infantil, Luis Orús"
   ],
   [
-   "/christmas-events/lets-glow-sf-san-francisco-ca",
-   "2026-12-13",
-   "/christmas-events/san-francisco-ca",
-   "Let's Glow SF"
-  ],
-  [
    "/christmas-events/lets-quiz-weihnachtsedition-christmas-edition-namur-be",
    "2026-12-12",
    "/christmas-events/christmas-in-namur-with-kids",
    "Let's Quiz! Weihnachtsedition (Christmas Edition)"
-  ],
-  [
-   "/christmas-events/lhome-del-nassos-al-mercat-del-clot-barcelona-es",
-   "2026-12-31",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "L'home del nassos al Mercat del Clot"
-  ],
-  [
-   "/christmas-events/light-it-up-long-beach-holiday-house-digital-map-long-beach-ny",
-   "2027-01-01",
-   "/christmas-events/long-beach-ny",
-   "Light It Up Long Beach Holiday House Digital Map"
-  ],
-  [
-   "/christmas-events/lighted-christmas-parade-marshall-tx",
-   "2026-12-05",
-   "/christmas-events/marshall-tx",
-   "Lighted Christmas Parade"
-  ],
-  [
-   "/christmas-events/lighting-of-the-village-helen-ga",
-   "2026-11-27",
-   "/christmas-events/atlanta-ga",
-   "Annual Lighting of the Village"
   ],
   [
    "/christmas-events/literaktum-10a-fiesta-del-dia-universal-de-la-infancia-san-sebastian-es",
@@ -3197,94 +850,16 @@
    "Loa eta Laia Zuzenean\" (Bilbao)"
   ],
   [
-   "/christmas-events/loo-de-ponten-pie-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Loo, de Ponten Pie"
-  ],
-  [
-   "/christmas-events/loo-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Loo"
-  ],
-  [
-   "/christmas-events/los-muppets-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Los Muppets"
-  ],
-  [
-   "/christmas-events/los-telenecos-conquistan-manhattan-madrid-es",
-   "2026-12-26",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Los Teleñecos conquistan Manhattan"
-  ],
-  [
-   "/christmas-events/los-telenecos-en-cuento-de-navidad-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Los Teleñecos en Cuento de Navidad"
-  ],
-  [
-   "/christmas-events/los-telenecos-en-la-isla-del-tesoro-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Los teleñecos en la Isla del Tesoro"
-  ],
-  [
    "/christmas-events/lotta-kann-fast-alles-lotta-can-do-almost-anything-namur-be",
    "2026-12-02",
    "/christmas-events/christmas-in-namur-with-kids",
    "Lotta kann fast alles (Lotta Can Do Almost Anything)"
   ],
   [
-   "/christmas-events/lotte-mangustuudio-joulumaagia-parnu-ee",
-   "2027-01-15",
-   "",
-   "Lotte Mängustuudio Jõulumaagia"
-  ],
-  [
-   "/christmas-events/lottemaa-joulumaa-reiu-ee",
-   "2027-01-03",
-   "",
-   "Lottemaa Jõulumaa"
-  ],
-  [
    "/christmas-events/loturak-familia-programa-bilbao-es",
    "2026-12-19",
    "/christmas-events/navidad-con-ninos-bilbao",
    "LOTURAK. Familia Programa"
-  ],
-  [
-   "/christmas-events/luces-campero-noche-de-los-deseos-san-miguel-sv",
-   "2026-12-12",
-   "",
-   "Luces Campero 2026: La Noche de los Deseos"
-  ],
-  [
-   "/christmas-events/luces-campero-noche-de-los-deseos-san-salvador-sv",
-   "2026-12-06",
-   "",
-   "Luces Campero 2026: La Noche de los Deseos"
-  ],
-  [
-   "/christmas-events/lucia-julshow-och-julfest-i-torsang-se",
-   "2026-12-09",
-   "",
-   "Lucia, julshow och julfest i Torsång 2026"
-  ],
-  [
-   "/christmas-events/lucia-ljus-i-berget-i-dalarnas-aventyrsgruva-borlange-se",
-   "2026-12-12",
-   "",
-   "Lucia: Ljus i berget i Dalarnas Äventyrsgruva 2026"
-  ],
-  [
-   "/christmas-events/m130-sportkozpont-jegpalya-unnepelyes-megnyito-zuglo-hu",
-   "2026-11-28",
-   "/christmas-events/budapest-hu",
-   "M130 Sportközpont jégpálya ünnepélyes megnyitó"
   ],
   [
    "/christmas-events/macarrones-con-tomate-pamplona-es",
@@ -3297,24 +872,6 @@
    "2026-12-27",
    "",
    "Festive Market at Madinat Jumeirah"
-  ],
-  [
-   "/christmas-events/madriguera-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Madriguera"
-  ],
-  [
-   "/christmas-events/magia-y-humor-la-magia-de-la-navidad-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Magia y Humor: La Magia de la Navidad"
-  ],
-  [
-   "/christmas-events/magia-y-humor-madame-blablasky-la-maga-de-la-navidad-madrid-es",
-   "2026-12-26",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Magia y Humor: Madame Blablasky/ La Maga de la Navidad"
   ],
   [
    "/christmas-events/magic-phils-croc-n-roll-christmas-dubai-ae",
@@ -3335,100 +892,10 @@
    "Magiklown"
   ],
   [
-   "/christmas-events/mall-of-cyprus-christmas-market-strovolos-cy",
-   "2026-12-31",
-   "",
-   "Mall of Cyprus Christmas Market"
-  ],
-  [
-   "/christmas-events/maman-jai-rate-lavion-en-cine-concert-paris",
-   "2026-12-06",
-   "",
-   "Maman, j’ai raté l’avion ! en ciné-concert"
-  ],
-  [
-   "/christmas-events/mamma-mu-och-krakans-jul-pa-teater-bristol-sundbyberg-se",
-   "2026-12-30",
-   "",
-   "Mamma Mu och Kråkans jul på Teater Bristol 2026"
-  ],
-  [
    "/christmas-events/mamuka-san-sebastian-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Mamuka"
-  ],
-  [
-   "/christmas-events/marana-holiday-festival-and-tree-lighting-marana-az",
-   "2026-12-05",
-   "/christmas-events/marana-az",
-   "Marana's Holiday Festival & Tree Lighting"
-  ],
-  [
-   "/christmas-events/marche-de-noel-africain-paris",
-   "2026-11-28",
-   "",
-   "Marché de Noël Africain"
-  ],
-  [
-   "/christmas-events/marche-de-noel-alsacien-de-la-gare-de-lest-paris",
-   "2026-12-18",
-   "",
-   "Marché de Noël alsacien de la Gare de l'Est"
-  ],
-  [
-   "/christmas-events/marche-de-noel-creatif-des-batignolles-paris",
-   "2026-12-20",
-   "",
-   "Marché de Noël créatif des Batignolles"
-  ],
-  [
-   "/christmas-events/marche-de-noel-de-la-mdph-paris",
-   "2026-12-11",
-   "",
-   "Marché de Noël de la MDPH"
-  ],
-  [
-   "/christmas-events/marche-de-noel-de-la-place-de-letoile-grande-armee-paris",
-   "2026-12-23",
-   "",
-   "Marché de Noël de la place de l'Étoile - Grande Armée"
-  ],
-  [
-   "/christmas-events/marche-de-noel-et-brocante-sous-la-verriere-dun-temple-paris",
-   "2026-11-29",
-   "",
-   "Marché de Noël et brocante sous la verrière d’un temple"
-  ],
-  [
-   "/christmas-events/marche-de-noel-halle-des-blancs-manteaux-21e-edition-paris",
-   "2026-11-29",
-   "",
-   "Marché de Noël Halle des Blancs Manteaux, 21e édition"
-  ],
-  [
-   "/christmas-events/marche-de-noel-japonais-a-ground-control-paris",
-   "2026-12-06",
-   "",
-   "Marché de Noël japonais à Ground Control"
-  ],
-  [
-   "/christmas-events/marimorena-zambombada-de-madrid-es",
-   "2026-12-13",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Marimorena 2026. Zambombada de Madrid"
-  ],
-  [
-   "/christmas-events/mary-superchef-madrid-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Mary superchef"
-  ],
-  [
-   "/christmas-events/maryland-holiday-light-spectacular-timonium-md",
-   "2026-12-30",
-   "/christmas-events/baltimore-md",
-   "Maryland Holiday Light Spectacular"
   ],
   [
    "/christmas-events/mascaras-disfraces-y-criaturas-fantasticas-recreando-el-mundo-san-sebastian-es",
@@ -3447,12 +914,6 @@
    "2026-12-24",
    "",
    "Meet Santa at Ski Dubai"
-  ],
-  [
-   "/christmas-events/meet-santa-at-the-market-scottsdale-az",
-   "2026-12-19",
-   "/christmas-events/scottsdale-az",
-   "Meet Santa at the Market"
   ],
   [
    "/christmas-events/mercadillo-solidario-fundacion-mas-vida-zaragoza-es",
@@ -3479,120 +940,6 @@
    "Mercado de Natal de Matosinhos (FaMa )"
   ],
   [
-   "/christmas-events/merlins-magic-christmas-trail-at-canons-ashby-daventry-uk",
-   "2027-01-01",
-   "/christmas-events/northampton-uk",
-   "Merlin's Magic Christmas Trail at Canons Ashby"
-  ],
-  [
-   "/christmas-events/mesekertes-szintarsulas-krampuszolimpia-ujpest-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Mesekertes Színtársulás: Krampuszolimpia"
-  ],
-  [
-   "/christmas-events/meseszinhaz-a-csudalatos-mikulas-zuglo-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Meseszínház - A csudálatos Mikulás"
-  ],
-  [
-   "/christmas-events/mezeskalacs-haz-es-karacsonyi-sutemeny-keszito-pestszentlorinc-pestszentimre-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Mézeskalács: ház és karácsonyi sütemény készítő verseny és kiállítás"
-  ],
-  [
-   "/christmas-events/mikulas-a-teren-es-puszedli-karacsonya-ujpest-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Mikulás a téren és Puszedli karácsonya"
-  ],
-  [
-   "/christmas-events/mikulas-babszinhaza-a-mikulas-kesztyuje-kispest-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Mikulás bábszínháza: A Mikulás kesztyűje"
-  ],
-  [
-   "/christmas-events/mikulas-es-manoi-a-mezeskalacshazban-obuda-bekasmegyer-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Mikulás és manói a Mézeskalácsházban"
-  ],
-  [
-   "/christmas-events/mikulas-fizika-rakosmente-hu",
-   "2026-12-04",
-   "/christmas-events/budapest-hu",
-   "Mikulás-fizika"
-  ],
-  [
-   "/christmas-events/mikulas-fizika-ujbuda-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Mikulás Fizika"
-  ],
-  [
-   "/christmas-events/mikulas-nap-a-palota-parkban-rakospalota-pestujhely-ujpalota-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Mikulás nap a Palota parkban"
-  ],
-  [
-   "/christmas-events/mikulas-varas-a-czakon-dongo-es-helka-budavar-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Mikulás-várás a Czakón | Dongó és Helka"
-  ],
-  [
-   "/christmas-events/mikulascsalogato-ujbuda-hu",
-   "2026-12-04",
-   "/christmas-events/budapest-hu",
-   "Mikuláscsalogató"
-  ],
-  [
-   "/christmas-events/mikulasfutas-matyasfold-es-kornyeke-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Mikulásfutás"
-  ],
-  [
-   "/christmas-events/mikulasvaro-csaladi-delutan-kobanya-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Mikulásváró családi délután"
-  ],
-  [
-   "/christmas-events/mikulasvaro-csaladi-delutan-masodik-kerulet-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Mikulásváró családi délután"
-  ],
-  [
-   "/christmas-events/mikulasvaro-jegesmaci-es-baratai-pestszentlorinc-pestszentimre-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Mikulásváró: Jegesmaci és barátai"
-  ],
-  [
-   "/christmas-events/mikulasvaro-matyasfold-es-kornyeke-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Mikulásváró"
-  ],
-  [
-   "/christmas-events/mikulasvaro-mesek-pentek-esti-mesek-kispest-hu",
-   "2026-11-27",
-   "/christmas-events/budapest-hu",
-   "Mikulásváró mesék: Péntek esti mesék"
-  ],
-  [
-   "/christmas-events/mikulasvonat-utazz-a-mikulassal-pestszentlorinc-pestszentimre-hu",
-   "2026-12-03",
-   "/christmas-events/budapest-hu",
-   "Mikulásvonat: Utazz a Mikulással"
-  ],
-  [
    "/christmas-events/mission-elf-possible-theatre-by-qe2-dubai-ae",
    "2026-12-12",
    "",
@@ -3603,12 +950,6 @@
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-pamplona",
    "Moko"
-  ],
-  [
-   "/christmas-events/morcos-borz-unnepe-a-batyu-szinhaz-babjateka-ujpest-hu",
-   "2026-12-12",
-   "/christmas-events/budapest-hu",
-   "Morcos Borz Ünnepe: a Batyu Színház bábjátéka"
   ],
   [
    "/christmas-events/motxila-san-sebastian-es",
@@ -3623,100 +964,16 @@
    "Movie: Elf (PG) and Hot Cocoa Bar"
   ],
   [
-   "/christmas-events/mrs-claus-snow-stroll-huntsville-al",
-   "2026-12-05",
-   "/christmas-events/huntsville-al",
-   "Mrs. Claus' Snow Stroll at Stovehouse"
-  ],
-  [
-   "/christmas-events/murray-city-annual-tree-lighting-and-santa-visit-ut",
-   "2026-11-23",
-   "/christmas-events/salt-lake-city-ut",
-   "A Murray Christmas Tree Lighting"
-  ],
-  [
    "/christmas-events/murren-bidaia-san-sebastian-es",
    "2026-12-11",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Murren bidaia"
   ],
   [
-   "/christmas-events/musee-postal-une-exposition-feerique-a-decouvrir-en-famille-paris",
-   "2027-01-06",
-   "",
-   "Musée Postal : une exposition féerique à découvrir en famille"
-  ],
-  [
-   "/christmas-events/museo-de-ciencias-poco-naturales-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Museo de ciencias poco naturales"
-  ],
-  [
-   "/christmas-events/musical-infantil-los-duendes-del-like-el-musical-cia-vibralto-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Musical Infantil: Los Duendes del Like (El Musical), Cía Vibralto"
-  ],
-  [
-   "/christmas-events/musical-infantil-zumikids-en-navidad-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Musical Infantil: Zumikids en Navidad"
-  ],
-  [
-   "/christmas-events/musikskolans-lucia-borlange-se",
-   "2026-12-13",
-   "",
-   "Musikskolans lucia 2026"
-  ],
-  [
-   "/christmas-events/mussakate-joulud-parnu-ee",
-   "2026-12-05",
-   "",
-   "Mussakate jõulud"
-  ],
-  [
-   "/christmas-events/muusikatalli-jouluturg-audru-ee",
-   "2026-12-13",
-   "",
-   "Muusikatalli jõuluturg"
-  ],
-  [
    "/christmas-events/muxin-eta-zapotxin-baserritarrak-san-sebastian-es",
    "2026-11-21",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Muxin eta Zapotxin: Baserritarrak"
-  ],
-  [
-   "/christmas-events/nacho-alvaro-especial-reyes-magos-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Nacho Álvaro. Especial Reyes Magos"
-  ],
-  [
-   "/christmas-events/nadal-a-sant-jaume-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Nadal a Sant Jaume"
-  ],
-  [
-   "/christmas-events/nanuk-en-el-bosque-de-las-emociones-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Nanuk en el bosque de las emociones"
-  ],
-  [
-   "/christmas-events/narracio-la-filomena-busca-el-tio-a-carrec-de-pengim-penjam-barcelona-es",
-   "2026-12-09",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Narració 'La Filomena busca el Tió', a càrrec de \"Pengim-Penjam\""
-  ],
-  [
-   "/christmas-events/narracion-de-cuentos-infantiles-noche-de-reyes-madrid-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Narración de Cuentos Infantiles: Noche de Reyes"
   ],
   [
    "/christmas-events/natal-na-praca-felgueiras-pt",
@@ -3737,18 +994,6 @@
    "National Christmas Tree and America Celebrates Display"
   ],
   [
-   "/christmas-events/nave-una-ludoteca-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Nave Una - Ludoteca"
-  ],
-  [
-   "/christmas-events/navidad-en-los-jeronimos-madrid-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Navidad en los Jerónimos"
-  ],
-  [
    "/christmas-events/navidad-en-villaverde-madrid-es",
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-madrid",
@@ -3767,64 +1012,16 @@
    "Neguko haur jaia Olentzero eta Mari Domingirekin"
   ],
   [
-   "/christmas-events/nieve-sobre-la-plaza-matadero-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Nieve sobre la Plaza Matadero"
-  ],
-  [
-   "/christmas-events/night-at-the-north-pole-grand-prairie-tx",
-   "2026-12-09",
-   "/christmas-events/grand-prairie-tx",
-   "Night at the North Pole"
-  ],
-  [
    "/christmas-events/nikolauskonzert-der-regionalschule-weiden-saint-nicholas-concert-namur-be",
    "2026-12-05",
    "/christmas-events/christmas-in-namur-with-kids",
    "Nikolauskonzert der Regionalschule Weiden (Saint Nicholas Concert of the Weiden Regional School)"
   ],
   [
-   "/christmas-events/noel-a-beaugrenelle-grand-sapin-lumineux-et-animations-pour-enfants",
-   "2027-01-02",
-   "",
-   "Noël à Beaugrenelle : grand sapin lumineux et animations pour enfants"
-  ],
-  [
-   "/christmas-events/norrtalje-julmarknad-i-stadskarnan-se",
-   "2026-12-06",
-   "",
-   "Norrtälje julmarknad i stadskärnan 2026"
-  ],
-  [
-   "/christmas-events/north-pole-express-parrish-fl",
-   "2026-12-22",
-   "/christmas-events/sarasota-fl",
-   "North Pole Express"
-  ],
-  [
-   "/christmas-events/nuestra-navidad-escenario-millennium-san-salvador-sv",
-   "2026-12-06",
-   "",
-   "Nuestra Navidad 2026"
-  ],
-  [
-   "/christmas-events/nuits-indiennes-le-festival-des-lanternes-du-jardin-dacclimatation-paris",
-   "2027-02-21",
-   "",
-   "Nuits indiennes, le festival des lanternes du Jardin d’Acclimatation"
-  ],
-  [
    "/christmas-events/oh-du-furzige-weihnachtszeit-oh-you-farty-christmas-season-bruges-be",
    "2026-12-23",
    "/christmas-events/christmas-in-bruges-with-kids",
    "Oh, du furzige Weihnachtszeit! (Oh, You Farty Christmas Season)"
-  ],
-  [
-   "/christmas-events/olaf-grincs-es-elf-mano-oriasbabjai-a-fo-teren-obuda-bekasmegyer-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Olaf, Grincs és Elf manó óriásbábjai a Fő téren"
   ],
   [
    "/christmas-events/old-town-alexandria-christmas-market-and-holiday-craft-show-va",
@@ -3839,196 +1036,16 @@
    "Olentzeroren sekretua"
   ],
   [
-   "/christmas-events/oliver-twist-paris",
-   "2027-01-17",
-   "",
-   "Oliver Twist"
-  ],
-  [
-   "/christmas-events/olivia-y-el-terremoto-invisible-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Olivia y el terremoto invisible"
-  ],
-  [
-   "/christmas-events/paphos-christmas-avenue-in-the-historic-centre-cy",
-   "2027-01-03",
-   "",
-   "Λεωφόρος Χριστουγέννων στο Ιστορικό Κέντρο της Πάφου"
-  ],
-  [
-   "/christmas-events/paphos-christmas-parade-and-tree-lighting-cy",
-   "2026-11-27",
-   "",
-   "Χριστουγεννιάτικη παρέλαση και φωταγώγηση της Πάφου"
-  ],
-  [
-   "/christmas-events/pare-noel-al-mercat-de-sarria-barcelona-es",
-   "2026-12-24",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Pare Noel al Mercat de Sarrià"
-  ],
-  [
-   "/christmas-events/parnu-iseseisvuse-valjaku-jouluturg-ee",
-   "2026-12-20",
-   "",
-   "Pärnu Iseseisvuse väljaku jõuluturg"
-  ],
-  [
-   "/christmas-events/parnu-joululaulupidu-ee",
-   "2026-12-19",
-   "",
-   "Pärnu jõululaulupidu"
-  ],
-  [
-   "/christmas-events/pasykaf-christmas-charity-fair-lakatamia-cy",
-   "2026-11-28",
-   "",
-   "Χριστουγεννιάτικη εκδήλωση του ΠΑΣΥΚΑΦ στην Άνθια Hall"
-  ],
-  [
-   "/christmas-events/patge-reial-al-mercat-de-la-concepcio-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Patge Reial al Mercat de la Concepció"
-  ],
-  [
-   "/christmas-events/patgessa-reial-al-mercat-del-clot-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Patgessa Reial al Mercat del Clot"
-  ],
-  [
-   "/christmas-events/peneque-el-sueno-de-los-titeres-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Peneque, el sueño de los títeres"
-  ],
-  [
-   "/christmas-events/pentek13-ekszer-balett-tancegyuttes-a-diotoro-angyalfold-es-ujlipotvaros-hu",
-   "2026-12-18",
-   "/christmas-events/budapest-hu",
-   "PénteK13: Ékszer Balett Táncegyüttes, A diótörő"
-  ],
-  [
-   "/christmas-events/pepparkakshustavling-och-julmarknad-pa-pythagoras-norrtalje-se",
-   "2026-12-06",
-   "",
-   "Pepparkakshustävling och julmarknad på Pythagoras 2026"
-  ],
-  [
-   "/christmas-events/pepparkaksutstallning-pa-kulturcentrum-sigtuna-se",
-   "2026-11-29",
-   "",
-   "Pepparkaksutställning på KulturCentrum 2026"
-  ],
-  [
-   "/christmas-events/perepaev-jouluvanale-kulla-parnu-ee",
-   "2026-12-27",
-   "",
-   "Perepäev Jõuluvanale külla"
-  ],
-  [
-   "/christmas-events/perez-una-aventura-sin-dientes-madrid-es",
-   "2026-12-26",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Pérez, una aventura sin dientes"
-  ],
-  [
    "/christmas-events/pero-que-me-estas-cantando-kike-lera-zaragoza-es",
    "2026-12-29",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Pero, ¿qué me estás cantando? Kike Lera."
   ],
   [
-   "/christmas-events/pessebre-tradicional-al-mercat-de-galvany-barcelona-es",
-   "2027-02-02",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Pessebre tradicional al Mercat de Galvany"
-  ],
-  [
-   "/christmas-events/pessebre-tradicional-al-mercat-del-clot-barcelona-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Pessebre tradicional  al Mercat del Clot"
-  ],
-  [
-   "/christmas-events/petit-pop-en-concierto-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Petit Pop en concierto"
-  ],
-  [
-   "/christmas-events/pettson-far-julbesok-pa-teater-bristol-sundbyberg-se",
-   "2026-12-09",
-   "",
-   "Pettson får julbesök på Teater Bristol 2026"
-  ],
-  [
-   "/christmas-events/picur-szinhaz-karacsony-csilingel-obuda-bekasmegyer-hu",
-   "2026-12-12",
-   "/christmas-events/budapest-hu",
-   "Picur színház: Karácsony csilingel"
-  ],
-  [
-   "/christmas-events/pihi-puhi-az-aranyszamar-babszinhaz-babaszinhazi-eloadasa-masodik-kerulet-hu",
-   "2026-12-13",
-   "/christmas-events/budapest-hu",
-   "Pihi-Puhi: az Aranyszamár Bábszínház babaszínházi előadása"
-  ],
-  [
-   "/christmas-events/pindoles-per-totes-les-edats-manualitats-nadal-barcelona-es",
-   "2026-12-14",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Píndoles per totes les edats: 'Manualitats Nadal'"
-  ],
-  [
-   "/christmas-events/pinta-cares-infantil-al-mercat-dominical-de-sant-antoni-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Pinta-cares infantil al Mercat Dominical de Sant Antoni"
-  ],
-  [
-   "/christmas-events/pista-de-hielo-en-matadero-madrid-es",
-   "2027-01-06",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Pista de hielo en Matadero"
-  ],
-  [
    "/christmas-events/porrotx-marimotots-pupu-eta-lore-musu-bete-urte-donostia-san-sebastian-es",
    "2026-11-28",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Porrotx, Marimotots, Pupu eta Lore: \"Musu bete urte\" (Donostia)"
-  ],
-  [
-   "/christmas-events/portentosos-polimeros-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Portentosos polimeros"
-  ],
-  [
-   "/christmas-events/projeccio-el-gran-nadal-dels-animals-barcelona-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Projecció \"El gran nadal dels animals\""
-  ],
-  [
-   "/christmas-events/puck-y-su-troupe-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Puck y su troupe"
-  ],
-  [
-   "/christmas-events/puttin-on-the-glitz-santas-village-san-clemente-ca",
-   "2026-12-05",
-   "/christmas-events/san-clemente-ca",
-   "Puttin' On The Glitz & Santa's Village By The Sea"
-  ],
-  [
-   "/christmas-events/ralsbuss-till-ahus-julmarknad-kristianstad-se",
-   "2026-12-06",
-   "",
-   "Rälsbuss till Åhus julmarknad 2026"
   ],
   [
    "/christmas-events/raul-alegria-asombro-bilbao-es",
@@ -4043,94 +1060,16 @@
    "Raya Real: \"Con Alegría by Amazon Music"
   ],
   [
-   "/christmas-events/razd-le-a-karacsonyt-mozgasban-a-csalad-pestszentlorinc-pestszentimre-hu",
-   "2026-12-29",
-   "/christmas-events/budapest-hu",
-   "„Rázd le a karácsonyt”: mozgásban a család"
-  ],
-  [
-   "/christmas-events/rojo-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Rojo"
-  ],
-  [
-   "/christmas-events/rutkai-bori-banda-hello-telapo-csaladi-koncert-masodik-kerulet-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Rutkai Bori Banda: Helló Télapó! Családi koncert"
-  ],
-  [
-   "/christmas-events/samedi-des-tout-petits-special-hiver-paris",
-   "2026-12-12",
-   "",
-   "Samedi des tout-petits, spécial hiver"
-  ],
-  [
-   "/christmas-events/san-jose-holiday-lights-san-jose-ca",
-   "2027-01-01",
-   "/christmas-events/san-jose-ca",
-   "San Jose Holiday Lights"
-  ],
-  [
-   "/christmas-events/santa-express-new-hope-valley-railway-new-hill-nc",
-   "2026-12-19",
-   "/christmas-events/raleigh-nc",
-   "Santa Express at New Hope Valley Railway"
-  ],
-  [
-   "/christmas-events/santa-fest-and-tree-lighting-tampa-fl",
-   "2026-12-05",
-   "/christmas-events/tampa-fl",
-   "Santa Fest & Tree Lighting"
-  ],
-  [
    "/christmas-events/santa-reads-in-the-crane-der-weihnachtsmann-liest-im-kran-leuven-be",
    "2026-12-12",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Santa Reads in the Crane (Der Weihnachtsmann liest im Kran)"
   ],
   [
-   "/christmas-events/santas-arrival-festival-and-lighting-ceremony-mission-viejo-ca",
-   "2026-11-29",
-   "/christmas-events/mission-viejo-ca",
-   "Santa's Arrival Festival & Lighting Ceremony"
-  ],
-  [
-   "/christmas-events/santas-big-arrival-and-the-christmas-train-at-kings-avenue-mall-paphos-cy",
-   "2026-11-28",
-   "",
-   "Santa’s Big Arrival και Χριστουγεννιάτικο Τρένο στο Kings Avenue Mall"
-  ],
-  [
-   "/christmas-events/santas-grand-arrival-aurora-co",
-   "2026-11-20",
-   "/christmas-events/aurora-co",
-   "Santa's Grand Arrival"
-  ],
-  [
    "/christmas-events/santas-suite-at-the-fairmont-washington-dc",
    "2026-12-20",
    "",
    "Santa's Suite at the Fairmont"
-  ],
-  [
-   "/christmas-events/santas-sunday-brunch-richmond-va",
-   "2026-12-06",
-   "/christmas-events/richmond-va",
-   "2nd Annual Santa’s Sunday Brunch"
-  ],
-  [
-   "/christmas-events/sapristi-le-pere-noel-est-malade-paris",
-   "2026-12-23",
-   "",
-   "SAPRISTI, Le Père Noël est malade"
-  ],
-  [
-   "/christmas-events/sausalito-lighted-boat-parade-sausalito-ca",
-   "2026-12-12",
-   "/christmas-events/san-francisco-ca",
-   "Sausalito 39th Annual Lighted Boat Parade & Fireworks"
   ],
   [
    "/christmas-events/schulerklausjagen-school-kids-klausjagen-weggis-ch",
@@ -4151,358 +1090,22 @@
    "Season's Greenings: National Parks and Historic Places"
   ],
   [
-   "/christmas-events/seasons-greetings-saturdays-pittsburgh-pa",
-   "2026-12-19",
-   "/christmas-events/pittsburgh-pa",
-   "Season's Greetings Saturdays at the National Aviary"
-  ],
-  [
-   "/christmas-events/shopping-pont-de-nadal-a-la-barceloneta-2a-fira-de-la-joguina-i-barcelona-es",
-   "2026-12-08",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Shopping Pont de Nadal a la Barceloneta. 2a Fira de la joguina i del joc tradicional"
-  ],
-  [
-   "/christmas-events/show-santa-y-mama-claus-plaza-maya-santa-ana-sv",
-   "2026-11-27",
-   "",
-   "Show de Santa y Mamá Claus en Plaza Maya 2026"
-  ],
-  [
-   "/christmas-events/sigtuna-julmarknad-pa-stora-gatan-se",
-   "2026-12-20",
-   "",
-   "Sigtuna julmarknad på Stora gatan 2026"
-  ],
-  [
-   "/christmas-events/sistema-cyprus-red-cross-christmas-concert-strovolos-cy",
-   "2026-12-05",
-   "",
-   "Φωνή στη σιωπή, κι ανθίζει η ψυχή: συναυλία του Sistema Cyprus"
-  ],
-  [
-   "/christmas-events/skanejul-pa-hassleholmsgarden-se",
-   "2026-11-22",
-   "",
-   "Skånejul på Hässleholmsgården 2026"
-  ],
-  [
-   "/christmas-events/skating-in-the-park-huntsville-al",
-   "2027-01-03",
-   "/christmas-events/huntsville-al",
-   "Skating in the Park"
-  ],
-  [
-   "/christmas-events/skrudzo-gatves-angelai-alytaus-miesto-teatras-lt",
-   "2026-12-26",
-   "",
-   "Spektaklis šeimai Skrudžo gatvės angelai Alytuje 2026"
-  ],
-  [
    "/christmas-events/snow-white-and-the-seven-dwarfs-panto-jumeirah-beach-hotel-dubai-ae",
    "2026-12-28",
    "",
    "Snow White and the Seven Dwarfs"
   ],
   [
-   "/christmas-events/soliluna-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Soliluna"
-  ],
-  [
-   "/christmas-events/south-kent-santa-parade-wyoming-mi",
-   "2026-12-12",
-   "/christmas-events/wyoming-mi",
-   "South Kent Santa Parade: Christmas at the Movies"
-  ],
-  [
-   "/christmas-events/spirit-dance-gyermek-tancszinhaz-a-diotoro-pestszentlorinc-pestszentimre-hu",
-   "2026-12-13",
-   "/christmas-events/budapest-hu",
-   "Spirit Dance Gyermek Táncszínház: A diótörő"
-  ],
-  [
-   "/christmas-events/sr-scrooge-madrid-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Sr. Scrooge"
-  ],
-  [
-   "/christmas-events/storytime-at-the-mall-manchester-nh",
-   "2026-12-08",
-   "/christmas-events/manchester-nh",
-   "Storytime at the Mall"
-  ],
-  [
-   "/christmas-events/sunset-holiday-mercantile-san-francisco-ca",
-   "2026-12-06",
-   "/christmas-events/san-francisco-ca",
-   "The Sunset Holiday Mercantile"
-  ],
-  [
-   "/christmas-events/swea-atlanta-christmas-market-atlanta-ga",
-   "2026-12-05",
-   "/christmas-events/atlanta-ga",
-   "SWEA Atlanta's Annual Christmas Market"
-  ],
-  [
-   "/christmas-events/szeleburdi-meseszinhaz-mit-fozzunk-a-mikulasnak-jozsefvaros-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Szeleburdi meseszínház: Mit főzzünk a Mikulásnak?"
-  ],
-  [
    "/christmas-events/szent-miklos-napi-unnepseg-mikulas-varo-a-kalaka-belvaros-lipotvaros-hu",
    "2026-12-06",
-   "/christmas-events/budapest-hu",
+   "/christmas-events/budapest-5-kerulet-hu",
    "Szent Miklós-napi ünnepség: Mikulás-váró a Kaláka zenekarral"
-  ],
-  [
-   "/christmas-events/taller-capsula-de-nadal-a-partir-de-4-anys-nou-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller càpsula 'de Nadal' (a partir de 4 anys) *NOU*"
-  ],
-  [
-   "/christmas-events/taller-christmais-barcelona-es",
-   "2026-12-17",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller \"Christmais\""
-  ],
-  [
-   "/christmas-events/taller-crea-tu-propio-juego-las-tres-en-raya-madrid-es",
-   "2026-12-26",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Crea tu propio juego ¡Las Tres en Raya!"
-  ],
-  [
-   "/christmas-events/taller-de-adornos-navidenos-madrid-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller de adornos navideños"
-  ],
-  [
-   "/christmas-events/taller-de-eco-postales-navidenas-madrid-es",
-   "2026-12-22",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller de Eco-postales navideñas"
-  ],
-  [
-   "/christmas-events/taller-de-nadal-mati-de-construccio-dinstruments-nadalencs-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller de Nadal, matí de construcció d'instruments nadalencs"
-  ],
-  [
-   "/christmas-events/taller-de-ornamentos-navidenos-en-relieve-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller de ornamentos navideños en relieve"
-  ],
-  [
-   "/christmas-events/taller-de-pueblitos-de-navidad-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller de pueblitos de Navidad"
-  ],
-  [
-   "/christmas-events/taller-en-familia-cookies-nadalenques-a-partir-de-5-anys-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller en família 'Cookies nadalenques a partir de 5 anys'"
-  ],
-  [
-   "/christmas-events/taller-familiar-arriba-lhivern-barcelona-es",
-   "2026-12-04",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller familiar 'Arriba l'hivern'"
-  ],
-  [
-   "/christmas-events/taller-familiar-descobreix-la-magia-dels-oficis-tradicionals-barcelona-es",
-   "2026-12-31",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller familiar 'Descobreix la màgia dels oficis tradicionals catalans'"
-  ],
-  [
-   "/christmas-events/taller-familiar-garlandes-nadalenques-barcelona-es",
-   "2026-12-17",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller familiar 'Garlandes nadalenques'"
-  ],
-  [
-   "/christmas-events/taller-familiar-intergeneracional-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller familiar intergeneracional"
-  ],
-  [
-   "/christmas-events/taller-familiar-solstici-dhivern-barcelona-es",
-   "2026-12-21",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller familiar 'Solstici d'hivern'"
-  ],
-  [
-   "/christmas-events/taller-fem-galetes-de-gingebre-per-nadal-barcelona-es",
-   "2026-12-11",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller 'Fem galetes de gingebre per Nadal'"
-  ],
-  [
-   "/christmas-events/taller-fem-un-guarniment-de-nadal-a-carrec-de-lassociacio-can-barcelona-es",
-   "2026-12-18",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller 'Fem un guarniment de Nadal', a càrrec de l'associació \"Can Ensenya\""
-  ],
-  [
-   "/christmas-events/taller-galetes-de-nadal-nou-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller 'Galetes de Nadal' *NOU*"
   ],
   [
    "/christmas-events/taller-hippo-dromos-san-sebastian-es",
    "2026-12-12",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Taller: \"Hippo-dromos"
-  ],
-  [
-   "/christmas-events/taller-infantil-adornos-reciclados-para-el-arbol-madrid-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Adornos reciclados para el Árbol"
-  ],
-  [
-   "/christmas-events/taller-infantil-arbre-de-nadal-divertit-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller infantil \"Arbre de Nadal divertit\""
-  ],
-  [
-   "/christmas-events/taller-infantil-cistell-de-reis-barcelona-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller infantil \"Cistell de reis\""
-  ],
-  [
-   "/christmas-events/taller-infantil-copos-de-nieve-gigantes-madrid-es",
-   "2026-12-26",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Copos de Nieve Gigantes"
-  ],
-  [
-   "/christmas-events/taller-infantil-corona-navidena-para-la-puerta-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Corona Navideña para la Puerta"
-  ],
-  [
-   "/christmas-events/taller-infantil-coronas-de-reyes-magos-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller infantil: Coronas de Reyes Magos"
-  ],
-  [
-   "/christmas-events/taller-infantil-desitjos-dany-nou-barcelona-es",
-   "2026-12-31",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller infantil \"Desitjos d'any nou\""
-  ],
-  [
-   "/christmas-events/taller-infantil-diademas-de-reno-madrid-es",
-   "2027-01-02",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Diademas de Reno"
-  ],
-  [
-   "/christmas-events/taller-infantil-el-duende-travieso-de-navidad-madrid-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: El Duende Travieso de Navidad"
-  ],
-  [
-   "/christmas-events/taller-infantil-galetes-de-nadal-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller infantil: 'Galetes de Nadal'"
-  ],
-  [
-   "/christmas-events/taller-infantil-guirnaldas-navidenas-de-colores-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Guirnaldas Navideñas de Colores"
-  ],
-  [
-   "/christmas-events/taller-infantil-la-carta-a-los-reyes-magos-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller infantil: La Carta a los Reyes Magos"
-  ],
-  [
-   "/christmas-events/taller-infantil-larbre-dels-desitjos-barcelona-es",
-   "2026-12-30",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller infantil: 'L’arbre dels desitjos'"
-  ],
-  [
-   "/christmas-events/taller-infantil-marcapaginas-navidenos-madrid-es",
-   "2026-12-24",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Marcapáginas Navideños"
-  ],
-  [
-   "/christmas-events/taller-infantil-marioneta-de-papa-noel-madrid-es",
-   "2026-12-27",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Marioneta de Papá Noel"
-  ],
-  [
-   "/christmas-events/taller-infantil-mi-muneco-de-jengibre-madrid-es",
-   "2026-12-31",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Mi Muñeco de Jengibre"
-  ],
-  [
-   "/christmas-events/taller-infantil-mi-pequeno-arbol-de-navidad-madrid-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Mi pequeño Árbol de Navidad"
-  ],
-  [
-   "/christmas-events/taller-infantil-postals-de-nadal-barcelona-es",
-   "2026-12-22",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller infantil \"Postals de Nadal\""
-  ],
-  [
-   "/christmas-events/taller-infantil-rodolfo-el-reno-de-navidad-madrid-es",
-   "2026-12-13",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Rodolfo, el Reno de Navidad"
-  ],
-  [
-   "/christmas-events/taller-infantil-rudolf-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller infantil \"Rudolf\""
-  ],
-  [
-   "/christmas-events/taller-infantil-tarjetas-navidenas-en-3d-madrid-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Tarjetas navideñas en 3D"
-  ],
-  [
-   "/christmas-events/taller-infantil-tres-en-raya-navideno-madrid-es",
-   "2026-12-28",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Taller Infantil: Tres en Raya Navideño"
-  ],
-  [
-   "/christmas-events/taller-un-nadal-de-postal-barcelona-es",
-   "2026-12-22",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Taller 'Un Nadal de postal'"
   ],
   [
    "/christmas-events/talleres-infantiles-orri-markatzaileak-bilbao-es",
@@ -4517,88 +1120,16 @@
    "TANTAK FEST: el festival de los océanos"
   ],
   [
-   "/christmas-events/teatre-els-pastorets-a-carrec-del-grup-gespa-barcelona-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Teatre 'Els Pastorets', a càrrec del Grup Gespa"
-  ],
-  [
-   "/christmas-events/teatre-els-pastorets-a-la-recerca-de-la-tradicio-barcelona-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Teatre 'Els Pastorets (a la recerca de la tradició!)'"
-  ],
-  [
-   "/christmas-events/teatre-lestel-de-natzaret-barcelona-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Teatre 'L'Estel de Natzaret'"
-  ],
-  [
-   "/christmas-events/teatro-de-automatas-madrid-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Teatro de autómatas"
-  ],
-  [
-   "/christmas-events/teatro-de-titeres-los-3-cerditos-y-el-regalo-sorpresa-de-navidad-madrid-es",
-   "2026-12-13",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Teatro de Títeres: Los 3 Cerditos y el Regalo sorpresa de Navidad"
-  ],
-  [
-   "/christmas-events/teatro-familiar-salvemos-la-navidad-madrid-es",
-   "2026-12-24",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Teatro Familiar: Salvemos la Navidad"
-  ],
-  [
-   "/christmas-events/teatro-infantil-carlota-y-sus-mascotas-en-un-cuento-de-navidad-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Teatro Infantil: Carlota y sus Mascotas en un Cuento de Navidad"
-  ],
-  [
    "/christmas-events/teatro-infantil-la-vendedora-de-palabras-madrid-es",
    "2026-11-27",
    "/christmas-events/navidad-con-ninos-madrid",
    "Teatro infantil: 'La vendedora de palabras'"
   ],
   [
-   "/christmas-events/teatro-infantil-las-4-estaciones-esperando-la-navidad-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Teatro Infantil: Las 4 Estaciones esperando la Navidad"
-  ],
-  [
-   "/christmas-events/tervarazs-a-horvath-mihaly-teren-jozsefvarosi-balaszin-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Térvarázs a Horváth Mihály téren, Józsefvárosi Bálaszín"
-  ],
-  [
-   "/christmas-events/tesoros-de-la-coleccion-basanta-martin-madrid-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Tesoros de la Colección Basanta-Martín"
-  ],
-  [
-   "/christmas-events/the-best-christmas-pageant-ever-broken-arrow-ok",
-   "2026-12-20",
-   "/christmas-events/broken-arrow-ok",
-   "The Best Christmas Pageant Ever by Barbara Robinson"
-  ],
-  [
    "/christmas-events/the-christmas-bakery-the-musical-die-weihnachtsbackerei-bruges-be",
    "2026-12-05",
    "/christmas-events/christmas-in-bruges-with-kids",
    "The Christmas Bakery: The Musical (Die Weihnachtsbäckerei)"
-  ],
-  [
-   "/christmas-events/the-great-dickens-christmas-fair-daly-city-ca",
-   "2026-12-20",
-   "/christmas-events/san-francisco-ca",
-   "The Great Dickens Christmas Fair"
   ],
   [
    "/christmas-events/the-grinch-washington-dc",
@@ -4619,18 +1150,6 @@
    "The Nutcracker"
   ],
   [
-   "/christmas-events/the-nutcracker-ocala-metro-ballet-ocala-fl",
-   "2026-11-28",
-   "/christmas-events/ocala-fl",
-   "The Nutcracker Ballet Presented by Ocala Metro Ballet Theatre"
-  ],
-  [
-   "/christmas-events/the-nutcracker-symphony-of-lights-los-angeles-ca",
-   "2026-12-11",
-   "/christmas-events/los-angeles-ca",
-   "The Nutcracker: Symphony of Lights"
-  ],
-  [
    "/christmas-events/the-nutcracker-washington-dc",
    "2026-12-27",
    "",
@@ -4649,84 +1168,6 @@
    "Timm Thaler (The Boy Who Sold His Laughter)"
   ],
   [
-   "/christmas-events/tinseltown-in-water-works-park-des-moines-ia",
-   "2026-11-21",
-   "/christmas-events/des-moines-ia",
-   "Tinseltown in Water Works Park"
-  ],
-  [
-   "/christmas-events/tio-de-nadal-barcelona-es",
-   "2026-12-21",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "'Tió de Nadal!'"
-  ],
-  [
-   "/christmas-events/tio-gegant-a-la-fira-de-santa-llucia-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Tió gegant a la Fira de Santa Llúcia"
-  ],
-  [
-   "/christmas-events/tio-inflable-barcelona-es",
-   "2026-12-24",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Tió inflable"
-  ],
-  [
-   "/christmas-events/tomteloppet-pa-atellet-norrtalje-se",
-   "2026-12-05",
-   "",
-   "Tomteloppet på Åtellet 2026"
-  ],
-  [
-   "/christmas-events/tomten-kommer-till-asby-gard-pa-julafton-rosersberg-se",
-   "2026-12-24",
-   "",
-   "Tomten kommer till Åsby gård på julafton 2026"
-  ],
-  [
-   "/christmas-events/tomten-kommer-till-mohalla-se",
-   "2026-12-13",
-   "",
-   "Tomten kommer till Mohälla 2026"
-  ],
-  [
-   "/christmas-events/tree-lighting-ceremony-midland-tx",
-   "2026-12-01",
-   "/christmas-events/midland-tx",
-   "Midland's Merry Lights Tree Lighting Ceremony"
-  ],
-  [
-   "/christmas-events/trefa-repa-mesebanda-tejbegriztol-a-bejgliig-jozsefvaros-hu",
-   "2026-12-18",
-   "/christmas-events/budapest-hu",
-   "Tréfa-répa mesebanda: Tejbegríztől a bejgliig"
-  ],
-  [
-   "/christmas-events/trenet-de-nadal-a-nou-barris-barcelona-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Trenet de Nadal a Nou Barris"
-  ],
-  [
-   "/christmas-events/trenet-de-nadal-de-la-rambleta-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Trenet de Nadal de la Rambleta"
-  ],
-  [
-   "/christmas-events/tudja-a-mano-babjatek-lazar-ervin-manogyar-cimu-kotete-masodik-kerulet-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Tudja a manó! Bábjáték Lázár Ervin Manógyár című kötete alapján"
-  ],
-  [
-   "/christmas-events/tuzoltos-babjatek-es-adventi-gyertyagyujtas-az-ujbudai-adventi-vasaron-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Tűzoltós bábjáték és adventi gyertyagyújtás az Újbudai Adventi Vásáron"
-  ],
-  [
    "/christmas-events/txikijazz-tela-sonora-san-sebastian-es",
    "2026-11-22",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -4739,58 +1180,10 @@
    "UAE National Orchestra: A Festival Evening"
   ],
   [
-   "/christmas-events/ujbuda-bolha-adventi-konyvcsere-es-vasar-a-kelenvolgyi-konyvtarban-hu",
-   "2026-11-28",
-   "/christmas-events/budapest-hu",
-   "ÚJBUDA BOLHA - Adventi könyvcsere- és vásár a Kelenvölgyi Könyvtárban"
-  ],
-  [
-   "/christmas-events/ujbudai-adventi-vasar-hu",
-   "2026-12-23",
-   "/christmas-events/budapest-hu",
-   "Újbudai Adventi Vásár"
-  ],
-  [
-   "/christmas-events/ujpesti-adventi-vasar-hu",
-   "2026-12-23",
-   "/christmas-events/budapest-hu",
-   "Újpesti Adventi Vásár"
-  ],
-  [
-   "/christmas-events/un-hiver-en-musique-a-la-tour-eiffel-paris",
-   "2027-01-10",
-   "",
-   "Un hiver en musique à la tour Eiffel"
-  ],
-  [
-   "/christmas-events/un-rayo-de-luz-madrid-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Un rayo de luz"
-  ],
-  [
-   "/christmas-events/un-recorrido-por-los-grandes-clasicos-de-la-navidad-con-la-banda-sinfonica-madrid-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Un recorrido por los grandes clásicos de la Navidad con la Banda Sinfónica Municipal de Madrid"
-  ],
-  [
-   "/christmas-events/una-navidad-con-drosselmeyer-antiguo-cuscatlan-sv",
-   "2026-12-12",
-   "",
-   "Una Navidad con Drosselmeyer 2026"
-  ],
-  [
    "/christmas-events/una-noche-de-reyes-de-daniel-tejero-zaragoza-es",
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Una noche de Reyes de Daniel Tejero"
-  ],
-  [
-   "/christmas-events/une-heure-entiere-dans-les-histoires-paris",
-   "2026-12-16",
-   "",
-   "Une heure entière dans les histoires"
   ],
   [
    "/christmas-events/unicos-baluarte-txiki-pamplona-es",
@@ -4799,124 +1192,10 @@
    "Únicos (Baluarte Txiki)"
   ],
   [
-   "/christmas-events/unnepvaras-roth-miksanal-adventi-csaladi-delutan-erzsebetvaros-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Ünnepvárás Róth Miksánál: adventi családi délután"
-  ],
-  [
-   "/christmas-events/unnepvaro-adventi-talalkozasok-a-rozsak-teren-erzsebetvaros-hu",
-   "2026-12-11",
-   "/christmas-events/budapest-hu",
-   "Ünnepváró: Adventi találkozások a Rózsák terén"
-  ],
-  [
-   "/christmas-events/vackor-karacsonya-matyasfold-es-kornyeke-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Vackor karácsonya"
-  ],
-  [
-   "/christmas-events/varazslatos-mikulasvaro-delelott-pestszentlorinc-pestszentimre-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "Varázslatos Mikulásváró délelőtt"
-  ],
-  [
-   "/christmas-events/varazsnapok-a-tucsoktanyan-karacsonyvaras-angyalfold-es-ujlipotvaros-hu",
-   "2026-12-20",
-   "/christmas-events/budapest-hu",
-   "Varázsnapok a Tücsöktanyán: Karácsonyvárás, Az ólomkatona"
-  ],
-  [
-   "/christmas-events/varazsnapok-a-tucsoktanyan-mikulasvaras-ma-jon-angyalfold-es-ujlipotvaros-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Varázsnapok a Tücsöktanyán: Mikulásvárás, Ma jön a Mikulás"
-  ],
-  [
-   "/christmas-events/vasarnap-pannkanal-mikulas-varo-unnepseg-angyalfold-es-ujlipotvaros-hu",
-   "2026-12-06",
-   "/christmas-events/budapest-hu",
-   "Vasárnap PannKánál: Mikulás-váró ünnepség"
-  ],
-  [
-   "/christmas-events/verne-madrid-es",
-   "2026-12-06",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Verne"
-  ],
-  [
-   "/christmas-events/verne-y-los-viajes-extraordinarios-de-los-objetos-ordinarios-madrid-es",
-   "2026-12-29",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Verne y los viajes extraordinarios de los objetos ordinarios"
-  ],
-  [
-   "/christmas-events/viii-cantada-de-nadales-a-la-barceloneta-barcelona-es",
-   "2026-12-12",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "VIII Cantada de nadales a la Barceloneta"
-  ],
-  [
    "/christmas-events/villa-de-vallecas-a-todo-tren-madrid-es",
    "2026-12-23",
    "/christmas-events/navidad-con-ninos-madrid",
    "Villa de Vallecas a todo tren"
-  ],
-  [
-   "/christmas-events/villa-navidena-centro-historico-san-salvador-sv",
-   "2026-12-31",
-   "",
-   "Villa Navideña del Centro Histórico 2026"
-  ],
-  [
-   "/christmas-events/villa-navidena-presidente-plaza-san-salvador-sv",
-   "2026-12-20",
-   "",
-   "Villa Navideña Presidente Plaza 2026"
-  ],
-  [
-   "/christmas-events/visit-long-beach-tree-lighting-long-beach-ca",
-   "2026-12-07",
-   "/christmas-events/long-beach-ca",
-   "Visit Long Beach Tree Lighting"
-  ],
-  [
-   "/christmas-events/visita-del-pare-noel-i-personatges-nadalencs-al-mercat-dominical-barcelona-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Visita del Pare Noel i personatges nadalencs al Mercat Dominical de Sant Antoni"
-  ],
-  [
-   "/christmas-events/visita-del-patge-reial-al-mercat-de-sarria-barcelona-es",
-   "2027-01-04",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Visita del Patge Reial al Mercat de Sarrià"
-  ],
-  [
-   "/christmas-events/visita-dels-patges-reials-al-mercat-dominical-de-sant-antoni-barcelona-es",
-   "2027-01-03",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Visita dels Patges Reials al Mercat Dominical de Sant Antoni"
-  ],
-  [
-   "/christmas-events/visita-dun-elf-i-activitats-infantils-barcelona-es",
-   "2026-12-23",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Visita d'un elf i activitats infantils"
-  ],
-  [
-   "/christmas-events/visita-especial-del-patge-reial-barcelona-es",
-   "2027-01-05",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Visita especial del Patge Reial"
-  ],
-  [
-   "/christmas-events/visite-bebe-au-musee-de-lorangerie-paris",
-   "2026-12-20",
-   "",
-   "Visite bébé au musée de l’Orangerie"
   ],
   [
    "/christmas-events/waldweihnacht-forest-christmas-leuven-be",
@@ -4925,28 +1204,10 @@
    "Waldweihnacht (Forest Christmas)"
   ],
   [
-   "/christmas-events/week-end-little-bebe-a-little-villette-paris",
-   "2026-11-29",
-   "",
-   "Week-end Little Bébé à Little Villette"
-  ],
-  [
    "/christmas-events/weihnachtsbackerei-christmas-bakery-theater-tom-teuer-hamburg-be",
    "2026-12-30",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Weihnachtsbäckerei (Christmas Bakery), Theater Tom Teuer (Hamburg)"
-  ],
-  [
-   "/christmas-events/whistle-stop-christmas-cleburne-tx",
-   "2027-01-03",
-   "/christmas-events/cleburne-tx",
-   "Whistle Stop Christmas"
-  ],
-  [
-   "/christmas-events/white-christmas-classic-film-stockton-ca",
-   "2026-12-20",
-   "/christmas-events/stockton-ca",
-   "White Christmas Classic Movie"
   ],
   [
    "/christmas-events/who-how-what-christmas-wer-wie-was-weihnachten-bruges-be",
@@ -4973,34 +1234,10 @@
    "Winter Weekend (Winterliches Wochenende)"
   ],
   [
-   "/christmas-events/winter-wonder-lights-rochester-mi",
-   "2026-12-30",
-   "/christmas-events/rochester-mi",
-   "Winter Wonder Lights"
-  ],
-  [
    "/christmas-events/winter-wonderland-fun-day-washington-dc",
    "2026-12-17",
    "",
    "Winter Wonderland Fun Day"
-  ],
-  [
-   "/christmas-events/winterfest-and-the-tunnel-of-lights-east-windsor-ct",
-   "2026-12-30",
-   "/christmas-events/hartford-ct",
-   "Winterfest and the Tunnel of Lights"
-  ],
-  [
-   "/christmas-events/winterfest-boat-parade-viewing-area-fort-lauderdale-fl",
-   "2026-12-12",
-   "/christmas-events/fort-lauderdale-fl",
-   "Seminole Hard Rock Winterfest Boat Parade"
-  ],
-  [
-   "/christmas-events/winterlight-the-tudor-glow-east-yorkshire-uk",
-   "2026-12-23",
-   "/christmas-events/hull-uk",
-   "Winterlight: The Tudor Glow"
   ],
   [
    "/christmas-events/xelebreixon-san-sebastian-es",
@@ -5009,34 +1246,10 @@
    "Xelebreixon"
   ],
   [
-   "/christmas-events/xocolatada-popular-barcelona-es",
-   "2026-12-19",
-   "/christmas-events/navidad-con-ninos-barcelona",
-   "Xocolatada popular"
-  ],
-  [
-   "/christmas-events/zambomba-villancicos-flamencos-y-cocido-madrileno-madrid-es",
-   "2026-12-20",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Zambomba (villancicos flamencos y cocido madrileño)"
-  ],
-  [
    "/christmas-events/zaragoza-magica-abuelos-nietos-y-mucha-magia-es",
    "2026-11-29",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Zaragoza Mágica: Abuelos, nietos y mucha magia"
-  ],
-  [
-   "/christmas-events/zenevarazs-diotoro-masodik-kerulet-hu",
-   "2026-12-05",
-   "/christmas-events/budapest-hu",
-   "ZeneVarázs: Diótörő"
-  ],
-  [
-   "/christmas-events/zimba-et-le-bracelet-perdu-conte-pour-les-tout-petits-a-lhotel-de-la-m-paris",
-   "2026-12-31",
-   "",
-   "Zimba et le bracelet perdu, conte pour les tout-petits à l’Hôtel de la Marine"
   ],
   [
    "/christmas-events/zinetxiki-zinemaldia-bilbao-es",
@@ -5052,17 +1265,16 @@
   ]
  ],
  "upcoming_not_listed_by_country": {
-  "Spain": 346,
-  "?": 201,
-  "Hungary": 101,
-  "United States": 79,
+  "Spain": 97,
+  "?": 52,
   "Belgium": 28,
   "Portugal": 7,
-  "United Kingdom": 3,
-  "Cyprus": 3,
-  "Switzerland": 3,
+  "Cyprus": 4,
+  "United States": 2,
   "Luxembourg": 2,
-  "الامارات العربية المتحدة": 1
+  "الامارات العربية المتحدة": 1,
+  "Hungary": 1,
+  "Switzerland": 1
  },
  "card_without_link": [
   [
@@ -5091,11 +1303,6 @@
    "dlr Elf Dash 2026"
   ],
   [
-   "/christmas-events/dubuque-symphony-orchestra-holiday-family-concert-dubuque-ia",
-   "/christmas-events/dubuque-ia",
-   "Dubuque Symphony Orchestra Holiday Family Concert"
-  ],
-  [
    "/christmas-events/oneiroupoli-drama-gr",
    "/christmas-events/kavala-gr",
    "Ονειρούπολη -"
@@ -5111,7 +1318,7 @@
    "Tidings of Tradition: Christmas Tour 2026"
   ]
  ],
- "past_not_listed": 330,
+ "past_not_listed": 322,
  "other": [
   [
    "/christmas-events/arrival-and-sint-festival-in-zandvoort-intocht-en-sintfestival-zandvoort-nl",
@@ -5119,14 +1326,6 @@
   ],
   [
    "/christmas-events/arrival-of-sinterklaas-in-the-hague-intocht-sinterklaas-den-haag-nl",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/budapest-23-kerulet-hu",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/budapest-6-kerulet-hu",
    "no event dates"
   ],
   [
@@ -5139,18 +1338,6 @@
   ],
   [
    "/christmas-events/navidad-con-ninos-choloma-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-danli-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-el-negrito-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-el-salvador",
    "no event dates"
   ],
   [
@@ -5167,10 +1354,6 @@
   ],
   [
    "/christmas-events/navidad-con-ninos-juticalpa-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-la-ceiba-hn",
    "no event dates"
   ],
   [
@@ -5206,19 +1389,7 @@
    "no event dates"
   ],
   [
-   "/christmas-events/navidad-con-ninos-santa-cruz-de-yojoa-hn",
-   "no event dates"
-  ],
-  [
    "/christmas-events/navidad-con-ninos-santa-rosa-de-copan-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-siguatepeque-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-tela-hn",
    "no event dates"
   ],
   [
@@ -5231,10 +1402,6 @@
   ],
   [
    "/christmas-events/navidad-con-ninos-trojes-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-trujillo-hn",
    "no event dates"
   ],
   [
