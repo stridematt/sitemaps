@@ -37,6 +37,8 @@ def own_country(h):
     return cs.most_common(1)[0][0] if cs else None
 
 
+DISTRICT = re.compile(r'^\d{1,2}(?:-kerulet|er|e|eme|-arr|-bezirk)?$')
+LANG_PREFIX = re.compile(r'^/?(?:christmas-events/)?(navidad-con-ninos|noel-avec-les-enfants|activites-de-noel-pour-enfants|weihnachten-mit-kindern|natale-con-i-bambini|kerst-met-kinderen|natal-com-criancas|kodomo-christmas|rozhdestvo-s-detmi)-')
 # The language prefix of a translated city page ("rozhdestvo-s-detmi-", "navidad-con-ninos-"...). Only such a
 # prefix makes a page a twin: "north-charleston" is not a twin of "charleston".
 XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|natale|kerst|kodomo|rozhdestvo|jul\w*|joulu\w*|bozic|vanoce|karacsony|craciun|boze|kalikimaka|kurisumasu|krismas|kerismas)(-|$)')
@@ -354,11 +356,36 @@ def main():
     if added:
         log(f'{len(added)} city pages found through guides that the hub does not list yet: {added[:10]}')
 
+    # District pages (praha-1-cz, budapest-12-kerulet-hu, navidad-con-ninos-madrid-retiro, noel-avec-les-enfants-paris-1er)
+    # list events of their city. They are not cities: their cards count as part of the city they extend, once
+    # (cards are keyed by event page or by name, town and date), and they never count as a city of their own.
+    parent_of = {}
+    by_base = {}
+    for p, o in place.items():
+        by_base.setdefault((city_base(p), p.rsplit('-', 1)[-1] if re.search(r'-[a-z]{2}$', p) else ''), p)
+    for q in re.findall(r'<loc>https://www\.rallytakesthetrain\.com(/christmas-events/[a-z0-9-]+)</loc>', sm.decode('utf-8')):
+        if q in place or q in guides or q in odd:
+            continue
+        code = q.rsplit('-', 1)[-1] if re.search(r'-[a-z]{2}$', q) else ''
+        b = city_base(q) if code else q.rsplit('/', 1)[-1]
+        parts = b.split('-')
+        for i in range(len(parts) - 1, 0, -1):
+            pb, rest = '-'.join(parts[:i]), '-'.join(parts[i:])
+            par = by_base.get((pb, code)) or (by_base.get(('/christmas-events/' + pb, '')) if not code else None)
+            if not par:
+                continue
+            prefixed = bool(LANG_PREFIX.match(pb))
+            if DISTRICT.match(rest) or prefixed:
+                parent_of[q] = place[par]['main']
+            break
+    if parent_of:
+        log(f'{len(parent_of)} district pages counted as part of their city: {sorted(parent_of)[:12]}')
+
     # What to (re)read
     # Every page is read every run: Squarespace's sitemap dates lag behind edits, so a page that
     # changed would otherwise keep its old count for days. New and changed pages go first.
     due = []
-    for p in list(place) + list(guides):
+    for p in list(place) + list(guides) + list(parent_of):
         prev = pages.get(p)
         if not prev:
             due.append((0, p))
@@ -413,7 +440,7 @@ def main():
         if v.get('x') and v['x'] < today:
             v['stale'] = True
     for p in list(pages):
-        if p not in place and p not in guides:
+        if p not in place and p not in guides and p not in parent_of:
             pages.pop(p)
     def all_links(g, seen=None):
         seen = seen if seen is not None else {g}
@@ -455,7 +482,8 @@ def main():
             continue  # local-language twin of the same city: count the city once
         twins = [q for q, o in place.items() if o['main'] == p]
         best = max(twins, key=lambda q: (pages.get(q) or {}).get('e', 0))  # same as the hub: the fuller language version
-        cities[p] = {'country': pl['country'], 'state': pl['state'], 'name': pl['name'], 'paths': twins, 'best': best}
+        parts = sorted(q for q, par in parent_of.items() if par == p and (pages.get(q) or {}).get('k') is not None)
+        cities[p] = {'country': pl['country'], 'state': pl['state'], 'name': pl['name'], 'paths': twins, 'best': best, 'parts': parts}
     by_country, by_state = collections.defaultdict(list), collections.defaultdict(list)
     for p, c in cities.items():
         by_country[c['country']].append(c)
@@ -465,9 +493,9 @@ def main():
     def agg(cs):
         # One language version per city (the fuller one): the English and local-language pages list the
         # same events, sometimes under different card ids, so taking both would count events twice.
-        r = roll([c['best'] for c in cs])
+        r = roll([q for c in cs for q in [c['best']] + c['parts']])
         r['cities'] = len(cs)
-        r['cities_with_events'] = sum(1 for c in cs if (pages.get(c['best']) or {}).get('e'))
+        r['cities_with_events'] = sum(1 for c in cs if any((pages.get(q) or {}).get('e') for q in [c['best']] + c['parts']))
         return r
 
     total = agg(list(cities.values()))
@@ -480,8 +508,8 @@ def main():
         'total': total,
         'countries': {n: agg(cs) for n, cs in by_country.items()},
         'states': {s: agg(cs) for s, cs in by_state.items()},
-        'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': (pages.get(c['best']) or {}).get('e', 0),
-                       'f': (pages.get(c['best']) or {}).get('f', 0), 'alt': [q for q in c['paths'] if q != p],
+        'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': roll([c['best']] + c['parts'])['events'],
+                       'f': roll([c['best']] + c['parts'])['free'], 'alt': [q for q in c['paths'] if q != p],
                        'hub': p not in missing} for p, c in sorted(cities.items())},
         'pages': pages, 'odd': odd, 'guide_pages': gstate, 'found': found,
     }
@@ -499,8 +527,9 @@ def main():
         else:
             continue
         g = regions[key]
-        v = pages.get(c['best']) or {}
-        g['events'].update(v.get('k', [])); g['free'].update(v.get('fk', []))
+        for q in [c['best']] + c['parts']:
+            v = pages.get(q) or {}
+            g['events'].update(v.get('k', [])); g['free'].update(v.get('fk', []))
         g['cities'] += 1
         g['cities_with_events'] += 1 if (pages.get(p) or {}).get('e') else 0
     live = {

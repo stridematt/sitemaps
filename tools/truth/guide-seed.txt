@@ -1,3 +1,4 @@
 # Country and region guides to (re)discover even if the newest-posts walk passed them.
 /christmas-events/united-arab-emirates
 /christmas-events/czechia
+/christmas-events/navidad-con-ninos-el-salvador

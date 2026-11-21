@@ -1,5 +1,5 @@
 """Read the facts a Christmas events page actually contains (its event cards), not the numbers its text claims."""
-import re, json, html as H
+import re, json, unicodedata, html as H
 
 CARD = re.compile(r'<section class="rtt-pe-ride"([^>]*)>', re.S)
 
@@ -22,15 +22,26 @@ def last_day(cal):
     return m
 
 
+def slug(s):
+    s = unicodedata.normalize('NFKD', H.unescape(re.sub(r'<[^>]+>', ' ', s or ''))).encode('ascii', 'ignore').decode().lower()
+    return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
+
+
 def cards(html):
     out = []
     ms = list(CARD.finditer(html))
     for i, m in enumerate(ms):
         tag = m.group(1)
         end = ms[i + 1].start() if i + 1 < len(ms) else m.end() + 20000
-        k = re.search(r'data-rtt-evp="([^"]+)"', html[m.end():end])
+        seg = html[m.end():end]
+        k = re.search(r'data-rtt-evp="([^"]+)"', seg)
         cid = attr(tag, 'id') or ''
-        out.append({'id': cid, 'key': k.group(1) if k else cid, 'last': last_day(attr(tag, 'data-cal') or '{}'),
+        last = last_day(attr(tag, 'data-cal') or '{}')
+        # A card that doesn't link an event page is keyed by what it is (name, town, last day), not by its id,
+        # so the same event on a city page and on its district page (or two city pages) counts once.
+        nm = re.search(r'<h3[^>]*>(.*?)</h3>', seg, re.S)
+        key = k.group(1) if k else ('n:' + slug(nm.group(1)) + '|' + slug(attr(tag, 'data-xf-town') or '') + '|' + last if nm else cid)
+        out.append({'id': cid, 'key': key, 'last': last,
                     'free': 'free' in (attr(tag, 'data-xf-fl') or '').split(),
                     'town': attr(tag, 'data-xf-town') or '', 'types': (attr(tag, 'data-xf-ty') or '').split()})
     return out
