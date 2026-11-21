@@ -4,132 +4,67 @@
  "city_pages": 3956,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23378,
+ "event_pages_listed": 23458,
  "count_mismatch": [
   [
-   "/christmas-events/bangkok-th",
-   9,
-   10
+   "/christmas-events/boca-raton-fl",
+   3,
+   5
   ],
   [
-   "/christmas-events/chennai-in",
-   1,
-   2
+   "/christmas-events/boynton-beach-fl",
+   2,
+   3
   ],
   [
-   "/christmas-events/gilbert-az",
-   10,
-   14
-  ],
-  [
-   "/christmas-events/khrit-mat-bangkok-th",
-   9,
-   10
-  ],
-  [
-   "/christmas-events/kuala-lumpur-my",
-   6,
-   7
-  ],
-  [
-   "/christmas-events/lagos-ng",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/los-angeles-ca",
-   74,
-   76
-  ],
-  [
-   "/christmas-events/nairobi-ke",
-   5,
+   "/christmas-events/bradenton-fl",
+   8,
    9
   ],
   [
-   "/christmas-events/palmdale-ca",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/paso-robles-ca",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/penang-my",
+   "/christmas-events/danbury-ct",
    3,
-   4
-  ],
-  [
-   "/christmas-events/phnom-penh-kh",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/phoenix-az",
-   37,
-   38
-  ],
-  [
-   "/christmas-events/sacramento-ca",
-   50,
-   52
-  ],
-  [
-   "/christmas-events/san-marcos-ca",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/santa-barbara-ca",
-   9,
-   12
-  ],
-  [
-   "/christmas-events/santa-clarita-ca",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/santa-cruz-ca",
-   12,
-   13
-  ],
-  [
-   "/christmas-events/stockton-ca",
-   21,
-   23
-  ],
-  [
-   "/christmas-events/surprise-az",
-   3,
-   6
-  ],
-  [
-   "/christmas-events/temecula-ca",
-   4,
-   6
-  ],
-  [
-   "/christmas-events/tempe-az",
-   6,
    7
   ],
   [
-   "/christmas-events/upland-ca",
+   "/christmas-events/fairfield-ct",
    3,
-   4
+   8
   ],
   [
-   "/christmas-events/visalia-ca",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/vista-ca",
+   "/christmas-events/glastonbury-ct",
    2,
-   4
+   3
+  ],
+  [
+   "/christmas-events/greenwood-de",
+   3,
+   7
+  ],
+  [
+   "/christmas-events/harrington-de",
+   3,
+   6
+  ],
+  [
+   "/christmas-events/hartford-ct",
+   20,
+   28
+  ],
+  [
+   "/christmas-events/meriden-ct",
+   11,
+   12
+  ],
+  [
+   "/christmas-events/new-haven-ct",
+   24,
+   28
+  ],
+  [
+   "/christmas-events/woodbury-ct",
+   3,
+   5
   ]
  ],
  "uncounted_city_pages": [
