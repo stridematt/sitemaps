@@ -96,6 +96,25 @@ jobs:
           git commit -q -m "Live counts: $(python3 -c "import json;t=json.load(open('tools/truth/live.json'))['total'];print(f\"{t['events']:,} events, {t['free']:,} free, {t['cities']:,} cities\")")"
           for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
 
+      - name: Tell search engines which pages changed (IndexNow)
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          f = '.state/changed-pages.txt'
+          urls = [u for u in (open(f).read().split('\n') if os.path.exists(f) else []) if u.startswith('https://www.rallytakesthetrain.com/')]
+          key = '769b49195b15aba74934cd930ea399db'   # public: the key file served on the site
+          for i in range(0, len(urls), 500):
+              body = json.dumps({'host': 'www.rallytakesthetrain.com', 'key': key, 'keyLocation': f'https://www.rallytakesthetrain.com/{key}.txt', 'urlList': urls[i:i + 500]}).encode()
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'content-type': 'application/json; charset=utf-8'}), timeout=60)
+                  print('IndexNow', len(urls[i:i + 500]), 'pages:', r.status)
+              except Exception as e:
+                  print('IndexNow failed:', e)
+          if os.path.exists(f):
+              os.remove(f)
+          print(len(urls), 'changed pages')
+          PY
+
       - name: Rebuild llms.txt from the live site
         run: |
           git pull -q --rebase || true
