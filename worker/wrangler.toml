@@ -3,7 +3,7 @@ main = "src/index.js"
 compatibility_date = "2026-11-18"
 workers_dev = false
 
-# Routes: only the international sections (kept in sync with tools/worker-routes.txt).
+# Routes: the international sections and every Christmas Eve services collection (kept in sync with tools/worker-routes.txt).
 routes = [
   { pattern = "www.rallytakesthetrain.com/christmas-*", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/messes-de-noel*", zone_name = "rallytakesthetrain.com" },
@@ -11,6 +11,13 @@ routes = [
   { pattern = "www.rallytakesthetrain.com/weihnachtszuege*", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/trains-de-noel*", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/treni-di-natale*", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/gottesdienste-heiligabend-deutschland*", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/misa-de-nochebuena-mexico*", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/pasterka-wigilia-polska*", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/slujbe-de-craciun-romania*", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/misa-del-gallo-espana*", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/missa-do-galo-brasil*", zone_name = "rallytakesthetrain.com" },
+  { pattern = "www.rallytakesthetrain.com/messe-vigilia-di-natale-italia*", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/hreflang-sitemap.xml", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/llms.txt", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/llms-full.txt", zone_name = "rallytakesthetrain.com" },
