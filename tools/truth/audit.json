@@ -1,134 +1,95 @@
 {
  "today": "2026-11-21",
- "sitemap_urls": 27722,
- "city_pages": 3970,
+ "sitemap_urls": 27746,
+ "city_pages": 3981,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23901,
+ "event_pages_listed": 23970,
  "count_mismatch": [
   [
-   "/christmas-events/allendale-mi",
-   2,
-   5
+   "/christmas-events/ann-arbor-mi",
+   1,
+   2
   ],
   [
-   "/christmas-events/annapolis-md",
-   7,
-   10
-  ],
-  [
-   "/christmas-events/baltimore-md",
-   55,
-   56
-  ],
-  [
-   "/christmas-events/bowie-md",
-   8,
-   9
-  ],
-  [
-   "/christmas-events/columbia-md",
-   2,
-   5
-  ],
-  [
-   "/christmas-events/cumberland-md",
+   "/christmas-events/byron-mi",
    3,
-   7
+   4
   ],
   [
-   "/christmas-events/frederick-md",
-   11,
-   13
-  ],
-  [
-   "/christmas-events/glen-burnie-md",
+   "/christmas-events/canton-mi",
    2,
-   5
+   3
   ],
   [
-   "/christmas-events/grand-rapids-mi",
-   29,
-   30
-  ],
-  [
-   "/christmas-events/hagerstown-md",
+   "/christmas-events/dearborn-mi",
    1,
    3
   ],
   [
-   "/christmas-events/kalamazoo-mi",
-   6,
-   7
+   "/christmas-events/detroit-mi",
+   31,
+   47
   ],
   [
-   "/christmas-events/kittery-me",
+   "/christmas-events/flint-mi",
+   8,
+   10
+  ],
+  [
+   "/christmas-events/garden-city-mi",
    3,
    4
   ],
   [
-   "/christmas-events/lansing-mi",
-   28,
-   31
+   "/christmas-events/grand-rapids-mi",
+   30,
+   36
   ],
   [
-   "/christmas-events/rockville-md",
+   "/christmas-events/howell-mi",
+   5,
+   6
+  ],
+  [
+   "/christmas-events/livonia-mi",
    3,
+   5
+  ],
+  [
+   "/christmas-events/muskegon-mi",
+   3,
+   5
+  ],
+  [
+   "/christmas-events/novi-mi",
+   1,
+   2
+  ],
+  [
+   "/christmas-events/ortonville-mi",
+   3,
+   6
+  ],
+  [
+   "/christmas-events/pontiac-mi",
+   2,
    4
   ],
   [
-   "/christmas-events/severna-park-md",
-   3,
+   "/christmas-events/sterling-heights-mi",
+   2,
    4
+  ],
+  [
+   "/christmas-events/troy-mi",
+   2,
+   3
   ]
  ],
  "uncounted_city_pages": [
   [
-   "/christmas-events/ahmedabad-in",
-   1
-  ],
-  [
-   "/christmas-events/bengaluru-in",
-   2
-  ],
-  [
-   "/christmas-events/chennai-in",
-   2
-  ],
-  [
-   "/christmas-events/goa-in",
-   1
-  ],
-  [
-   "/christmas-events/hyderabad-in",
-   3
-  ],
-  [
-   "/christmas-events/kanpur-in",
-   1
-  ],
-  [
-   "/christmas-events/kolkata-in",
-   1
-  ],
-  [
-   "/christmas-events/lucknow-in",
-   1
-  ],
-  [
-   "/christmas-events/mumbai-in",
-   8
-  ],
-  [
    "/christmas-events/navidad-con-ninos-ponce-pr",
-   1
-  ],
-  [
-   "/christmas-events/new-delhi-in",
-   4
-  ],
-  [
-   "/christmas-events/pathanamthitta-in",
    1
   ]
  ],
@@ -302,12 +263,6 @@
    "Bilbao TX Fest 2026: \"Los cuentos de Sibyla"
   ],
   [
-   "/christmas-events/btw-christmas-flea-khar-west-in",
-   "2026-12-13",
-   "",
-   "BTW Christmas Flea"
-  ],
-  [
    "/christmas-events/buble-christmas-tribute-pamplona-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-pamplona",
@@ -354,30 +309,6 @@
    "2026-12-28",
    "/christmas-events/navidad-con-ninos-madrid",
    "Carillón de Navidad en la Plaza de España"
-  ],
-  [
-   "/christmas-events/carols-in-the-city-bengaluru-in",
-   "2026-12-13",
-   "",
-   "Carols in the City Bengaluru"
-  ],
-  [
-   "/christmas-events/chrisfiesta-at-the-good-shepherd-church-nazirabad-in",
-   "2026-12-08",
-   "",
-   "CHRISFIESTA at The Good Shepherd Church"
-  ],
-  [
-   "/christmas-events/christmas-earth-mela-chanakyapuri-in",
-   "2026-12-13",
-   "",
-   "Christmas Earth Mela"
-  ],
-  [
-   "/christmas-events/christmas-fiesta-by-mumbai-meri-jaan-dadar-in",
-   "2026-12-13",
-   "",
-   "Christmas Fiesta by Mumbai Meri Jaan"
   ],
   [
    "/christmas-events/christmas-in-larnaca-with-kids",
@@ -578,18 +509,6 @@
    "Feria de Santo Tomás en Bilbao"
   ],
   [
-   "/christmas-events/festival-of-festive-music-goa-margao-in",
-   "2026-12-05",
-   "",
-   "Festival of Festive Music Goa"
-  ],
-  [
-   "/christmas-events/festival-of-festive-music-mumbai-bandra-in",
-   "2026-12-20",
-   "",
-   "Festival of Festive Music Mumbai"
-  ],
-  [
    "/christmas-events/fly-me-to-the-moon-pamplona-es",
    "2026-12-29",
    "/christmas-events/navidad-con-ninos-pamplona",
@@ -626,12 +545,6 @@
    "Gran Cabalgata de los Reyes Magos en Tetuán"
   ],
   [
-   "/christmas-events/greenscape-christmas-choir-fest-vadaserikara-in",
-   "2026-12-20",
-   "",
-   "Greenscape Christmas Choir Fest"
-  ],
-  [
    "/christmas-events/haurtxoko-de-aiete-mari-domingi-ren-bisita-san-sebastian-es",
    "2026-12-24",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -656,12 +569,6 @@
    "Ibercaja Xplora: El Gran Rastro de los Reyes Magos"
   ],
   [
-   "/christmas-events/ikigai-christmas-carnival-and-food-festival-sector-134-noida-in",
-   "2026-12-20",
-   "",
-   "Ikigai Christmas Carnival and Food Festival"
-  ],
-  [
    "/christmas-events/ipuin-kontaketa-musikatuak-bilbao-es",
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-bilbao",
@@ -678,12 +585,6 @@
    "2026-12-13",
    "/christmas-events/jacksonville-fl",
    "Jacksonville Holly Jolly Event"
-  ],
-  [
-   "/christmas-events/jingleverse-christmas-carnival-hyderabad-in",
-   "2026-12-13",
-   "",
-   "Jingleverse Christmas Carnival"
   ],
   [
    "/christmas-events/jolaboka-cologne-be",
@@ -714,12 +615,6 @@
    "2026-12-12",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Kameleoiak gara! Taller de arte: Kooperatiba"
-  ],
-  [
-   "/christmas-events/kids-santa-walkathon-season-2-mogappair-in",
-   "2026-12-20",
-   "",
-   "Kids Santa Walkathon Season 2"
   ],
   [
    "/christmas-events/kokosnuss-feiert-weihnachten-familientag-kokosnuss-celebrates-christmas-namur-be",
@@ -788,12 +683,6 @@
    "Literaktum 2026: Ipuin Kontalarien XII. Maratoia"
   ],
   [
-   "/christmas-events/littlepreneurs-christmas-edition-kids-market-raidurg-in",
-   "2026-12-20",
-   "",
-   "Littlepreneurs Christmas Edition Kids Market"
-  ],
-  [
    "/christmas-events/loa-eta-laia-zuzenean-bilbao-es",
    "2026-11-29",
    "/christmas-events/navidad-con-ninos-bilbao",
@@ -810,12 +699,6 @@
    "2026-12-19",
    "/christmas-events/navidad-con-ninos-bilbao",
    "LOTURAK. Familia Programa"
-  ],
-  [
-   "/christmas-events/lucknow-farmers-market-christmas-edition-hazratganj-in",
-   "2026-12-06",
-   "",
-   "Lucknow Farmers Market Christmas Edition"
   ],
   [
    "/christmas-events/macarrones-con-tomate-pamplona-es",
@@ -884,12 +767,6 @@
    "Motxila"
   ],
   [
-   "/christmas-events/mumbai-christmas-carnival-parel-in",
-   "2026-12-27",
-   "",
-   "Mumbai Christmas Carnival"
-  ],
-  [
    "/christmas-events/murren-bidaia-san-sebastian-es",
    "2026-12-11",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -944,12 +821,6 @@
    "Olentzeroren sekretua"
   ],
   [
-   "/christmas-events/paws-at-the-pier-christmas-carnival-ballard-estate-in",
-   "2026-12-06",
-   "",
-   "Paws at the Pier Christmas Carnival"
-  ],
-  [
    "/christmas-events/pero-que-me-estas-cantando-kike-lera-zaragoza-es",
    "2026-12-29",
    "/christmas-events/navidad-con-ninos-zaragoza",
@@ -998,12 +869,6 @@
    "Santa Reads in the Crane (Der Weihnachtsmann liest im Kran)"
   ],
   [
-   "/christmas-events/santopia-santas-secret-paradise-hitec-city-in",
-   "2026-12-23",
-   "",
-   "Santopia Santa's Secret Paradise"
-  ],
-  [
    "/christmas-events/sausalito-winterfest-lighted-boat-parade-ca",
    "2026-12-13",
    "/christmas-events/san-rafael-ca",
@@ -1022,12 +887,6 @@
    "Schülerklausjagen (School Kids' Klausjagen) (Weggis)"
   ],
   [
-   "/christmas-events/sci-fi-christmas-science-adventure-vaishnodevi-in",
-   "2026-12-20",
-   "",
-   "Sci-Fi Christmas Science Adventure"
-  ],
-  [
    "/christmas-events/scrooge-eta-mamuak-san-sebastian-es",
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -1038,12 +897,6 @@
    "2026-12-13",
    "/christmas-events/weihnachten-mit-kindern-dormagen",
    "Sternenzauber-Weihnachtsmarkt in der Altstadt in Monheim am Rhein"
-  ],
-  [
-   "/christmas-events/sunday-soul-sante-xmas-edition-nagavara-in",
-   "2026-12-20",
-   "",
-   "Sunday Soul Sante Xmas Edition"
   ],
   [
    "/christmas-events/szent-miklos-napi-unnepseg-mikulas-varo-a-kalaka-belvaros-lipotvaros-hu",
@@ -1088,34 +941,16 @@
    "The Nutcracker"
   ],
   [
-   "/christmas-events/the-sorbet-soiree-christmas-market-new-delhi-in",
-   "2026-12-20",
-   "",
-   "The Sorbet Soirée Christmas Market"
-  ],
-  [
    "/christmas-events/timm-thaler-the-boy-who-sold-his-laughter-leuven-be",
    "2026-12-26",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Timm Thaler (The Boy Who Sold His Laughter)"
   ],
   [
-   "/christmas-events/tis-the-season-with-the-soi-chamber-orchestra-nariman-point-in",
-   "2026-12-13",
-   "",
-   "Tis the Season with the SOI Chamber Orchestra"
-  ],
-  [
    "/christmas-events/tren-navideno-plaza-santiago-r-palmer-caguas-pr",
    "2026-12-27",
    "/christmas-events/navidad-con-ninos-caguas-pr",
    "Tren Navideño de Caguas"
-  ],
-  [
-   "/christmas-events/tucs-christmas-carnival-north-kolkata-in",
-   "2026-12-25",
-   "",
-   "TUC's Christmas Carnival"
   ],
   [
    "/christmas-events/txikijazz-tela-sonora-san-sebastian-es",
@@ -1166,34 +1001,16 @@
    "Winter Weekend (Winterliches Wochenende)"
   ],
   [
-   "/christmas-events/wintertide-choral-concert-mandi-house-in",
-   "2026-12-04",
-   "",
-   "Wintertide Choral Concert"
-  ],
-  [
    "/christmas-events/wir-warten-aufs-christkind-koeln-kinder-de",
    "2026-12-24",
    "/christmas-events/weihnachten-mit-kindern-dormagen",
    "Wir warten aufs Christkind in Köln"
   ],
   [
-   "/christmas-events/world-of-christmas-at-jio-world-drive-bandra-kurla-complex-in",
-   "2026-12-27",
-   "",
-   "World of Christmas at Jio World Drive"
-  ],
-  [
    "/christmas-events/xelebreixon-san-sebastian-es",
    "2026-12-26",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Xelebreixon"
-  ],
-  [
-   "/christmas-events/you-me-and-a-christmas-tree-3-0-bandra-west-in",
-   "2026-12-05",
-   "",
-   "You Me and A Christmas Tree 3.0"
   ],
   [
    "/christmas-events/zaragoza-magica-abuelos-nietos-y-mucha-magia-es",
@@ -1211,13 +1028,13 @@
  "upcoming_not_listed_by_country": {
   "Spain": 94,
   "Belgium": 28,
-  "?": 26,
   "United States": 8,
   "Portugal": 7,
   "Cyprus": 4,
   "Germany": 4,
   "Puerto Rico": 3,
   "Luxembourg": 2,
+  "?": 2,
   "United Arab Emirates": 1,
   "Hungary": 1,
   "Switzerland": 1
