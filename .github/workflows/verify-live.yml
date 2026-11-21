@@ -1,0 +1,22 @@
+name: verify-live
+
+# Hourly check that the live site shows what the counts files say (totals, every counted country in the
+# hub's search and list, map lights, services leading the Christmas Eve hub, Worker on its routes, counts
+# files fresh). A failed run emails the repo owner: a broken sync is noticed within the hour.
+on:
+  schedule:
+    - cron: '33 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RTT_BOT_KEY: ${{ secrets.RTT_BOT_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/verify/verify_live.py
