@@ -1,10 +1,10 @@
 {
  "today": "2026-11-20",
  "sitemap_urls": 26642,
- "city_pages": 3908,
+ "city_pages": 3913,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 22990,
+ "event_pages_listed": 23013,
  "count_mismatch": [],
  "uncounted_city_pages": [],
  "upcoming_not_listed": [
@@ -393,6 +393,12 @@
    "Era uma vez nos Jardins do Marquês, O Natal"
   ],
   [
+   "/christmas-events/european-christmas-market-huntington-beach-ca",
+   "2027-01-03",
+   "/christmas-events/huntington-beach-ca",
+   "European Christmas Market"
+  ],
+  [
    "/christmas-events/family-christmas-market-at-alice-salomon-platz-berlin-be",
    "2026-12-26",
    "/christmas-events/christmas-in-bruges-with-kids",
@@ -409,6 +415,12 @@
    "2026-12-21",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Feria de Santo Tomás en Bilbao"
+  ],
+  [
+   "/christmas-events/festival-of-trees-white-bear-lake-mn",
+   "2026-12-19",
+   "/christmas-events/white-bear-lake-mn",
+   "Festival of Trees"
   ],
   [
    "/christmas-events/fly-me-to-the-moon-pamplona-es",
@@ -451,6 +463,12 @@
    "2026-12-24",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Haurtxoko de Aiete: Mari Domingi-ren bisita"
+  ],
+  [
+   "/christmas-events/holiday-ride-on-train-atlanta-ga",
+   "2027-01-03",
+   "/christmas-events/atlanta-ga",
+   "Holiday Ride-on Train"
   ],
   [
    "/christmas-events/ibercaja-xplora-el-gran-rastro-de-los-reyes-magos-zaragoza-es",
@@ -741,6 +759,12 @@
    "Raya Real: \"Con Alegría by Amazon Music"
   ],
   [
+   "/christmas-events/san-jose-holiday-lights-san-jose-ca",
+   "2027-01-01",
+   "/christmas-events/san-jose-ca",
+   "San Jose Holiday Lights"
+  ],
+  [
    "/christmas-events/santa-reads-in-the-crane-der-weihnachtsmann-liest-im-kran-leuven-be",
    "2026-12-12",
    "/christmas-events/christmas-in-leuven-with-kids",
@@ -877,8 +901,8 @@
   "Spain": 97,
   "Belgium": 28,
   "Portugal": 7,
+  "United States": 6,
   "Cyprus": 4,
-  "United States": 2,
   "Luxembourg": 2,
   "الامارات العربية المتحدة": 1,
   "Hungary": 1,
@@ -927,7 +951,7 @@
    "Tidings of Tradition: Christmas Tour 2026"
   ]
  ],
- "past_not_listed": 322,
+ "past_not_listed": 325,
  "other": [
   [
    "/christmas-events/arrival-and-sint-festival-in-zandvoort-intocht-en-sintfestival-zandvoort-nl",
