@@ -1,11 +1,42 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26649,
- "city_pages": 3915,
+ "sitemap_urls": 26652,
+ "city_pages": 3953,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23020,
- "count_mismatch": [],
+ "event_pages_listed": 23240,
+ "count_mismatch": [
+  [
+   "/christmas-events/benton-ar",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/bryant-ar",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/dana-point-ca",
+   4,
+   5
+  ],
+  [
+   "/christmas-events/hot-springs-ar",
+   13,
+   14
+  ],
+  [
+   "/christmas-events/little-rock-ar",
+   27,
+   30
+  ],
+  [
+   "/christmas-events/phoenix-az",
+   36,
+   37
+  ]
+ ],
  "uncounted_city_pages": [],
  "upcoming_not_listed": [
   [
