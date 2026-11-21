@@ -254,27 +254,44 @@ export function healHub(html, live, opts = {}) {
   // Title, description and social cards
   rep(/(Christmas Events for Kids Near Me 2026: )[\d,]+\+( Events)/g, (_, a, b) => a + rounded + b);
   rep(/Updated [A-Z][a-z]{2} \d{1,2}: [\d,]+\+ Christmas events for kids, ([^"]*?) in [\d,]+ cities across \d+ countries\./g,
-    (_, mid) => `Updated ${dateLabel(day, true)}: ${rounded} Christmas events for kids, ${mid} in ${num(T.cities)} cities across ${T.countries} countries.`);
+    (_, mid) => `Updated ${dateLabel(opts.mod || day, true)}: ${rounded} Christmas events for kids, ${mid} in ${num(T.cities)} cities across ${T.countries} countries.`);
   // Structured data: one entry per country with its city and event counts
   rep(/("name":"Christmas events for kids in (?:the )?([^"]+)","about":\{"@id":"#c-[a-z]+"\},"description":")[\d,]+ city guides?, [\d,]+ with confirmed 2026 events"/g, (all, a, name) => {
     const g = (live.countries || {})[name];
     return g ? `${a}${plural(g.cities, 'city guide', 'city guides')}, ${num(g.cities_with_events)} with confirmed 2026 events, ${plural(g.events, 'event', 'events')}"` : all;
   });
-  // The hub's own structured data carries today's date (Matt, 2026-11-21: the hub is republished
-  // with new counts every day, so its CollectionPage is dated the counts' day).
-  if (day) {
-    out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, o, js, c) => {
-      if (!js.includes('CollectionPage')) return all;
-      let J;
-      try { J = JSON.parse(js); } catch (e) { return all; }
-      let hit = false;
-      for (const n of J['@graph'] || [J]) {
-        if (n && n['@type'] === 'CollectionPage') { n.datePublished = day; n.dateModified = day; hit = true; }
-      }
-      return hit ? o + JSON.stringify(J).replace(/<\//g, '<\\/') + c : all;
-    });
-  }
   return out === html ? null : out;
+}
+
+// ---------------------------------------------------------------------------------- dates
+// A page's dateModified is the day its shown content last really changed (live.json "mod": new or
+// different events, events passing, new counts), and never earlier than Squarespace's own edit time.
+// datePublished is never touched. (Google: change the date only when the page really changes.)
+const PAGE_TYPES = new Set(['Article', 'BlogPosting', 'NewsArticle', 'CollectionPage', 'WebPage']);
+export function freshen(html, mod) {
+  if (!html || !/^\d{4}-\d\d-\d\d$/.test(mod || '')) return html;
+  const sq = (html.match(/<meta itemprop="dateModified" content="([^"]+)"/) || [])[1] || '';
+  const target = sq && sq.slice(0, 10) >= mod ? sq : mod;
+  let out = html;
+  if (sq && target === mod) out = out.replace(/(<meta itemprop="dateModified" content=")[^"]+"/, `$1${mod}"`);
+  out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, o, js, c) => {
+    if (!js.includes('"dateModified"') && !js.includes('"datePublished"')) return all;
+    let J;
+    try { J = JSON.parse(js); } catch (e) { return all; }
+    let hit = false;
+    const nodes = Array.isArray(J) ? J : J['@graph'] || [J];
+    for (const n of nodes) {
+      const t = n && n['@type'];
+      if (!(Array.isArray(t) ? t.some((x) => PAGE_TYPES.has(x)) : PAGE_TYPES.has(t))) continue;
+      if (!n.dateModified && !n.datePublished) continue;
+      const cur = String(n.dateModified || '');
+      if (cur.slice(0, 10) >= target.slice(0, 10)) continue;
+      n.dateModified = target;
+      hit = true;
+    }
+    return hit ? o + JSON.stringify(J).replace(/<\//g, '<\\/') + c : all;
+  });
+  return out;
 }
 
 // --------------------------------------------------------------------------- count words

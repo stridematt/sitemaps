@@ -695,12 +695,9 @@ def main():
     # Worker's healed-page cache stays valid between runs that found nothing new.
     live_path = os.path.join(HERE, 'live.json')
     prev = json.load(open(live_path, encoding='utf-8')) if os.path.exists(live_path) else {}
-    strip = lambda d: {k: v for k, v in d.items() if k != 'generated'}
-    if prev and strip(prev) == strip(live):
-        live['generated'] = prev.get('generated', live['generated'])
-    json.dump(live, open(live_path, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     # Pages whose shown content changed since the last run (their events, or the numbers the Worker writes into
     # them): sent to IndexNow by the workflow, because Squarespace's sitemap dates lag behind edits by days.
+    ch = set()
     if prev:
         ch = {p for p, v in live['pages'].items() if (prev.get('pages') or {}).get(p) != v}
         ch |= {p for p, v in live['cities'].items() if ((prev.get('cities') or {}).get(p) or [None, None])[:2] != v[:2]}
@@ -710,6 +707,24 @@ def main():
                 ch.add(p)
         if prev.get('total') != live['total']:
             ch.add('/christmas-events-for-kids')
+    # mod: the day each page's shown content last really changed (new or different events, events passing,
+    # new counts). The Worker writes it as the page's dateModified, so dates move only when the page does
+    # (Google: update the date only for real changes). A page first seen takes its sitemap date.
+    pmod = prev.get('mod') or {}
+    live['mod'] = {}
+    for p in sorted(set(live['pages']) | set(live['guides']) | {'/christmas-events-for-kids'}):
+        if p in ch:
+            live['mod'][p] = today
+        elif p in pmod:
+            live['mod'][p] = pmod[p]
+        else:
+            seed = ((pages.get(p) or {}).get('lastmod') or '')[:10]
+            live['mod'][p] = min(seed, today) if re.match(r'\d{4}-\d\d-\d\d$', seed) else today
+    strip = lambda d: {k: v for k, v in d.items() if k != 'generated'}
+    if prev and strip(prev) == strip(live):
+        live['generated'] = prev.get('generated', live['generated'])
+    json.dump(live, open(live_path, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+    if prev:
         with open(os.path.join(os.path.dirname(out_path) or '.', 'changed-pages.txt'), 'w', encoding='utf-8') as fh:
             fh.write('\n'.join('https://www.rallytakesthetrain.com' + p for p in sorted(ch)))
         log(f'{len(ch)} pages changed since the last run')

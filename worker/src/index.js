@@ -23,7 +23,7 @@
 //   5 minutes; requests never wait for a refresh after the first load. It is only
 //   re-parsed when the file actually changed.
 
-import { healHub, healCity, healGuide, refToday } from './heal.js';
+import { healHub, healCity, healGuide, refToday, freshen } from './heal.js';
 import { isServicesPath, servicesHealerFor, runServicesHealer } from './services.js';
 
 const SOURCES = [
@@ -291,10 +291,16 @@ export function healerFor(path, live) {
 
 export function runHealer(kind, html, live, path, today) {
   if (kind === 'svhub' || kind === 'svguide') return runServicesHealer(kind, html, live, path);
-  if (kind === 'hub') return healHub(html, live, { day: today });
-  if (kind === 'guide') return healGuide(html, today, live, path);
-  if (kind === 'city') return healCity(html, today, live.pages, path);
-  return null;
+  const mod = live.mod && live.mod[path];
+  let out = null;
+  if (kind === 'hub') out = healHub(html, live, { day: today, mod });
+  else if (kind === 'guide') out = healGuide(html, today, live, path);
+  else if (kind === 'city') out = healCity(html, today, live.pages, path);
+  else return null;
+  // dateModified follows the day the page's content last changed (see freshen in heal.js)
+  const base = out || html;
+  const dated = freshen(base, mod);
+  return dated !== base ? dated : out;
 }
 
 // Healed pages are kept for an hour per data version, day and code build, so the work runs rarely
