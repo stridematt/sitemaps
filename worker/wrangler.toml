@@ -1,6 +1,6 @@
 name = "rtt-hreflang"
 main = "src/index.js"
-compatibility_date = "2026-08-01"
+compatibility_date = "2026-11-18"
 workers_dev = false
 
 # Routes: only the international sections (kept in sync with tools/worker-routes.txt).
@@ -16,3 +16,10 @@ routes = [
   { pattern = "www.rallytakesthetrain.com/llms-full.txt", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/sitemap.xml", zone_name = "rallytakesthetrain.com" },
 ]
+
+# Match the live Worker (set in the dashboard): logs and Workers issues on.
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
