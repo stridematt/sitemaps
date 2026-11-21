@@ -558,7 +558,10 @@ def main():
     with open(os.path.join(HERE, 'counted_events.json'), 'w', encoding='utf-8') as fh:
         json.dump({'today': today, 'events': len(counted),
                    'pages': sorted({x.rstrip('/').rsplit('/', 1)[-1] for x in counted if not x.startswith('n:')}),
-                   'by_name': sum(1 for x in counted if x.startswith('n:'))}, fh, ensure_ascii=False, separators=(',', ':'))
+                   'by_name': sum(1 for x in counted if x.startswith('n:')),
+                   # upcoming event pages carded on any city page, every language version included (the counts take
+                   # one language version per city, so a page here but not in "pages" is on the other version)
+                   'listed': sorted({x.rstrip('/').rsplit('/', 1)[-1] for v in pages.values() for x in v.get('k', []) if not x.startswith('n:')})}, fh, ensure_ascii=False, separators=(',', ':'))
     truth = {
         'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'today': today,
         'total': total,
