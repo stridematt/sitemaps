@@ -1,4 +1,4 @@
-// rtt-hreflang (index + heal + services), sitemaps f2f8e73
+// rtt-hreflang (index + heal + services), sitemaps x0892cd4
 const __heal = (() => {
 // Self-healing numbers for the Christmas events pages.
 //
@@ -695,7 +695,7 @@ function healServicesHub(html, sv) {
     try { D = JSON.parse(body); } catch (e) { return all; }
     for (const c of D.c || []) {
       const g = G[slugPath(c[4])];
-      if (g) { c[5] = g.cities; c[6] = g.cw; }
+      if (g) { c[5] = g.cities; c[6] = g.cw; c[7] = g.services || 0; }
     }
     for (const cc of Object.keys(D.r || {})) {
       for (const row of (D.r[cc] || [])[1] || []) {
@@ -758,6 +758,10 @@ function healServicesHub(html, sv) {
     // the finder script's own labels: rows, map tips and headings count services
     rep(/plural\((p\.n|hot\.p\.n), 'church', 'churches'\)/g, "plural($1, 'service', 'services')");
     rep(/plural\((x\.events|r\.events), 'church', 'churches'\)/g, "($1 ? plural($1, 'service', 'services') : 'Times coming soon')");
+    // country and state buttons: "7,417 services" (cities when no times are posted there yet)
+    rep(/cities: a\[5\], live: a\[6\], regs:/g, 'cities: a[5], live: a[6], sv: a[7] || 0, regs:');
+    rep(/plural\(n, 'city', 'cities'\), 'xn-cta--place'\)/g,
+      "((x.t === 'c' ? x.sv : x.events) ? plural(x.t === 'c' ? x.sv : x.events, 'service', 'services') : plural(n, 'city', 'cities')), 'xn-cta--place')");
     rep(/'church with Christmas Eve services', 'churches with Christmas Eve services'/g, "'Christmas Eve service posted', 'Christmas Eve services posted'");
     rep(/Cities with the most churches listed/g, 'Cities with the most services posted');
     rep(new RegExp(N + '( Christmas Eve lights)', 'g'), () => `${n(nsv)} Christmas Eve services`);
@@ -1167,7 +1171,7 @@ export function runHealer(kind, html, live, path, today) {
 
 // Healed pages are kept for an hour per data version, day and code build, so the work runs rarely
 // and a new deploy never serves pages healed by older code. BUILD is filled in by scripts/oneline.mjs.
-let BUILD = 'svf2f8e73';   // replaced by the bundler, or by the deployed version's id at run time (wrangler deploys)
+let BUILD = 'svx0892cd4';   // replaced by the bundler, or by the deployed version's id at run time (wrangler deploys)
 async function healed(request, path, kind, live, ctx) {
   const today = refToday();
   const key = `https://rtt-heal.internal${path}?d=${today}&v=${encodeURIComponent(live.generated || '')}&b=${BUILD}`;

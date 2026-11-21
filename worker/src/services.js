@@ -69,7 +69,7 @@ export function healServicesHub(html, sv) {
     try { D = JSON.parse(body); } catch (e) { return all; }
     for (const c of D.c || []) {
       const g = G[slugPath(c[4])];
-      if (g) { c[5] = g.cities; c[6] = g.cw; }
+      if (g) { c[5] = g.cities; c[6] = g.cw; c[7] = g.services || 0; }
     }
     for (const cc of Object.keys(D.r || {})) {
       for (const row of (D.r[cc] || [])[1] || []) {
@@ -132,6 +132,10 @@ export function healServicesHub(html, sv) {
     // the finder script's own labels: rows, map tips and headings count services
     rep(/plural\((p\.n|hot\.p\.n), 'church', 'churches'\)/g, "plural($1, 'service', 'services')");
     rep(/plural\((x\.events|r\.events), 'church', 'churches'\)/g, "($1 ? plural($1, 'service', 'services') : 'Times coming soon')");
+    // country and state buttons: "7,417 services" (cities when no times are posted there yet)
+    rep(/cities: a\[5\], live: a\[6\], regs:/g, 'cities: a[5], live: a[6], sv: a[7] || 0, regs:');
+    rep(/plural\(n, 'city', 'cities'\), 'xn-cta--place'\)/g,
+      "((x.t === 'c' ? x.sv : x.events) ? plural(x.t === 'c' ? x.sv : x.events, 'service', 'services') : plural(n, 'city', 'cities')), 'xn-cta--place')");
     rep(/'church with Christmas Eve services', 'churches with Christmas Eve services'/g, "'Christmas Eve service posted', 'Christmas Eve services posted'");
     rep(/Cities with the most churches listed/g, 'Cities with the most services posted');
     rep(new RegExp(N + '( Christmas Eve lights)', 'g'), () => `${n(nsv)} Christmas Eve services`);
