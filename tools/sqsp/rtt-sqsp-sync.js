@@ -240,6 +240,7 @@ function healHub(html, live, opts = {}) {
   rep(/fillStyle = dim \? 'rgba\(214,226,246,\.14\)' : 'rgba\(214,226,246,\.55\)'/, () => "fillStyle = dim ? 'rgba(170,176,186,.16)' : 'rgba(170,176,186,.62)'");
   rep(/(\.xn-map__legend li\+li i\{width:8px;height:8px;background:)rgba\(214,226,246,\.7\)/, (_, a) => a + 'rgba(170,176,186,.85)');
   rep(/(Choose a country to see every city we cover there\. )[\d,]+( cities already have confirmed 2026 events)/, (_, a, b) => a + num(T.cities_with_events) + b);
+  rep(/(Christmas 2026 in )\d+( countries)/g, (_, a, b) => a + T.countries + b);
   rep(/The guide covers [\d,]+ cities in \d+ countries/g, () => `The guide covers ${num(T.cities)} cities in ${T.countries} countries`);
   rep(/[\d,]+ of those cities already have confirmed 2026 events, and together the guides answer [\d,]+ questions/g,
     () => `${num(T.cities_with_events)} of those cities already have confirmed 2026 events (${num(T.events)} events in all), and together the guides answer ${num(T.faq)} questions`);
