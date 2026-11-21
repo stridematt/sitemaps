@@ -28,6 +28,18 @@ def slug(s):
     return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
 
 
+def source_key(cal, last):
+    try:
+        c = json.loads(H.unescape(cal))
+    except Exception:
+        return None
+    u = re.sub(r'^https?://(www\.)?', '', (c.get('u') or '').split('#')[0].strip().lower()).rstrip('/')
+    d = sorted(x[0] for x in (c.get('d') or []) if x and x[0])
+    if not u or not d:
+        return None
+    return 'u:' + u + '|' + d[0] + '|' + (last or d[-1])
+
+
 def cards(html):
     out = []
     ms = list(CARD.finditer(html))
@@ -42,9 +54,24 @@ def cards(html):
         # so the same event on a city page and on its district page (or two city pages) counts once.
         nm = re.search(r'<h3[^>]*>(.*?)</h3>', seg, re.S)
         key = k.group(1) if k else ('n:' + slug(nm.group(1)) + '|' + slug(attr(tag, 'data-xf-town') or '') + '|' + last if nm else cid)
-        out.append({'id': cid, 'key': key, 'last': last,
+        # Language twins (christmas-in-paris-with-kids / noel-avec-les-enfants-paris) list the same event with two
+        # different event pages, so the event-page key counts it twice. When the card says where the event is
+        # published (data-cal "u") and when (its dates), key it by that instead: the same source page with the
+        # same dates in two languages is one event.
+        uk = source_key(attr(tag, 'data-cal') or '{}', last)
+        out.append({'id': cid, 'key': key, 'uk': uk, 'last': last,
                     'free': 'free' in (attr(tag, 'data-xf-fl') or '').split(),
                     'town': attr(tag, 'data-xf-town') or '', 'types': (attr(tag, 'data-xf-ty') or '').split()})
+    # A listing page (a city agenda, a festival programme) can be the source of several events with the same dates;
+    # the source key is used only where it is unique on the page, so those events stay apart.
+    n = {}
+    for c in out:
+        if c['uk']:
+            n[c['uk']] = n.get(c['uk'], 0) + 1
+    for c in out:
+        if c['uk'] and n[c['uk']] == 1:
+            c['key'] = c['uk']
+        del c['uk']
     return out
 
 
