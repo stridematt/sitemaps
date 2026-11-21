@@ -5,23 +5,7 @@
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
  "event_pages_listed": 22816,
- "count_mismatch": [
-  [
-   "/christmas-events/aurora-co",
-   28,
-   29
-  ],
-  [
-   "/christmas-events/chula-vista-ca",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/denver-co",
-   39,
-   56
-  ]
- ],
+ "count_mismatch": [],
  "uncounted_city_pages": [],
  "upcoming_not_listed": [
   [
