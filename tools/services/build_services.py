@@ -91,7 +91,7 @@ def analyze(path, body):
     """Listing page (city or denomination) or guide."""
     cev = re.search(r'data-cev="([^"]+)"', body)
     ns = graphs(body)
-    churches, timed, links, desc = set(), set(), [], {}
+    churches, timed, links, desc, svc = set(), set(), [], {}, set()
     for n in ns:
         if n.get('@type') == 'ItemList':
             for li in n.get('itemListElement') or []:
@@ -109,15 +109,15 @@ def analyze(path, body):
             loc = loc[0] if isinstance(loc, list) and loc else loc
             if isinstance(loc, dict):
                 k = church_key(loc)
-                if k in churches:
-                    timed.add(k)
-                else:   # same church written differently (no street on the Event): match by name and town
+                hit = k if k in churches else None
+                if not hit:   # same church written differently (no street on the Event): match by name and town
                     nm, tw = k.split('|')[0], k.split('|')[2]
                     hit = next((c for c in churches if c.split('|')[0] == nm and (not tw or c.split('|')[2] == tw)), None)
-                    if hit:
-                        timed.add(hit)
+                if hit:
+                    timed.add(hit)
+                    svc.add(hit + '@' + str(n.get('startDate'))[:16])   # one service: a church at a start time
     hrefs = {'/%s/%s' % m for m in HREF.findall(body)}
-    return {'_hrefs': hrefs, 'cev': cev.group(1) if cev else None, 'churches': sorted(churches), 'timed': sorted(timed), 'links': links, 'desc': desc}
+    return {'_hrefs': hrefs, 'cev': cev.group(1) if cev else None, 'churches': sorted(churches), 'timed': sorted(timed), 'svc': sorted(svc), 'links': links, 'desc': desc}
 
 
 DENOMS = {   # a denomination guide's slug word -> words that mark that tradition in a church's label, in every site language
@@ -244,8 +244,8 @@ def main():
     cities = {}
     for p, r in cev.items():
         c = city_of[p]
-        x = cities.setdefault(c, {'churches': set(), 'timed': set(), 'desc': {}})
-        x['churches'] |= set(r['churches']); x['timed'] |= set(r['timed']); x['desc'].update(r['desc'])
+        x = cities.setdefault(c, {'churches': set(), 'timed': set(), 'desc': {}, 'svc': set()})
+        x['churches'] |= set(r['churches']); x['timed'] |= set(r['timed']); x['desc'].update(r['desc']); x['svc'] |= set(r['svc'])
     denoms = [p for p in cev if city_of[p] != p]
     guides = {p: r for p, r in pages.items() if not r['cev'] and r['links']}
     memo = {}
@@ -267,7 +267,7 @@ def main():
     for g in guides:
         ls = roll(g)
         dk = denom_of(g)
-        ch, tm, cs, rows = set(), set(), set(), {}
+        ch, tm, cs, rows, sv = set(), set(), set(), {}, set()
         direct = set(guides[g]['links'])
         for q in ls:
             c = city_of[q]
@@ -282,14 +282,16 @@ def main():
                 rows[q] = [len(src['churches']), len(set(src['timed']))]
             ch |= {c + '#' + x for x in src['churches']}
             tm |= {c + '#' + x for x in src['timed']}
+            sv |= {c + '#' + x for x in cities[c]['svc'] if x.split('@')[0] in set(src['churches'])}
         out_g[g] = {'name': re.sub(r'\s*\(\d{4}\)$', '', guides[g]['title']), 'cities': len(cs), 'churches': len(ch),
-                    'timed': len(tm), 'cw': len({x.split('#')[0] for x in tm})}
+                    'timed': len(tm), 'cw': len({x.split('#')[0] for x in tm}), 'services': len(sv)}
         if dk:
             out_g[g]['denom'] = 1
             out_g[g]['rows'] = dict(sorted(rows.items()))
     allc = set(cities)
     total = {'cities': len(allc), 'churches': sum(len(cities[c]['churches']) for c in allc),
-             'timed': sum(len(cities[c]['timed']) for c in allc), 'cw': sum(1 for c in allc if cities[c]['timed'])}
+             'timed': sum(len(cities[c]['timed']) for c in allc), 'cw': sum(1 for c in allc if cities[c]['timed']),
+             'services': sum(len(cities[c]['svc']) for c in allc)}
     def denom_row(p):   # a denomination page plus that tradition's churches on its city page (guides count it that way)
         c = city_of[p]
         ch = set(cev[p]['churches'])
@@ -301,7 +303,7 @@ def main():
     live = {'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'total': total,
             # path: [churches, churches with 2026 times]
             # city page: [churches, with times, {tradition: [churches, with times]}] (the tradition split feeds "#t-anglican" links)
-            'cities': {c: [len(r['churches']), len(r['timed']), by_tradition(r)] for c, r in sorted(cities.items())},
+            'cities': {c: [len(r['churches']), len(r['timed']), by_tradition(r), len(r['svc'])] for c, r in sorted(cities.items())},
             # denomination page: [churches, with times, its city page]
             'denoms': {p: denom_row(p) for p in sorted(denoms)},
             'guides': dict(sorted(out_g.items())),
@@ -314,7 +316,7 @@ def main():
     if prev and strip(prev) == strip(live):
         live['generated'] = prev['generated']
     json.dump(live, open(OUTP, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
-    log(f"services: {total['churches']:,} churches ({total['timed']:,} with 2026 times) in {total['cities']:,} cities "
+    log(f"services: {total['services']:,} services at {total['churches']:,} churches ({total['timed']:,} with 2026 times) in {total['cities']:,} cities "
         f"({total['cw']:,} with times); {len(out_g)} guides; {len(denoms)} denomination pages")
 
 

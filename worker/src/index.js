@@ -299,7 +299,7 @@ export function runHealer(kind, html, live, path, today) {
 
 // Healed pages are kept for an hour per data version, day and code build, so the work runs rarely
 // and a new deploy never serves pages healed by older code. BUILD is filled in by scripts/oneline.mjs.
-const BUILD = 'dev';
+let BUILD = 'dev';   // replaced by the bundler, or by the deployed version's id at run time (wrangler deploys)
 async function healed(request, path, kind, live, ctx) {
   const today = refToday();
   const key = `https://rtt-heal.internal${path}?d=${today}&v=${encodeURIComponent(live.generated || '')}&b=${BUILD}`;
@@ -554,6 +554,8 @@ async function handle(request, ctx) {
 export default {
   async fetch(request, env, ctx) {
     try {
+      const vm = env && env.CF_VERSION_METADATA;
+      if (vm && vm.id && BUILD === 'dev') BUILD = String(vm.id).slice(0, 10);
       return await handle(request, ctx);
     } catch (e) {
       return fetch(request); // fail open: never break the site

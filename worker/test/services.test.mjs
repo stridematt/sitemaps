@@ -92,4 +92,21 @@ t('no change means null (served as clean)', () => {
   assert.equal(healServicesGuide('<p>130 churches listed in 16 cities.</p>', sv, '/christmas-eve-services/connecticut'), null);
 });
 
+t('services lead when the truth file has them: title, description, headline, stat block, FAQ; twice is the same', () => {
+  const sv2 = JSON.parse(JSON.stringify(sv)); sv2.total.services = 10687;
+  sv2.guides['/christmas-eve-services/connecticut'].services = 30;
+  const page = `<title>Christmas Eve Services Near Me 2026: Times by City</title><meta name="description" content="Christmas Eve 2026 service times by city, family first.">` + hub
+    + `<details><summary>How many cities and churches are listed?</summary><p>4,134 churches in 1,312 cities across 13 countries.</p></details>`;
+  const o = healServicesHub(page.replace('<p class="lede">Family services at', '<p class="lede">Family services, candlelight services and midnight Masses at'), sv2);
+  assert.match(o, /<title>Christmas Eve Services Near Me 2026: 10,000\+ Services by City/);
+  assert.match(o, /content="10,687 Christmas Eve services at 20,753 churches: Christmas Eve 2026 service times/);
+  assert.match(o, /10,687 Christmas Eve services, from family services and candlelight services to midnight Masses, at 20,753 churches in 1,822 cities across 13 countries/);
+  assert.match(o, /<li><b>10,687<\/b>Christmas Eve services<\/li><li><b>20,753<\/b>churches<\/li><li><b>1,822<\/b>cities/);
+  assert.match(o, /How many services, churches and cities are listed\?<\/summary><p>10,687 Christmas Eve services at 20,753 churches in 1,822 cities/);
+  assert.equal(healServicesHub(o, sv2), null);
+  const g = healServicesGuide('<p>Connecticut: 122 churches listed in 15 cities.</p>', sv2, '/christmas-eve-services/connecticut');
+  assert.match(g, /30 Christmas Eve services at 130 churches listed in 16 cities/);
+  assert.equal(healServicesGuide(g, sv2, '/christmas-eve-services/connecticut'), null);
+});
+
 console.log(`${n} services tests passed`);

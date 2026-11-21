@@ -104,8 +104,26 @@ export function healServicesHub(html, sv) {
     (all, a, n, b, href) => { const g = G[href.replace(/\/$/, '')]; return g ? a + fmtLike(n, g.cities) + b.replace(/cit(?:y|ies)/, g.cities === 1 ? 'city' : 'cities') : all; });
 
   // 3) totals in prose, stat block, map, FAQ and LD description
-  const ch = T.churches, ci = T.cities, cw = T.cw, tm = T.timed;
+  const ch = T.churches, ci = T.cities, cw = T.cw, tm = T.timed, nsv = T.services || 0;
   const rep = (re, f) => { t = t.replace(re, f); };
+  const n = (x) => fmtLike('1,000', x);
+  if (nsv) {
+    // Services lead (each posted Christmas Eve service: a church at a start time), then churches and cities.
+    const plus = nsv >= 1000 ? n(Math.floor(nsv / 1000) * 1000) + '+' : n(nsv);
+    rep(/(<title>|<meta property="og:title" content="|<meta name="twitter:title" content=")Christmas Eve Services Near Me 2026: [^<"]*/g,
+      (all, a) => `${a}Christmas Eve Services Near Me 2026: ${plus} Services by City`);
+    rep(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")(?:[\d,]+ Christmas Eve services at [\d,]+ churches: )?Christmas Eve 2026 service times by city/g,
+      (all, a) => `${a}${n(nsv)} Christmas Eve services at ${n(ch)} churches: Christmas Eve 2026 service times by city`);
+    rep(new RegExp('(?:' + N + ' Christmas Eve services, from family services and candlelight services to midnight Masses|Family services, candlelight services and midnight Masses) at ' + N + ' churches in ' + N + ' cities', 'g'),
+      () => `${n(nsv)} Christmas Eve services, from family services and candlelight services to midnight Masses, at ${n(ch)} churches in ${n(ci)} cities`);
+    rep(/<ul class="xn-stat"([^>]*)>[\s\S]*?<\/ul>/, (all, at) =>
+      `<ul class="xn-stat"${at}><li><b>${n(nsv)}</b>Christmas Eve services</li><li><b>${n(ch)}</b>churches</li><li><b>${n(ci)}</b>cities</li></ul>`);
+    rep(new RegExp('(?:' + N + ' )?(Christmas Eve 2026 services at )' + N + '( churches in )' + N + '( cities in )', 'g'),
+      (all, o, b, c, d, e, f) => `${n(nsv)} ${b}${n(ch)}${d}${n(ci)}${f}`);
+    rep(new RegExp('(<p>|"text":")(?:' + N + ' Christmas Eve services at )?' + N + '( churches in )' + N + '( cities across )', 'g'),
+      (all, a, b, c, d, e, f) => `${a}${n(nsv)} Christmas Eve services at ${n(ch)}${d}${n(ci)}${f}`);
+    rep(/(How many )cities and churches( are listed\?)/g, '$1services, churches and cities$2');
+  }
   // per country: "Yes. 431 churches in 33 cities in Australia are listed"
   const byName = {};
   for (const c of hubCountries(out)) byName[c.name] = G[slugPath(c.guide)];
@@ -179,6 +197,10 @@ export function healServicesGuide(html, sv, path) {
       const v = rowOf(href);
       return v ? a + mid + fmtLike(n, v[0]) + b + fmtLike(m, v[1]) + c : all;
     });
+    if (g.services && !isDenom) {   // services lead on English guides: "12 Christmas Eve services at 122 churches listed in 15 cities"
+      t = t.replace(new RegExp('(?:' + N + ' Christmas Eve services at )?' + N + '( churches listed in )', 'g'),
+        (all, o, n, rest) => `${fmtLike(n, g.services)} Christmas Eve services at ${n}${rest}`);
+    }
     t = t.replace(PAIR, (all, a, mid, b, c, off, str) => {
       // skip "N churches in <City>" chips that slipped through: only rewrite pairs that equal or exceed one chip's scale
       return fmtLike(a, g.churches) + mid + fmtLike(b, g.cities) + c;
