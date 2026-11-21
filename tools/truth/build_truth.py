@@ -28,6 +28,10 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'llms'))
 import build_llms as L  # hub parser, ISO codes, English city guide pattern
 
 HUB_RAW = os.environ.get('RTT_HUB_RAW', 'https://rally-takes-the-train-site.squarespace.com')
+# Pages are read as stored in Squarespace too: the cards are the same, it is never our own output, and it is
+# four times faster (the public site answered about 5 pages a second however many were asked at once).
+# A page the stored site will not give is asked from the public site.
+READ = os.environ.get('RTT_READ', HUB_RAW)
 GEO_PATH = os.path.join(HERE, 'geo.json')
 
 
@@ -129,11 +133,11 @@ def linked_cities(h, self_path=None):
     return out
 
 
-def item_json(path):
+def item_json(path, base=None):
     """A post's Squarespace JSON (body, title, id), or None."""
     for i in range(5):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(SITE + path + ('&' if '?' in path else '?') + 'format=json', headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=90)
+            r = urllib.request.urlopen(urllib.request.Request((base or (READ if i < 3 else SITE)) + path + ('&' if '?' in path else '?') + 'format=json', headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=90)
             b = r.read()
             return json.loads(gzip.decompress(b) if r.headers.get('Content-Encoding') == 'gzip' else b)
         except urllib.error.HTTPError as e:
@@ -363,7 +367,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
 def fetch(path, tries=5):
     for i in range(tries):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(SITE + path, headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=60)
+            r = urllib.request.urlopen(urllib.request.Request((READ if i < 3 else SITE) + path, headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=60)
             b = r.read()
             if r.headers.get('Content-Encoding') == 'gzip':
                 b = gzip.decompress(b)
@@ -447,9 +451,9 @@ def main():
             continue
         code = p.rsplit('-', 1)[-1]
         if code in L.CA_PROV:
-            place[p] = {'country': 'Canada', 'state': None, 'name': m.group(1).strip(), 'main': p}
+            place[p] = {'country': 'Canada', 'state': None, 'name': m.group(1).strip(), 'main': p, 'guess': 1}
         elif code in us_state:
-            place[p] = {'country': 'United States', 'state': '/christmas-events/' + us_state[code], 'name': m.group(1).strip(), 'main': p}
+            place[p] = {'country': 'United States', 'state': '/christmas-events/' + us_state[code], 'name': m.group(1).strip(), 'main': p, 'guess': 1}   # by slug ending only: a country guide that lists the page wins (mumbai-in is India, not Indiana)
     missing = [p for p, v in place.items() if v['main'] == p and not any(q in in_az for q, o in place.items() if o['main'] == p)]
     odd = sorted(p for p in place if 'duplicate' in p or 'copy' in p.rsplit('/', 1)[-1].split('-'))
     for p in odd:  # leftover copies are not counted as cities
@@ -484,8 +488,10 @@ def main():
         for sub, sd in fg.get('subs', {}).items():
             guides.setdefault(sub, {'kind': 'region', 'name': sd.get('name', ''), 'country': fg['country']})
         for q, name in sorted(fg.get('cities', {}).items(), key=lambda kv: (len(kv[0].split('-')), kv[0])):
-            if q in place:
+            if q in place and not (place[q].get('guess') and fg['kind'] == 'country' and fg['country'] != place[q]['country']
+                                   and q.rsplit('-', 1)[-1].upper() == fg.get('cc')):
                 continue
+            place.pop(q, None)
             twin = twin_of(q, fg['country'], place)
             place[q] = {**place[twin]} if twin else {'country': fg['country'], 'state': None, 'name': clean_name(name, q), 'main': q}
     gstate = old.get('guide_pages', {})
@@ -748,14 +754,18 @@ def main():
         'pages': pages, 'odd': odd, 'guide_pages': gstate, 'found': found,
     }
     # the country's main guide: the found guide with the most city pages
-    for g, fg in sorted(found.get('guides', {}).items(), key=lambda x: len(x[1].get('cities', {})) + len(x[1].get('subs', {}))):
+    # (the English one when a country has several: the Thai guide to Thailand is its other-language version)
+    def english(g):
+        lang = (gstate.get(g) or {}).get('lang') or ''
+        return lang.lower().startswith('en') if lang else not XMAS_PREFIX.search(g.rsplit('/', 1)[-1])
+    for g, fg in sorted(found.get('guides', {}).items(), key=lambda x: (english(x[0]), len(x[1].get('cities', {})) + len(x[1].get('subs', {})))):
         if fg.get('kind') == 'country' and fg.get('country') in truth['countries']:
             truth['countries'][fg['country']].update({'cc': fg.get('cc', ''), 'guide': g, 'hub': 0})
     # Where each city the stored hub does not have is, so the Worker can light it on the hub's map.
     geo = json.load(open(GEO_PATH, encoding='utf-8')) if os.path.exists(GEO_PATH) else {}
     looked = 0
     for p, c in truth['cities'].items():
-        if c['hub'] or p in geo or looked >= 150:
+        if c['hub'] or p in geo or looked >= 60:   # one lookup a second: a minute a run at most
             continue
         looked += 1
         m2 = re.search(r'-([a-z]{2})$', p)
