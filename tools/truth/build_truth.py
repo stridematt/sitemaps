@@ -37,6 +37,29 @@ def own_country(h):
     return cs.most_common(1)[0][0] if cs else None
 
 
+# The language prefix of a translated city page ("rozhdestvo-s-detmi-", "navidad-con-ninos-"...). Only such a
+# prefix makes a page a twin: "north-charleston" is not a twin of "charleston".
+XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|natale|kerst|kodomo|rozhdestvo|jul\w*|joulu\w*|bozic|vanoce|karacsony|craciun|boze|kalikimaka|kurisumasu)(-|$)')
+
+
+def city_base(path):
+    """City part of a city page slug: no section, no trailing 2-letter code."""
+    return re.sub(r'-[a-z]{2}$', '', path.rsplit('/', 1)[-1])
+
+
+def twin_of(q, country, place):
+    """An already counted city in the same country whose slug this language-prefixed page ends with
+    (rozhdestvo-s-detmi-tallinn-ru -> tallinn-ee, navidad-con-ninos-paris -> paris-fr), or None."""
+    b = city_base(q)
+    for p, o in place.items():
+        if o.get('country') != country or p == q:
+            continue
+        pb = city_base(p)
+        if pb and pb != b and b.endswith('-' + pb) and XMAS_PREFIX.search(b[:-len(pb) - 1]):
+            return p
+    return None
+
+
 def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
@@ -45,11 +68,19 @@ RC = re.compile(r'<li class="rtt-rc">(?:(?!</li>).){0,3000}?href="(/christmas-ev
 SEC = re.compile(r'<h2 id="city-[^"]*"[^>]*>([^<]{1,80})(?:(?!<h2\b).){0,4000}?href="(/christmas-events/[a-z0-9-]+)', re.S)
 
 
+RCS = re.compile(r'<ul class="rtt-rcs"[^>]*>(.*?)</ul>', re.S)
+RCS_LI = re.compile(r'<li\b[^>]*>(?:(?!</li>).){0,600}?href="(/christmas-events/[a-z0-9-]+)"[^>]*>(?:<[^>]+>)*([^<]{1,120})', re.S)
+
+
 def linked_cities(h, self_path=None):
-    """City pages a guide lists: its city cards and its city sections (path -> shown name)."""
+    """City pages a guide lists: its city cards, its city sections and its city lists
+    (ul.rtt-rcs, the format of the Sweden, Cyprus and Estonia guides) (path -> shown name)."""
     out = {}
     for m in RC.finditer(h):
         out.setdefault(m.group(1), m.group(2).strip())
+    for ul in RCS.finditer(h):
+        for m in RCS_LI.finditer(ul.group(1)):
+            out.setdefault(m.group(1), m.group(2).strip())
     for m in SEC.finditer(h):
         out.setdefault(m.group(2), m.group(1).strip())
     out.pop(self_path, None)
@@ -302,6 +333,10 @@ def main():
             if q in place or q in guides or q in odd or 'duplicate' in q:
                 continue
             country = gi['name'] if gi['kind'] == 'country' else gi.get('country', '')
+            twin = twin_of(q, country, place)
+            if twin:  # another-language page of a city already counted (rozhdestvo-s-detmi-tallinn-ru = tallinn-ee)
+                place[q] = {**place[twin], 'main': place[twin]['main']}
+                continue
             place[q] = {'country': country, 'state': g if gi['kind'] == 'state' and country == 'United States' else None,
                         'name': clean_name(gs.get('names', {}).get(q) or '', q), 'main': q}
             added.append(q)
