@@ -6,10 +6,7 @@ on:
       - 'tools/**'
       - 'hreflang-sitemap.xml'
   schedule:
-    # GitHub drops or delays scheduled runs under load (none ran 20:27 to 03:10 UTC on 2026-11-20),
-    # so there are two schedules, 90 minutes apart. Runs queue (concurrency) and never overlap.
-    - cron: '23 */3 * * *'   # 00:23, 03:23, ... UTC
-    - cron: '53 1-23/3 * * *' # 01:53, 04:53, ... UTC
+    - cron: '23 */3 * * *' # every 3 hours (Cloudflare workers also start runs)
   workflow_dispatch:
 
 permissions:
