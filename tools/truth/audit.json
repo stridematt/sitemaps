@@ -1,70 +1,35 @@
 {
- "today": "2026-11-20",
- "sitemap_urls": 27717,
- "city_pages": 3956,
+ "today": "2026-11-21",
+ "sitemap_urls": 27719,
+ "city_pages": 3959,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23458,
+ "event_pages_listed": 23545,
  "count_mismatch": [
   [
-   "/christmas-events/boca-raton-fl",
-   3,
-   5
-  ],
-  [
-   "/christmas-events/boynton-beach-fl",
+   "/christmas-events/sanford-fl",
    2,
-   3
-  ],
-  [
-   "/christmas-events/bradenton-fl",
-   8,
-   9
-  ],
-  [
-   "/christmas-events/danbury-ct",
-   3,
-   7
-  ],
-  [
-   "/christmas-events/fairfield-ct",
-   3,
    8
   ],
   [
-   "/christmas-events/glastonbury-ct",
-   2,
-   3
+   "/christmas-events/sarasota-fl",
+   31,
+   34
   ],
   [
-   "/christmas-events/greenwood-de",
-   3,
-   7
+   "/christmas-events/spring-hill-fl",
+   13,
+   14
   ],
   [
-   "/christmas-events/harrington-de",
-   3,
-   6
+   "/christmas-events/st-petersburg-fl",
+   31,
+   34
   ],
   [
-   "/christmas-events/hartford-ct",
-   20,
-   28
-  ],
-  [
-   "/christmas-events/meriden-ct",
-   11,
-   12
-  ],
-  [
-   "/christmas-events/new-haven-ct",
-   24,
-   28
-  ],
-  [
-   "/christmas-events/woodbury-ct",
-   3,
-   5
+   "/christmas-events/tampa-fl",
+   28,
+   34
   ]
  ],
  "uncounted_city_pages": [
@@ -223,12 +188,6 @@
    "2027-01-10",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Bilbao Gabonak 2026-2027: Programa Navidad en Bilbao"
-  ],
-  [
-   "/christmas-events/bilbao-tx-fest-baobab-es",
-   "2026-11-20",
-   "/christmas-events/navidad-con-ninos-bilbao",
-   "Bilbao TX Fest 2026: \"Baobab"
   ],
   [
    "/christmas-events/bilbao-tx-fest-egnatia-es",
@@ -651,12 +610,6 @@
    "Let's Quiz! Weihnachtsedition (Christmas Edition)"
   ],
   [
-   "/christmas-events/literaktum-10a-fiesta-del-dia-universal-de-la-infancia-san-sebastian-es",
-   "2026-11-20",
-   "/christmas-events/navidad-con-ninos-san-sebastian",
-   "Literaktum 2026: 10ª Fiesta del Día Universal de la Infancia"
-  ],
-  [
    "/christmas-events/literaktum-agur-peter-pan-san-sebastian-es",
    "2026-11-21",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -703,12 +656,6 @@
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Magicus Zaragoza"
-  ],
-  [
-   "/christmas-events/magiklown-san-sebastian-es",
-   "2026-11-20",
-   "/christmas-events/navidad-con-ninos-san-sebastian",
-   "Magiklown"
   ],
   [
    "/christmas-events/mamuka-san-sebastian-es",
@@ -1024,7 +971,7 @@
   ]
  ],
  "upcoming_not_listed_by_country": {
-  "Spain": 97,
+  "Spain": 94,
   "Belgium": 28,
   "United States": 8,
   "Portugal": 7,
@@ -1084,7 +1031,7 @@
    "Tidings of Tradition: Christmas Tour 2026"
   ]
  ],
- "past_not_listed": 325,
+ "past_not_listed": 328,
  "other": [
   [
    "/christmas-events/arrival-and-sint-festival-in-zandvoort-intocht-en-sintfestival-zandvoort-nl",
