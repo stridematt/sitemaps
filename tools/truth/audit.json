@@ -1,77 +1,28 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26610,
- "city_pages": 3868,
+ "sitemap_urls": 26626,
+ "city_pages": 3897,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 22780,
+ "event_pages_listed": 22816,
  "count_mismatch": [
   [
+   "/christmas-events/aurora-co",
+   28,
+   29
+  ],
+  [
    "/christmas-events/chula-vista-ca",
-   2,
-   3
+   3,
+   4
   ],
   [
-   "/christmas-events/coffs-harbour-nsw",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/cupertino-ca",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/hervey-bay-qld",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/kissimmee-fl",
-   13,
-   14
-  ],
-  [
-   "/christmas-events/launceston-tas",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/mackay-qld",
-   0,
-   2
-  ],
-  [
-   "/christmas-events/mildura-vic",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/port-macquarie-nsw",
-   0,
-   2
-  ],
-  [
-   "/christmas-events/toowoomba-qld",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/wagga-wagga-nsw",
-   0,
-   3
+   "/christmas-events/denver-co",
+   39,
+   56
   ]
  ],
- "uncounted_city_pages": [
-  [
-   "/christmas-events/rozhdestvo-s-detmi-narva-ru",
-   2
-  ],
-  [
-   "/christmas-events/rozhdestvo-s-detmi-tallinn-ru",
-   19
-  ]
- ],
+ "uncounted_city_pages": [],
  "upcoming_not_listed": [
   [
    "/christmas-events/a-christmas-story-eine-weihnachtsgeschichte-nobel-popel-music-theater-leuven-be",
@@ -1004,86 +955,6 @@
   ],
   [
    "/christmas-events/christmas-in-cyprus-with-kids",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-catacamas-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-choloma-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-el-triunfo-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-gracias-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-intibuca-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-juticalpa-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-la-paz-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-morazan-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-nacaome-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-olanchito-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-omoa-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-puerto-lempira-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-quimistan-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-san-lorenzo-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-santa-rosa-de-copan-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-teupasenti-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-tocoa-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-trojes-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-villanueva-hn",
-   "no event dates"
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-yoro-hn",
    "no event dates"
   ],
   [
