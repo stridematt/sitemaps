@@ -431,6 +431,10 @@ def main():
                 gstate[p] = {'links': links, 'subs': sorted(q for q in (set(cities) & set(guides)) if q != p), 'cities': sorted(cities), 'names': cities, 'lang': (re.search(r'<html[^>]*\blang="([^"]+)"', h) or [None, ''])[1], 'lastmod': lastmod.get(p), 'at': today}
                 sq_ids[p] = item_id(h) or sq_ids.get(p)
                 pages.setdefault(p, {}).update({'guide': True, 'lastmod': lastmod.get(p), 'at': today, 'e': 0, 'f': 0, 'k': [], 'fk': [], 'x': None})
+                if '<section class="rtt-pe-ride' in h:   # a guide that is also a city page (Washington, DC): its cards count
+                    r = analyze(h, today)
+                    pages[p].update({'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
+                                     'k': r['keys'], 'fk': r['free_keys'], 'cards': True})
             elif st == 200 and h:
                 r = analyze(h, today)
                 sq_ids[p] = r['sq'] or sq_ids.get(p)
@@ -445,6 +449,13 @@ def main():
                 failed += 1
     if failed:
         log(f'{failed} pages could not be read; their last known counts are kept')
+    for g, gi in guides.items():
+        v = pages.get(g) or {}
+        if v.get('cards') and g not in place:
+            country = gi['name'] if gi['kind'] == 'country' else gi.get('country', '')
+            place[g] = {'country': country, 'state': g if gi['kind'] == 'state' and country == 'United States' else None,
+                        'name': re.sub(r'^Christmas Events for Kids in |\s*\(\d{4}\)$', '', gi.get('name', '')) or gi.get('name', ''), 'main': g}
+            log(f'guide page with its own event cards counted as a city too: {g} ({v.get("e", 0)} events)')
     # A page counted as a U.S. city must not say it is somewhere else. State codes double as country codes in
     # slugs (-co Colombia/Colorado, -de Germany/Delaware, -ca Canada/California...), so an English page for a
     # non-U.S. city could be filed under a U.S. state. The page's own country (its data-ke-country or the

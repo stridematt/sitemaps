@@ -71,15 +71,17 @@ def main():
     card_names = {}       # city page -> normalised names of its event cards
     unread_city = []      # city pages that could not be read: their events are unknown, not "not listed"
     with cf.ThreadPoolExecutor(6) as ex:
-        for p, it in ex.map(body, city_pages):
+        for p, it in ex.map(body, city_pages + sorted(live['guides'])):
             if not it:   # unreadable (None) or gone ({}): its events are unknown here
-                unread_city.append(p)
+                if p in live['pages']:
+                    unread_city.append(p)
                 continue
             b = it.get('body') or ''
-            a = analyze('<html><head></head><body>' + b + '</body></html>', today)
-            want = live['pages'][p][0]
-            if a['events'] != want:
-                mismatch.append([p, want, a['events']])
+            if p in live['pages']:
+                a = analyze('<html><head></head><body>' + b + '</body></html>', today)
+                want = live['pages'][p][0]
+                if a['events'] != want:
+                    mismatch.append([p, want, a['events']])
             for m in re.finditer(r'<section class="rtt-pe-ride[" ]', b):
                 seg = b[m.end():m.end() + 30000]   # verified cards run to ~15 KB
                 nxt = re.search(r'<section class="rtt-pe-ride[" ]', seg)
