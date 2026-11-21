@@ -16,6 +16,7 @@
 //   await RTTLink.run({ apply: false })            // dry run: RTTLink.state.plans
 //   await RTTLink.run({ apply: true })             // write; backups in IndexedDB rtt-sqsp-sync
 //   RTTLink.state                                  // progress while it runs
+// Both copies of each code block are changed (the served html and the editor's wysiwyg.source).
 // Undo one post: the sync's RTTSync.restore(path), or RTTLink.restore(path).
 (function () {
   const COLLECTION = '6ae8c64da7d5c013a6eb8e11';
@@ -156,10 +157,15 @@
       if (cur.workflowState !== 1) return;
       const blocks = htmlBlocks(cur.body && cur.body.layout);
       const plan = [];
+      // A code block has two copies: the html served, and the editor's source (wysiwyg.source). They can
+      // already differ, so each is planned and changed on its own; otherwise the next editor save would undo it.
       for (const b of blocks) {
-        if (!b.value.html.includes('rtt-pe-ride')) continue;
-        const p = planHtml(b.value.html, path, index, notEvents);
-        if (p.links.length) plan.push({ block: b.id, ...p });
+        for (const field of ['html', 'source']) {
+          const h = field === 'html' ? b.value.html : b.value.wysiwyg && typeof b.value.wysiwyg.source === 'string' ? b.value.wysiwyg.source : null;
+          if (!h || !h.includes('rtt-pe-ride')) continue;
+          const p = planHtml(h, path, index, notEvents);
+          if (p.links.length) plan.push({ block: b.id, field, ...p });
+        }
       }
       if (!plan.length) return;
       // Fuzzy matches: the event page's own title has to match the card name.
@@ -179,7 +185,7 @@
       const n = plan.reduce((k, p) => k + p.links.length, 0);
       if (!n) return;
       state.planned++;
-      state.plans.push({ path, links: plan.flatMap((p) => p.links.map((l) => `${l.how}: ${l.name} -> ${l.slug}`)), titleOnly: plan.some((p) => !p.bookInner) });
+      state.plans.push({ path, links: plan.flatMap((p) => p.links.map((l) => `${p.field} ${l.how}: ${l.name} -> ${l.slug}`)), titleOnly: plan.some((p) => !p.bookInner) });
       if (!apply) return;
       if (state.written >= limit) { state.skipped.push({ path, why: 'over limit' }); return; }
       if (Date.now() - cur.updatedOn < quietMinutes * 60000) { state.skipped.push({ path, why: 'edited recently' }); return; }
@@ -187,15 +193,17 @@
       const byId = new Map(htmlBlocks(item.body.layout).map((b) => [b.id, b]));
       for (const p of plan) {
         const b = byId.get(p.block);
-        const before = b.value.html, after = applyHtml(before, p.links, p.bookInner);
+        const before = p.field === 'html' ? b.value.html : b.value.wysiwyg.source;
+        const after = applyHtml(before, p.links, p.bookInner);
         if (count(after, '<section class="rtt-pe-ride"') !== count(before, '<section class="rtt-pe-ride"') || count(after, 'data-xf-fl="free') !== count(before, 'data-xf-fl="free')) throw new Error('card or free count would change');
-        b.value.html = after;
+        if (p.field === 'html') b.value.html = after; else b.value.wysiwyg.source = after;
       }
       await backup(cur, 'before linking cards to their event pages');
       await put(item);
       const back = await getJSON(postUrl(id));
-      const want = htmlBlocks(item.body.layout).map((b) => b.value.html).join('');
-      const got = back.json ? htmlBlocks(back.json.body.layout).map((b) => b.value.html).join('') : '';
+      const both = (l) => htmlBlocks(l).map((b) => b.value.html + '\u0000' + ((b.value.wysiwyg && b.value.wysiwyg.source) || '')).join('');
+      const want = both(item.body.layout);
+      const got = back.json ? both(back.json.body.layout) : '';
       if (got !== want) state.errors.push({ path, error: 'read-back differs; check and restore if needed' });
       state.written++; state.linked += n;
       await sleep(delayMs);
