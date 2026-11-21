@@ -24,6 +24,7 @@
 //   re-parsed when the file actually changed.
 
 import { healHub, healCity, healGuide, refToday } from './heal.js';
+import { isServicesPath, servicesHealerFor, runServicesHealer } from './services.js';
 
 const SOURCES = [
   'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/clusters.json',
@@ -232,6 +233,52 @@ async function getLive(ctx) {
   return lstate.data;
 }
 
+// ---- Christmas Eve services counts (tools/services/live_services.json, rebuilt hourly) ------
+const SV_SOURCES = [
+  'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/services/live_services.json',
+  'https://sitemaps.rallytakesthetrain.com/tools/services/live_services.json',
+];
+const SV_SAVED = 'https://rtt-hreflang.internal/live_services.json';
+const sstate = { data: null, text: null, at: 0, refreshing: null };
+
+function refreshServices(ctx) {
+  if (sstate.refreshing) return sstate.refreshing;
+  sstate.refreshing = (async () => {
+    try {
+      let text = null, fresh = false;
+      for (const src of SV_SOURCES) {
+        try {
+          const r = await fetch(src, { cf: { cacheTtl: 300, cacheEverything: true } });
+          if (r.ok) { text = await r.text(); fresh = true; break; }
+        } catch (e) {}
+      }
+      if (!text) {
+        try { const r = await caches.default.match(SV_SAVED); if (r) text = await r.text(); } catch (e) {}
+      }
+      if (text && text !== sstate.text) {
+        const d = JSON.parse(text);
+        if (d && d.total && d.guides) {
+          sstate.data = d;
+          sstate.text = text;
+          if (fresh) ctx.waitUntil(caches.default.put(SV_SAVED, new Response(text, { headers: { 'cache-control': 'public, max-age=2592000' } })).catch(() => {}));
+        }
+      }
+    } catch (e) {
+      // keep what we have
+    } finally {
+      sstate.at = Date.now();
+      sstate.refreshing = null;
+    }
+  })();
+  return sstate.refreshing;
+}
+
+async function getServices(ctx) {
+  if (!sstate.data) await refreshServices(ctx);
+  else if (Date.now() - sstate.at > REFRESH_MS) ctx.waitUntil(refreshServices(ctx));
+  return sstate.data;
+}
+
 // Which healer a path gets, if any.
 export function healerFor(path, live) {
   if (!live) return null;
@@ -243,6 +290,7 @@ export function healerFor(path, live) {
 }
 
 export function runHealer(kind, html, live, path, today) {
+  if (kind === 'svhub' || kind === 'svguide') return runServicesHealer(kind, html, live, path);
   if (kind === 'hub') return healHub(html, live, { day: today });
   if (kind === 'guide') return healGuide(html, today, live, path);
   if (kind === 'city') return healCity(html, today, live.pages, path);
@@ -476,8 +524,14 @@ async function handle(request, ctx) {
 
   // Self-healing counts (anonymous GET only; signed-in editors see Squarespace as stored).
   if (method === 'GET' && cachePlan(request)) {
-    const live = await getLive(ctx);
-    const kind = healerFor(path, live);
+    let live, kind;
+    if (isServicesPath(path)) {
+      live = await getServices(ctx);
+      kind = servicesHealerFor(path, live);
+    } else {
+      live = await getLive(ctx);
+      kind = healerFor(path, live);
+    }
     if (kind) {
       const h = await healed(request, path, kind, live, ctx);
       if (h.resp) return forBrowser(h.resp);

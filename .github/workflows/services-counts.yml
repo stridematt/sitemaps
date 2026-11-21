@@ -1,0 +1,39 @@
+name: services-counts
+
+# Christmas Eve services counts: re-reads every services page (sitemap plus every page the guides
+# link to, so brand-new pages count before Squarespace lists them) and writes
+# tools/services/live_services.json. The rtt-hreflang Worker reads that file and heals the hub
+# (/christmas-eve-services-near-me) and every country, state, region and denomination guide.
+# Hourly while the section is growing; run it by hand after a big publish:
+#   gh api -X POST repos/stridematt/sitemaps/actions/workflows/services-counts.yml/dispatches -f ref=main
+on:
+  schedule:
+    - cron: '41 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: services-counts
+  cancel-in-progress: false
+
+jobs:
+  count:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      RTT_BOT_KEY: ${{ secrets.RTT_BOT_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Count every services page
+        run: python3 tools/services/build_services.py --threads 8 --max 20000
+      - name: Commit
+        run: |
+          if git diff --quiet -- tools/services/live_services.json && git ls-files --error-unmatch tools/services/live_services.json >/dev/null 2>&1; then echo "No change."; exit 0; fi
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/services/live_services.json
+          git commit -q -m "Services counts: $(python3 -c "import json;t=json.load(open('tools/services/live_services.json'))['total'];print(f\"{t['churches']:,} churches in {t['cities']:,} cities\")")"
+          for i in 1 2 3; do git pull -q --rebase && git push && exit 0; sleep 5; done
+          exit 1
