@@ -154,21 +154,46 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
     hw = found.get('hw', 0)
     guides = found.setdefault('guides', {})
     url, newest, roots = '/christmas-events', hw, []
+    want = set()   # pages that new posts name in their breadcrumbs (their country guide, their city page)
+
+    def crumbs(body, self_path):
+        out = []
+        for blk in re.findall(r'"@type"\s*:\s*"BreadcrumbList".{0,3000}?\]', body, re.S):
+            for u in re.findall(r'rallytakesthetrain\.com(/christmas-events/[a-z0-9-]+)', blk):
+                u = u.rstrip('/')
+                if u != self_path and u not in out:
+                    out.append(u)
+        return out
+
+    def is_list(b):
+        return '<li class="rtt-rc">' in b or 'class="rtt-rcs"' in b
     for _ in range(250):
         j = item_json(url)
         if not j:
             break
         stop = False
         for it in j.get('items', []):
-            if it.get('publishOn', 0) <= hw - 3600000:
+            # Three days back, not one hour: a country page is often published as one page with cards and turned
+            # into a guide with city pages later, without a new publish time.
+            if it.get('publishOn', 0) <= hw - 72 * 3600000:
                 stop = True
                 break
             newest = max(newest, it.get('publishOn', 0))
             p, b = it.get('fullUrl', ''), it.get('body') or ''
-            if p in known_guides or p in guides or p in known_places or '<section class="rtt-pe-ride' in b:
+            if p in known_guides or p in known_places:
                 continue
-            if '<li class="rtt-rc">' in b or 'class="rtt-rcs"' in b:
-                roots.append((p, it.get('title', ''), b))
+            up = crumbs(b, p)
+            if is_list(b):
+                if p not in guides or not guides[p].get('cities'):
+                    roots.append((p, it.get('title', ''), b))
+            elif '<section class="rtt-pe-ride' in b:
+                if not up:   # cards and no parent page: a country that is one page (Gibraltar, The Gambia)
+                    if p not in guides:
+                        roots.append((p, it.get('title', ''), b))
+                else:
+                    want.update(up)
+            else:   # an event page: its breadcrumb names its country guide and its city page
+                want.update(up)
         nxt = (j.get('pagination') or {}).get('nextPageUrl')
         if stop or not nxt:
             break
@@ -182,6 +207,23 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
                 j = item_json(g)
                 if j and j.get('item'):
                     roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
+    # Pages the new posts point up to that nothing knows yet: read them, and their own parents (3 levels at most)
+    have = lambda g: g in known_guides or g in guides or g in known_places or g in [r[0] for r in roots]
+    for _ in range(3):
+        nxt, todo = set(), sorted(g for g in want if not have(g))[:150]
+        for g in todo:
+            j = item_json(g)
+            b = ((j or {}).get('item') or {}).get('body') or ''
+            if not b:
+                continue
+            up = crumbs(b, g)
+            if is_list(b) or ('<section class="rtt-pe-ride' in b and not up):
+                roots.append((g, j['item'].get('title', ''), b))
+            else:
+                nxt.update(up)
+        want = nxt
+        if not want:
+            break
     # re-crawl guides found earlier once a day (they gain cities as they are built out)
     for g, v in guides.items():
         if v.get('at', '') < today and v.get('kind') == 'country':
@@ -223,9 +265,14 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         cc = codes.most_common(1)[0][0] if codes else ''
         ld = re.search(r'"@type":\s*"Country",\s*"name":\s*"([^"]+)"', body)
         country = code2name.get(cc) or (plain(ld.group(1)) if ld else '') or ISO_NAME.get(cc) or re.sub(r'\s*\(\d{4}\)\s*$', '', title)
-        if not cities:
+        single = not cities and '<section class="rtt-pe-ride' in body   # the country is this one page; its cards count as its city
+        if single:
+            cc = own_country(body) or collections.Counter(re.findall(r'href="/christmas-events/[a-z0-9-]+-([a-z]{2})"', body)).most_common(1)[0:1] and collections.Counter(re.findall(r'href="/christmas-events/[a-z0-9-]+-([a-z]{2})"', body)).most_common(1)[0][0].upper() or ''
+            tm = re.search(r'(?i)(?:for kids |with kids |Christmas )in (.+?)\s*(?:\(?20\d\d\)?)?\s*(?::.*)?$', title.strip())
+            country = code2name.get(cc) or ISO_NAME.get(cc) or (tm.group(1).strip() if tm else re.sub(r'\s*\(\d{4}\)\s*$', '', title))
+        if not cities and not single:
             continue
-        kind = 'region' if cc in code2name else 'country'
+        kind = 'region' if cc in code2name and not single else 'country'
         guides[root] = {'kind': kind, 'name': country if kind == 'country' else re.sub(r'\s*\(\d{4}\)\s*$', '', title),
                         'country': country, 'cc': cc, 'cities': cities, 'subs': subs, 'at': today}
         log(f'found a {kind} guide the hub does not list yet: {root} ({country}, {len(cities)} city pages, {len(subs)} region pages)')
