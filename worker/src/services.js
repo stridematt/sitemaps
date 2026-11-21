@@ -60,6 +60,7 @@ function hubCountries(html) {
 export function healServicesHub(html, sv) {
   SEP = ',';
   const T = sv.total, G = sv.guides || {}, C = sv.cities || {};
+  const SV = !!T.services;   // services (a church at a start time) are the section's driving count
   let out = html;
 
   // 1) finder data
@@ -73,14 +74,15 @@ export function healServicesHub(html, sv) {
     for (const cc of Object.keys(D.r || {})) {
       for (const row of (D.r[cc] || [])[1] || []) {
         const g = G[slugPath(row[2])];
-        if (g) { row[3] = g.churches; row[4] = g.cities; }
+        if (g) { row[3] = SV ? (g.services || 0) : g.churches; row[4] = g.cities; }
       }
     }
     for (const p of D.p || []) {
       let best = -1;
       for (const s of String(p[6] || '').split(',')) {
         const x = C[slugPath(s)];
-        if (x && x[0] > best) best = x[0];
+        const v = x ? (SV ? (x[3] || 0) : x[0]) : -1;
+        if (v > best) best = v;
       }
       if (best >= 0) p[5] = best;
     }
@@ -97,6 +99,10 @@ export function healServicesHub(html, sv) {
     (all, a, href, c1, b, ch, d, c2, e) => {
       const g = G[href.replace(/\/$/, '')];
       if (!g) return all;
+      if (SV && g.services) {   // ", 18 services, 15 cities" and the button "18 services"
+        const w = g.services === 1 ? 'service' : 'services';
+        return a + fmtLike('1,000', g.services) + ' ' + w + ', ' + fmtLike(c1, g.cities) + (g.cities === 1 ? ' city' : ' cities') + d.replace(/^ churche?s?/, '') + fmtLike('1,000', g.services) + ' ' + w;
+      }
       return a + fmtLike(c1, g.cities) + b.replace(/cit(?:y|ies)/, g.cities === 1 ? 'city' : 'cities') + fmtLike(ch, g.churches) + d.replace(/churche?s?/, g.churches === 1 ? 'church' : 'churches') + fmtLike(c2, g.cities) + e.replace(/cit(?:y|ies)/, g.cities === 1 ? 'city' : 'cities');
     });
   // A-to-Z: <summary>… in Connecticut<span>15 cities</span></summary><div class="xn-az__in"><p class="xn-az__st"><a href="GUIDE">
@@ -123,6 +129,18 @@ export function healServicesHub(html, sv) {
     rep(new RegExp('(<p>|"text":")(?:' + N + ' Christmas Eve services at )?' + N + '( churches in )' + N + '( cities across )', 'g'),
       (all, a, b, c, d, e, f) => `${a}${n(nsv)} Christmas Eve services at ${n(ch)}${d}${n(ci)}${f}`);
     rep(/(How many )cities and churches( are listed\?)/g, '$1services, churches and cities$2');
+    // the finder script's own labels: rows, map tips and headings count services
+    rep(/plural\((p\.n|hot\.p\.n), 'church', 'churches'\)/g, "plural($1, 'service', 'services')");
+    rep(/plural\((x\.events|r\.events), 'church', 'churches'\)/g, "($1 ? plural($1, 'service', 'services') : 'Times coming soon')");
+    rep(/'church with Christmas Eve services', 'churches with Christmas Eve services'/g, "'Christmas Eve service posted', 'Christmas Eve services posted'");
+    rep(/Cities with the most churches listed/g, 'Cities with the most services posted');
+    rep(new RegExp(N + '( Christmas Eve lights)', 'g'), () => `${n(nsv)} Christmas Eve services`);
+    rep(/Every light is a city with its own Christmas Eve services page\./g, `Every light is a city: ${n(ci)} cities, each with its own Christmas Eve services page.`);
+    rep(new RegExp('(>|\')' + N + ' cities in (\\d+) countries\\. Type your city', 'g'), (all, a, o, k) => `${a}${n(nsv)} Christmas Eve services in ${n(ci)} cities across ${k} countries. Type your city`);
+    rep(new RegExp('(Yes\\. )' + N + '( churches in )' + N + '( cities in )([A-Z][^<.,;]*?)( are listed)', 'g'), (all, a, c1, b, c2, d, name, e) => {
+      const g = G[slugPath((hubCountries(out).find((c) => c.name === name) || {}).guide)];
+      return g && g.services ? `${a}${n(g.services)} Christmas Eve services at ${n(g.churches)}${b}${n(g.cities)}${d}${name}${e}` : all;
+    });
   }
   // per country: "Yes. 431 churches in 33 cities in Australia are listed"
   const byName = {};
@@ -190,7 +208,9 @@ export function healServicesGuide(html, sv, path) {
     };
     t = t.replace(CHIP, (all, a, href, n, w, b) => {
       const v = rowOf(href);
-      return v ? a + fmtLike(n, v[0]) + agree(v[0], w) + b : all;
+      if (!v) return all;
+      if (v[3] && /church/.test(w) && !href.includes('#')) return a + fmtLike(n, v[3]) + (v[3] === 1 ? ' service' : ' services') + b;   // services posted lead
+      return a + fmtLike(n, v[0]) + agree(v[0], w) + b;
     });
     // city-by-city table: <a href="CITY#t-x">City</a></th><td>churches</td><td>with 2026 times</td>
     t = t.replace(ROW, (all, a, href, mid, n, b, m, c) => {
