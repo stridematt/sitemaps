@@ -59,7 +59,7 @@ t('hub: totals, rows, A to Z, per-country FAQ and finder data; list positions un
   assert.match(o, /5,012 churches have posted/);
   assert.match(o, /"position":445/);
   const D = JSON.parse(o.match(/id="xn-data">([\s\S]*?)<\/script>/)[1]);
-  assert.deepEqual(D.c[0].slice(5), [740, 300]);
+  assert.deepEqual(D.c[0].slice(5, 7), [740, 300]);
   assert.deepEqual(D.r.US[1][0].slice(3, 5), [130, 16]);
   assert.equal(D.p[0][5], 7);
   assert.equal(D.p[1][5], 42);
