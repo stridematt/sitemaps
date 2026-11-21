@@ -27,6 +27,16 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'llms'))
 import build_llms as L  # hub parser, ISO codes, English city guide pattern
 
 
+def own_country(h):
+    """The country a city page says it is in: its data-ke-country, else the most common addressCountry of
+    its events (ISO-2, upper case). None when the page doesn't say."""
+    m = re.search(r'data-ke-country="([A-Za-z]{2})"', h)
+    if m:
+        return m.group(1).upper()
+    cs = collections.Counter(c.upper() for c in re.findall(r'"addressCountry"\s*:\s*"([A-Za-z]{2})"', h))
+    return cs.most_common(1)[0][0] if cs else None
+
+
 def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
@@ -333,13 +343,21 @@ def main():
                 r = analyze(h, today)
                 sq_ids[p] = r['sq'] or sq_ids.get(p)
                 pages[p] = {'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
-                            'k': r['keys'], 'fk': r['free_keys'], 'lang': r['lang'], 'lastmod': lastmod.get(p), 'at': today}
+                            'k': r['keys'], 'fk': r['free_keys'], 'lang': r['lang'], 'co': own_country(h), 'lastmod': lastmod.get(p), 'at': today}
             elif st in (404, 410):
                 pages.pop(p, None)
             else:
                 failed += 1
     if failed:
         log(f'{failed} pages could not be read; their last known counts are kept')
+    # A page counted as a U.S. city must not say it is somewhere else. State codes double as country codes in
+    # slugs (-co Colombia/Colorado, -de Germany/Delaware, -ca Canada/California...), so an English page for a
+    # non-U.S. city could be filed under a U.S. state. The page's own country (its data-ke-country or the
+    # addressCountry of its events) decides; such a page is left out of the U.S. and reported.
+    misfiled = sorted(q for q, o in place.items() if o['country'] == 'United States' and (pages.get(q) or {}).get('co') not in (None, 'US'))
+    for q in misfiled:
+        log(f'not a U.S. city (the page says {pages[q]["co"]}): {q}; left out of the U.S. counts until a guide places it')
+        place.pop(q, None)
     # Squarespace post ids for the sync (path -> id), kept for pages that still exist
     sq_ids = {p: i for p, i in sq_ids.items() if i and (p in place or p in guides)}
     os.makedirs(os.path.dirname(ids_path), exist_ok=True)

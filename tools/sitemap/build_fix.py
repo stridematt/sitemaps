@@ -15,7 +15,7 @@ sitemap at once (that points to an outage, not real deletions).
 
 Run: python3 tools/sitemap/build_fix.py --state .state/sitemap.json
 """
-import argparse, concurrent.futures as cf, datetime, gzip, json, os, re, sys, urllib.error, urllib.request
+import argparse, concurrent.futures as cf, datetime, gzip, json, os, re, sys, time, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -79,6 +79,34 @@ def indexable(path):
         return path, False
 
 
+
+def raw_sitemap(tries=6):
+    """Squarespace's own sitemap.xml (the Worker passes it through untouched with x-rtt-raw).
+    This runs right after the counts crawl, when Squarespace often answers 429: wait and retry
+    (honouring Retry-After) instead of failing the whole job. None = still refused; caller keeps fix.json."""
+    for i in range(tries):
+        try:
+            req = urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR, 'x-rtt-raw': '1'})
+            return urllib.request.urlopen(req, timeout=120).read().decode('utf-8')
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 503) or i == tries - 1:
+                if e.code in (429, 503):
+                    return None
+                raise
+            try:
+                wait = int(e.headers.get('Retry-After') or 0)
+            except ValueError:
+                wait = 0
+            wait = min(max(wait, 30 * (i + 1)), 300)
+            log(f'sitemap.xml: HTTP {e.code}, retrying in {wait}s ({i + 1}/{tries})')
+            time.sleep(wait)
+        except Exception as e:
+            if i == tries - 1:
+                raise
+            log(f'sitemap.xml: {e}, retrying')
+            time.sleep(15)
+    return None
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--state', default='.state/sitemap.json')
@@ -97,8 +125,10 @@ def main():
     added = state.setdefault('added', {})      # path -> date first added (its lastmod)
 
     # Squarespace's own sitemap (the Worker passes it through untouched with this header)
-    req = urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR, 'x-rtt-raw': '1'})
-    sm = urllib.request.urlopen(req, timeout=120).read().decode('utf-8')
+    sm = raw_sitemap()
+    if sm is None:
+        log('Squarespace kept rate limiting sitemap.xml; keeping the previous fix list (nothing changed)')
+        return
     listed = re.findall(r'<loc>https://www\.rallytakesthetrain\.com([^<]*)</loc>', sm)
     listed_set = set(listed)
     if len(listed) < 1000:
