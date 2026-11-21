@@ -4,32 +4,87 @@
  "city_pages": 3981,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 24003,
+ "event_pages_listed": 24027,
  "count_mismatch": [
   [
-   "/christmas-events/eagan-mn",
+   "/christmas-events/blue-springs-mo",
+   3,
+   4
+  ],
+  [
+   "/christmas-events/cape-girardeau-mo",
+   3,
+   5
+  ],
+  [
+   "/christmas-events/columbia-mo",
    2,
    3
   ],
   [
-   "/christmas-events/minneapolis-mn",
-   41,
-   44
+   "/christmas-events/independence-mo",
+   1,
+   2
   ],
   [
-   "/christmas-events/rochester-mn",
-   5,
-   6
+   "/christmas-events/jefferson-city-mo",
+   3,
+   5
+  ],
+  [
+   "/christmas-events/joplin-mo",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/kansas-city-mo",
+   45,
+   47
+  ],
+  [
+   "/christmas-events/lees-summit-mo",
+   10,
+   11
+  ],
+  [
+   "/christmas-events/liberty-mo",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/ofallon-mo",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/ridgeland-ms",
+   2,
+   3
   ],
   [
    "/christmas-events/saint-charles-mo",
    3,
-   5
+   6
   ],
   [
    "/christmas-events/saint-paul-mn",
    2,
    6
+  ],
+  [
+   "/christmas-events/springfield-mo",
+   24,
+   25
+  ],
+  [
+   "/christmas-events/st-louis-mo",
+   27,
+   33
+  ],
+  [
+   "/christmas-events/wentzville-mo",
+   3,
+   5
   ]
  ],
  "uncounted_city_pages": [
