@@ -1,0 +1,35 @@
+name: indexnow-recent
+
+# Sends every page updated in the last hours to IndexNow (Bing, Yandex and the engines they share with).
+# Squarespace's sitemap dates lag behind edits by days, so pages updated in place would otherwise be
+# re-submitted late. Reads each post's real update time from the collection lists (about 15 minutes).
+# Every 6 hours with a 7-hour window; run by hand with a longer window to catch up:
+#   gh api -X POST repos/stridematt/sitemaps/actions/workflows/indexnow-recent.yml/dispatches -f ref=main -f 'inputs[hours]=48'
+on:
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'How many hours back to look'
+        required: false
+        default: '26'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-recent
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      RTT_BOT_KEY: ${{ secrets.RTT_BOT_KEY }}
+      HOURS: ${{ github.event.inputs.hours || '7' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Submit the pages updated in the window
+        run: python3 tools/indexnow/recent.py --hours "$HOURS"
