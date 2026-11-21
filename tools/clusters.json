@@ -4474,6 +4474,25 @@
           ]
         }
       ]
+    },
+    {
+      "name": "auto:chiang-mai-th",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/chiang-mai-th",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/chiang-mai-th",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/khrit-mat-chiang-mai-th",
+          "hreflang": [
+            "th",
+            "th-TH"
+          ]
+        }
+      ]
     }
   ]
 }
