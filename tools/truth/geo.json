@@ -307,6 +307,10 @@
 26.36,
 -80.08
 ],
+"/christmas-events/borlange-se": [
+60.49,
+15.42
+],
 "/christmas-events/boucherville-qc": [
 45.61,
 -73.45
@@ -1247,6 +1251,10 @@
 37.03,
 -76.34
 ],
+"/christmas-events/haninge-se": [
+59.05,
+18.27
+],
 "/christmas-events/hannibal-mo": [
 39.71,
 -91.36
@@ -1262,6 +1270,10 @@
 "/christmas-events/harare-zw": [
 -17.86,
 31.06
+],
+"/christmas-events/hassleholm-se": [
+56.16,
+13.77
 ],
 "/christmas-events/havelock-nc": [
 34.88,
@@ -1350,6 +1362,10 @@
 "/christmas-events/hradec-kralove-cz": [
 50.21,
 15.83
+],
+"/christmas-events/huddinge-se": [
+59.22,
+18.0
 ],
 "/christmas-events/hudson-oh": [
 41.24,
@@ -1515,6 +1531,18 @@
 39.69,
 -84.17
 ],
+"/christmas-events/khrit-mat-bangkok-th": [
+13.75,
+100.49
+],
+"/christmas-events/khrit-mat-chiang-mai-th": [
+18.79,
+98.99
+],
+"/christmas-events/khrit-mat-phuket-th": [
+7.94,
+98.35
+],
 "/christmas-events/kingman-az": [
 35.19,
 -114.05
@@ -1535,13 +1563,25 @@
 22.57,
 88.36
 ],
+"/christmas-events/koper-si": [
+45.55,
+13.73
+],
 "/christmas-events/kostroma-ru": [
 57.77,
 40.93
 ],
+"/christmas-events/kranj-si": [
+46.24,
+14.35
+],
 "/christmas-events/krasnodar-ru": [
 45.04,
 38.98
+],
+"/christmas-events/kristianstad-se": [
+56.03,
+14.16
 ],
 "/christmas-events/kuala-lumpur-my": [
 3.15,
@@ -1851,6 +1891,7 @@
 42.5,
 -70.86
 ],
+"/christmas-events/marina-bay-singapore-sg": [],
 "/christmas-events/markham-on": [
 43.86,
 -79.34
@@ -2207,6 +2248,7 @@
 -33.73,
 -70.74
 ],
+"/christmas-events/navidad-con-ninos-caguas-pr": [],
 "/christmas-events/navidad-con-ninos-caleta-olivia-ar": [
 -46.44,
 -67.52
@@ -2539,6 +2581,7 @@
 -34.51,
 -58.78
 ],
+"/christmas-events/navidad-con-ninos-juana-diaz-pr": [],
 "/christmas-events/navidad-con-ninos-juigalpa-ni": [
 12.06,
 -85.39
@@ -2675,6 +2718,7 @@
 12.21,
 -86.41
 ],
+"/christmas-events/navidad-con-ninos-mayaguez-pr": [],
 "/christmas-events/navidad-con-ninos-mejicanos-sv": [
 13.72,
 -89.19
@@ -2983,6 +3027,7 @@
 13.88,
 -89.36
 ],
+"/christmas-events/navidad-con-ninos-san-juan-pr": [],
 "/christmas-events/navidad-con-ninos-san-lorenzo-ar": [
 -32.75,
 -60.74
@@ -3391,6 +3436,10 @@
 40.11,
 -75.34
 ],
+"/christmas-events/norrtalje-se": [
+59.77,
+18.7
+],
 "/christmas-events/north-battleford-sk": [
 52.78,
 -108.3
@@ -3419,6 +3468,7 @@
 41.14,
 -100.76
 ],
+"/christmas-events/north-singapore-sg": [],
 "/christmas-events/northbrook-il": [
 42.13,
 -87.83
@@ -3438,6 +3488,50 @@
 "/christmas-events/novosibirsk-ru": [
 54.97,
 82.95
+],
+"/christmas-events/novyy-god-ekaterinburg-ru": [
+56.84,
+60.6
+],
+"/christmas-events/novyy-god-kaliningrad-ru": [
+54.73,
+21.15
+],
+"/christmas-events/novyy-god-kazan-ru": [
+55.79,
+49.11
+],
+"/christmas-events/novyy-god-kostroma-ru": [
+57.77,
+40.93
+],
+"/christmas-events/novyy-god-krasnodar-ru": [
+45.04,
+38.98
+],
+"/christmas-events/novyy-god-moskva-ru": [
+55.63,
+37.61
+],
+"/christmas-events/novyy-god-murmansk-ru": [
+68.97,
+33.07
+],
+"/christmas-events/novyy-god-novosibirsk-ru": [
+54.97,
+82.95
+],
+"/christmas-events/novyy-god-sankt-peterburg-ru": [
+59.96,
+30.16
+],
+"/christmas-events/novyy-god-sochi-ru": [
+43.59,
+39.72
+],
+"/christmas-events/novyy-god-vladivostok-ru": [
+43.12,
+131.89
 ],
 "/christmas-events/nutley-nj": [
 40.82,
@@ -3511,6 +3605,7 @@
 43.92,
 -80.1
 ],
+"/christmas-events/orchard-road-singapore-sg": [],
 "/christmas-events/orillia-on": [
 44.61,
 -79.42
@@ -3522,6 +3617,10 @@
 "/christmas-events/ormond-beach-fl": [
 29.29,
 -81.06
+],
+"/christmas-events/ornskoldsvik-se": [
+63.29,
+18.72
 ],
 "/christmas-events/ostrava-cz": [
 49.84,
@@ -3611,6 +3710,7 @@
 42.01,
 -87.84
 ],
+"/christmas-events/parnu-ee": [],
 "/christmas-events/parow-za": [
 -33.9,
 18.59
@@ -4091,6 +4191,7 @@
 28.72,
 -81.24
 ],
+"/christmas-events/sentosa-harbourfront-singapore-sg": [],
 "/christmas-events/sevierville-tn": [
 35.87,
 -83.57
@@ -4122,6 +4223,10 @@
 "/christmas-events/sierra-leone": [
 8.64,
 -11.84
+],
+"/christmas-events/sigtuna-se": [
+59.62,
+17.72
 ],
 "/christmas-events/silang-ph": [
 14.22,
@@ -4158,6 +4263,10 @@
 "/christmas-events/sochi-ru": [
 43.59,
 39.72
+],
+"/christmas-events/sollentuna-se": [
+59.43,
+17.95
 ],
 "/christmas-events/somerset-west-za": [
 -34.08,
@@ -4242,6 +4351,10 @@
 "/christmas-events/sumter-sc": [
 33.92,
 -80.34
+],
+"/christmas-events/sundbyberg-se": [
+59.36,
+17.97
 ],
 "/christmas-events/surrey-bc": [
 49.19,
@@ -4387,6 +4500,7 @@
 40.01,
 -83.06
 ],
+"/christmas-events/us-virgin-islands": [],
 "/christmas-events/usti-nad-labem-cz": [
 50.66,
 14.04
