@@ -67,7 +67,7 @@ def geo_fill(geo, cities, on_map, limit, out):
             break
         if p in geo or p in on_map or any(q in on_map for q in (c[6] or [])):
             continue
-        name, country, st = c[2], c[3], c[4] or ''
+        name, country, st = clean_name(c[2], p), c[3], c[4] or ''   # (the last run may still carry a page title as the name)
         end = p.rsplit('-', 1)[-1]
         region = st.rsplit('/', 1)[-1].replace('-', ' ').title() if country == 'United States' else CA_NAMES.get(end, '') if country == 'Canada' else ''
         out['n'] += 1
