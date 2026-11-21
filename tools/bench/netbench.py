@@ -15,15 +15,17 @@ def f(u):
         return e.code, time.time() - t, 0, 0, 0, 0
     except Exception as e:
         return 0, time.time() - t, 0, 0, 0, 0
-i = 0
-for host, n, k in (('rally-takes-the-train-site.squarespace.com', 6, 150), ('rally-takes-the-train-site.squarespace.com', 16, 300), ('rally-takes-the-train-site.squarespace.com', 40, 500),
-                   ('www.rallytakesthetrain.com', 16, 300), ('www.rallytakesthetrain.com', 40, 500)):
-    sl = ps[i:i + k]; i += k
-    t = time.time()
+import sys
+T0 = time.time()
+for n, k in ((8, 1500), (12, 1200)):
+    sl = ps[:k] if n == 8 else ps[1500:1500 + k]
+    t = time.time(); done = 0; first429 = None; per = collections.Counter()
     with cf.ThreadPoolExecutor(n) as ex:
-        rs = list(ex.map(f, [f'https://{host}{p}' for p in sl]))
+        for r in ex.map(f, [f'https://rally-takes-the-train-site.squarespace.com{p}' for p in sl]):
+            done += 1
+            per[(int((time.time() - t) // 20), r[0])] += 1
+            if r[0] == 429 and first429 is None:
+                first429 = (done, round(time.time() - t, 1))
     el = time.time() - t
-    ok = [r for r in rs if r[0] == 200] or [(0, 0, 0, 0, 0, 0)]
-    m = lambda j: round(sum(r[j] for r in ok) / len(ok), 3)
-    print(f'{host[:6]} x{n}: {len(sl) / el:.1f} pages/s, statuses {dict(collections.Counter(r[0] for r in rs))}, to headers {m(1)}s, body {m(2)}s, gunzip {m(3)}s, {m(4) / 1e6:.2f} MB on the wire, {m(5) / 1e6:.2f} MB page', flush=True)
-print('cpus', os.cpu_count())
+    print(f'x{n}: {k} pages in {el:.0f}s = {k / el:.1f}/s; first 429 at (page, seconds) {first429}; per 20s window (window, status): {sorted(per.items())}', flush=True)
+    time.sleep(60)
