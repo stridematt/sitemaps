@@ -4,17 +4,62 @@
  "city_pages": 3948,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23759,
+ "event_pages_listed": 23816,
  "count_mismatch": [
+  [
+   "/christmas-events/annapolis-md",
+   7,
+   9
+  ],
   [
    "/christmas-events/baton-rouge-la",
    34,
    35
   ],
   [
+   "/christmas-events/boston-ma",
+   38,
+   48
+  ],
+  [
+   "/christmas-events/bowie-md",
+   8,
+   9
+  ],
+  [
+   "/christmas-events/columbia-md",
+   2,
+   5
+  ],
+  [
+   "/christmas-events/cumberland-md",
+   3,
+   7
+  ],
+  [
+   "/christmas-events/frederick-md",
+   11,
+   13
+  ],
+  [
+   "/christmas-events/glen-burnie-md",
+   2,
+   5
+  ],
+  [
+   "/christmas-events/hagerstown-md",
+   1,
+   3
+  ],
+  [
    "/christmas-events/lowell-ma",
    10,
    13
+  ],
+  [
+   "/christmas-events/natick-ma",
+   2,
+   5
   ],
   [
    "/christmas-events/norwood-ma",
@@ -24,7 +69,32 @@
   [
    "/christmas-events/rehoboth-ma",
    3,
+   7
+  ],
+  [
+   "/christmas-events/rockville-md",
+   2,
+   3
+  ],
+  [
+   "/christmas-events/seekonk-ma",
+   5,
    6
+  ],
+  [
+   "/christmas-events/springfield-ma",
+   4,
+   8
+  ],
+  [
+   "/christmas-events/westwood-ma",
+   3,
+   8
+  ],
+  [
+   "/christmas-events/worcester-ma",
+   20,
+   21
   ]
  ],
  "uncounted_city_pages": [
