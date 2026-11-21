@@ -1,72 +1,11 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26633,
+ "sitemap_urls": 26642,
  "city_pages": 3908,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 22974,
- "count_mismatch": [
-  [
-   "/christmas-events/los-angeles-ca",
-   69,
-   71
-  ],
-  [
-   "/christmas-events/napa-ca",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/pasadena-ca",
-   2,
-   5
-  ],
-  [
-   "/christmas-events/pico-rivera-ca",
-   3,
-   9
-  ],
-  [
-   "/christmas-events/rancho-palos-verdes-ca",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/riverside-ca",
-   31,
-   32
-  ],
-  [
-   "/christmas-events/roseville-ca",
-   6,
-   7
-  ],
-  [
-   "/christmas-events/sacramento-ca",
-   48,
-   50
-  ],
-  [
-   "/christmas-events/san-francisco-ca",
-   40,
-   41
-  ],
-  [
-   "/christmas-events/san-jose-ca",
-   48,
-   49
-  ],
-  [
-   "/christmas-events/san-rafael-ca",
-   2,
-   7
-  ],
-  [
-   "/christmas-events/santa-rosa-ca",
-   27,
-   32
-  ]
- ],
+ "event_pages_listed": 22990,
+ "count_mismatch": [],
  "uncounted_city_pages": [],
  "upcoming_not_listed": [
   [
