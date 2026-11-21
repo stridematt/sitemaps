@@ -833,12 +833,15 @@ def main():
         'pages': pages, 'odd': odd, 'guide_pages': gstate, 'found': found,
     }
     # the country's main guide: the found guide with the most city pages
-    # (the English one when a country has several: the Thai guide to Thailand is its other-language version)
-    def english(g):
-        lang = (gstate.get(g) or {}).get('lang') or ''
-        return lang.lower().startswith('en') if lang else not XMAS_PREFIX.search(g.rsplit('/', 1)[-1])
-    for g, fg in sorted(found.get('guides', {}).items(), key=lambda x: (english(x[0]), len(x[1].get('cities', {})) + len(x[1].get('subs', {})))):
-        if fg.get('kind') == 'country' and fg.get('country') in truth['countries']:
+    # (the English one when a country has several: the Thai guide to Thailand is its other-language version.
+    # English = the slug carries the country's English name: /thailand, /bahamas, not /khrit-mat-prathet-thai.
+    # The site's html lang is the same on every page, so it cannot tell.)
+    def english(g, country):
+        slug, want = g.rsplit('/', 1)[-1], re.sub(r'[^a-z0-9]+', '-', plain(country).lower()).strip('-')
+        return slug == want or want in slug or (len(slug) > 3 and slug in want)
+    on_hub = set(code2name.values())   # a country the stored hub lists keeps the hub's own guide: what is found for it are its regions
+    for g, fg in sorted(found.get('guides', {}).items(), key=lambda x: (english(x[0], x[1].get('country', '')), len(x[1].get('cities', {})) + len(x[1].get('subs', {})), x[0])):
+        if fg.get('kind') == 'country' and fg.get('country') in truth['countries'] and fg['country'] not in on_hub:
             truth['countries'][fg['country']].update({'cc': fg.get('cc', ''), 'guide': g, 'hub': 0})
     # Where each city the stored hub does not have is, so the Worker can light it on the hub's map.
     geo_job.join(timeout=300)
