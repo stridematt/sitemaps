@@ -382,10 +382,12 @@ def main():
     by_base = {}
     for p, o in place.items():
         by_base.setdefault((city_base(p), p.rsplit('-', 1)[-1] if re.search(r'-[a-z]{2}$', p) else ''), p)
-    via_guides = set(added)
+    # A district page that a guide or the hub lists as if it were a city (Madrid's barrios on the Spain guide; the
+    # healed hub then lists whatever the last run counted as a city) is still a district. Such a page stays a
+    # candidate until it is read: it is a district when it links back to its city page.
+    cand = {}
     for q in re.findall(r'<loc>https://www\.rallytakesthetrain\.com(/christmas-events/[a-z0-9-]+)</loc>', sm.decode('utf-8')):
-        # a district page a guide lists as if it were a city (Madrid's barrios on the Spain guide) is still a district
-        if (q in place and q not in via_guides) or q in guides or q in odd:
+        if q in guides or q in odd:
             continue
         code = q.rsplit('-', 1)[-1] if re.search(r'-[a-z]{2}$', q) else ''
         b = city_base(q) if code else q.rsplit('/', 1)[-1]
@@ -396,12 +398,14 @@ def main():
             if not par:
                 continue
             prefixed = bool(LANG_PREFIX.match(pb))
-            if (DISTRICT.match(rest) or prefixed) and par != q:
+            if par == q or place[par]['main'] == (place.get(q) or {}).get('main'):
+                continue   # itself, or another language version of the same city
+            if DISTRICT.match(rest) or prefixed:
                 if q in place:
-                    if place[q].get('country') != place[par].get('country'):
-                        break   # navidad-con-ninos-madrid-cundinamarca is Colombia, not a Madrid barrio
-                    del place[q]
-                parent_of[q] = place[par]['main']
+                    if place[q].get('country') == place[par].get('country'):   # madrid-cundinamarca is Colombia, not a barrio
+                        cand[q] = place[par]['main']
+                else:
+                    parent_of[q] = place[par]['main']
             break
     if parent_of:
         log(f'{len(parent_of)} district pages counted as part of their city: {sorted(parent_of)[:12]}')
@@ -449,12 +453,26 @@ def main():
                 if p in parent_of:  # a district page links back to its city (any language version)
                     ups = {q for q, o in place.items() if o['main'] == parent_of[p]}
                     pages[p]['up'] = any(f'href="{u}"' in h or f'href="{u}#' in h for u in ups)
+                elif p in cand:
+                    # Listed as a city: only a district if its own breadcrumb runs through the city page
+                    # (Spain > Madrid > Retiro). A link alone is not enough: Sao Jose de Ribamar links to Sao Jose.
+                    ups = {q for q, o in place.items() if o['main'] == cand[p]}
+                    crumbs = set()
+                    for blk in re.findall(r'"@type"\s*:\s*"BreadcrumbList".{0,3000}?\]', h, re.S):
+                        crumbs |= {u.rstrip('/') for u in re.findall(r'https://www\.rallytakesthetrain\.com(/christmas-events/[a-z0-9-]+)', blk)}
+                    pages[p]['up'] = bool(crumbs & ups)
             elif st in (404, 410):
                 pages.pop(p, None)
             else:
                 failed += 1
     if failed:
         log(f'{failed} pages could not be read; their last known counts are kept')
+    moved = [q for q, par in cand.items() if (pages.get(q) or {}).get('up') and q in place and place[q]['main'] == q]
+    for q in moved:
+        del place[q]
+        parent_of[q] = cand[q]
+    if moved:
+        log(f'{len(moved)} pages listed as cities are districts of a city (they link back to it): {sorted(moved)[:14]}')
     for g, gi in guides.items():
         v = pages.get(g) or {}
         if v.get('cards') and g not in place:
