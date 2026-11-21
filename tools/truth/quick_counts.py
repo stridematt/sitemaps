@@ -4,7 +4,7 @@ Usage: python3 tools/truth/quick_counts.py /christmas-events/<city-page> [...]
 
 Reads only the given city pages, then updates tools/truth/live.json in place:
   pages[p]                 the page's own upcoming events and free events
-  cities[main]             the city (fuller language version, as build_truth.py counts it)
+  cities[main]             the city, moved by the page's change (build_truth.py recounts every version)
   countries / states / total, and the country and state guides, by the change in the city's count
 A city page that live.json does not know yet (a new city) is added to its country when the page says which
 country it is in. The full run (build_truth.py, every 3 hours) recomputes everything from scratch and
@@ -63,15 +63,10 @@ def main(paths):
             live['countries'][country]['cities'] = live['countries'][country].get('cities', 0) + 1
             live['total']['cities'] += 1
         c = cities[m]
-        twins = [m] + list(c[6] or [])
-        prev = {q: (old if q == p else (pages.get(q) or [0, 0])) for q in twins}
-        old_best = max(twins, key=lambda q: prev[q][0])
-        best = max(twins, key=lambda q: (pages.get(q) or [0, 0])[0])
-        be, bf = pages.get(best, [0, 0])
-        # a city with district pages counts more than its fuller page: keep that surplus
-        extra_e = max(0, c[0] - prev[old_best][0])
-        extra_f = max(0, c[1] - prev[old_best][1])
-        ne, nf = be + extra_e, bf + extra_f
+        # The full run counts every language version of a city (the same event on two versions once) plus its
+        # district pages. Until it runs again, the city moves by this page's change, never below the page itself.
+        ne = max(r['events'], c[0] + r['events'] - old[0])
+        nf = max(r['free'], c[1] + r['free'] - old[1])
         de, df = ne - c[0], nf - c[1]
         dw = (1 if ne and not c[0] else 0) - (1 if c[0] and not ne else 0)
         c[0], c[1] = ne, nf

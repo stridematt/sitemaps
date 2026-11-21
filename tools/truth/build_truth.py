@@ -440,12 +440,12 @@ def main():
                 if '<section class="rtt-pe-ride' in h:   # a guide that is also a city page (Washington, DC): its cards count
                     r = analyze(h, today)
                     pages[p].update({'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
-                                     'k': r['keys'], 'fk': r['free_keys'], 'cards': True})
+                                     'k': r['keys'], 'fk': r['free_keys'], 'sg': r.get('sigs', []), 'cards': True})
             elif st == 200 and h:
                 r = analyze(h, today)
                 sq_ids[p] = r['sq'] or sq_ids.get(p)
                 pages[p] = {'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
-                            'k': r['keys'], 'fk': r['free_keys'], 'lang': r['lang'], 'co': own_country(h), 'lastmod': lastmod.get(p), 'at': today}
+                            'k': r['keys'], 'fk': r['free_keys'], 'sg': r.get('sigs', []), 'lang': r['lang'], 'co': own_country(h), 'lastmod': lastmod.get(p), 'at': today}
                 if p in parent_of:  # a district page links back to its city (any language version)
                     ups = {q for q, o in place.items() if o['main'] == parent_of[p]}
                     pages[p]['up'] = any(f'href="{u}"' in h or f'href="{u}#' in h for u in ups)
@@ -492,6 +492,28 @@ def main():
         return out
 
     gout = {}
+    # The same event in two language versions of a city page (English and French Paris) has two cards and often
+    # two event pages. Cards with the same place and dates are one event: every key maps to one canonical key.
+    canon, by_sig = {}, collections.defaultdict(lambda: collections.defaultdict(list))
+    for pg, v in pages.items():
+        for x, sg in zip(v.get('k', []), v.get('sg', [])):
+            if sg and x not in by_sig[sg][pg]:
+                by_sig[sg][pg].append(x)
+    merged = 0
+    for per_page in by_sig.values():
+        if len(per_page) < 2:
+            continue
+        # Only cards on different pages merge: two cards on one page with the same link and dates are two events.
+        # The page with the most such cards sets the events; the others' cards map onto them one to one.
+        base = sorted(max(per_page.values(), key=len))
+        for ks in per_page.values():
+            for x, y in zip(sorted(ks), base):
+                if x != y and canon.get(x, x) == x:
+                    canon[x] = y
+                    merged += 1
+    log(f'{merged} cards are another language version (or another page) of an event already counted')
+    C = lambda keys: [canon.get(x, x) for x in keys]
+
     for p, g in guides.items():
         # only this guide's own cities (guides also link "nearby" cities in other states or countries)
         country = g['name'] if g['kind'] == 'country' else g.get('country', '')
@@ -500,7 +522,7 @@ def main():
         k, fk = set(), set()
         for q in links:
             v = pages.get(q) or {}
-            k.update(v.get('k', [])); fk.update(v.get('fk', []))
+            k.update(C(v.get('k', []))); fk.update(C(v.get('fk', [])))
         gout[p] = {'kind': g['kind'], 'name': g['name'], 'e': len(k), 'f': len(fk), 'c': len(links),
                    'cw': sum(1 for q in links if (pages.get(q) or {}).get('e'))}
 
@@ -516,7 +538,7 @@ def main():
             v = pages.get(p)
             if not v:
                 continue
-            k |= scoped(v['k'], scope); fk |= scoped(v['fk'], scope); q += v.get('q', 0)
+            k |= scoped(C(v['k']), scope); fk |= scoped(C(v['fk']), scope); q += v.get('q', 0)
             e_cities += 1 if v['e'] else 0
         return {'events': len(k), 'free': len(fk), 'cities_with_events': e_cities, 'faq': q, '_k': k, '_fk': fk}
 
@@ -535,15 +557,15 @@ def main():
             by_state[c['state']].append(c)
 
     def agg(cs):
-        # One language version per city (the fuller one): the English and local-language pages list the
-        # same events, sometimes under different card ids, so taking both would count events twice.
+        # Every language version of a city counts (an event only on the French Paris page is still an event);
+        # the same event on both versions counts once (canonical keys above). FAQs come from one version.
         k, fk, qn, ew = set(), set(), 0, 0
         for c in cs:
-            x = roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)
-            k |= x['_k']; fk |= x['_fk']; qn += x['faq']; ew += 1 if x['cities_with_events'] else 0
+            x = roll(c['paths'] + c['parts'], c['key'] if c['parts'] else None)
+            k |= x['_k']; fk |= x['_fk']; qn += roll([c['best']] + c['parts'])['faq']
         r = {'events': len(k), 'free': len(fk), 'cities_with_events': ew, 'faq': qn, '_k': k}
         r['cities'] = len(cs)
-        r['cities_with_events'] = sum(1 for c in cs if any((pages.get(q) or {}).get('e') for q in [c['best']] + c['parts']))
+        r['cities_with_events'] = sum(1 for c in cs if any((pages.get(q) or {}).get('e') for q in c['paths'] + c['parts']))
         return r
 
     total = agg(list(cities.values()))
@@ -567,8 +589,8 @@ def main():
         'total': total,
         'countries': {n: nok(agg(cs)) for n, cs in by_country.items()},
         'states': {s: nok(agg(cs)) for s, cs in by_state.items()},
-        'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)['events'],
-                       'f': roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)['free'], 'alt': [q for q in c['paths'] if q != p],
+        'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': roll(c['paths'] + c['parts'], c['key'] if c['parts'] else None)['events'],
+                       'f': roll(c['paths'] + c['parts'], c['key'] if c['parts'] else None)['free'], 'alt': [q for q in c['paths'] if q != p],
                        'hub': p not in missing} for p, c in sorted(cities.items())},
         'pages': pages, 'odd': odd, 'guide_pages': gstate, 'found': found,
     }
@@ -586,7 +608,7 @@ def main():
         else:
             continue
         g = regions[key]
-        x = roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)
+        x = roll(c['paths'] + c['parts'], c['key'] if c['parts'] else None)
         g['events'] |= x['_k']; g['free'] |= x['_fk']
         g['cities'] += 1
         g['cities_with_events'] += 1 if (pages.get(p) or {}).get('e') else 0
