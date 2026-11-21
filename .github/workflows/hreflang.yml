@@ -86,13 +86,13 @@ jobs:
         run: |
           git pull -q --rebase || true
           python3 tools/truth/build_truth.py --state .state/truth.json
-          if git diff --quiet -- tools/truth/live.json && [ -z "$(git status --porcelain tools/sqsp/ids.json tools/truth/counted_events.json)" ]; then
+          if git diff --quiet -- tools/truth/live.json && [ -z "$(git status --porcelain tools/sqsp/ids.json tools/truth/counted_events.json tools/truth/geo.json)" ]; then
             echo "Counts unchanged."
             exit 0
           fi
           git config user.name "rtt-hreflang bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tools/truth/live.json tools/sqsp/ids.json tools/truth/counted_events.json
+          git add tools/truth/live.json tools/sqsp/ids.json tools/truth/counted_events.json tools/truth/geo.json
           git commit -q -m "Live counts: $(python3 -c "import json;t=json.load(open('tools/truth/live.json'))['total'];print(f\"{t['events']:,} events, {t['free']:,} free, {t['cities']:,} cities\")")"
           for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
 

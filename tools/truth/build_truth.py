@@ -13,6 +13,7 @@ pages and city pages right; the Squarespace sync writes the same numbers into th
 
 Usage: python3 tools/truth/build_truth.py [--state .state/truth.json] [--max 8000]
 """
+import urllib.parse
 import argparse, collections, concurrent.futures as cf, datetime, gzip, json, os, re, sys, time, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from analyze import analyze, item_id
@@ -25,6 +26,25 @@ UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 HDR = {'User-Agent': UA, **({'x-rtt-key': os.environ['RTT_BOT_KEY']} if os.environ.get('RTT_BOT_KEY') else {})}
 sys.path.insert(0, os.path.join(ROOT, 'tools', 'llms'))
 import build_llms as L  # hub parser, ISO codes, English city guide pattern
+
+HUB_RAW = os.environ.get('RTT_HUB_RAW', 'https://rally-takes-the-train-site.squarespace.com')
+GEO_PATH = os.path.join(HERE, 'geo.json')
+
+
+def geocode(name, country, cc=''):
+    """[lat, lng] of a city (2 decimals) from OpenStreetMap's Nominatim, or None. One request a second."""
+    q = name if (name == country or not country or re.search(r'[^\x00-\x7f]', country)) else f'{name}, {country}'
+    try:
+        r = urllib.request.urlopen(urllib.request.Request(
+            'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + urllib.parse.quote(q)
+            + (f'&countrycodes={cc.lower()}' if re.fullmatch(r'[A-Za-z]{2}', cc or '') else ''),   # "Jersey" is not Jersey County, Illinois
+            headers={'User-Agent': 'rallytakesthetrain-counts/1.0 (hello@rallytakesthetrain.com)'}), timeout=30)
+        j = json.loads(r.read())
+        time.sleep(1.1)
+        return [round(float(j[0]['lat']), 2), round(float(j[0]['lon']), 2)] if j else None
+    except Exception:
+        time.sleep(2)
+        return None
 
 
 def own_country(h):
@@ -326,7 +346,9 @@ def main():
     pages = old.get('pages', {})
     keys_before = {p: sorted(v.get('k', [])) for p, v in pages.items()}   # to tell which pages' events changed this run
 
-    _, hb = L.get(SITE + '/christmas-events-for-kids')
+    # The hub as stored in Squarespace, never the copy the Worker has already written this job's last numbers
+    # into: reading our own output back made districts return as cities and new countries flip to regions.
+    _, hb = L.get(HUB_RAW + '/christmas-events-for-kids')
     hub = L.parse_hub(hb.decode('utf-8'))
     _, sm = L.get(SITE + '/sitemap.xml')
     lastmod = dict(re.findall(r'<loc>https://www\.rallytakesthetrain\.com([^<]+)</loc>\s*(?:<changefreq>[^<]*</changefreq>\s*)?(?:<priority>[^<]*</priority>\s*)?<lastmod>([^<]+)</lastmod>', sm.decode('utf-8')))
@@ -668,6 +690,20 @@ def main():
     for g, fg in sorted(found.get('guides', {}).items(), key=lambda x: len(x[1].get('cities', {})) + len(x[1].get('subs', {}))):
         if fg.get('kind') == 'country' and fg.get('country') in truth['countries']:
             truth['countries'][fg['country']].update({'cc': fg.get('cc', ''), 'guide': g, 'hub': 0})
+    # Where each city the stored hub does not have is, so the Worker can light it on the hub's map.
+    geo = json.load(open(GEO_PATH, encoding='utf-8')) if os.path.exists(GEO_PATH) else {}
+    looked = 0
+    for p, c in truth['cities'].items():
+        if c['hub'] or p in geo or looked >= 150:
+            continue
+        looked += 1
+        m2 = re.search(r'-([a-z]{2})$', p)
+        ll = geocode(c['n'], c['co'], (truth['countries'].get(c['co']) or {}).get('cc') or (m2.group(1) if m2 and m2.group(1).upper() in ISO_NAME or m2 and c['co'] != 'United States' else ''))
+        if ll:
+            geo[p] = ll
+    if looked:
+        json.dump(geo, open(GEO_PATH, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
+        log(f'looked up where {looked} new cities are; {len(geo)} known')
     # Small file for the Worker: only what pages display.
     regions = collections.defaultdict(lambda: {'events': set(), 'free': set(), 'cities': 0, 'cities_with_events': 0})
     for p, c in cities.items():
@@ -687,12 +723,19 @@ def main():
         'countries': truth['countries'], 'states': truth['states'],
         'regions': {k: {'events': len(v['events']), 'free': len(v['free']), 'cities': v['cities'], 'cities_with_events': v['cities_with_events']} for k, v in regions.items()},
         # path: [events, free, name, country, state path, in hub A to Z (1/0), other-language paths]
-        'cities': {p: [c['e'], c['f'], c['n'], c['co'], c['st'] or '', 1 if c['hub'] else 0, c['alt']] for p, c in truth['cities'].items()},
+        # [events, free, name, country, state, on the stored hub, other language pages, lat, lng (cities the hub's map does not have)]
+        'cities': {p: [c['e'], c['f'], c['n'], c['co'], c['st'] or '', 1 if c['hub'] else 0, c['alt']] + (geo.get(p) or [])
+                   for p, c in truth['cities'].items()},
         'pages': {p: [v['e'], v['f']] for p, v in pages.items() if not v.get('guide')},
         'guides': gout,
     }
     if total['cities'] < 0.9 * len(old.get('cities', {}) or {'x': 0}) - 5:
         raise SystemExit('city count dropped by more than 10%; not writing')
+    # The same for events and countries against the numbers now live: a bad read or a bug must never publish low counts.
+    was = (json.load(open(os.path.join(HERE, 'live.json'), encoding='utf-8')) if os.path.exists(os.path.join(HERE, 'live.json')) else {}).get('total') or {}
+    for k, floor in (('events', 0.9), ('countries', 0.9), ('cities_with_events', 0.85)):
+        if was.get(k) and total[k] < floor * was[k] and not os.environ.get('RTT_ALLOW_DROP'):
+            raise SystemExit(f"{k} dropped from {was[k]:,} to {total[k]:,}; not writing (run again with RTT_ALLOW_DROP=1 if this is real)")
     os.makedirs(os.path.dirname(out_path) or '.', exist_ok=True)
     json.dump(truth, open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     # live.json only changes when a displayed number changes (or the day changes), so the

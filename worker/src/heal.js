@@ -104,7 +104,7 @@ export function healHub(html, live, opts = {}) {
       for (const [p, c] of Object.entries(live.cities || {})) {
         if (c[3] === 'United States' || c[3] === 'Canada' || !cIdx.has(c[3])) continue;
         if (known.has(p) || (c[6] || []).some((q) => known.has(q))) continue;
-        D.p.push([c[2], '', '', cIdx.get(c[3]), '', c[0], [p].concat(c[6] || []).map(pageRef).join(','), null, null, 0]);
+        D.p.push([c[2], '', '', cIdx.get(c[3]), '', c[0], [p].concat(c[6] || []).map(pageRef).join(','), typeof c[7] === 'number' ? c[7] : null, typeof c[8] === 'number' ? c[8] : null, 0]);
       }
       for (const cc of Object.keys(D.r || {})) {
         for (const r of D.r[cc][1] || []) {
