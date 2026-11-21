@@ -275,7 +275,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         # A country guide has no parent page in its breadcrumb; a state or region guide has its country's guide.
         # (The country code alone is not enough: once the hub lists a new country, its code is "known", and the
         # country's own guide would turn into a region and drop off the hub again on the next run.)
-        kind = 'region' if cc in code2name and not single and (crumbs(body, root) or not ld) else 'country'
+        kind = 'region' if cc in code2name and not single and (crumbs(body, root) or not (ld or plain(code2name[cc]).lower() in plain(title).lower())) else 'country'
         guides[root] = {'kind': kind, 'name': country if kind == 'country' else re.sub(r'\s*\(\d{4}\)\s*$', '', title),
                         'country': country, 'cc': cc, 'cities': cities, 'subs': subs, 'at': today}
         log(f'found a {kind} guide the hub does not list yet: {root} ({country}, {len(cities)} city pages, {len(subs)} region pages)')
