@@ -57,15 +57,15 @@ def geocode(name, country, cc='', region=''):
         return None
 
 
-def geo_fill(geo, cities, limit, out):
-    """Looks up where the cities the stored hub does not have are (for the hub's map lights), while the pages
+def geo_fill(geo, cities, on_map, limit, out):
+    """Looks up where the cities the stored hub's map does not place are (for the hub's map lights), while the pages
     are being read. `cities`: the last run's live.json cities. The country code comes from the country's
     name, never from the slug ending: addison-il is Illinois, not Israel."""
     code = {v: k for k, v in ISO_NAME.items()}
     for p, c in cities.items():
         if out['n'] >= limit:
             break
-        if c[5] or p in geo:
+        if p in geo or p in on_map or any(q in on_map for q in (c[6] or [])):
             continue
         name, country, st = c[2], c[3], c[4] or ''
         end = p.rsplit('-', 1)[-1]
@@ -462,14 +462,7 @@ def main():
     old = json.load(open(src, encoding='utf-8')) if src else {'pages': {}}
     pages = old.get('pages', {})
     keys_before = {p: sorted(v.get('k', [])) for p, v in pages.items()}   # to tell which pages' events changed this run
-    # Map lights for new cities are looked up in the background while the pages are read (a different service,
-    # one request a second), from the cities the last run counted. A city new in this run is looked up in the next.
     geo = json.load(open(GEO_PATH, encoding='utf-8')) if os.path.exists(GEO_PATH) else {}
-    last_live = os.path.join(HERE, 'live.json')
-    geo_out = {'n': 0, 'got': 0}
-    geo_job = threading.Thread(target=geo_fill, daemon=True, args=(
-        geo, (json.load(open(last_live, encoding='utf-8')) if os.path.exists(last_live) else {}).get('cities', {}), int(os.environ.get('RTT_GEO', '240')), geo_out))
-    geo_job.start()
 
     # The hub as stored in Squarespace, never the copy the Worker has already written this job's last numbers
     # into: reading our own output back made districts return as cities and new countries flip to regions.
@@ -489,6 +482,19 @@ def main():
                 in_az.update(hr for hr, a, tx in anchors)
     abbr2state = {v: '/christmas-events/' + k for k, v in L.US_ABBR.items() if k != 'district-of-columbia'}
     xd = re.search(r'<script type="application/json" id="xn-data">(.*?)</script>', hub_html, re.S)
+    # Map lights are looked up in the background while the pages are read (a different service, one request a
+    # second), for every city the last run counted that the stored hub's map data does not place. (Not "cities
+    # missing from the hub's A to Z": a city can be in the A to Z and still have no place on the map.)
+    on_map = set()
+    if xd:
+        for a in json.loads(xd.group(1)).get('p', []):
+            if isinstance(a[7], (int, float)) and isinstance(a[8], (int, float)):
+                on_map.update('/christmas-events/' + x[x.find(':') + 1:] for x in str(a[6] or '').split(','))
+    last_live = os.path.join(HERE, 'live.json')
+    geo_out = {'n': 0, 'got': 0}
+    geo_job = threading.Thread(target=geo_fill, daemon=True, args=(
+        geo, (json.load(open(last_live, encoding='utf-8')) if os.path.exists(last_live) else {}).get('cities', {}), on_map, int(os.environ.get('RTT_GEO', '240')), geo_out))
+    geo_job.start()
     if xd:
         D = json.loads(xd.group(1))
         for a in D.get('p', []):
