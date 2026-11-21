@@ -1,0 +1,44 @@
+name: quick-counts
+
+# Run right after a publish with the city pages that changed, so the hub, country and state numbers
+# catch up in minutes instead of waiting for the next 3-hourly full run (hreflang.yml, build_truth.py).
+#   gh api -X POST repos/stridematt/sitemaps/actions/workflows/quick-counts.yml/dispatches \
+#     -f ref=main -f 'inputs[pages]=/christmas-events/noel-avec-les-enfants-lens /christmas-events/natale-con-i-bambini-pisa'
+on:
+  workflow_dispatch:
+    inputs:
+      pages:
+        description: 'City page paths that changed, separated by spaces'
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: quick-counts
+  cancel-in-progress: false
+
+jobs:
+  quick:
+    runs-on: ubuntu-latest
+    env:
+      RTT_BOT_KEY: ${{ secrets.RTT_BOT_KEY }}
+      PAGES: ${{ github.event.inputs.pages }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update live.json for the changed pages
+        run: |
+          python3 tools/truth/quick_counts.py $PAGES
+      - name: Commit
+        run: |
+          if git diff --quiet -- tools/truth/live.json; then echo "No change."; exit 0; fi
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/truth/live.json
+          git commit -q -m "Quick counts: $(echo $PAGES | wc -w) page(s) after a publish"
+          # The full run may have committed live.json meanwhile: then its numbers win (it re-read every page).
+          for i in 1 2 3; do
+            if git pull -q --rebase; then git push && exit 0; fi
+            git rebase --abort; echo "live.json changed upstream; re-running on top of it"
+            git reset -q --hard origin/main && python3 tools/truth/quick_counts.py $PAGES && git add tools/truth/live.json && git commit -q -m "Quick counts (retry)" || exit 0
+          done
