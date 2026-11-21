@@ -6,21 +6,22 @@ on:
       - 'tools/**'
       - 'hreflang-sitemap.xml'
   schedule:
-    - cron: '23 */3 * * *' # every 3 hours (Cloudflare workers also start runs)
+    - cron: '23 */3 * * *' # every 3 hours: counts and upkeep (Cloudflare workers also start runs)
+    - cron: '53 * * * *'   # every hour: counts only
   workflow_dispatch:
 
 permissions:
   contents: write
   issues: write
 
-concurrency:
-  group: hreflang-${{ github.event_name == 'push' && 'validate' || 'auto-pair' }}
-  cancel-in-progress: false
-
+# Each job queues on its own, so a new counts run never waits for the slower upkeep job of the run before it.
 jobs:
   validate:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    concurrency:
+      group: hreflang-validate
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - name: Check clusters.json and that the sitemap was rebuilt
@@ -28,9 +29,81 @@ jobs:
           python3 tools/build_hreflang.py
           git diff --exit-code hreflang-sitemap.xml || (echo "::error::hreflang-sitemap.xml is out of date. Run python3 tools/build_hreflang.py and commit it." && exit 1)
 
-  auto-pair:
+  # The counts: what every page's numbers come from. First and on its own, about 10 minutes.
+  counts:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
+    concurrency:
+      group: hreflang-counts
+      cancel-in-progress: false
+    env:
+      # Lets our own requests past Cloudflare bot protection (custom rule "Allow Rally pipeline").
+      RTT_BOT_KEY: ${{ secrets.RTT_BOT_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore the upkeep job's saved state (page titles; the counts state before the jobs were split)
+        uses: actions/cache/restore@v4
+        with:
+          path: .state
+          key: auto-pair-state-${{ github.run_id }}
+          restore-keys: auto-pair-state-
+
+      - name: Restore the counts state
+        uses: actions/cache/restore@v4
+        with:
+          path: .state/truth.json
+          key: truth-state-${{ github.run_id }}
+          restore-keys: truth-state-
+
+      - name: Rebuild the live counts (events, free events, cities) from the site
+        run: |
+          mkdir -p .state
+          git pull -q --rebase || true
+          python3 tools/truth/build_truth.py --state .state/truth.json
+          if git diff --quiet -- tools/truth/live.json && [ -z "$(git status --porcelain tools/sqsp/ids.json tools/truth/counted_events.json tools/truth/geo.json tools/truth/found.json)" ]; then
+            echo "Counts unchanged."
+            exit 0
+          fi
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/truth/live.json tools/sqsp/ids.json tools/truth/counted_events.json tools/truth/geo.json tools/truth/found.json
+          git commit -q -m "Live counts: $(python3 -c "import json;t=json.load(open('tools/truth/live.json'))['total'];print(f\"{t['events']:,} events, {t['free']:,} free, {t['cities']:,} cities\")")"
+          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
+
+      - name: Tell search engines which pages changed (IndexNow)
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          f = '.state/changed-pages.txt'
+          urls = [u for u in (open(f).read().split('\n') if os.path.exists(f) else []) if u.startswith('https://www.rallytakesthetrain.com/')]
+          key = '769b49195b15aba74934cd930ea399db'   # public: the key file served on the site
+          for i in range(0, len(urls), 500):
+              body = json.dumps({'host': 'www.rallytakesthetrain.com', 'key': key, 'keyLocation': f'https://www.rallytakesthetrain.com/{key}.txt', 'urlList': urls[i:i + 500]}).encode()
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'content-type': 'application/json; charset=utf-8'}), timeout=60)
+                  print('IndexNow', len(urls[i:i + 500]), 'pages:', r.status)
+              except Exception as e:
+                  print('IndexNow failed:', e)
+          if os.path.exists(f):
+              os.remove(f)
+          print(len(urls), 'changed pages')
+          PY
+
+      - name: Save the counts state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .state/truth.json
+          key: truth-state-${{ github.run_id }}
+
+  # Upkeep: hreflang pairs, llms.txt, the sitemap audit and the sitemap fix. Slower, and nothing waits for it.
+  auto-pair:
+    if: github.event_name != 'push' && (github.event_name != 'schedule' || github.event.schedule == '23 */3 * * *')
+    runs-on: ubuntu-latest
+    concurrency:
+      group: hreflang-auto-pair
+      cancel-in-progress: false
     env:
       # Lets our own requests past Cloudflare bot protection (custom rule "Allow Rally pipeline").
       RTT_BOT_KEY: ${{ secrets.RTT_BOT_KEY }}
@@ -82,39 +155,6 @@ jobs:
             gh issue close "$num" --comment "Everything is paired now."
           fi
 
-      - name: Rebuild the live counts (events, free events, cities) from the site
-        run: |
-          git pull -q --rebase || true
-          python3 tools/truth/build_truth.py --state .state/truth.json
-          if git diff --quiet -- tools/truth/live.json && [ -z "$(git status --porcelain tools/sqsp/ids.json tools/truth/counted_events.json tools/truth/geo.json)" ]; then
-            echo "Counts unchanged."
-            exit 0
-          fi
-          git config user.name "rtt-hreflang bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tools/truth/live.json tools/sqsp/ids.json tools/truth/counted_events.json tools/truth/geo.json
-          git commit -q -m "Live counts: $(python3 -c "import json;t=json.load(open('tools/truth/live.json'))['total'];print(f\"{t['events']:,} events, {t['free']:,} free, {t['cities']:,} cities\")")"
-          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
-
-      - name: Tell search engines which pages changed (IndexNow)
-        run: |
-          python3 - <<'PY'
-          import json, os, urllib.request
-          f = '.state/changed-pages.txt'
-          urls = [u for u in (open(f).read().split('\n') if os.path.exists(f) else []) if u.startswith('https://www.rallytakesthetrain.com/')]
-          key = '769b49195b15aba74934cd930ea399db'   # public: the key file served on the site
-          for i in range(0, len(urls), 500):
-              body = json.dumps({'host': 'www.rallytakesthetrain.com', 'key': key, 'keyLocation': f'https://www.rallytakesthetrain.com/{key}.txt', 'urlList': urls[i:i + 500]}).encode()
-              try:
-                  r = urllib.request.urlopen(urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'content-type': 'application/json; charset=utf-8'}), timeout=60)
-                  print('IndexNow', len(urls[i:i + 500]), 'pages:', r.status)
-              except Exception as e:
-                  print('IndexNow failed:', e)
-          if os.path.exists(f):
-              os.remove(f)
-          print(len(urls), 'changed pages')
-          PY
-
       - name: Rebuild llms.txt from the live site
         run: |
           git pull -q --rebase || true
@@ -153,6 +193,10 @@ jobs:
           git add tools/sitemap/fix.json
           git commit -q -m "sitemap.xml: $(python3 -c "import json;f=json.load(open('tools/sitemap/fix.json'));print(f\"{len(f['add'])} pages added, {len(f['remove'])} dead URLs dropped\")")"
           for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
+
+      - name: Leave the counts state to the counts job
+        if: always()
+        run: rm -f .state/truth.json .state/changed-pages.txt
 
       - name: Save the list of pages already checked
         if: always()

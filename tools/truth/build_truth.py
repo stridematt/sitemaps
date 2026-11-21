@@ -65,7 +65,8 @@ XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|
 
 
 # English country names by code, for guides whose title is in another language (the UAE guide is Arabic).
-ISO_NAME = {**{v: k for k, v in L.ISO.items()}, 'AE': 'United Arab Emirates', 'SV': 'El Salvador', 'CZ': 'Czechia'}
+from iso_names import ISO_NAMES
+ISO_NAME = {**ISO_NAMES, **{v: k for k, v in L.ISO.items()}}
 
 
 def city_base(path):
@@ -132,8 +133,9 @@ def item_json(path):
     """A post's Squarespace JSON (body, title, id), or None."""
     for i in range(5):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(SITE + path + ('&' if '?' in path else '?') + 'format=json', headers={**HDR}), timeout=60)
-            return json.loads(r.read())
+            r = urllib.request.urlopen(urllib.request.Request(SITE + path + ('&' if '?' in path else '?') + 'format=json', headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=90)
+            b = r.read()
+            return json.loads(gzip.decompress(b) if r.headers.get('Content-Encoding') == 'gzip' else b)
         except urllib.error.HTTPError as e:
             if e.code in (404, 410):
                 return None
@@ -141,6 +143,41 @@ def item_json(path):
         except Exception:
             continue
     return None
+
+
+THREADS = int(os.environ.get('RTT_THREADS', '16'))   # measured: the site answers 20 at once with no throttling
+
+
+def pmap(fn, items):
+    """fn over items, in parallel, results in order."""
+    items = list(items)
+    if len(items) < 2:
+        return [fn(x) for x in items]
+    with cf.ThreadPoolExecutor(min(THREADS, len(items))) as ex:
+        return list(ex.map(fn, items))
+
+
+def walk_slice(sl):
+    """Posts of the Christmas events collection published in [lo, hi), newest first, as
+    (path, publish time, title, body). The body is kept only where `keep(path, body)` says so:
+    a list page holds 20 whole posts, and three days of them would not fit in memory."""
+    hi, lo, keep = sl
+    out, cur = [], hi
+    for _ in range(400):
+        j = item_json(f'/christmas-events?offset={cur}')
+        items = (j or {}).get('items') or []
+        if not items:
+            break
+        for it in items:
+            if (it.get('publishOn') or 0) < lo:
+                return out
+            p, b = it.get('fullUrl', ''), it.get('body') or ''
+            out.append((p, it.get('publishOn') or 0, it.get('title', ''), keep(p, b)))
+        nxt = ((j.get('pagination') or {}).get('nextPageOffset')) or 0
+        if not nxt or nxt >= cur:
+            break
+        cur = nxt
+    return out
 
 
 def clean_name(name, path=''):
@@ -187,52 +224,63 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
 
     def is_list(b):
         return '<li class="rtt-rc">' in b or 'class="rtt-rcs"' in b
-    for _ in range(250):
-        j = item_json(url)
-        if not j:
-            break
-        stop = False
-        for it in j.get('items', []):
-            # Three days back, not one hour: a country page is often published as one page with cards and turned
-            # into a guide with city pages later, without a new publish time.
-            if it.get('publishOn', 0) <= hw - 72 * 3600000:
-                stop = True
-                break
-            newest = max(newest, it.get('publishOn', 0))
-            p, b = it.get('fullUrl', ''), it.get('body') or ''
-            if p in known_guides or p in known_places:
+    # How far back: six hours on most runs (bulk publishing stamps posts a little in the past), and three
+    # days on the first run of each day as a safety net. Three days on every run meant re-reading about
+    # 9,000 posts, 15 minutes of each run. A one-page country that later becomes a guide with city pages
+    # is not missed in between: it is already a guide here, and guides are re-read once a day below.
+    # Read in half-hour slices, in parallel.
+    now = int(time.time() * 1000) + 3600000
+    deep = found.get('deep') != today
+    lo = (hw - (72 if deep else 6) * 3600000) if hw else now - 30 * 86400000
+    found['deep'] = today
+
+    def keep(p, b):   # ('list' | 'single', body) for a guide to crawl, ('up', parents) for the rest; None for known pages
+        if not p or p in known_guides or p in known_places:
+            return None
+        up = crumbs(b, p)
+        if is_list(b):
+            return ('list', b)
+        if '<section class="rtt-pe-ride' in b and not up:
+            return ('single', b)   # cards and no parent page: a country that is one page (Gibraltar, The Gambia)
+        return ('up', up)          # an event or city page: its breadcrumb names its country guide and its city page
+
+    step, edges = 1800000, []
+    t = now
+    while t > lo:
+        edges.append((t, max(lo, t - step), keep))
+        t -= step
+    seen_posts = set()
+    for items in pmap(walk_slice, edges):
+        for p, pub, title, k in items:
+            if not p or p in seen_posts or pub > now:
                 continue
-            up = crumbs(b, p)
-            if is_list(b):
+            seen_posts.add(p)
+            newest = max(newest, pub)
+            if not k:
+                continue
+            if k[0] == 'list':
                 if p not in guides or not guides[p].get('cities'):
-                    roots.append((p, it.get('title', ''), b))
-            elif '<section class="rtt-pe-ride' in b:
-                if not up:   # cards and no parent page: a country that is one page (Gibraltar, The Gambia)
-                    if p not in guides:
-                        roots.append((p, it.get('title', ''), b))
-                else:
-                    want.update(up)
-            else:   # an event page: its breadcrumb names its country guide and its city page
-                want.update(up)
-        nxt = (j.get('pagination') or {}).get('nextPageUrl')
-        if stop or not nxt:
-            break
-        url = nxt
+                    roots.append((p, title, k[1]))
+            elif k[0] == 'single':
+                if p not in guides:
+                    roots.append((p, title, k[1]))
+            else:
+                want.update(k[1])
+    log(f'{len(seen_posts)} posts published since {datetime.datetime.fromtimestamp(lo / 1000, datetime.timezone.utc):%b %d %H:%M} UTC read in {len(edges)} slices')
     found['hw'] = newest
     # Guides published before the walk reached them (or in a list format the walk didn't know yet): tools/truth/guide-seed.txt
     seed = os.path.join(HERE, 'guide-seed.txt')
     if os.path.exists(seed):
-        for g in (l.strip() for l in open(seed, encoding='utf-8')):
-            if g.startswith('/christmas-events/') and g not in known_guides and g not in [r[0] for r in roots]:   # re-read every run
-                j = item_json(g)
-                if j and j.get('item'):
-                    roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
+        sg = [g for g in dict.fromkeys(l.strip() for l in open(seed, encoding='utf-8'))
+              if g.startswith('/christmas-events/') and g not in known_guides and g not in [r[0] for r in roots]]   # re-read every run
+        for g, j in zip(sg, pmap(item_json, sg)):
+            if j and j.get('item'):
+                roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
     # Pages the new posts point up to that nothing knows yet: read them, and their own parents (3 levels at most)
     have = lambda g: g in known_guides or g in guides or g in known_places or g in [r[0] for r in roots]
     for _ in range(3):
         nxt, todo = set(), sorted(g for g in want if not have(g))[:150]
-        for g in todo:
-            j = item_json(g)
+        for g, j in zip(todo, pmap(item_json, todo)):
             b = ((j or {}).get('item') or {}).get('body') or ''
             if not b:
                 continue
@@ -245,28 +293,30 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         if not want:
             break
     # re-crawl guides found earlier once a day (they gain cities as they are built out)
-    for g, v in guides.items():
-        # (v != 2: filed before the country/region test was fixed; read again once)
-        if (v.get('at', '') < today and v.get('kind') == 'country') or v.get('v') != 2:
-            j = item_json(g)
-            if j and j.get('item'):
-                roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
+    # (v != 3: filed before the country/region test and the naming by country code were fixed; read again once)
+    again = [g for g, v in guides.items() if (v.get('at', '') < today and v.get('kind') == 'country') or v.get('v') != 3]
+    for g, j in zip(again, pmap(item_json, again)):
+        if j and j.get('item'):
+            roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
     sub_of = {s: g for g, v in guides.items() for s in v.get('subs', {})}
     for root, title, body in roots:
         if root in sub_of:
             continue
         cities, subs, seen = {}, {}, {root}
         queue = [(root, body, None)]
-        while queue:
-            path, b, parent = queue.pop()
-            for q, name in linked_cities(b, path).items():
-                if q in seen or q in known_guides:
-                    continue
-                seen.add(q)
-                if q in known_places:
-                    cities[q] = name
-                    continue
-                j = item_json(q)
+        while queue:   # one level at a time, each level's pages read in parallel
+            ask = []
+            for path, b, parent in queue:
+                for q, name in linked_cities(b, path).items():
+                    if q in seen or q in known_guides:
+                        continue
+                    seen.add(q)
+                    if q in known_places:
+                        cities[q] = name
+                        continue
+                    ask.append((q, name, path))
+            queue = []
+            for (q, name, path), j in zip(ask, pmap(item_json, [x[0] for x in ask])):
                 qb = ((j or {}).get('item') or {}).get('body') or ''
                 if not qb:  # could not read it now: keep what the last crawl knew
                     prev = guides.get(root) or {}
@@ -285,7 +335,10 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         codes = collections.Counter(c.rsplit('-', 1)[-1].upper() for c in cities if re.search(r'-[a-z]{2}$', c))
         cc = codes.most_common(1)[0][0] if codes else ''
         ld = re.search(r'"@type":\s*"Country",\s*"name":\s*"([^"]+)"', body)
-        country = code2name.get(cc) or (plain(ld.group(1)) if ld else '') or ISO_NAME.get(cc) or re.sub(r'\s*\(\d{4}\)\s*$', '', title)
+        # The name comes from the country code first: a guide's title is a sentence, and its Thai, Russian or
+        # Arabic version must land in the same country, not start a second one under a translated name.
+        tm0 = re.search(r'(?i)(?:for kids |with kids |Christmas )in (.+?)\s*(?:\(?20\d\d\)?)?\s*(?::.*)?$', title.strip())
+        country = code2name.get(cc) or ISO_NAME.get(cc) or (plain(ld.group(1)) if ld else '') or (tm0.group(1).strip() if tm0 else re.sub(r'\s*\(\d{4}\)\s*$', '', title))
         single = not cities and '<section class="rtt-pe-ride' in body   # the country is this one page; its cards count as its city
         if single:
             cc = own_country(body) or collections.Counter(re.findall(r'href="/christmas-events/[a-z0-9-]+-([a-z]{2})"', body)).most_common(1)[0:1] and collections.Counter(re.findall(r'href="/christmas-events/[a-z0-9-]+-([a-z]{2})"', body)).most_common(1)[0][0].upper() or ''
@@ -298,7 +351,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         # country's own guide would turn into a region and drop off the hub again on the next run.)
         kind = 'region' if cc in code2name and not single and (crumbs(body, root) or not (ld or plain(code2name[cc]).lower() in plain(title).lower())) else 'country'
         guides[root] = {'kind': kind, 'name': country if kind == 'country' else re.sub(r'\s*\(\d{4}\)\s*$', '', title),
-                        'country': country, 'cc': cc, 'cities': cities, 'subs': subs, 'at': today, 'v': 2}
+                        'country': country, 'cc': cc, 'cities': cities, 'subs': subs, 'at': today, 'v': 3}
         log(f'found a {kind} guide the hub does not list yet: {root} ({country}, {len(cities)} city pages, {len(subs)} region pages)')
     # a region page found on its own before its country page: keep it under the country only
     subs_all = {s for v in guides.values() for s in v.get('subs', {})}
@@ -415,7 +468,15 @@ def main():
     code2name = {}
     if xd:
         code2name = {c[0]: c[1] for c in json.loads(xd.group(1)).get('c', [])}
-    found = discover_guides(guides, place, code2name, old.get('found', {}), today, log)
+    # The registry of discovered guides is kept in the repo too (found.json): the job's saved state can be
+    # lost, and a cold start would otherwise forget every country the hub does not list yet.
+    fpath = os.path.join(HERE, 'found.json')
+    prev_found = old.get('found') or {}
+    if not prev_found.get('guides') and os.path.exists(fpath):
+        prev_found = json.load(open(fpath, encoding='utf-8'))
+        log(f"saved state had no discovered guides: starting from found.json ({len(prev_found.get('guides', {}))} guides)")
+    found = discover_guides(guides, place, code2name, prev_found, today, log)
+    json.dump(found, open(fpath, 'w', encoding='utf-8'), ensure_ascii=False, sort_keys=True, indent=0)
     for g, fg in found.get('guides', {}).items():
         if g in guides:
             continue
@@ -506,7 +567,7 @@ def main():
     ids_path = os.path.join(HERE, '..', 'sqsp', 'ids.json')
     sq_ids = json.load(open(ids_path, encoding='utf-8')) if os.path.exists(ids_path) else {}
     failed = 0
-    with cf.ThreadPoolExecutor(6) as ex:
+    with cf.ThreadPoolExecutor(THREADS) as ex:
         for p, (st, h) in zip(todo, ex.map(fetch, todo)):
             if st == 200 and h and p in guides:
                 hrefs = set(re.findall(r'href="(/christmas-events/[a-z0-9-]+)(?:#[^"]*)?"', h))
