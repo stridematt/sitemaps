@@ -523,6 +523,18 @@
 "subs": {},
 "v": 3
 },
+"/christmas-events/navidad-con-ninos-atlantico": {
+"at": "2026-11-21",
+"cc": "",
+"cities": {
+"/christmas-events/navidad-con-ninos-barranquilla": "¿Qué hacer en Navidad con niños en Barranquilla?"
+},
+"country": "Colombia",
+"kind": "country",
+"name": "Colombia",
+"subs": {},
+"v": 3
+},
 "/christmas-events/navidad-con-ninos-bolivia": {
 "at": "2026-11-21",
 "cc": "BO",
@@ -721,6 +733,18 @@
 "subs": {},
 "v": 3
 },
+"/christmas-events/navidad-con-ninos-huila": {
+"at": "2026-11-21",
+"cc": "",
+"cities": {
+"/christmas-events/navidad-con-ninos-neiva": "¿Qué hacer en Navidad con niños en Neiva?"
+},
+"country": "Colombia",
+"kind": "country",
+"name": "Colombia",
+"subs": {},
+"v": 3
+},
 "/christmas-events/navidad-con-ninos-panama": {
 "at": "2026-11-21",
 "cc": "PA",
@@ -814,6 +838,30 @@
 "country": "Dominican Republic",
 "kind": "country",
 "name": "Dominican Republic",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-risaralda": {
+"at": "2026-11-21",
+"cc": "",
+"cities": {
+"/christmas-events/navidad-con-ninos-dosquebradas": "¿Qué hacer en Navidad con niños en Dosquebradas?"
+},
+"country": "Colombia",
+"kind": "country",
+"name": "Colombia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-santander-colombia": {
+"at": "2026-11-21",
+"cc": "",
+"cities": {
+"/christmas-events/navidad-con-ninos-bucaramanga": "¿Qué hacer en Navidad con niños en Bucaramanga?"
+},
+"country": "Colombia",
+"kind": "country",
+"name": "Colombia",
 "subs": {},
 "v": 3
 },
@@ -1163,5 +1211,5 @@
 "v": 3
 }
 },
-"hw": 1795283619803
+"hw": 1795284259807
 }
