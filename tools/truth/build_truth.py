@@ -382,8 +382,10 @@ def main():
     by_base = {}
     for p, o in place.items():
         by_base.setdefault((city_base(p), p.rsplit('-', 1)[-1] if re.search(r'-[a-z]{2}$', p) else ''), p)
+    via_guides = set(added)
     for q in re.findall(r'<loc>https://www\.rallytakesthetrain\.com(/christmas-events/[a-z0-9-]+)</loc>', sm.decode('utf-8')):
-        if q in place or q in guides or q in odd:
+        # a district page a guide lists as if it were a city (Madrid's barrios on the Spain guide) is still a district
+        if (q in place and q not in via_guides) or q in guides or q in odd:
             continue
         code = q.rsplit('-', 1)[-1] if re.search(r'-[a-z]{2}$', q) else ''
         b = city_base(q) if code else q.rsplit('/', 1)[-1]
@@ -394,7 +396,11 @@ def main():
             if not par:
                 continue
             prefixed = bool(LANG_PREFIX.match(pb))
-            if DISTRICT.match(rest) or prefixed:
+            if (DISTRICT.match(rest) or prefixed) and par != q:
+                if q in place:
+                    if place[q].get('country') != place[par].get('country'):
+                        break   # navidad-con-ninos-madrid-cundinamarca is Colombia, not a Madrid barrio
+                    del place[q]
                 parent_of[q] = place[par]['main']
             break
     if parent_of:
@@ -535,21 +541,29 @@ def main():
         for c in cs:
             x = roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)
             k |= x['_k']; fk |= x['_fk']; qn += x['faq']; ew += 1 if x['cities_with_events'] else 0
-        r = {'events': len(k), 'free': len(fk), 'cities_with_events': ew, 'faq': qn}
+        r = {'events': len(k), 'free': len(fk), 'cities_with_events': ew, 'faq': qn, '_k': k}
         r['cities'] = len(cs)
         r['cities_with_events'] = sum(1 for c in cs if any((pages.get(q) or {}).get('e') for q in [c['best']] + c['parts']))
         return r
 
     total = agg(list(cities.values()))
+    counted = total.pop('_k')
     total['countries'] = len(by_country)
     # Merry Christmas language guides (one /merry-christmas/<language> page each)
     total['languages'] = len({u for u in re.findall(r'<loc>https://www\.rallytakesthetrain\.com/merry-christmas/([a-z-]+)</loc>', sm.decode('utf-8'))
                               if not u.startswith('blog-post-title')})
+    nok = lambda r: {k: v for k, v in r.items() if k != '_k'}
+    # Every event the site counts, by event page (cards without a page link are counted by name). The events
+    # directory compares its live pages against this list, so the database and the site agree on one number.
+    with open(os.path.join(HERE, 'counted_events.json'), 'w', encoding='utf-8') as fh:
+        json.dump({'today': today, 'events': len(counted),
+                   'pages': sorted({x.rstrip('/').rsplit('/', 1)[-1] for x in counted if not x.startswith('n:')}),
+                   'by_name': sum(1 for x in counted if x.startswith('n:'))}, fh, ensure_ascii=False, separators=(',', ':'))
     truth = {
         'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'today': today,
         'total': total,
-        'countries': {n: agg(cs) for n, cs in by_country.items()},
-        'states': {s: agg(cs) for s, cs in by_state.items()},
+        'countries': {n: nok(agg(cs)) for n, cs in by_country.items()},
+        'states': {s: nok(agg(cs)) for s, cs in by_state.items()},
         'cities': {p: {'n': c['name'], 'co': c['country'], 'st': c['state'], 'e': roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)['events'],
                        'f': roll([c['best']] + c['parts'], c['key'] if c['parts'] else None)['free'], 'alt': [q for q in c['paths'] if q != p],
                        'hub': p not in missing} for p, c in sorted(cities.items())},
