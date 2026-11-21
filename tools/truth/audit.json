@@ -1,10 +1,10 @@
 {
  "today": "2026-11-20",
- "sitemap_urls": 26642,
- "city_pages": 3913,
+ "sitemap_urls": 26649,
+ "city_pages": 3915,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23013,
+ "event_pages_listed": 23020,
  "count_mismatch": [],
  "uncounted_city_pages": [],
  "upcoming_not_listed": [
@@ -415,12 +415,6 @@
    "2026-12-21",
    "/christmas-events/navidad-con-ninos-bilbao",
    "Feria de Santo Tomás en Bilbao"
-  ],
-  [
-   "/christmas-events/festival-of-trees-white-bear-lake-mn",
-   "2026-12-19",
-   "/christmas-events/white-bear-lake-mn",
-   "Festival of Trees"
   ],
   [
    "/christmas-events/fly-me-to-the-moon-pamplona-es",
@@ -901,7 +895,7 @@
   "Spain": 97,
   "Belgium": 28,
   "Portugal": 7,
-  "United States": 6,
+  "United States": 5,
   "Cyprus": 4,
   "Luxembourg": 2,
   "الامارات العربية المتحدة": 1,
