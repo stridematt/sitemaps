@@ -44,6 +44,10 @@ LANG_PREFIX = re.compile(r'^/?(?:christmas-events/)?(navidad-con-ninos|noel-avec
 XMAS_PREFIX = re.compile(r'(^|-)(christmas|xmas|navidad|natal|noel|weihnacht\w*|natale|kerst|kodomo|rozhdestvo|jul\w*|joulu\w*|bozic|vanoce|karacsony|craciun|boze|kalikimaka|kurisumasu|krismas|kerismas)(-|$)')
 
 
+# English country names by code, for guides whose title is in another language (the UAE guide is Arabic).
+ISO_NAME = {**{v: k for k, v in L.ISO.items()}, 'AE': 'United Arab Emirates', 'SV': 'El Salvador', 'CZ': 'Czechia'}
+
+
 def city_base(path):
     """City part of a city page slug: no section, no trailing 2-letter code."""
     return re.sub(r'-[a-z]{2}$', '', path.rsplit('/', 1)[-1])
@@ -81,8 +85,23 @@ def linked_cities(h, self_path=None):
     for m in RC.finditer(h):
         out.setdefault(m.group(1), m.group(2).strip())
     for ul in RCS.finditer(h):
-        for m in RCS_LI.finditer(ul.group(1)):
-            out.setdefault(m.group(1), m.group(2).strip())
+        for li in re.finditer(r'<li\b[^>]*>(.*?)</li>', ul.group(1), re.S):
+            # every city page an item links (its own page and its other-language page)
+            hrefs = re.findall(r'href="(/christmas-events/[a-z0-9-]+)"[^>]*>(?:<[^>]+>)*([^<]{0,120})', li.group(1))
+            for i, (q, name) in enumerate(hrefs):
+                out.setdefault(q, (hrefs[0][1] if i else name).strip())
+    # Some guides list their cities in ul.rtt-other-countries (El Salvador). Only links that end in the
+    # country code most of the guide's other city links use count; other countries' guides never do.
+    codes = collections.Counter(q.rsplit('-', 1)[-1] for q in out if re.search(r'-[a-z]{2}$', q))
+    extra = {}
+    for ul in re.finditer(r'<ul class="rtt-other-countries"[^>]*>(.*?)</ul>', h, re.S):
+        for m in re.finditer(r'href="(/christmas-events/[a-z0-9-]+-([a-z]{2}))"[^>]*>(?:<[^>]+>)*([^<]{1,120})', ul.group(1)):
+            extra.setdefault(m.group(1), (m.group(2), m.group(3).strip()))
+    if extra:
+        cc = codes.most_common(1)[0][0] if codes else collections.Counter(c for c, _ in extra.values()).most_common(1)[0][0]
+        for q, (c, name) in extra.items():
+            if c == cc:
+                out.setdefault(q, name)
     for m in SEC.finditer(h):
         out.setdefault(m.group(2), m.group(1).strip())
     out.pop(self_path, None)
@@ -159,7 +178,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
     seed = os.path.join(HERE, 'guide-seed.txt')
     if os.path.exists(seed):
         for g in (l.strip() for l in open(seed, encoding='utf-8')):
-            if g.startswith('/christmas-events/') and g not in known_guides and g not in guides:
+            if g.startswith('/christmas-events/') and g not in known_guides and g not in [r[0] for r in roots]:   # re-read every run
                 j = item_json(g)
                 if j and j.get('item'):
                     roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
@@ -203,7 +222,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         codes = collections.Counter(c.rsplit('-', 1)[-1].upper() for c in cities if re.search(r'-[a-z]{2}$', c))
         cc = codes.most_common(1)[0][0] if codes else ''
         ld = re.search(r'"@type":\s*"Country",\s*"name":\s*"([^"]+)"', body)
-        country = code2name.get(cc) or (plain(ld.group(1)) if ld else '') or re.sub(r'\s*\(\d{4}\)\s*$', '', title)
+        country = code2name.get(cc) or (plain(ld.group(1)) if ld else '') or ISO_NAME.get(cc) or re.sub(r'\s*\(\d{4}\)\s*$', '', title)
         if not cities:
             continue
         kind = 'region' if cc in code2name else 'country'
