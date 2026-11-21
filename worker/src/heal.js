@@ -389,7 +389,7 @@ function healCityLinks(html, pages, self, mask) {
 }
 
 // ---------------------------------------------------------------------------- city pages
-const CARD_RE = /<section class="rtt-pe-ride"([^>]*)>/g;
+const CARD_RE = /<section class="rtt-pe-ride(?: [^"]*)?"([^>]*)>/g;
 function lastDay(tag) {
   const m = tag.match(/data-cal="([^"]*)"/);
   if (!m) return '';
@@ -422,7 +422,7 @@ function sectionEnd(html, i) {
 }
 
 export function healCity(html, today, pages, self) {
-  if (!html.includes('class="rtt-pe-ride"')) return null;
+  if (!html.includes('class="rtt-pe-ride')) return null;
   const cards = [];
   for (const m of html.matchAll(CARD_RE)) {
     const tag = m[1];
@@ -512,7 +512,7 @@ export function healCity(html, today, pages, self) {
     const rest = out.slice(off + all.length);
     const nxt = rest.search(/<h2\b[^>]*\bdata-n=/);
     const seg = nxt < 0 ? rest : rest.slice(0, nxt);
-    return a + (seg.match(/<section class="rtt-pe-ride"/g) || []).length + b;
+    return a + (seg.match(/<section class="rtt-pe-ride[" ]/g) || []).length + b;
   });
   const delta = N0 - N;
   if (delta > 0) {

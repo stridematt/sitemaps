@@ -1,7 +1,8 @@
 """Read the facts a Christmas events page actually contains (its event cards), not the numbers its text claims."""
 import re, json, unicodedata, html as H
 
-CARD = re.compile(r'<section class="rtt-pe-ride"([^>]*)>', re.S)
+# Plain cards are class="rtt-pe-ride"; verified cards are class="rtt-pe-ride rtt-pe-ride--verified rvc".
+CARD = re.compile(r'<section class="rtt-pe-ride(?: [^"]*)?"([^>]*)>', re.S)
 
 
 def attr(tag, name):
@@ -34,7 +35,7 @@ def cards(html):
         tag = m.group(1)
         end = ms[i + 1].start() if i + 1 < len(ms) else m.end() + 20000
         seg = html[m.end():end]
-        k = re.search(r'data-rtt-evp="([^"]+)"', seg)
+        k = re.search(r'data-rtt-evp="([^"]+)"', seg) or re.search(r'class="rtt-pe-ride__book" href="/christmas-events/([a-z0-9-]+)"', seg)
         cid = attr(tag, 'id') or ''
         last = last_day(attr(tag, 'data-cal') or '{}')
         # A card that doesn't link an event page is keyed by what it is (name, town, last day), not by its id,

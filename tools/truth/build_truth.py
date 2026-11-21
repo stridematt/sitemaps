@@ -146,7 +146,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
                 break
             newest = max(newest, it.get('publishOn', 0))
             p, b = it.get('fullUrl', ''), it.get('body') or ''
-            if p in known_guides or p in guides or p in known_places or '<section class="rtt-pe-ride"' in b:
+            if p in known_guides or p in guides or p in known_places or '<section class="rtt-pe-ride' in b:
                 continue
             if '<li class="rtt-rc">' in b or 'class="rtt-rcs"' in b:
                 roots.append((p, it.get('title', ''), b))
@@ -195,7 +195,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
                         for c2, n2 in (guides.get(q) or {}).get('cities', {}).items():
                             cities.setdefault(c2, n2)
                     continue
-                if '<section class="rtt-pe-ride"' in qb or ('<li class="rtt-rc">' not in qb and qb):
+                if '<section class="rtt-pe-ride' in qb or ('<li class="rtt-rc">' not in qb and qb):
                     cities[q] = name
                 elif '<li class="rtt-rc">' in qb:
                     subs[q] = {'name': name}

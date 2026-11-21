@@ -80,10 +80,10 @@ def main():
             want = live['pages'][p][0]
             if a['events'] != want:
                 mismatch.append([p, want, a['events']])
-            for m in re.finditer(r'<section class="rtt-pe-ride"', b):
-                seg = b[m.end():m.end() + 8000]
-                nxt = seg.find('<section class="rtt-pe-ride"')
-                seg = seg[:nxt] if nxt > 0 else seg
+            for m in re.finditer(r'<section class="rtt-pe-ride[" ]', b):
+                seg = b[m.end():m.end() + 30000]   # verified cards run to ~15 KB
+                nxt = re.search(r'<section class="rtt-pe-ride[" ]', seg)
+                seg = seg[:nxt.start()] if nxt else seg
                 for h in re.findall(r'href="(/christmas-events/[a-z0-9-]+)"', seg):
                     if h not in counted:
                         listed.setdefault(h, p)
@@ -100,7 +100,7 @@ def main():
                 other.append([p, 'unreachable'])
                 continue
             b = it.get('body') or ''
-            cards = len(re.findall(r'<section class="rtt-pe-ride"', b))
+            cards = len(re.findall(r'<section class="rtt-pe-ride[" ]', b))
             if cards:
                 uncounted_city.append([p, cards])
                 continue
