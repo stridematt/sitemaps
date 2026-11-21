@@ -4,47 +4,32 @@
  "city_pages": 3981,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 23984,
+ "event_pages_listed": 24003,
  "count_mismatch": [
   [
-   "/christmas-events/detroit-mi",
-   47,
-   48
+   "/christmas-events/eagan-mn",
+   2,
+   3
   ],
   [
-   "/christmas-events/maple-grove-mn",
+   "/christmas-events/minneapolis-mn",
+   41,
+   44
+  ],
+  [
+   "/christmas-events/rochester-mn",
+   5,
+   6
+  ],
+  [
+   "/christmas-events/saint-charles-mo",
    3,
-   4
-  ],
-  [
-   "/christmas-events/novi-mi",
-   2,
-   4
-  ],
-  [
-   "/christmas-events/rochester-hills-mi",
-   2,
-   4
-  ],
-  [
-   "/christmas-events/royal-oak-mi",
-   2,
    5
   ],
   [
-   "/christmas-events/sterling-heights-mi",
-   4,
-   7
-  ],
-  [
-   "/christmas-events/troy-mi",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/westland-mi",
+   "/christmas-events/saint-paul-mn",
    2,
-   3
+   6
   ]
  ],
  "uncounted_city_pages": [
