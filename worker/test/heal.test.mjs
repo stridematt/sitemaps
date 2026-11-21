@@ -23,6 +23,9 @@ t('count phrases in several languages; dates, times and years are left alone', (
   assert.equal(rewriteCounts('We found 73 confirmed Christmas events for kids', 81, 10), 'We found 81 confirmed Christmas events for kids');
   assert.equal(rewriteCounts('Suomessa: 26 tapahtumaa, joista maksuttomia 3. Avoinna 3.12.', 652, 246), 'Suomessa: 652 tapahtumaa, joista maksuttomia 246. Avoinna 3.12.');
   assert.equal(rewriteCounts('olemme vahvistaneet 26 lasten joulutapahtumaa', 652, 246), 'olemme vahvistaneet 652 lasten joulutapahtumaa');
+  assert.equal(rewriteCounts('Ostrava 2026: 14 akcí pro děti, 9 zdarma. Klaun 6. 12. od 10:00, 8 let a víc.', 12, 7), 'Ostrava 2026: 12 akcí pro děti, 7 zdarma. Klaun 6. 12. od 10:00, 8 let a víc.');
+  assert.equal(rewriteCounts('Máme 14 vánočních akcí, 9 zdarma', 13, 8), 'Máme 13 vánočních akcí, 8 zdarma');
+  assert.equal(rewriteCounts('فعاليات الكريسماس في أبوظبي 2026 للأطفال: 25 فعالية، 10 يناير', 22, 1), 'فعاليات الكريسماس في أبوظبي 2026 للأطفال: 22 فعالية، 10 يناير');
 });
 
 t('reference day is UTC-12', () => {
