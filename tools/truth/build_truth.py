@@ -14,7 +14,7 @@ pages and city pages right; the Squarespace sync writes the same numbers into th
 Usage: python3 tools/truth/build_truth.py [--state .state/truth.json] [--max 8000]
 """
 import urllib.parse
-import argparse, collections, concurrent.futures as cf, datetime, gzip, json, os, re, sys, time, urllib.request
+import argparse, collections, concurrent.futures as cf, datetime, gzip, json, os, re, sys, threading, time, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from analyze import analyze, item_id
 
@@ -35,9 +35,15 @@ READ = os.environ.get('RTT_READ', HUB_RAW)
 GEO_PATH = os.path.join(HERE, 'geo.json')
 
 
-def geocode(name, country, cc=''):
-    """[lat, lng] of a city (2 decimals) from OpenStreetMap's Nominatim, or None. One request a second."""
-    q = name if (name == country or not country or re.search(r'[^\x00-\x7f]', country)) else f'{name}, {country}'
+CA_NAMES = {'on': 'Ontario', 'qc': 'Quebec', 'bc': 'British Columbia', 'ab': 'Alberta', 'ns': 'Nova Scotia', 'sk': 'Saskatchewan',
+            'nl': 'Newfoundland and Labrador', 'nb': 'New Brunswick', 'pe': 'Prince Edward Island', 'mb': 'Manitoba',
+            'nt': 'Northwest Territories', 'yt': 'Yukon', 'nu': 'Nunavut'}
+
+
+def geocode(name, country, cc='', region=''):
+    """[lat, lng] of a city (2 decimals) from OpenStreetMap's Nominatim; [] when it knows no such place;
+    None when it could not be asked (tried again next run). One request a second."""
+    q = ', '.join(x for x in (name, region) if x) if cc else name if (name == country or not country or re.search(r'[^\x00-\x7f]', country)) else f'{name}, {country}'
     try:
         r = urllib.request.urlopen(urllib.request.Request(
             'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + urllib.parse.quote(q)
@@ -45,10 +51,30 @@ def geocode(name, country, cc=''):
             headers={'User-Agent': 'rallytakesthetrain-counts/1.0 (hello@rallytakesthetrain.com)'}), timeout=30)
         j = json.loads(r.read())
         time.sleep(1.1)
-        return [round(float(j[0]['lat']), 2), round(float(j[0]['lon']), 2)] if j else None
+        return [round(float(j[0]['lat']), 2), round(float(j[0]['lon']), 2)] if j else []
     except Exception:
         time.sleep(2)
         return None
+
+
+def geo_fill(geo, cities, limit, out):
+    """Looks up where the cities the stored hub does not have are (for the hub's map lights), while the pages
+    are being read. `cities`: the last run's live.json cities. The country code comes from the country's
+    name, never from the slug ending: addison-il is Illinois, not Israel."""
+    code = {v: k for k, v in ISO_NAME.items()}
+    for p, c in cities.items():
+        if out['n'] >= limit:
+            break
+        if c[5] or p in geo:
+            continue
+        name, country, st = c[2], c[3], c[4] or ''
+        end = p.rsplit('-', 1)[-1]
+        region = st.rsplit('/', 1)[-1].replace('-', ' ').title() if country == 'United States' else CA_NAMES.get(end, '') if country == 'Canada' else ''
+        out['n'] += 1
+        ll = geocode(name, country, code.get(country, ''), region)
+        if ll is not None:   # [] too: OpenStreetMap does not know it, so it is not asked again
+            geo[p] = ll
+            out['got'] += bool(ll)
 
 
 def own_country(h):
@@ -136,6 +162,7 @@ def linked_cities(h, self_path=None):
 def item_json(path, base=None):
     """A post's Squarespace JSON (body, title, id), or None."""
     for i in range(5):
+        turn()
         try:
             r = urllib.request.urlopen(urllib.request.Request((base or (READ if i < 3 else SITE)) + path + ('&' if '?' in path else '?') + 'format=json', headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=90)
             b = r.read()
@@ -143,13 +170,39 @@ def item_json(path, base=None):
         except urllib.error.HTTPError as e:
             if e.code in (404, 410):
                 return None
-            time.sleep(8 * (i + 1) if e.code in (429, 503) else 3)
+            if e.code == 429:
+                throttled()
+            else:
+                time.sleep(8 * (i + 1) if e.code == 503 else 3)
         except Exception:
             continue
     return None
 
 
-THREADS = int(os.environ.get('RTT_THREADS', '16'))   # measured: the site answers 20 at once with no throttling
+THREADS = int(os.environ.get('RTT_THREADS', '8'))
+# Squarespace allows one address 300 requests a minute (measured from the Actions runner, 2026-11-21: request
+# 301 in a minute gets a 429, on the stored site and through the public one alike). Asking faster only earns
+# 429s and waiting, so every request takes a turn here: 4.6 a second.
+RATE = float(os.environ.get('RTT_RATE', '4.6'))
+BUDGET = int(os.environ.get('RTT_BUDGET', '1250'))   # page reads a run: about four and a half minutes
+_pace = {'next': 0.0, 'lock': threading.Lock(), 'n': 0, 'throttled': 0}
+
+
+def turn():
+    with _pace['lock']:
+        now = time.time()
+        at = max(now, _pace['next'])
+        _pace['next'] = at + 1.0 / RATE
+        _pace['n'] += 1
+    if at > now:
+        time.sleep(at - now)
+
+
+def throttled():
+    """A 429: the minute's allowance is used up (another job on this address, or a burst). Everyone waits."""
+    with _pace['lock']:
+        _pace['throttled'] += 1
+        _pace['next'] = max(_pace['next'], time.time() + 20)
 
 
 def pmap(fn, items):
@@ -238,9 +291,9 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
     lo = (hw - (72 if deep else 6) * 3600000) if hw else now - 30 * 86400000
     found['deep'] = today
 
-    def keep(p, b):   # ('list' | 'single', body) for a guide to crawl, ('up', parents) for the rest; None for known pages
+    def keep(p, b):   # ('list' | 'single', body) for a guide to crawl, ('up', parents) for the rest; ('known',) for known pages
         if not p or p in known_guides or p in known_places:
-            return None
+            return ('known', [p])
         up = crumbs(b, p)
         if is_list(b):
             return ('list', b)
@@ -253,14 +306,16 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
     while t > lo:
         edges.append((t, max(lo, t - step), keep))
         t -= step
-    seen_posts = set()
+    seen_posts, touched = set(), set()
     for items in pmap(walk_slice, edges):
         for p, pub, title, k in items:
             if not p or p in seen_posts or pub > now:
                 continue
             seen_posts.add(p)
             newest = max(newest, pub)
-            if not k:
+            if k[0] in ('known', 'up'):   # a page just published, or the city and guide pages a new event page hangs under
+                touched.update(k[1])
+            if k[0] == 'known':
                 continue
             if k[0] == 'list':
                 if p not in guides or not guides[p].get('cities'):
@@ -272,6 +327,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
                 want.update(k[1])
     log(f'{len(seen_posts)} posts published since {datetime.datetime.fromtimestamp(lo / 1000, datetime.timezone.utc):%b %d %H:%M} UTC read in {len(edges)} slices')
     found['hw'] = newest
+    found['touched'] = sorted(touched)   # read first this run: their cards have most likely just changed
     # Guides published before the walk reached them (or in a list format the walk didn't know yet): tools/truth/guide-seed.txt
     seed = os.path.join(HERE, 'guide-seed.txt')
     if os.path.exists(seed):
@@ -366,6 +422,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
 
 def fetch(path, tries=5):
     for i in range(tries):
+        turn()
         try:
             r = urllib.request.urlopen(urllib.request.Request((READ if i < 3 else SITE) + path, headers={**HDR, 'Accept-Encoding': 'gzip'}), timeout=60)
             b = r.read()
@@ -375,8 +432,11 @@ def fetch(path, tries=5):
         except urllib.error.HTTPError as e:
             if e.code in (404, 410):
                 return e.code, ''
-            if e.code in (429, 503):
-                time.sleep(8 * (i + 1))  # Squarespace is rate limiting: back off
+            if e.code == 429:
+                throttled()
+                continue
+            if e.code == 503:
+                time.sleep(8 * (i + 1))
                 continue
         except Exception:
             pass
@@ -402,6 +462,14 @@ def main():
     old = json.load(open(src, encoding='utf-8')) if src else {'pages': {}}
     pages = old.get('pages', {})
     keys_before = {p: sorted(v.get('k', [])) for p, v in pages.items()}   # to tell which pages' events changed this run
+    # Map lights for new cities are looked up in the background while the pages are read (a different service,
+    # one request a second), from the cities the last run counted. A city new in this run is looked up in the next.
+    geo = json.load(open(GEO_PATH, encoding='utf-8')) if os.path.exists(GEO_PATH) else {}
+    last_live = os.path.join(HERE, 'live.json')
+    geo_out = {'n': 0, 'got': 0}
+    geo_job = threading.Thread(target=geo_fill, daemon=True, args=(
+        geo, (json.load(open(last_live, encoding='utf-8')) if os.path.exists(last_live) else {}).get('cities', {}), int(os.environ.get('RTT_GEO', '240')), geo_out))
+    geo_job.start()
 
     # The hub as stored in Squarespace, never the copy the Worker has already written this job's last numbers
     # into: reading our own output back made districts return as cities and new countries flip to regions.
@@ -552,22 +620,31 @@ def main():
         log(f'{len(parent_of)} district pages counted as part of their city: {sorted(parent_of)[:12]}')
 
     # What to (re)read
-    # Every page is read every run: Squarespace's sitemap dates lag behind edits, so a page that
-    # changed would otherwise keep its old count for days. New and changed pages go first.
+    # Squarespace allows 300 requests a minute, so reading all 4,000 pages takes 14 minutes whatever we do.
+    # Every run reads what has most likely changed, then as many of the rest as fit, longest unread first:
+    #   0 new pages   1 sitemap date changed   2 guides (they name new city pages), pages just published, and
+    #   the city pages new event pages hang under   3 an event on the page has ended   4 everything else.
+    # 0 to 3 are always read; 4 fills the run up to BUDGET reads, so every page is read again within a few runs.
+    touched = set(found.get('touched', []))
     due = []
     for p in list(place) + list(guides) + list(parent_of):
         prev = pages.get(p)
         if not prev:
-            due.append((0, p))
+            due.append((0, 0, p))
         elif prev.get('lastmod') != lastmod.get(p):
-            due.append((1, p))
+            due.append((1, 0, p))
+        elif p in guides or p in touched:
+            due.append((2, 0, p))
         elif prev.get('x') and prev['x'] < today:
-            due.append((2, p))
+            due.append((3, 0, p))
         else:
-            due.append((3, p))
+            due.append((4, prev.get('rt', 0), p))
+    due.sort()
+    must = sum(1 for d in due if d[0] < 4)
+    due = [(c, p) for c, _, p in due][:max(must, BUDGET)]
     due.sort()
     todo = [p for _, p in due[:args.max]]
-    log(f'{len(place)} city guide pages ({len(missing)} cities not in the hub A to Z); reading {len(todo)} of {len(due)} due')
+    log(f'{len(place)} city guide pages ({len(missing)} cities not in the hub A to Z); reading {len(todo)}: {must} new, changed, guides or just published, {len(todo) - must} of the rest (longest unread first)')
     if odd:
         log(f'pages that look like leftover copies: {odd}')
     ids_path = os.path.join(HERE, '..', 'sqsp', 'ids.json')
@@ -581,7 +658,7 @@ def main():
                 cities = linked_cities(h, p)
                 gstate[p] = {'links': links, 'subs': sorted(q for q in (set(cities) & set(guides)) if q != p), 'cities': sorted(cities), 'names': cities, 'lang': (re.search(r'<html[^>]*\blang="([^"]+)"', h) or [None, ''])[1], 'lastmod': lastmod.get(p), 'at': today}
                 sq_ids[p] = item_id(h) or sq_ids.get(p)
-                pages.setdefault(p, {}).update({'guide': True, 'lastmod': lastmod.get(p), 'at': today, 'e': 0, 'f': 0, 'k': [], 'fk': [], 'x': None})
+                pages.setdefault(p, {}).update({'guide': True, 'lastmod': lastmod.get(p), 'at': today, 'rt': int(time.time()), 'e': 0, 'f': 0, 'k': [], 'fk': [], 'x': None})
                 if '<section class="rtt-pe-ride' in h:   # a guide that is also a city page (Washington, DC): its cards count
                     r = analyze(h, today)
                     pages[p].update({'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
@@ -590,7 +667,7 @@ def main():
                 r = analyze(h, today)
                 sq_ids[p] = r['sq'] or sq_ids.get(p)
                 pages[p] = {'e': r['events'], 'f': r['free'], 'x': r['next_expiry'], 'c': r['checked'], 'q': r['faq'],
-                            'k': r['keys'], 'fk': r['free_keys'], 'sg': r.get('sigs', []), 'lang': r['lang'], 'co': own_country(h), 'lastmod': lastmod.get(p), 'at': today}
+                            'k': r['keys'], 'fk': r['free_keys'], 'sg': r.get('sigs', []), 'lang': r['lang'], 'co': own_country(h), 'lastmod': lastmod.get(p), 'at': today, 'rt': int(time.time())}
                 if p in parent_of:  # a district page links back to its city (any language version)
                     ups = {q for q, o in place.items() if o['main'] == parent_of[p]}
                     pages[p]['up'] = any(f'href="{u}"' in h or f'href="{u}#' in h for u in ups)
@@ -608,6 +685,8 @@ def main():
                 failed += 1
     if failed:
         log(f'{failed} pages could not be read; their last known counts are kept')
+    rts = sorted(v.get('rt', 0) for q, v in pages.items() if q in place)
+    log(f"{_pace['n']} requests, {_pace['throttled']} throttled; the page unread longest was last read {str(round((time.time() - rts[0]) / 3600, 1)) + ' hours ago' if rts and rts[0] else 'before reads were timed'}")
     moved = [q for q, par in cand.items() if (pages.get(q) or {}).get('up') and q in place and place[q]['main'] == q]
     for q in moved:
         del place[q]
@@ -762,19 +841,14 @@ def main():
         if fg.get('kind') == 'country' and fg.get('country') in truth['countries']:
             truth['countries'][fg['country']].update({'cc': fg.get('cc', ''), 'guide': g, 'hub': 0})
     # Where each city the stored hub does not have is, so the Worker can light it on the hub's map.
-    geo = json.load(open(GEO_PATH, encoding='utf-8')) if os.path.exists(GEO_PATH) else {}
-    looked = 0
-    for p, c in truth['cities'].items():
-        if c['hub'] or p in geo or looked >= 60:   # one lookup a second: a minute a run at most
-            continue
-        looked += 1
-        m2 = re.search(r'-([a-z]{2})$', p)
-        ll = geocode(c['n'], c['co'], (truth['countries'].get(c['co']) or {}).get('cc') or (m2.group(1) if m2 and m2.group(1).upper() in ISO_NAME or m2 and c['co'] != 'United States' else ''))
-        if ll:
-            geo[p] = ll
-    if looked:
-        json.dump(geo, open(GEO_PATH, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
-        log(f'looked up where {looked} new cities are; {len(geo)} known')
+    geo_job.join(timeout=300)
+    geo_out['n'] += 10 ** 9   # stop after the lookup in hand
+    geo_job.join(timeout=40)
+    geo_out['n'] -= 10 ** 9
+    if geo_out['n']:
+        geo_snapshot = dict(geo)
+        json.dump(geo_snapshot, open(GEO_PATH, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
+        log(f"looked up where {geo_out['n']} new cities are: {geo_out['got']} found; {sum(1 for v in geo_snapshot.values() if v)} known")
     # Small file for the Worker: only what pages display.
     regions = collections.defaultdict(lambda: {'events': set(), 'free': set(), 'cities': 0, 'cities_with_events': 0})
     for p, c in cities.items():
