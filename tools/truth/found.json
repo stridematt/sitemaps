@@ -1,0 +1,1167 @@
+{
+"deep": "2026-11-21",
+"guides": {
+"/christmas-events/antigua-and-barbuda": {
+"at": "2026-11-21",
+"cc": "AG",
+"cities": {},
+"country": "Antigua and Barbuda",
+"kind": "country",
+"name": "Antigua and Barbuda",
+"subs": {},
+"v": 3
+},
+"/christmas-events/bahamas": {
+"at": "2026-11-21",
+"cc": "BS",
+"cities": {
+"/christmas-events/freeport-bs": "Christmas Events for Kids in Freeport",
+"/christmas-events/nassau-bs": "Christmas Events for Kids in Nassau"
+},
+"country": "The Bahamas",
+"kind": "country",
+"name": "The Bahamas",
+"subs": {},
+"v": 3
+},
+"/christmas-events/bahrain": {
+"at": "2026-11-21",
+"cc": "BH",
+"cities": {},
+"country": "Bahrain",
+"kind": "country",
+"name": "Bahrain",
+"subs": {},
+"v": 3
+},
+"/christmas-events/bangladesh": {
+"at": "2026-11-21",
+"cc": "BD",
+"cities": {},
+"country": "Bangladesh",
+"kind": "country",
+"name": "Bangladesh",
+"subs": {},
+"v": 3
+},
+"/christmas-events/barbados": {
+"at": "2026-11-21",
+"cc": "BB",
+"cities": {},
+"country": "Barbados",
+"kind": "country",
+"name": "Barbados",
+"subs": {},
+"v": 3
+},
+"/christmas-events/bermuda": {
+"at": "2026-11-21",
+"cc": "BM",
+"cities": {},
+"country": "Bermuda",
+"kind": "country",
+"name": "Bermuda",
+"subs": {},
+"v": 3
+},
+"/christmas-events/british-virgin-islands": {
+"at": "2026-11-21",
+"cc": "VG",
+"cities": {},
+"country": "British Virgin Islands",
+"kind": "country",
+"name": "British Virgin Islands",
+"subs": {},
+"v": 3
+},
+"/christmas-events/cambodia": {
+"at": "2026-11-21",
+"cc": "KH",
+"cities": {
+"/christmas-events/phnom-penh-kh": "Christmas Events for Kids in Phnom Penh",
+"/christmas-events/siem-reap-kh": "Christmas Events for Kids in Siem Reap"
+},
+"country": "Cambodia",
+"kind": "country",
+"name": "Cambodia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/cayman-islands": {
+"at": "2026-11-21",
+"cc": "KY",
+"cities": {},
+"country": "Cayman Islands",
+"kind": "country",
+"name": "Cayman Islands",
+"subs": {},
+"v": 3
+},
+"/christmas-events/czechia": {
+"at": "2026-11-21",
+"cc": "CZ",
+"cities": {
+"/christmas-events/brno-cz": "Brno",
+"/christmas-events/ceske-budejovice-cz": "České Budějovice",
+"/christmas-events/havirov-cz": "Havířov",
+"/christmas-events/hradec-kralove-cz": "Hradec Králové",
+"/christmas-events/kladno-cz": "Kladno",
+"/christmas-events/liberec-cz": "Liberec",
+"/christmas-events/olomouc-cz": "Olomouc",
+"/christmas-events/ostrava-cz": "Ostrava",
+"/christmas-events/pardubice-cz": "Pardubice",
+"/christmas-events/plzen-cz": "Plzeň",
+"/christmas-events/praha-cz": "Praha",
+"/christmas-events/usti-nad-labem-cz": "Ústí nad Labem",
+"/christmas-events/zlin-cz": "Zlín"
+},
+"country": "Czechia",
+"kind": "country",
+"name": "Czechia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/egypt": {
+"at": "2026-11-21",
+"cc": "EG",
+"cities": {},
+"country": "Egypt",
+"kind": "country",
+"name": "Egypt",
+"subs": {},
+"v": 3
+},
+"/christmas-events/fiji": {
+"at": "2026-11-21",
+"cc": "FJ",
+"cities": {},
+"country": "Fiji",
+"kind": "country",
+"name": "Fiji",
+"subs": {},
+"v": 3
+},
+"/christmas-events/gambia": {
+"at": "2026-11-21",
+"cc": "GM",
+"cities": {},
+"country": "The Gambia",
+"kind": "country",
+"name": "The Gambia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/ghana": {
+"at": "2026-11-21",
+"cc": "GH",
+"cities": {},
+"country": "Ghana",
+"kind": "country",
+"name": "Ghana",
+"subs": {},
+"v": 3
+},
+"/christmas-events/gibraltar": {
+"at": "2026-11-21",
+"cc": "GI",
+"cities": {},
+"country": "Gibraltar",
+"kind": "country",
+"name": "Gibraltar",
+"subs": {},
+"v": 3
+},
+"/christmas-events/grenada": {
+"at": "2026-11-21",
+"cc": "GD",
+"cities": {},
+"country": "Grenada",
+"kind": "country",
+"name": "Grenada",
+"subs": {},
+"v": 3
+},
+"/christmas-events/guam": {
+"at": "2026-11-21",
+"cc": "GU",
+"cities": {},
+"country": "Guam",
+"kind": "country",
+"name": "Guam",
+"subs": {},
+"v": 3
+},
+"/christmas-events/guernsey": {
+"at": "2026-11-21",
+"cc": "GG",
+"cities": {},
+"country": "Guernsey",
+"kind": "country",
+"name": "Guernsey",
+"subs": {},
+"v": 3
+},
+"/christmas-events/guyana": {
+"at": "2026-11-21",
+"cc": "GY",
+"cities": {},
+"country": "Guyana",
+"kind": "country",
+"name": "Guyana",
+"subs": {},
+"v": 3
+},
+"/christmas-events/india": {
+"at": "2026-11-21",
+"cc": "IN",
+"cities": {
+"/christmas-events/ahmedabad-in": "Christmas Events for Kids in Ahmedabad",
+"/christmas-events/bengaluru-in": "Christmas Events for Kids in Bengaluru",
+"/christmas-events/chennai-in": "Christmas Events for Kids in Chennai",
+"/christmas-events/goa-in": "Christmas Events for Kids in Goa",
+"/christmas-events/hyderabad-in": "Christmas Events for Kids in Hyderabad",
+"/christmas-events/kanpur-in": "Christmas Events for Kids in Kanpur",
+"/christmas-events/kolkata-in": "Christmas Events for Kids in Kolkata",
+"/christmas-events/lucknow-in": "Christmas Events for Kids in Lucknow",
+"/christmas-events/mumbai-in": "Christmas Events for Kids in Mumbai",
+"/christmas-events/new-delhi-in": "Christmas Events for Kids in New Delhi",
+"/christmas-events/pathanamthitta-in": "Christmas Events for Kids in Pathanamthitta"
+},
+"country": "India",
+"kind": "country",
+"name": "India",
+"subs": {},
+"v": 3
+},
+"/christmas-events/isle-of-man": {
+"at": "2026-11-21",
+"cc": "IM",
+"cities": {},
+"country": "Isle of Man",
+"kind": "country",
+"name": "Isle of Man",
+"subs": {},
+"v": 3
+},
+"/christmas-events/israel": {
+"at": "2026-11-21",
+"cc": "IL",
+"cities": {},
+"country": "Israel",
+"kind": "country",
+"name": "Israel",
+"subs": {},
+"v": 3
+},
+"/christmas-events/jamaica": {
+"at": "2026-11-21",
+"cc": "JM",
+"cities": {
+"/christmas-events/kingston-jm": "Christmas Events for Kids in Kingston",
+"/christmas-events/montego-bay-jm": "Christmas Events for Kids in Montego Bay"
+},
+"country": "Jamaica",
+"kind": "country",
+"name": "Jamaica",
+"subs": {},
+"v": 3
+},
+"/christmas-events/jersey": {
+"at": "2026-11-21",
+"cc": "JE",
+"cities": {},
+"country": "Jersey",
+"kind": "country",
+"name": "Jersey",
+"subs": {},
+"v": 3
+},
+"/christmas-events/kenya": {
+"at": "2026-11-21",
+"cc": "KE",
+"cities": {
+"/christmas-events/diani-ke": "Christmas Events for Kids in Diani",
+"/christmas-events/mombasa-ke": "Christmas Events for Kids in Mombasa",
+"/christmas-events/nairobi-ke": "Christmas Events for Kids in Nairobi"
+},
+"country": "Kenya",
+"kind": "country",
+"name": "Kenya",
+"subs": {},
+"v": 3
+},
+"/christmas-events/khrit-mat-prathet-thai": {
+"at": "2026-11-21",
+"cc": "TH",
+"cities": {
+"/christmas-events/khrit-mat-bangkok-th": "กิจกรรมคริสต์มาสสำหรับเด็กในกรุงเทพฯ",
+"/christmas-events/khrit-mat-chiang-mai-th": "กิจกรรมคริสต์มาสสำหรับเด็กในเชียงใหม่",
+"/christmas-events/khrit-mat-phuket-th": "กิจกรรมคริสต์มาสสำหรับเด็กในภูเก็ต"
+},
+"country": "Thailand",
+"kind": "country",
+"name": "Thailand",
+"subs": {},
+"v": 3
+},
+"/christmas-events/malawi": {
+"at": "2026-11-21",
+"cc": "MW",
+"cities": {},
+"country": "Malawi",
+"kind": "country",
+"name": "Malawi",
+"subs": {},
+"v": 3
+},
+"/christmas-events/malaysia": {
+"at": "2026-11-21",
+"cc": "MY",
+"cities": {
+"/christmas-events/kuala-lumpur-my": "Christmas Events for Kids in Kuala Lumpur",
+"/christmas-events/kuching-my": "Christmas Events for Kids in Kuching",
+"/christmas-events/penang-my": "Christmas Events for Kids in Penang",
+"/christmas-events/petaling-jaya-my": "Christmas Events for Kids in Petaling Jaya",
+"/christmas-events/shah-alam-my": "Christmas Events for Kids in Shah Alam"
+},
+"country": "Malaysia",
+"kind": "country",
+"name": "Malaysia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/malta": {
+"at": "2026-11-21",
+"cc": "MT",
+"cities": {},
+"country": "Malta",
+"kind": "country",
+"name": "Malta",
+"subs": {},
+"v": 3
+},
+"/christmas-events/mauritius": {
+"at": "2026-11-21",
+"cc": "MU",
+"cities": {},
+"country": "Mauritius",
+"kind": "country",
+"name": "Mauritius",
+"subs": {},
+"v": 3
+},
+"/christmas-events/namibia": {
+"at": "2026-11-21",
+"cc": "NA",
+"cities": {
+"/christmas-events/swakopmund-na": "Christmas Events for Kids in Swakopmund",
+"/christmas-events/windhoek-na": "Christmas Events for Kids in Windhoek"
+},
+"country": "Namibia",
+"kind": "country",
+"name": "Namibia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-antioquia": {
+"at": "2026-11-21",
+"cc": "",
+"cities": {
+"/christmas-events/navidad-con-ninos-envigado": "¿Qué hacer en Navidad con niños en Envigado?",
+"/christmas-events/navidad-con-ninos-medellin": "¿Qué hacer en Navidad con niños en Medellín?"
+},
+"country": "Colombia",
+"kind": "country",
+"name": "Colombia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-argentina": {
+"at": "2026-11-21",
+"cc": "AR",
+"cities": {
+"/christmas-events/navidad-con-ninos-alderetes-ar": "¿Qué hacer en Navidad con chicos en Alderetes?",
+"/christmas-events/navidad-con-ninos-almirante-brown-ar": "¿Qué hacer en Navidad con chicos en Almirante Brown?",
+"/christmas-events/navidad-con-ninos-alta-gracia-ar": "¿Qué hacer en Navidad con chicos en Alta Gracia?",
+"/christmas-events/navidad-con-ninos-avellaneda-ar": "¿Qué hacer en Navidad con chicos en Avellaneda?",
+"/christmas-events/navidad-con-ninos-azul-ar": "¿Qué hacer en Navidad con chicos en Azul?",
+"/christmas-events/navidad-con-ninos-bahia-blanca-ar": "¿Qué hacer en Navidad con chicos en Bahía Blanca?",
+"/christmas-events/navidad-con-ninos-banda-del-rio-sali-ar": "¿Qué hacer en Navidad con chicos en Banda del Río Salí?",
+"/christmas-events/navidad-con-ninos-bariloche-ar": "¿Qué hacer en Navidad con chicos en Bariloche?",
+"/christmas-events/navidad-con-ninos-barranqueras-ar": "¿Qué hacer en Navidad con chicos en Barranqueras?",
+"/christmas-events/navidad-con-ninos-berazategui-ar": "¿Qué hacer en Navidad con chicos en Berazategui?",
+"/christmas-events/navidad-con-ninos-berisso-ar": "¿Qué hacer en Navidad con chicos en Berisso?",
+"/christmas-events/navidad-con-ninos-buenos-aires-ar": "¿Qué hacer en Navidad con chicos en Buenos Aires?",
+"/christmas-events/navidad-con-ninos-caleta-olivia-ar": "¿Qué hacer en Navidad con chicos en Caleta Olivia?",
+"/christmas-events/navidad-con-ninos-campana-ar": "¿Qué hacer en Navidad con chicos en Campana?",
+"/christmas-events/navidad-con-ninos-canuelas-ar": "¿Qué hacer en Navidad con chicos en Cañuelas?",
+"/christmas-events/navidad-con-ninos-catamarca-ar": "¿Qué hacer en Navidad con chicos en Catamarca?",
+"/christmas-events/navidad-con-ninos-chacabuco-ar": "¿Qué hacer en Navidad con chicos en Chacabuco?",
+"/christmas-events/navidad-con-ninos-chimbas-ar": "¿Qué hacer en Navidad con chicos en Chimbas?",
+"/christmas-events/navidad-con-ninos-chivilcoy-ar": "¿Qué hacer en Navidad con chicos en Chivilcoy?",
+"/christmas-events/navidad-con-ninos-cipolletti-ar": "¿Qué hacer en Navidad con chicos en Cipolletti?",
+"/christmas-events/navidad-con-ninos-clorinda-ar": "¿Qué hacer en Navidad con chicos en Clorinda?",
+"/christmas-events/navidad-con-ninos-comodoro-rivadavia-ar": "¿Qué hacer en Navidad con chicos en Comodoro Rivadavia?",
+"/christmas-events/navidad-con-ninos-concepcion-del-uruguay-ar": "¿Qué hacer en Navidad con chicos en Concepción del Uruguay?",
+"/christmas-events/navidad-con-ninos-concepcion-tucuman-ar": "¿Qué hacer en Navidad con chicos en Concepción (Tucumán)?",
+"/christmas-events/navidad-con-ninos-concordia-ar": "¿Qué hacer en Navidad con chicos en Concordia?",
+"/christmas-events/navidad-con-ninos-cordoba-ar": "¿Qué hacer en Navidad con chicos en Córdoba?",
+"/christmas-events/navidad-con-ninos-corrientes-ar": "¿Qué hacer en Navidad con chicos en Corrientes?",
+"/christmas-events/navidad-con-ninos-cutral-co-ar": "¿Qué hacer en Navidad con chicos en Cutral Co?",
+"/christmas-events/navidad-con-ninos-eldorado-ar": "¿Qué hacer en Navidad con chicos en Eldorado?",
+"/christmas-events/navidad-con-ninos-ensenada-ar": "¿Qué hacer en Navidad con chicos en Ensenada?",
+"/christmas-events/navidad-con-ninos-escobar-ar": "¿Qué hacer en Navidad con chicos en Escobar?",
+"/christmas-events/navidad-con-ninos-esteban-echeverria-ar": "¿Qué hacer en Navidad con chicos en Esteban Echeverría?",
+"/christmas-events/navidad-con-ninos-ezeiza-ar": "¿Qué hacer en Navidad con chicos en Ezeiza?",
+"/christmas-events/navidad-con-ninos-florencio-varela-ar": "¿Qué hacer en Navidad con chicos en Florencio Varela?",
+"/christmas-events/navidad-con-ninos-formosa-ar": "¿Qué hacer en Navidad con chicos en Formosa?",
+"/christmas-events/navidad-con-ninos-general-pico-ar": "¿Qué hacer en Navidad con chicos en General Pico?",
+"/christmas-events/navidad-con-ninos-general-roca-ar": "¿Qué hacer en Navidad con chicos en General Roca?",
+"/christmas-events/navidad-con-ninos-general-rodriguez-ar": "¿Qué hacer en Navidad con chicos en General Rodríguez?",
+"/christmas-events/navidad-con-ninos-general-san-martin-ar": "¿Qué hacer en Navidad con chicos en San Martín?",
+"/christmas-events/navidad-con-ninos-godoy-cruz-ar": "¿Qué hacer en Navidad con chicos en Godoy Cruz?",
+"/christmas-events/navidad-con-ninos-goya-ar": "¿Qué hacer en Navidad con chicos en Goya?",
+"/christmas-events/navidad-con-ninos-gualeguaychu-ar": "¿Qué hacer en Navidad con chicos en Gualeguaychú?",
+"/christmas-events/navidad-con-ninos-guaymallen-ar": "¿Qué hacer en Navidad con chicos en Guaymallén?",
+"/christmas-events/navidad-con-ninos-hurlingham-ar": "¿Qué hacer en Navidad con chicos en Hurlingham?",
+"/christmas-events/navidad-con-ninos-ituzaingo-ar": "¿Qué hacer en Navidad con chicos en Ituzaingó?",
+"/christmas-events/navidad-con-ninos-jesus-maria-ar": "¿Qué hacer en Navidad con chicos en Jesús María?",
+"/christmas-events/navidad-con-ninos-jose-c-paz-ar": "¿Qué hacer en Navidad con chicos en José C. Paz?",
+"/christmas-events/navidad-con-ninos-jujuy-ar": "¿Qué hacer en Navidad con chicos en San Salvador de Jujuy?",
+"/christmas-events/navidad-con-ninos-junin-ar": "¿Qué hacer en Navidad con chicos en Junín?",
+"/christmas-events/navidad-con-ninos-la-banda-ar": "¿Qué hacer en Navidad con chicos en La Banda?",
+"/christmas-events/navidad-con-ninos-la-matanza-ar": "¿Qué hacer en Navidad con chicos en La Matanza?",
+"/christmas-events/navidad-con-ninos-la-plata-ar": "¿Qué hacer en Navidad con chicos en La Plata?",
+"/christmas-events/navidad-con-ninos-la-rioja-ar": "¿Qué hacer en Navidad con chicos en La Rioja?",
+"/christmas-events/navidad-con-ninos-lanus-ar": "¿Qué hacer en Navidad con chicos en Lanús?",
+"/christmas-events/navidad-con-ninos-las-heras-ar": "¿Qué hacer en Navidad con chicos en Las Heras?",
+"/christmas-events/navidad-con-ninos-las-talitas-ar": "¿Qué hacer en Navidad con chicos en Las Talitas?",
+"/christmas-events/navidad-con-ninos-lomas-de-zamora-ar": "¿Qué hacer en Navidad con chicos en Lomas de Zamora?",
+"/christmas-events/navidad-con-ninos-lujan-ar": "¿Qué hacer en Navidad con chicos en Luján?",
+"/christmas-events/navidad-con-ninos-lujan-de-cuyo-ar": "¿Qué hacer en Navidad con chicos en Luján de Cuyo?",
+"/christmas-events/navidad-con-ninos-maipu-ar": "¿Qué hacer en Navidad con chicos en Maipú?",
+"/christmas-events/navidad-con-ninos-malvinas-argentinas-ar": "¿Qué hacer en Navidad con chicos en Malvinas Argentinas?",
+"/christmas-events/navidad-con-ninos-mar-del-plata-ar": "¿Qué hacer en Navidad con chicos en Mar del Plata?",
+"/christmas-events/navidad-con-ninos-marcos-paz-ar": "¿Qué hacer en Navidad con chicos en Marcos Paz?",
+"/christmas-events/navidad-con-ninos-mendoza-ar": "¿Qué hacer en Navidad con chicos en Mendoza?",
+"/christmas-events/navidad-con-ninos-mercedes-ar": "¿Qué hacer en Navidad con chicos en Mercedes?",
+"/christmas-events/navidad-con-ninos-merlo-ar": "¿Qué hacer en Navidad con chicos en Merlo?",
+"/christmas-events/navidad-con-ninos-moreno-ar": "¿Qué hacer en Navidad con chicos en Moreno?",
+"/christmas-events/navidad-con-ninos-moron-ar": "¿Qué hacer en Navidad con chicos en Morón?",
+"/christmas-events/navidad-con-ninos-necochea-ar": "¿Qué hacer en Navidad con chicos en Necochea?",
+"/christmas-events/navidad-con-ninos-neuquen-ar": "¿Qué hacer en Navidad con chicos en Neuquén?",
+"/christmas-events/navidad-con-ninos-nueve-de-julio-ar": "¿Qué hacer en Navidad con chicos en Nueve de Julio?",
+"/christmas-events/navidad-con-ninos-obera-ar": "¿Qué hacer en Navidad con chicos en Oberá?",
+"/christmas-events/navidad-con-ninos-olavarria-ar": "¿Qué hacer en Navidad con chicos en Olavarría?",
+"/christmas-events/navidad-con-ninos-oran-ar": "¿Qué hacer en Navidad con chicos en Orán?",
+"/christmas-events/navidad-con-ninos-palpala-ar": "¿Qué hacer en Navidad con chicos en Palpalá?",
+"/christmas-events/navidad-con-ninos-parana-ar": "¿Qué hacer en Navidad con chicos en Paraná?",
+"/christmas-events/navidad-con-ninos-partido-de-la-costa-ar": "¿Qué hacer en Navidad con chicos en Partido de la Costa?",
+"/christmas-events/navidad-con-ninos-paso-de-los-libres-ar": "¿Qué hacer en Navidad con chicos en Paso de los Libres?",
+"/christmas-events/navidad-con-ninos-pergamino-ar": "¿Qué hacer en Navidad con chicos en Pergamino?",
+"/christmas-events/navidad-con-ninos-perico-ar": "¿Qué hacer en Navidad con chicos en Perico?",
+"/christmas-events/navidad-con-ninos-pilar-ar": "¿Qué hacer en Navidad con chicos en Pilar?",
+"/christmas-events/navidad-con-ninos-posadas-ar": "¿Qué hacer en Navidad con chicos en Posadas?",
+"/christmas-events/navidad-con-ninos-presidente-peron-ar": "¿Qué hacer en Navidad con chicos en Presidente Perón?",
+"/christmas-events/navidad-con-ninos-puerto-iguazu-ar": "¿Qué hacer en Navidad con chicos en Puerto Iguazú?",
+"/christmas-events/navidad-con-ninos-puerto-madryn-ar": "¿Qué hacer en Navidad con chicos en Puerto Madryn?",
+"/christmas-events/navidad-con-ninos-punta-alta-ar": "¿Qué hacer en Navidad con chicos en Punta Alta?",
+"/christmas-events/navidad-con-ninos-quilmes-ar": "¿Qué hacer en Navidad con chicos en Quilmes?",
+"/christmas-events/navidad-con-ninos-rafaela-ar": "¿Qué hacer en Navidad con chicos en Rafaela?",
+"/christmas-events/navidad-con-ninos-rawson-san-juan-ar": "¿Qué hacer en Navidad con chicos en Rawson (San Juan)?",
+"/christmas-events/navidad-con-ninos-reconquista-ar": "¿Qué hacer en Navidad con chicos en Reconquista?",
+"/christmas-events/navidad-con-ninos-resistencia-ar": "¿Qué hacer en Navidad con chicos en Resistencia?",
+"/christmas-events/navidad-con-ninos-rio-cuarto-ar": "¿Qué hacer en Navidad con chicos en Río Cuarto?",
+"/christmas-events/navidad-con-ninos-rio-gallegos-ar": "¿Qué hacer en Navidad con chicos en Río Gallegos?",
+"/christmas-events/navidad-con-ninos-rio-grande-ar": "¿Qué hacer en Navidad con chicos en Río Grande?",
+"/christmas-events/navidad-con-ninos-rio-tercero-ar": "¿Qué hacer en Navidad con chicos en Río Tercero?",
+"/christmas-events/navidad-con-ninos-rivadavia-san-juan-ar": "¿Qué hacer en Navidad con chicos en Rivadavia (San Juan)?",
+"/christmas-events/navidad-con-ninos-rosario-ar": "¿Qué hacer en Navidad con chicos en Rosario?",
+"/christmas-events/navidad-con-ninos-saenz-pena-ar": "¿Qué hacer en Navidad con chicos en Sáenz Peña?",
+"/christmas-events/navidad-con-ninos-salta-ar": "¿Qué hacer en Navidad con chicos en Salta?",
+"/christmas-events/navidad-con-ninos-san-fernando-ar": "¿Qué hacer en Navidad con chicos en San Fernando?",
+"/christmas-events/navidad-con-ninos-san-francisco-ar": "¿Qué hacer en Navidad con chicos en San Francisco?",
+"/christmas-events/navidad-con-ninos-san-isidro-ar": "¿Qué hacer en Navidad con chicos en San Isidro?",
+"/christmas-events/navidad-con-ninos-san-juan-ar": "¿Qué hacer en Navidad con chicos en San Juan?",
+"/christmas-events/navidad-con-ninos-san-lorenzo-ar": "¿Qué hacer en Navidad con chicos en San Lorenzo?",
+"/christmas-events/navidad-con-ninos-san-luis-ar": "¿Qué hacer en Navidad con chicos en San Luis?",
+"/christmas-events/navidad-con-ninos-san-martin-mendoza-ar": "¿Qué hacer en Navidad con chicos en San Martín (Mendoza)?",
+"/christmas-events/navidad-con-ninos-san-miguel-ar": "¿Qué hacer en Navidad con chicos en San Miguel?",
+"/christmas-events/navidad-con-ninos-san-nicolas-ar": "¿Qué hacer en Navidad con chicos en San Nicolás de los Arroyos?",
+"/christmas-events/navidad-con-ninos-san-pedro-ar": "¿Qué hacer en Navidad con chicos en San Pedro?",
+"/christmas-events/navidad-con-ninos-san-pedro-de-jujuy-ar": "¿Qué hacer en Navidad con chicos en San Pedro de Jujuy?",
+"/christmas-events/navidad-con-ninos-san-rafael-ar": "¿Qué hacer en Navidad con chicos en San Rafael?",
+"/christmas-events/navidad-con-ninos-san-vicente-ar": "¿Qué hacer en Navidad con chicos en San Vicente?",
+"/christmas-events/navidad-con-ninos-santa-fe-ar": "¿Qué hacer en Navidad con chicos en Santa Fe?",
+"/christmas-events/navidad-con-ninos-santa-rosa-ar": "¿Qué hacer en Navidad con chicos en Santa Rosa?",
+"/christmas-events/navidad-con-ninos-santiago-del-estero-ar": "¿Qué hacer en Navidad con chicos en Santiago del Estero?",
+"/christmas-events/navidad-con-ninos-santo-tome-ar": "¿Qué hacer en Navidad con chicos en Santo Tomé?",
+"/christmas-events/navidad-con-ninos-tafi-viejo-ar": "¿Qué hacer en Navidad con chicos en Tafí Viejo?",
+"/christmas-events/navidad-con-ninos-tandil-ar": "¿Qué hacer en Navidad con chicos en Tandil?",
+"/christmas-events/navidad-con-ninos-tartagal-ar": "¿Qué hacer en Navidad con chicos en Tartagal?",
+"/christmas-events/navidad-con-ninos-tigre-ar": "¿Qué hacer en Navidad con chicos en Tigre?",
+"/christmas-events/navidad-con-ninos-trelew-ar": "¿Qué hacer en Navidad con chicos en Trelew?",
+"/christmas-events/navidad-con-ninos-tres-arroyos-ar": "¿Qué hacer en Navidad con chicos en Tres Arroyos?",
+"/christmas-events/navidad-con-ninos-tres-de-febrero-ar": "¿Qué hacer en Navidad con chicos en Tres de Febrero?",
+"/christmas-events/navidad-con-ninos-tucuman-ar": "¿Qué hacer en Navidad con chicos en Tucumán?",
+"/christmas-events/navidad-con-ninos-ushuaia-ar": "¿Qué hacer en Navidad con chicos en Ushuaia?",
+"/christmas-events/navidad-con-ninos-venado-tuerto-ar": "¿Qué hacer en Navidad con chicos en Venado Tuerto?",
+"/christmas-events/navidad-con-ninos-vicente-lopez-ar": "¿Qué hacer en Navidad con chicos en Vicente López?",
+"/christmas-events/navidad-con-ninos-viedma-ar": "¿Qué hacer en Navidad con chicos en Viedma?",
+"/christmas-events/navidad-con-ninos-villa-carlos-paz-ar": "¿Qué hacer en Navidad con chicos en Villa Carlos Paz?",
+"/christmas-events/navidad-con-ninos-villa-constitucion-ar": "¿Qué hacer en Navidad con chicos en Villa Constitución?",
+"/christmas-events/navidad-con-ninos-villa-dolores-ar": "¿Qué hacer en Navidad con chicos en Villa Dolores?",
+"/christmas-events/navidad-con-ninos-villa-gobernador-galvez-ar": "¿Qué hacer en Navidad con chicos en Villa Gobernador Gálvez?",
+"/christmas-events/navidad-con-ninos-villa-maria-ar": "¿Qué hacer en Navidad con chicos en Villa María?",
+"/christmas-events/navidad-con-ninos-villa-mercedes-ar": "¿Qué hacer en Navidad con chicos en Villa Mercedes?",
+"/christmas-events/navidad-con-ninos-yerba-buena-ar": "¿Qué hacer en Navidad con chicos en Yerba Buena?",
+"/christmas-events/navidad-con-ninos-zarate-ar": "¿Qué hacer en Navidad con chicos en Zárate?"
+},
+"country": "Argentina",
+"kind": "country",
+"name": "Argentina",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-bolivia": {
+"at": "2026-11-21",
+"cc": "BO",
+"cities": {
+"/christmas-events/navidad-con-ninos-santa-cruz-de-la-sierra-bo": "Navidad con niños en Santa Cruz de la Sierra"
+},
+"country": "Bolivia",
+"kind": "country",
+"name": "Bolivia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-chile": {
+"at": "2026-11-21",
+"cc": "CL",
+"cities": {
+"/christmas-events/navidad-con-ninos-buin-cl": "¿Qué hacer en Navidad con niños en Buin?",
+"/christmas-events/navidad-con-ninos-independencia-cl": "¿Qué hacer en Navidad con niños en Independencia?",
+"/christmas-events/navidad-con-ninos-la-florida-cl": "¿Qué hacer en Navidad con niños en La Florida?",
+"/christmas-events/navidad-con-ninos-la-reina-cl": "¿Qué hacer en Navidad con niños en La Reina?",
+"/christmas-events/navidad-con-ninos-las-condes-cl": "¿Qué hacer en Navidad con niños en Las Condes?",
+"/christmas-events/navidad-con-ninos-lo-barnechea-cl": "¿Qué hacer en Navidad con niños en Lo Barnechea?",
+"/christmas-events/navidad-con-ninos-ovalle-cl": "¿Qué hacer en Navidad con niños en Ovalle?",
+"/christmas-events/navidad-con-ninos-providencia-cl": "¿Qué hacer en Navidad con niños en Providencia?",
+"/christmas-events/navidad-con-ninos-quilpue-cl": "¿Qué hacer en Navidad con niños en Quilpué?",
+"/christmas-events/navidad-con-ninos-san-miguel-cl": "¿Qué hacer en Navidad con niños en San Miguel?",
+"/christmas-events/navidad-con-ninos-san-pedro-de-la-paz-cl": "¿Qué hacer en Navidad con niños en San Pedro de la Paz?",
+"/christmas-events/navidad-con-ninos-santiago-cl": "¿Qué hacer en Navidad con niños en Santiago?",
+"/christmas-events/navidad-con-ninos-talcahuano-cl": "¿Qué hacer en Navidad con niños en Talcahuano?",
+"/christmas-events/navidad-con-ninos-temuco-cl": "¿Qué hacer en Navidad con niños en Temuco?",
+"/christmas-events/navidad-con-ninos-vina-del-mar-cl": "¿Qué hacer en Navidad con niños en Viña del Mar?"
+},
+"country": "Chile",
+"kind": "country",
+"name": "Chile",
+"subs": {
+"/christmas-events/navidad-con-ninos-region-de-coquimbo-cl": {
+"name": "Navidad con niños en la Región de Coquimbo"
+},
+"/christmas-events/navidad-con-ninos-region-de-la-araucania-cl": {
+"name": "Navidad con niños en La Araucanía"
+},
+"/christmas-events/navidad-con-ninos-region-de-valparaiso-cl": {
+"name": "Navidad con niños en la Región de Valparaíso"
+},
+"/christmas-events/navidad-con-ninos-region-del-biobio-cl": {
+"name": "Navidad con niños en la Región del Biobío"
+},
+"/christmas-events/navidad-con-ninos-region-metropolitana-cl": {
+"name": "Navidad con niños en la Región Metropolitana"
+}
+},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-costa-rica": {
+"at": "2026-11-21",
+"cc": "CR",
+"cities": {
+"/christmas-events/navidad-con-ninos-alajuela-cr": "Navidad con niños en Alajuela 2026",
+"/christmas-events/navidad-con-ninos-buenos-aires-cr": "Navidad con niños en Buenos Aires 2026",
+"/christmas-events/navidad-con-ninos-cartago-cr": "Navidad con niños en Cartago 2026",
+"/christmas-events/navidad-con-ninos-corredores-cr": "Navidad con niños en Corredores 2026",
+"/christmas-events/navidad-con-ninos-curridabat-cr": "Navidad con niños en Curridabat 2026",
+"/christmas-events/navidad-con-ninos-desamparados-cr": "Navidad con niños en Desamparados 2026",
+"/christmas-events/navidad-con-ninos-escazu-cr": "Navidad con niños en Escazú 2026",
+"/christmas-events/navidad-con-ninos-grecia-cr": "Navidad con niños en Grecia 2026",
+"/christmas-events/navidad-con-ninos-heredia-cr": "Navidad con niños en Heredia 2026",
+"/christmas-events/navidad-con-ninos-limon-cr": "Navidad con niños en Limón 2026",
+"/christmas-events/navidad-con-ninos-montes-de-oca-cr": "Navidad con niños en Montes de Oca 2026",
+"/christmas-events/navidad-con-ninos-moravia-cr": "Navidad con niños en Moravia 2026",
+"/christmas-events/navidad-con-ninos-perez-zeledon-cr": "Navidad con niños en Pérez Zeledón 2026",
+"/christmas-events/navidad-con-ninos-pococi-cr": "Navidad con niños en Pococí 2026",
+"/christmas-events/navidad-con-ninos-puntarenas-cr": "Navidad con niños en Puntarenas 2026",
+"/christmas-events/navidad-con-ninos-san-carlos-cr": "Navidad con niños en San Carlos 2026",
+"/christmas-events/navidad-con-ninos-san-jose-cr": "Navidad con niños en San José 2026",
+"/christmas-events/navidad-con-ninos-san-ramon-cr": "Navidad con niños en San Ramón 2026",
+"/christmas-events/navidad-con-ninos-santa-cruz-cr": "Navidad con niños en Santa Cruz 2026",
+"/christmas-events/navidad-con-ninos-siquirres-cr": "Navidad con niños en Siquirres 2026",
+"/christmas-events/navidad-con-ninos-turrialba-cr": "Navidad con niños en Turrialba 2026"
+},
+"country": "Costa Rica",
+"kind": "country",
+"name": "Costa Rica",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-ecuador": {
+"at": "2026-11-21",
+"cc": "EC",
+"cities": {
+"/christmas-events/navidad-con-ninos-cuenca-ec": "Navidad con niños en Cuenca",
+"/christmas-events/navidad-con-ninos-guayaquil-ec": "Navidad con niños en Guayaquil",
+"/christmas-events/navidad-con-ninos-quito-ec": "Navidad con niños en Quito"
+},
+"country": "Ecuador",
+"kind": "country",
+"name": "Ecuador",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-el-salvador": {
+"at": "2026-11-21",
+"cc": "SV",
+"cities": {
+"/christmas-events/navidad-con-ninos-acajutla-sv": "Navidad con niños en Acajutla 2026",
+"/christmas-events/navidad-con-ninos-ahuachapan-sv": "Navidad con niños en Ahuachapán 2026",
+"/christmas-events/navidad-con-ninos-apopa-sv": "Navidad con niños en Apopa 2026",
+"/christmas-events/navidad-con-ninos-chalchuapa-sv": "Navidad con niños en Chalchuapa 2026",
+"/christmas-events/navidad-con-ninos-ciudad-arce-sv": "Navidad con niños en Ciudad Arce 2026",
+"/christmas-events/navidad-con-ninos-ciudad-delgado-sv": "Navidad con niños en Ciudad Delgado 2026",
+"/christmas-events/navidad-con-ninos-colon-sv": "Navidad con niños en Colón 2026",
+"/christmas-events/navidad-con-ninos-cuscatancingo-sv": "Navidad con niños en Cuscatancingo 2026",
+"/christmas-events/navidad-con-ninos-ilobasco-sv": "Navidad con niños en Ilobasco 2026",
+"/christmas-events/navidad-con-ninos-ilopango-sv": "Navidad con niños en Ilopango 2026",
+"/christmas-events/navidad-con-ninos-izalco-sv": "Navidad con niños en Izalco 2026",
+"/christmas-events/navidad-con-ninos-mejicanos-sv": "Navidad con niños en Mejicanos 2026",
+"/christmas-events/navidad-con-ninos-metapan-sv": "Navidad con niños en Metapán 2026",
+"/christmas-events/navidad-con-ninos-nahuizalco-sv": "Navidad con niños en Nahuizalco 2026",
+"/christmas-events/navidad-con-ninos-quezaltepeque-sv": "Navidad con niños en Quezaltepeque 2026",
+"/christmas-events/navidad-con-ninos-san-juan-opico-sv": "Navidad con niños en San Juan Opico 2026",
+"/christmas-events/navidad-con-ninos-san-marcos-sv": "Navidad con niños en San Marcos 2026",
+"/christmas-events/navidad-con-ninos-san-martin-sv": "Navidad con niños en San Martín 2026",
+"/christmas-events/navidad-con-ninos-san-miguel-sv": "Navidad con niños en San Miguel 2026",
+"/christmas-events/navidad-con-ninos-san-pedro-perulapan-sv": "Navidad con niños en San Pedro Perulapán 2026",
+"/christmas-events/navidad-con-ninos-san-salvador-sv": "Navidad con niños en San Salvador 2026",
+"/christmas-events/navidad-con-ninos-san-vicente-sv": "Navidad con niños en San Vicente 2026",
+"/christmas-events/navidad-con-ninos-santa-ana-sv": "Navidad con niños en Santa Ana 2026",
+"/christmas-events/navidad-con-ninos-santa-tecla-sv": "Navidad con niños en Santa Tecla 2026",
+"/christmas-events/navidad-con-ninos-sonsonate-sv": "Navidad con niños en Sonsonate 2026",
+"/christmas-events/navidad-con-ninos-soyapango-sv": "Navidad con niños en Soyapango 2026",
+"/christmas-events/navidad-con-ninos-tonacatepeque-sv": "Navidad con niños en Tonacatepeque 2026",
+"/christmas-events/navidad-con-ninos-usulutan-sv": "Navidad con niños en Usulután 2026",
+"/christmas-events/navidad-con-ninos-zacatecoluca-sv": "Navidad con niños en Zacatecoluca 2026"
+},
+"country": "El Salvador",
+"kind": "country",
+"name": "El Salvador",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-guatemala": {
+"at": "2026-11-21",
+"cc": "GT",
+"cities": {
+"/christmas-events/navidad-con-ninos-ciudad-de-guatemala-gt": "Navidad con niños en Ciudad de Guatemala"
+},
+"country": "Guatemala",
+"kind": "country",
+"name": "Guatemala",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-honduras": {
+"at": "2026-11-21",
+"cc": "HN",
+"cities": {
+"/christmas-events/navidad-con-ninos-catacamas-hn": "Catacamas",
+"/christmas-events/navidad-con-ninos-choloma-hn": "Choloma",
+"/christmas-events/navidad-con-ninos-choluteca-hn": "Navidad con niños en Choluteca",
+"/christmas-events/navidad-con-ninos-comayagua-hn": "Navidad con niños en Comayagua",
+"/christmas-events/navidad-con-ninos-danli-hn": "Danlí",
+"/christmas-events/navidad-con-ninos-el-negrito-hn": "El Negrito",
+"/christmas-events/navidad-con-ninos-el-progreso-hn": "Navidad con niños en El Progreso",
+"/christmas-events/navidad-con-ninos-el-triunfo-hn": "El Triunfo",
+"/christmas-events/navidad-con-ninos-gracias-hn": "Gracias",
+"/christmas-events/navidad-con-ninos-intibuca-hn": "Intibucá",
+"/christmas-events/navidad-con-ninos-juticalpa-hn": "Juticalpa",
+"/christmas-events/navidad-con-ninos-la-ceiba-hn": "La Ceiba",
+"/christmas-events/navidad-con-ninos-la-lima-hn": "Navidad con niños en La Lima",
+"/christmas-events/navidad-con-ninos-la-paz-hn": "La Paz",
+"/christmas-events/navidad-con-ninos-morazan-hn": "Morazán",
+"/christmas-events/navidad-con-ninos-nacaome-hn": "Nacaome",
+"/christmas-events/navidad-con-ninos-olanchito-hn": "Olanchito",
+"/christmas-events/navidad-con-ninos-omoa-hn": "Omoa",
+"/christmas-events/navidad-con-ninos-puerto-cortes-hn": "Navidad con niños en Puerto Cortés",
+"/christmas-events/navidad-con-ninos-puerto-lempira-hn": "Puerto Lempira",
+"/christmas-events/navidad-con-ninos-quimistan-hn": "Quimistán",
+"/christmas-events/navidad-con-ninos-roatan-hn": "Navidad con niños en Roatán",
+"/christmas-events/navidad-con-ninos-san-lorenzo-hn": "San Lorenzo",
+"/christmas-events/navidad-con-ninos-san-pedro-sula-hn": "Navidad con niños en San Pedro Sula",
+"/christmas-events/navidad-con-ninos-santa-cruz-de-yojoa-hn": "Santa Cruz de Yojoa",
+"/christmas-events/navidad-con-ninos-santa-rosa-de-copan-hn": "Santa Rosa de Copán",
+"/christmas-events/navidad-con-ninos-siguatepeque-hn": "Siguatepeque",
+"/christmas-events/navidad-con-ninos-tegucigalpa-hn": "Navidad con niños en Tegucigalpa",
+"/christmas-events/navidad-con-ninos-tela-hn": "Tela",
+"/christmas-events/navidad-con-ninos-teupasenti-hn": "Teupasenti",
+"/christmas-events/navidad-con-ninos-tocoa-hn": "Tocoa",
+"/christmas-events/navidad-con-ninos-trojes-hn": "Trojes",
+"/christmas-events/navidad-con-ninos-trujillo-hn": "Trujillo",
+"/christmas-events/navidad-con-ninos-villanueva-hn": "Villanueva",
+"/christmas-events/navidad-con-ninos-yoro-hn": "Yoro"
+},
+"country": "Honduras",
+"kind": "country",
+"name": "Honduras",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-panama": {
+"at": "2026-11-21",
+"cc": "PA",
+"cities": {
+"/christmas-events/navidad-con-ninos-ciudad-de-panama-pa": "Navidad con niños en Ciudad de Panamá"
+},
+"country": "Panama",
+"kind": "country",
+"name": "Panama",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-paraguay": {
+"at": "2026-11-21",
+"cc": "PY",
+"cities": {
+"/christmas-events/navidad-con-ninos-asuncion-py": "Navidad con niños en Asunción"
+},
+"country": "Paraguay",
+"kind": "country",
+"name": "Paraguay",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-peru": {
+"at": "2026-11-21",
+"cc": "PE",
+"cities": {
+"/christmas-events/navidad-con-ninos-chiclayo-pe": "¿Qué hacer en Navidad con niños en Chiclayo?",
+"/christmas-events/navidad-con-ninos-cusco-pe": "¿Qué hacer en Navidad con niños en Cusco?",
+"/christmas-events/navidad-con-ninos-huancayo-pe": "¿Qué hacer en Navidad con niños en Huancayo?",
+"/christmas-events/navidad-con-ninos-lima-pe": "¿Qué hacer en Navidad con niños en Lima?",
+"/christmas-events/navidad-con-ninos-miraflores-pe": "¿Qué hacer en Navidad con niños en Miraflores?",
+"/christmas-events/navidad-con-ninos-piura-pe": "¿Qué hacer en Navidad con niños en Piura?",
+"/christmas-events/navidad-con-ninos-san-borja-pe": "¿Qué hacer en Navidad con niños en San Borja?",
+"/christmas-events/navidad-con-ninos-san-isidro-pe": "¿Qué hacer en Navidad con niños en San Isidro?",
+"/christmas-events/navidad-con-ninos-san-juan-de-lurigancho-pe": "¿Qué hacer en Navidad con niños en San Juan de Lurigancho?",
+"/christmas-events/navidad-con-ninos-santa-anita-pe": "¿Qué hacer en Navidad con niños en Santa Anita?",
+"/christmas-events/navidad-con-ninos-santiago-de-surco-pe": "¿Qué hacer en Navidad con niños en Santiago de Surco?",
+"/christmas-events/navidad-con-ninos-trujillo-pe": "¿Qué hacer en Navidad con niños en Trujillo?"
+},
+"country": "Peru",
+"kind": "country",
+"name": "Peru",
+"subs": {
+"/christmas-events/navidad-con-ninos-lima-metropolitana-pe": {
+"name": "Navidad con niños en Lima Metropolitana"
+},
+"/christmas-events/navidad-con-ninos-region-cusco-pe": {
+"name": "Navidad con niños en Cusco"
+},
+"/christmas-events/navidad-con-ninos-region-junin-pe": {
+"name": "Navidad con niños en Junín"
+},
+"/christmas-events/navidad-con-ninos-region-la-libertad-pe": {
+"name": "Navidad con niños en La Libertad"
+},
+"/christmas-events/navidad-con-ninos-region-lambayeque-pe": {
+"name": "Navidad con niños en Lambayeque"
+},
+"/christmas-events/navidad-con-ninos-region-piura-pe": {
+"name": "Navidad con niños en Piura"
+}
+},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-puerto-rico": {
+"at": "2026-11-21",
+"cc": "PR",
+"cities": {
+"/christmas-events/navidad-con-ninos-caguas-pr": "Navidad con niños en Caguas",
+"/christmas-events/navidad-con-ninos-juana-diaz-pr": "Navidad con niños en Juana Díaz",
+"/christmas-events/navidad-con-ninos-mayaguez-pr": "Navidad con niños en Mayagüez",
+"/christmas-events/navidad-con-ninos-san-juan-pr": "Navidad con niños en San Juan"
+},
+"country": "Puerto Rico",
+"kind": "country",
+"name": "Puerto Rico",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-republica-dominicana": {
+"at": "2026-11-21",
+"cc": "DO",
+"cities": {
+"/christmas-events/navidad-con-ninos-la-romana-do": "Navidad con niños en La Romana",
+"/christmas-events/navidad-con-ninos-punta-cana-do": "Navidad con niños en Punta Cana",
+"/christmas-events/navidad-con-ninos-santiago-de-los-caballeros-do": "Navidad con niños en Santiago de los Caballeros",
+"/christmas-events/navidad-con-ninos-santo-domingo-do": "Navidad con niños en Santo Domingo"
+},
+"country": "Dominican Republic",
+"kind": "country",
+"name": "Dominican Republic",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-uruguay": {
+"at": "2026-11-21",
+"cc": "UY",
+"cities": {
+"/christmas-events/navidad-con-ninos-montevideo-uy": "Navidad con niños en Montevideo"
+},
+"country": "Uruguay",
+"kind": "country",
+"name": "Uruguay",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-valle-del-cauca": {
+"at": "2026-11-21",
+"cc": "",
+"cities": {
+"/christmas-events/navidad-con-ninos-cali": "¿Qué hacer en Navidad con niños en Cali?"
+},
+"country": "Colombia",
+"kind": "country",
+"name": "Colombia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/navidad-con-ninos-venezuela": {
+"at": "2026-11-21",
+"cc": "VE",
+"cities": {
+"/christmas-events/navidad-con-ninos-caracas-ve": "Navidad con niños en Caracas",
+"/christmas-events/navidad-con-ninos-chacao-ve": "Navidad con niños en Chacao",
+"/christmas-events/navidad-con-ninos-el-hatillo-ve": "Navidad con niños en El Hatillo"
+},
+"country": "Venezuela",
+"kind": "country",
+"name": "Venezuela",
+"subs": {},
+"v": 3
+},
+"/christmas-events/nigeria": {
+"at": "2026-11-21",
+"cc": "NG",
+"cities": {
+"/christmas-events/abuja-ng": "Christmas Events for Kids in Abuja",
+"/christmas-events/calabar-ng": "Christmas Events for Kids in Calabar",
+"/christmas-events/keffi-ng": "Christmas Events for Kids in Keffi",
+"/christmas-events/lagos-ng": "Christmas Events for Kids in Lagos"
+},
+"country": "Nigeria",
+"kind": "country",
+"name": "Nigeria",
+"subs": {},
+"v": 3
+},
+"/christmas-events/novyy-god-v-rossii": {
+"at": "2026-11-21",
+"cc": "RU",
+"cities": {
+"/christmas-events/novyy-god-ekaterinburg-ru": "Новогодние события для детей в Екатеринбурге",
+"/christmas-events/novyy-god-kaliningrad-ru": "Новогодние события для детей в Калининграде",
+"/christmas-events/novyy-god-kazan-ru": "Новогодние события для детей в Казани",
+"/christmas-events/novyy-god-kostroma-ru": "Новогодние события для детей в Костроме",
+"/christmas-events/novyy-god-krasnodar-ru": "Новогодние события для детей в Краснодаре",
+"/christmas-events/novyy-god-moskva-ru": "Новогодние события для детей в Москве",
+"/christmas-events/novyy-god-murmansk-ru": "Новогодние события для детей в Мурманске",
+"/christmas-events/novyy-god-novosibirsk-ru": "Новогодние события для детей в Новосибирске",
+"/christmas-events/novyy-god-sankt-peterburg-ru": "Новогодние события для детей в Санкт-Петербурге",
+"/christmas-events/novyy-god-sochi-ru": "Новогодние события для детей в Сочи",
+"/christmas-events/novyy-god-vladivostok-ru": "Новогодние события для детей во Владивостоке"
+},
+"country": "Russia",
+"kind": "country",
+"name": "Russia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/pakistan": {
+"at": "2026-11-21",
+"cc": "PK",
+"cities": {
+"/christmas-events/karachi-pk": "Christmas Events for Kids in Karachi",
+"/christmas-events/lahore-pk": "Christmas Events for Kids in Lahore"
+},
+"country": "Pakistan",
+"kind": "country",
+"name": "Pakistan",
+"subs": {},
+"v": 3
+},
+"/christmas-events/papua-new-guinea": {
+"at": "2026-11-21",
+"cc": "PG",
+"cities": {},
+"country": "Papua New Guinea",
+"kind": "country",
+"name": "Papua New Guinea",
+"subs": {},
+"v": 3
+},
+"/christmas-events/qatar": {
+"at": "2026-11-21",
+"cc": "QA",
+"cities": {},
+"country": "Qatar",
+"kind": "country",
+"name": "Qatar",
+"subs": {},
+"v": 3
+},
+"/christmas-events/russia": {
+"at": "2026-11-21",
+"cc": "RU",
+"cities": {
+"/christmas-events/kaliningrad-ru": "Christmas Events for Kids in Kaliningrad",
+"/christmas-events/kazan-ru": "Christmas Events for Kids in Kazan",
+"/christmas-events/kostroma-ru": "Christmas Events for Kids in Kostroma",
+"/christmas-events/krasnodar-ru": "Christmas Events for Kids in Krasnodar",
+"/christmas-events/moscow-ru": "Christmas Events for Kids in Moscow",
+"/christmas-events/murmansk-ru": "Christmas Events for Kids in Murmansk",
+"/christmas-events/novosibirsk-ru": "Christmas Events for Kids in Novosibirsk",
+"/christmas-events/saint-petersburg-ru": "Christmas Events for Kids in Saint Petersburg",
+"/christmas-events/sochi-ru": "Christmas Events for Kids in Sochi",
+"/christmas-events/vladivostok-ru": "Christmas Events for Kids in Vladivostok",
+"/christmas-events/yekaterinburg-ru": "Christmas Events for Kids in Yekaterinburg"
+},
+"country": "Russia",
+"kind": "country",
+"name": "Russia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/rwanda": {
+"at": "2026-11-21",
+"cc": "RW",
+"cities": {},
+"country": "Rwanda",
+"kind": "country",
+"name": "Rwanda",
+"subs": {},
+"v": 3
+},
+"/christmas-events/saint-kitts-and-nevis": {
+"at": "2026-11-21",
+"cc": "KN",
+"cities": {},
+"country": "Saint Kitts and Nevis",
+"kind": "country",
+"name": "Saint Kitts and Nevis",
+"subs": {},
+"v": 3
+},
+"/christmas-events/saint-lucia": {
+"at": "2026-11-21",
+"cc": "LC",
+"cities": {},
+"country": "Saint Lucia",
+"kind": "country",
+"name": "Saint Lucia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/saint-vincent-and-the-grenadines": {
+"at": "2026-11-21",
+"cc": "VC",
+"cities": {},
+"country": "Saint Vincent and the Grenadines",
+"kind": "country",
+"name": "Saint Vincent and the Grenadines",
+"subs": {},
+"v": 3
+},
+"/christmas-events/sierra-leone": {
+"at": "2026-11-21",
+"cc": "SL",
+"cities": {},
+"country": "Sierra Leone",
+"kind": "country",
+"name": "Sierra Leone",
+"subs": {},
+"v": 3
+},
+"/christmas-events/south-africa": {
+"at": "2026-11-21",
+"cc": "ZA",
+"cities": {
+"/christmas-events/bellville-za": "Christmas Events for Kids in Bellville",
+"/christmas-events/cape-town-za": "Christmas Events for Kids in Cape Town",
+"/christmas-events/durbanville-za": "Christmas Events for Kids in Durbanville",
+"/christmas-events/grassy-park-za": "Christmas Events for Kids in Grassy Park",
+"/christmas-events/milnerton-za": "Christmas Events for Kids in Milnerton",
+"/christmas-events/paarl-za": "Christmas Events for Kids in Paarl",
+"/christmas-events/parow-za": "Christmas Events for Kids in Parow",
+"/christmas-events/somerset-west-za": "Christmas Events for Kids in Somerset West"
+},
+"country": "South Africa",
+"kind": "country",
+"name": "South Africa",
+"subs": {},
+"v": 3
+},
+"/christmas-events/sri-lanka": {
+"at": "2026-11-21",
+"cc": "LK",
+"cities": {
+"/christmas-events/colombo-lk": "Christmas Events for Kids in Colombo",
+"/christmas-events/negombo-lk": "Christmas Events for Kids in Negombo"
+},
+"country": "Sri Lanka",
+"kind": "country",
+"name": "Sri Lanka",
+"subs": {},
+"v": 3
+},
+"/christmas-events/tanzania": {
+"at": "2026-11-21",
+"cc": "TZ",
+"cities": {},
+"country": "Tanzania",
+"kind": "country",
+"name": "Tanzania",
+"subs": {},
+"v": 3
+},
+"/christmas-events/thailand": {
+"at": "2026-11-21",
+"cc": "TH",
+"cities": {
+"/christmas-events/bangkok-th": "Christmas Events for Kids in Bangkok",
+"/christmas-events/chiang-mai-th": "Christmas Events for Kids in Chiang Mai",
+"/christmas-events/phuket-th": "Christmas Events for Kids in Phuket"
+},
+"country": "Thailand",
+"kind": "country",
+"name": "Thailand",
+"subs": {},
+"v": 3
+},
+"/christmas-events/trinidad-and-tobago": {
+"at": "2026-11-21",
+"cc": "TT",
+"cities": {
+"/christmas-events/port-of-spain-tt": "Christmas Events for Kids in Port of Spain",
+"/christmas-events/san-fernando-tt": "Christmas Events for Kids in San Fernando",
+"/christmas-events/tobago-tt": "Christmas Events for Kids in Tobago"
+},
+"country": "Trinidad and Tobago",
+"kind": "country",
+"name": "Trinidad and Tobago",
+"subs": {},
+"v": 3
+},
+"/christmas-events/turks-and-caicos-islands": {
+"at": "2026-11-21",
+"cc": "TC",
+"cities": {},
+"country": "Turks and Caicos Islands",
+"kind": "country",
+"name": "Turks and Caicos Islands",
+"subs": {},
+"v": 3
+},
+"/christmas-events/uganda": {
+"at": "2026-11-21",
+"cc": "UG",
+"cities": {},
+"country": "Uganda",
+"kind": "country",
+"name": "Uganda",
+"subs": {},
+"v": 3
+},
+"/christmas-events/united-arab-emirates": {
+"at": "2026-11-21",
+"cc": "AE",
+"cities": {
+"/christmas-events/abu-dhabi-ae": "أبوظبي",
+"/christmas-events/al-ain-ae": "العين",
+"/christmas-events/dubai-ae": "دبي",
+"/christmas-events/krismas-dubai-ar": "دبي"
+},
+"country": "United Arab Emirates",
+"kind": "country",
+"name": "United Arab Emirates",
+"subs": {},
+"v": 3
+},
+"/christmas-events/us-virgin-islands": {
+"at": "2026-11-21",
+"cc": "VI",
+"cities": {},
+"country": "US Virgin Islands",
+"kind": "country",
+"name": "US Virgin Islands",
+"subs": {},
+"v": 3
+},
+"/christmas-events/vanuatu": {
+"at": "2026-11-21",
+"cc": "VU",
+"cities": {},
+"country": "Vanuatu",
+"kind": "country",
+"name": "Vanuatu",
+"subs": {},
+"v": 3
+},
+"/christmas-events/vietnam": {
+"at": "2026-11-21",
+"cc": "VN",
+"cities": {
+"/christmas-events/da-nang-vn": "Christmas Events for Kids in Da Nang",
+"/christmas-events/hanoi-vn": "Christmas Events for Kids in Hanoi",
+"/christmas-events/ho-chi-minh-city-vn": "Christmas Events for Kids in Ho Chi Minh City"
+},
+"country": "Vietnam",
+"kind": "country",
+"name": "Vietnam",
+"subs": {},
+"v": 3
+},
+"/christmas-events/zambia": {
+"at": "2026-11-21",
+"cc": "ZM",
+"cities": {
+"/christmas-events/lusaka-zm": "Christmas Events for Kids in Lusaka",
+"/christmas-events/ndola-zm": "Christmas Events for Kids in Ndola"
+},
+"country": "Zambia",
+"kind": "country",
+"name": "Zambia",
+"subs": {},
+"v": 3
+},
+"/christmas-events/zimbabwe": {
+"at": "2026-11-21",
+"cc": "ZW",
+"cities": {
+"/christmas-events/bulawayo-zw": "Christmas Events for Kids in Bulawayo",
+"/christmas-events/harare-zw": "Christmas Events for Kids in Harare"
+},
+"country": "Zimbabwe",
+"kind": "country",
+"name": "Zimbabwe",
+"subs": {},
+"v": 3
+}
+},
+"hw": 1795283619803
+}
