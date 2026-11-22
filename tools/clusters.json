@@ -4531,6 +4531,1222 @@
           ]
         }
       ]
+    },
+    {
+      "name": "auto:abakan-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/abakan-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/abakan-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-abakan-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:achinsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/achinsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/achinsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-achinsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:balakovo-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/balakovo-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/balakovo-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-balakovo-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:balashikha-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/balashikha-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/balashikha-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-balashikha-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:berdsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/berdsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/berdsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-berdsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:biysk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/biysk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/biysk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-biysk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:bryansk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/bryansk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/bryansk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-bryansk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:budyonnovsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/budyonnovsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/budyonnovsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-budennovsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:cherkessk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/cherkessk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/cherkessk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-cherkessk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:chistopol-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/chistopol-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/chistopol-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-chistopol-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:dimitrovgrad-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/dimitrovgrad-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/dimitrovgrad-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-dimitrovgrad-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:dmitrov-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/dmitrov-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/dmitrov-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-dmitrov-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:gubkin-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/gubkin-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/gubkin-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-gubkin-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:irkutsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/irkutsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/irkutsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-irkutsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:ishim-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ishim-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ishim-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-ishim-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:ivanovo-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ivanovo-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ivanovo-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-ivanovo-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:ivanteyevka-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ivanteyevka-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ivanteyevka-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-ivanteevka-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:izhevsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/izhevsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/izhevsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-izhevsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:khimki-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/khimki-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/khimki-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-khimki-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:komsomolsk-on-amur-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/komsomolsk-on-amur-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/komsomolsk-on-amur-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-komsomolsk-na-amure-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:kotlas-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/kotlas-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/kotlas-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-kotlas-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:kstovo-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/kstovo-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/kstovo-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-kstovo-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:kursk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/kursk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/kursk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-kursk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:liski-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/liski-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/liski-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-liski-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:lobnya-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/lobnya-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/lobnya-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-lobnya-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:magnitogorsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/magnitogorsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/magnitogorsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-magnitogorsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:makhachkala-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/makhachkala-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/makhachkala-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-makhachkala-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:meleuz-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/meleuz-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/meleuz-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-meleuz-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:mineralnye-vody-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/mineralnye-vody-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/mineralnye-vody-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-mineralnye-vody-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:murino-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/murino-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/murino-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-murino-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:neryungri-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/neryungri-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/neryungri-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-neryungri-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:nizhny-novgorod-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/nizhny-novgorod-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/nizhny-novgorod-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-nizhniy-novgorod-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novoshakhtinsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/novoshakhtinsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novoshakhtinsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-novoshakhtinsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novouralsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/novouralsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novouralsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-novouralsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-noyabrsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/noyabrsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-noyabrsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/noyabrsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-odintsovo-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/odintsovo-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-odintsovo-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/odintsovo-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-orsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/orsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-orsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/orsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-pervouralsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/pervouralsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-pervouralsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/pervouralsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-pskov-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/pskov-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-pskov-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/pskov-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-pushkino-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/pushkino-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-pushkino-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/pushkino-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-rostov-na-donu-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/rostov-on-don-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-rostov-na-donu-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/rostov-on-don-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-samara-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/samara-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-samara-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/samara-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-sarapul-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/sarapul-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-sarapul-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/sarapul-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-sarov-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/sarov-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-sarov-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/sarov-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-sergiev-posad-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/sergiyev-posad-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-sergiev-posad-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/sergiyev-posad-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-shakhty-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/shakhty-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-shakhty-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/shakhty-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-slavyansk-na-kubani-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/slavyansk-na-kubani-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-slavyansk-na-kubani-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/slavyansk-na-kubani-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-sosnovyy-bor-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/sosnovy-bor-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-sosnovyy-bor-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/sosnovy-bor-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-tambov-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/tambov-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-tambov-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/tambov-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-tula-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/tula-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-tula-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/tula-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-tyumen-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/tyumen-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-tyumen-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/tyumen-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-ulan-ude-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ulan-ude-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-ulan-ude-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ulan-ude-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-ulyanovsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ulyanovsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-ulyanovsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ulyanovsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-ussuriysk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ussuriysk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-ussuriysk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ussuriysk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-velikie-luki-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/velikiye-luki-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-velikie-luki-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/velikiye-luki-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-velikiy-novgorod-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/veliky-novgorod-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-velikiy-novgorod-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/veliky-novgorod-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-vidnoe-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/vidnoye-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-vidnoe-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/vidnoye-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-vladimir-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/vladimir-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-vladimir-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/vladimir-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-volzhsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/volzhsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-volzhsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/volzhsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-voskresensk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/voskresensk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-voskresensk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/voskresensk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-vyborg-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/vyborg-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-vyborg-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/vyborg-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-yaroslavl-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/yaroslavl-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-yaroslavl-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/yaroslavl-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-zelenodolsk-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/zelenodolsk-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-zelenodolsk-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/zelenodolsk-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:novyy-god-zlatoust-ru",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/zlatoust-ru",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/novyy-god-zlatoust-ru",
+          "hreflang": [
+            "ru",
+            "ru-RU"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/zlatoust-ru",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
     }
   ]
 }
