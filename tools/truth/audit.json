@@ -4,7 +4,7 @@
  "city_pages": 4481,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 25306,
+ "event_pages_listed": 25342,
  "count_mismatch": [
   [
    "/christmas-events/brockton-ma",
@@ -37,9 +37,29 @@
    1
   ],
   [
-   "/christmas-events/navidad-con-ninos-salamanca",
+   "/christmas-events/navidad-con-ninos-dos-hermanas",
    0,
-   10
+   6
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-jaen",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-mostoles",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-reus",
+   0,
+   7
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-torrejon-de-ardoz",
+   0,
+   4
   ],
   [
    "/christmas-events/reading-pa",
