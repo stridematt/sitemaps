@@ -5747,6 +5747,120 @@
           ]
         }
       ]
+    },
+    {
+      "name": "auto:grobina-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/grobina-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/grobina-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-grobina-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:jekabpils-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/jekabpils-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/jekabpils-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-jekabpils-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:ligatne-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ligatne-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ligatne-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-ligatne-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:marupe-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/marupe-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/marupe-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-marupe-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:preili-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/preili-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/preili-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-preili-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:riga-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/riga-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/riga-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-riga-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
     }
   ]
 }
