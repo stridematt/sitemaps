@@ -564,19 +564,43 @@ def main():
         log(f"saved state had no discovered guides: starting from found.json ({len(prev_found.get('guides', {}))} guides)")
     found = discover_guides(guides, place, code2name, prev_found, today, log)
     json.dump(found, open(fpath, 'w', encoding='utf-8'), ensure_ascii=False, sort_keys=True, indent=0)
+    # A country's guides in two languages list the same cities (Russia: 225 in English, 225 in Russian). The
+    # other-language page of a city is the same city, not a second one. Plain slugs are filed first, so that
+    # novyy-god-tyumen-ru finds tyumen-ru whichever guide comes first. Where the transliteration differs
+    # (novyy-god-moskva-ru and moscow-ru), the pages are matched by what they list: the other-language page's
+    # event pages are the city's own with a language ending (…-in-oryol-ru and …-in-oryol-ru-po-russki).
+    fresh = []
     for g, fg in found.get('guides', {}).items():
         if g in guides:
             continue
         guides[g] = {'kind': fg['kind'], 'name': fg['name'], 'country': fg['country']}
         for sub, sd in fg.get('subs', {}).items():
             guides.setdefault(sub, {'kind': 'region', 'name': sd.get('name', ''), 'country': fg['country']})
-        for q, name in sorted(fg.get('cities', {}).items(), key=lambda kv: (len(kv[0].split('-')), kv[0])):
-            if q in place and not (place[q].get('guess') and fg['kind'] == 'country' and fg['country'] != place[q]['country']
-                                   and q.rsplit('-', 1)[-1].upper() == fg.get('cc')):
-                continue
-            place.pop(q, None)
-            twin = twin_of(q, fg['country'], place)
-            place[q] = {**place[twin]} if twin else {'country': fg['country'], 'state': None, 'name': clean_name(name, q), 'main': q}
+        fresh += [(q, name, fg) for q, name in fg.get('cities', {}).items()]
+    prefixed = lambda q: bool(XMAS_PREFIX.search(city_base(q)))
+    loose = []
+    for q, name, fg in sorted(fresh, key=lambda t: (prefixed(t[0]), len(t[0].split('-')), t[0])):
+        if q in place and not (place[q].get('guess') and fg['kind'] == 'country' and fg['country'] != place[q]['country']
+                               and q.rsplit('-', 1)[-1].upper() == fg.get('cc')):
+            continue
+        place.pop(q, None)
+        twin = twin_of(q, fg['country'], place)
+        place[q] = {**place[twin]} if twin else {'country': fg['country'], 'state': None, 'name': clean_name(name, q), 'main': q}
+        if not twin:
+            loose.append(q)
+    keys = lambda q: sorted((pages.get(q) or {}).get('k') or [])
+    by_land = collections.defaultdict(list)
+    for q in loose:
+        if not prefixed(q) and keys(q):
+            by_land[place[q]['country']].append(q)
+    for q in loose:
+        kq = keys(q)
+        if not prefixed(q) or not kq:
+            continue
+        same = [p for p in by_land[place[q]['country']] if place[p]['main'] == p and len(keys(p)) == len(kq)
+                and all(any(x.startswith(y + '-') for x in kq) for y in keys(p))]
+        if len(same) == 1:
+            place[q] = {**place[same[0]]}
     gstate = old.get('guide_pages', {})
     # New city pages a country or state guide links to (its city cards and city sections) count too,
     # even before the hub lists them. They are picked up from the last read of each guide.
