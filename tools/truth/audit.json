@@ -4,8 +4,29 @@
  "city_pages": 4409,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 25027,
- "count_mismatch": [],
+ "event_pages_listed": 25036,
+ "count_mismatch": [
+  [
+   "/christmas-events/bellville-za",
+   3,
+   4
+  ],
+  [
+   "/christmas-events/cape-town-za",
+   18,
+   25
+  ],
+  [
+   "/christmas-events/cornelius-nc",
+   12,
+   11
+  ],
+  [
+   "/christmas-events/milnerton-za",
+   1,
+   3
+  ]
+ ],
  "uncounted_city_pages": [
   [
    "/christmas-events/navidad-con-ninos-ponce-pr",
