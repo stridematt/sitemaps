@@ -286,7 +286,7 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
     # How far back: six hours on most runs (bulk publishing stamps posts a little in the past), and three
     # days on the first run of each day as a safety net. Three days on every run meant re-reading about
     # 9,000 posts, 15 minutes of each run. A one-page country that later becomes a guide with city pages
-    # is not missed in between: it is already a guide here, and guides are re-read once a day below.
+    # is not missed in between: it is already a guide here, and guides are re-read on every run below.
     # Read in half-hour slices, in parallel.
     now = int(time.time() * 1000) + 3600000
     deep = found.get('deep') != today
@@ -354,9 +354,10 @@ def discover_guides(known_guides, known_places, code2name, found, today, log):
         want = nxt
         if not want:
             break
-    # re-crawl guides found earlier once a day (they gain cities as they are built out)
+    # Re-crawl the country guides found earlier on every run: they gain cities as they are built out, and once
+    # a day left 200 new Russian city pages uncounted until the next day (2026-11-22). About 70 requests.
     # (v != 3: filed before the country/region test and the naming by country code were fixed; read again once)
-    again = [g for g, v in guides.items() if (v.get('at', '') < today and v.get('kind') == 'country') or v.get('v') != 3]
+    again = [g for g, v in guides.items() if v.get('kind') == 'country' or v.get('v') != 3]
     for g, j in zip(again, pmap(item_json, again)):
         if j and j.get('item'):
             roots.append((g, j['item'].get('title', ''), j['item'].get('body') or ''))
