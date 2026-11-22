@@ -1,60 +1,20 @@
 {
  "today": "2026-11-22",
- "sitemap_urls": 28219,
- "city_pages": 4454,
+ "sitemap_urls": 28247,
+ "city_pages": 4481,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 25216,
+ "event_pages_listed": 25306,
  "count_mismatch": [
   [
-   "/christmas-events/albertville-al",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/anchorage-ak",
-   17,
-   20
-  ],
-  [
-   "/christmas-events/bakersfield-ca",
-   14,
-   15
-  ],
-  [
-   "/christmas-events/birmingham-al",
-   21,
-   28
-  ],
-  [
-   "/christmas-events/camarillo-ca",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/casa-grande-az",
-   5,
-   7
-  ],
-  [
-   "/christmas-events/chico-ca",
-   9,
-   12
-  ],
-  [
-   "/christmas-events/daugavpils-lv",
+   "/christmas-events/brockton-ma",
    0,
    2
   ],
   [
-   "/christmas-events/flagstaff-az",
-   6,
-   7
-  ],
-  [
-   "/christmas-events/foley-al",
-   4,
-   7
+   "/christmas-events/deltona-fl",
+   0,
+   2
   ],
   [
    "/christmas-events/framingham-ma",
@@ -62,79 +22,39 @@
    3
   ],
   [
-   "/christmas-events/galt-ca",
-   2,
+   "/christmas-events/hanford-ca",
+   0,
+   1
+  ],
+  [
+   "/christmas-events/johnson-city-tn",
+   0,
    3
   ],
   [
-   "/christmas-events/glendale-ca",
-   2,
-   5
-  ],
-  [
-   "/christmas-events/huntsville-al",
-   17,
-   18
-  ],
-  [
-   "/christmas-events/jelgava-lv",
+   "/christmas-events/madera-ca",
    0,
-   2
+   1
   ],
   [
-   "/christmas-events/liepaja-lv",
+   "/christmas-events/navidad-con-ninos-salamanca",
    0,
-   4
+   10
   ],
   [
-   "/christmas-events/long-beach-ca",
-   8,
-   9
-  ],
-  [
-   "/christmas-events/manteca-ca",
-   3,
-   4
-  ],
-  [
-   "/christmas-events/modesto-ca",
-   17,
-   18
-  ],
-  [
-   "/christmas-events/napa-ca",
-   10,
-   11
-  ],
-  [
-   "/christmas-events/oceanside-ca",
-   4,
-   5
-  ],
-  [
-   "/christmas-events/phoenix-az",
-   38,
-   39
-  ],
-  [
-   "/christmas-events/richmond-ca",
-   1,
-   2
-  ],
-  [
-   "/christmas-events/riga-lv",
+   "/christmas-events/reading-pa",
    0,
-   20
+   1
   ],
   [
-   "/christmas-events/san-diego-ca",
-   66,
-   68
+   "/christmas-events/ridgedale-mo",
+   0,
+   1
   ],
   [
-   "/christmas-events/scottsdale-az",
-   21,
-   22
+   "/christmas-events/san-marcos-tx",
+   0,
+   1
   ]
  ],
  "uncounted_city_pages": [
