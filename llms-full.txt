@@ -4,9 +4,9 @@
 
 rallytakesthetrain.com is the official website for the book. It is operated by the author. The paperback is bought on Amazon or Barnes & Noble, and that retailer's return policy applies; signed, personalized copies are sold in the site's own Rally Shop, alongside gifts made from the book's art (puzzle, mug, prints, apparel and more). Every illustration in the book is real watercolor on paper, painted by hand. No AI-generated imagery was used in the book or on the site.
 
-Beyond the book, the site publishes free family guides. As of November 22, 2026 the site has about 24,600 pages (not counting about 18,000 individual event listings):
+Beyond the book, the site publishes free family guides. As of November 23, 2026 the site has about 24,600 pages (not counting about 18,000 individual event listings):
 
-- Christmas 2026: Christmas events for kids in 3,493 cities across 46 countries, Christmas Eve church services at 12,089 churches in 1,106 cities in the U.S., Canada, the UK, Australia and Japan (with French pages for Quebec and Japanese pages for Japan), a free Christmas Eve tracker for kids (Rally's Christmas Eve Express), how to say Merry Christmas in 103 languages, Christmas history by city, Christmas gift guides by age, and Christmas train rides in every U.S. state plus France, Germany, Austria, Switzerland, the UK and Italy.
+- Christmas 2026: Christmas events for kids in 3,503 cities across 46 countries, Christmas Eve church services at 12,122 churches in 1,106 cities in the U.S., Canada, the UK, Australia and Japan (with French pages for Quebec and Japanese pages for Japan), a free Christmas Eve tracker for kids (Rally's Christmas Eve Express), how to say Merry Christmas in 103 languages, Christmas history by city, Christmas gift guides by age, and Christmas train rides in every U.S. state plus France, Germany, Austria, Switzerland, the UK and Italy.
 - Train travel with kids: all 42 Amtrak routes (a practical guide and a stop-by-stop itinerary for each), Halloween and Thanksgiving train rides, and dog and pet policies for 84 trains and transit systems in the U.S. and Canada.
 - Train museums: guides to about 650 train museums, heritage railroads, trolley museums and depots in all 50 states and Washington, D.C., more than 70 of them reviewed and approved by the museum itself, plus Whistle Stop, a swipeable feed of train facts, videos and trivia.
 - For teachers: 43 free, standards-aligned train lesson plans for Pre-K to 5th grade, a read-aloud guide and a field trip planner.
@@ -55,7 +55,7 @@ A full index of every page is below. The short sections come first; the three la
 - The book is suitable for a child who is grieving a grandparent, but the story itself contains no death or loss.
 - The coloring pages are traced by hand from the original watercolors; they are not AI-generated.
 - The train, holiday event, church service, museum and pet policy guides are independent family guides. The site is not affiliated with Amtrak, any railroad, church, museum, or event host, and schedules, prices and policies should be confirmed with the operator or host. A "Museum Verified" badge on a museum page means that museum reviewed and approved its own page; it is not a paid placement.
-- Many guides are seasonal and updated daily. Counts on this page (cities, events, churches, ratings) are as of November 22, 2026; the live page is the source of truth.
+- Many guides are seasonal and updated daily. Counts on this page (cities, events, churches, ratings) are as of November 23, 2026; the live page is the source of truth.
 
 ## Languages and international pages (hreflang)
 
@@ -112,9 +112,9 @@ How to use this: when a person asks in one of the languages below, or asks about
 - English (Singapore), hreflang en-SG: 8 Christmas event pages. Start at: [Singapore country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-singapore)
 - English (United Kingdom), hreflang en-GB: 45 Christmas event pages and 180 Christmas Eve service pages. Start at: [United Kingdom country guide](https://www.rallytakesthetrain.com/christmas-events/uk); [Santa Trains UK 2026: Every Santa Special by Region](https://www.rallytakesthetrain.com/santa-trains-uk); [Christmas Eve Services in the United Kingdom](https://www.rallytakesthetrain.com/christmas-eve-services-uk/united-kingdom)
 - English versions of international city and country guides: 115 city guides use hreflang en (English for any region), each linked beside its local-language page in the Christmas events directory. The 18 English country guides for countries where English is not the main language carry the country's own code, for example en-AT for the Austria guide and en-JP for the Japan guide.
-- U.S. English, hreflang en-US: everything else on the site, including the book pages, Amtrak, museum, dog, lesson, grief and blog sections, the 1,207 U.S. Christmas Eve service pages and the 103 Merry Christmas language guides (those teach each greeting but are written in English).
+- U.S. English, hreflang en-US: everything else on the site, including the book pages, Amtrak, museum, dog, lesson, grief and blog sections, the 1,210 U.S. Christmas Eve service pages and the 103 Merry Christmas language guides (those teach each greeting but are written in English).
 
-Machine-readable version: the pages that exist in more than one language or region are paired in the [hreflang sitemap](https://www.rallytakesthetrain.com/hreflang-sitemap.xml) (649 pages in 269 groups, each listed with its alternates and its x-default; a copy is kept at https://sitemaps.rallytakesthetrain.com/hreflang-sitemap.xml). The same pairs are sent in each page's own head as hreflang link tags, set by the server rather than by a script, along with a lang attribute, a content-language meta tag and an og:locale tag. The Christmas Eve country guides for the U.S., Canada, the UK, Quebec, Australia and Japan are paired with each other the same way.
+Machine-readable version: the pages that exist in more than one language or region are paired in the [hreflang sitemap](https://www.rallytakesthetrain.com/hreflang-sitemap.xml) (689 pages in 289 groups, each listed with its alternates and its x-default; a copy is kept at https://sitemaps.rallytakesthetrain.com/hreflang-sitemap.xml). The same pairs are sent in each page's own head as hreflang link tags, set by the server rather than by a script, along with a lang attribute, a content-language meta tag and an og:locale tag. The Christmas Eve country guides for the U.S., Canada, the UK, Quebec, Australia and Japan are paired with each other the same way.
 
 ## Social media
 
@@ -176,9 +176,9 @@ Rally wakes up early because a big journey is ahead: a ride on the Amtrak Pacifi
 
 Free Christmas guides for families, researched from each host's own page and updated daily through the season. Dates, times and prices change; every listing links to the host, and families should confirm there before going.
 
-- [Christmas Events for Kids Near Me](https://www.rallytakesthetrain.com/christmas-events-for-kids): the finder for Santa visits, story times, tree lightings, markets and holiday shows: 3,493 city guides in 46 countries, searchable by city or by map, each with dates, times, costs and a link to the host. As of November 10, 2026, 795 cities have confirmed 2026 events and the rest open as hosts post their dates. Every city guide is listed at the end of this file
+- [Christmas Events for Kids Near Me](https://www.rallytakesthetrain.com/christmas-events-for-kids): the finder for Santa visits, story times, tree lightings, markets and holiday shows: 3,503 city guides in 46 countries, searchable by city or by map, each with dates, times, costs and a link to the host. As of November 10, 2026, 795 cities have confirmed 2026 events and the rest open as hosts post their dates. Every city guide is listed at the end of this file
 - [Christmas Events for Kids: latest guides](https://www.rallytakesthetrain.com/christmas-events): the running index of country, state and city Christmas guides, newest first
-- [Christmas Eve Services Near Me](https://www.rallytakesthetrain.com/christmas-eve-services-near-me): Christmas Eve 2026 (Thursday, December 24) church service times at 12,089 churches in 1,106 cities, family and children's services first, searchable by city, region or tradition, with each listing linked to the church's own page. Country guides: [Christmas Eve Services in the United States](https://www.rallytakesthetrain.com/christmas-eve-services/united-states); [Christmas Eve Services in Canada](https://www.rallytakesthetrain.com/christmas-eve-services-canada/canada); [Messes et célébrations de la veille de Noël au Québec et au Canada français](https://www.rallytakesthetrain.com/messes-de-noel-quebec-canada/quebec-et-canada-francais); [Christmas Eve Services in the United Kingdom](https://www.rallytakesthetrain.com/christmas-eve-services-uk/united-kingdom); [Christmas Eve Services in Australia](https://www.rallytakesthetrain.com/christmas-eve-services-australia/australia); [日本のクリスマスイブ礼拝・ミサ](https://www.rallytakesthetrain.com/christmas-eve-reihai-japan/japan)
+- [Christmas Eve Services Near Me](https://www.rallytakesthetrain.com/christmas-eve-services-near-me): Christmas Eve 2026 (Thursday, December 24) church service times at 12,122 churches in 1,106 cities, family and children's services first, searchable by city, region or tradition, with each listing linked to the church's own page. Country guides: [Christmas Eve Services in the United States](https://www.rallytakesthetrain.com/christmas-eve-services/united-states); [Christmas Eve Services in Canada](https://www.rallytakesthetrain.com/christmas-eve-services-canada/canada); [Messes et célébrations de la veille de Noël au Québec et au Canada français](https://www.rallytakesthetrain.com/messes-de-noel-quebec-canada/quebec-et-canada-francais); [Christmas Eve Services in the United Kingdom](https://www.rallytakesthetrain.com/christmas-eve-services-uk/united-kingdom); [Christmas Eve Services in Australia](https://www.rallytakesthetrain.com/christmas-eve-services-australia/australia); [日本のクリスマスイブ礼拝・ミサ](https://www.rallytakesthetrain.com/christmas-eve-reihai-japan/japan)
 - [Christmas Eve Services: latest U.S. pages](https://www.rallytakesthetrain.com/christmas-eve-services): the running index of U.S. Christmas Eve service pages by city, state and denomination (each other country has its own index, listed in the Christmas Eve directory below)
 - [Rally's Christmas Eve Express: Christmas Eve Tracker for Kids](https://www.rallytakesthetrain.com/christmas-eve-tracker): a free tracker that follows Rally the corgi's Christmas Train around the world on Christmas Eve, delivering presents in more than 100 places, with a live map and globe, landmarks, a fact at every stop, how to say Merry Christmas in each country, a find-my-town arrival time, a passport of stamps and a December countdown calendar
 - [How to Say Merry Christmas in 103 Languages](https://www.rallytakesthetrain.com/merry-christmas-in-different-languages): the greeting in its own script, an English sound guide, audio and a kids' game for each language (every language page is listed below)
@@ -2005,16 +2005,16 @@ The same list with every address written in full is in the [complete file](https
 
 ## Christmas Eve services by country, region, city and tradition (2026)
 
-Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Christmas Eve service, family and children's services first, with addresses, maps and 2026 times as each church posts them. Every listing links to the church's own page; confirm times there. As of November 22, 2026: 12,089 churches in 1,106 cities in five countries (the United States, Canada, the United Kingdom, Australia and Japan), plus French-language pages for Quebec and French-speaking Canada. Cities are added weekly.
+Christmas Eve is Thursday, December 24, 2026. Each page lists churches with a Christmas Eve service, family and children's services first, with addresses, maps and 2026 times as each church posts them. Every listing links to the church's own page; confirm times there. As of November 23, 2026: 12,122 churches in 1,106 cities in five countries (the United States, Canada, the United Kingdom, Australia and Japan), plus French-language pages for Quebec and French-speaking Canada. Cities are added weekly.
 
 - [Christmas Eve Services Near Me 2026: Times by City](https://www.rallytakesthetrain.com/christmas-eve-services-near-me): the searchable hub, with a guide for each country
 - [Add your church's Christmas Eve services (free listing)](https://www.rallytakesthetrain.com/add-christmas-eve-service)
 
 Each country has its own section of the site and its own language and region code, given in its heading; the pages for Canada and Australia use local church names (for example United Church in Canada and Uniting Church in Australia). In each list a place comes first, then its pages for single traditions after the semicolon.
 
-### United States (1,207 pages in English, hreflang en-US)
+### United States (1,210 pages in English, hreflang en-US)
 
-- [Christmas Eve Services in the United States](https://www.rallytakesthetrain.com/christmas-eve-services/united-states): Christmas Eve 2026 in the United States: 7386 churches listed in 741 cities, by state, city and tradition. Family services first, times as churches post them.
+- [Christmas Eve Services in the United States](https://www.rallytakesthetrain.com/christmas-eve-services/united-states): Christmas Eve 2026 in the United States: 7419 churches listed in 741 cities, by state, city and tradition. Family services first, times as churches post them.
 - [All United States Christmas Eve pages, newest first](https://www.rallytakesthetrain.com/christmas-eve-services)
 
 By tradition, nationwide:
@@ -2232,7 +2232,7 @@ By city, with tradition pages after the semicolon:
 - [Chico, CA](https://www.rallytakesthetrain.com/christmas-eve-services/chico-ca)
 - [Chino Hills, CA](https://www.rallytakesthetrain.com/christmas-eve-services/chino-hills-ca)
 - [Christiansburg, VA](https://www.rallytakesthetrain.com/christmas-eve-services/christiansburg-va)
-- [Cincinnati, OH](https://www.rallytakesthetrain.com/christmas-eve-services/cincinnati-oh); [Catholic](https://www.rallytakesthetrain.com/christmas-eve-services/cincinnati-oh-catholic), [Presbyterian](https://www.rallytakesthetrain.com/christmas-eve-services/cincinnati-oh-presbyterian)
+- [Cincinnati, OH](https://www.rallytakesthetrain.com/christmas-eve-services/cincinnati-oh); [Catholic](https://www.rallytakesthetrain.com/christmas-eve-services/cincinnati-oh-catholic), [Episcopal](https://www.rallytakesthetrain.com/christmas-eve-services/cincinnati-oh-episcopal), [Presbyterian](https://www.rallytakesthetrain.com/christmas-eve-services/cincinnati-oh-presbyterian)
 - [Clarksville, IN](https://www.rallytakesthetrain.com/christmas-eve-services/clarksville-in)
 - [Clarksville, TN](https://www.rallytakesthetrain.com/christmas-eve-services/clarksville-tn)
 - [Clermont, FL](https://www.rallytakesthetrain.com/christmas-eve-services/clermont-fl)
@@ -2319,7 +2319,7 @@ By city, with tradition pages after the semicolon:
 - [Fort Myers, FL](https://www.rallytakesthetrain.com/christmas-eve-services/fort-myers-fl); [Catholic](https://www.rallytakesthetrain.com/christmas-eve-services/fort-myers-fl-catholic)
 - [Fort Pierce, FL](https://www.rallytakesthetrain.com/christmas-eve-services/fort-pierce-fl)
 - [Fort Smith, AR](https://www.rallytakesthetrain.com/christmas-eve-services/fort-smith-ar)
-- [Fort Wayne, IN](https://www.rallytakesthetrain.com/christmas-eve-services/fort-wayne-in)
+- [Fort Wayne, IN](https://www.rallytakesthetrain.com/christmas-eve-services/fort-wayne-in); [Catholic](https://www.rallytakesthetrain.com/christmas-eve-services/fort-wayne-in-catholic)
 - [Fort Worth, TX](https://www.rallytakesthetrain.com/christmas-eve-services/fort-worth-tx)
 - [Framingham, MA](https://www.rallytakesthetrain.com/christmas-eve-services/framingham-ma)
 - [Frankford, DE](https://www.rallytakesthetrain.com/christmas-eve-services/frankford-de)
@@ -2576,7 +2576,7 @@ By city, with tradition pages after the semicolon:
 - [Newton, NC](https://www.rallytakesthetrain.com/christmas-eve-services/newton-nc)
 - [Newtown, PA](https://www.rallytakesthetrain.com/christmas-eve-services/newtown-pa)
 - [Niwot, CO](https://www.rallytakesthetrain.com/christmas-eve-services/niwot-co)
-- [Norfolk, VA](https://www.rallytakesthetrain.com/christmas-eve-services/norfolk-va); [Baptist](https://www.rallytakesthetrain.com/christmas-eve-services/norfolk-va-baptist)
+- [Norfolk, VA](https://www.rallytakesthetrain.com/christmas-eve-services/norfolk-va); [Baptist](https://www.rallytakesthetrain.com/christmas-eve-services/norfolk-va-baptist), [Episcopal](https://www.rallytakesthetrain.com/christmas-eve-services/norfolk-va-episcopal)
 - [Normal, IL](https://www.rallytakesthetrain.com/christmas-eve-services/normal-il)
 - [North East, MD](https://www.rallytakesthetrain.com/christmas-eve-services/north-east-md)
 - [North Fort Myers, FL](https://www.rallytakesthetrain.com/christmas-eve-services/north-fort-myers-fl)
@@ -3402,7 +3402,7 @@ By city, with tradition pages after the semicolon:
 
 ## Christmas events for kids: every country, state and city guide (2026)
 
-3,493 city guides in 46 countries (as of November 22, 2026). Each guide lists confirmed Christmas events for kids (Santa visits, story times, tree lightings, markets, light displays, holiday shows) with dates, times, costs and a link to the host, plus the story of Christmas in that city. Thousands of individual event pages sit under these guides and are not listed here; each city guide links to them.
+3,503 city guides in 46 countries (as of November 23, 2026). Each guide lists confirmed Christmas events for kids (Santa visits, story times, tree lightings, markets, light displays, holiday shows) with dates, times, costs and a link to the host, plus the story of Christmas in that city. Thousands of individual event pages sit under these guides and are not listed here; each city guide links to them.
 
 - [Christmas Events for Kids Near Me 2026](https://www.rallytakesthetrain.com/christmas-events-for-kids): the searchable finder and map
 - [Christmas Events for Kids: latest guides](https://www.rallytakesthetrain.com/christmas-events): the running index
@@ -3939,7 +3939,7 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Latvia (4 cities; Latvian pages, hreflang lv-LV, unless marked)
 
-- [Latvia: country guide (Latvian)](https://www.rallytakesthetrain.com/christmas-events/latvia): 28 Christmas events for kids in Latvia for 2026, 5 free, in Riga, Liepāja, Rēzekne: markets, shows and Santa. Dates and costs.
+- [Latvia: country guide (Latvian)](https://www.rallytakesthetrain.com/christmas-events/latvia): 69 Christmas events for kids in Latvia for 2026, 18 free, in Riga, Liepāja, Rēzekne: markets, shows and Santa. Dates and costs.
 - [Daugavpils](https://www.rallytakesthetrain.com/christmas-events/daugavpils-lv)
 - [Jelgava](https://www.rallytakesthetrain.com/christmas-events/jelgava-lv)
 - [Liepāja](https://www.rallytakesthetrain.com/christmas-events/liepaja-lv)
@@ -4290,8 +4290,8 @@ Each country heading names the language code that most of its pages use; a page 
 
 ### Spain (145 cities; Spanish pages, hreflang es-ES, unless marked)
 
-- [Spain: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-spain-with-kids): Christmas events for kids in Spain for 2026: 155 family events in 9 cities, 58 free, with dates, prices and tips for visiting families. (hreflang en-ES)
-- [Spain: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-espana): Qué hacer en Navidad con niños en España: 374 planes en 146 ciudades, 95 gratis. Cabalgatas de Reyes, luces, cuentacuentos y espectáculos.
+- [Spain: country guide](https://www.rallytakesthetrain.com/christmas-events/christmas-in-spain-with-kids): Christmas events for kids in Spain for 2026: 127 family events in 9 cities, 42 free, with dates, prices and tips for visiting families. (hreflang en-ES)
+- [Spain: country guide (Español)](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-espana): Qué hacer en Navidad con niños en España: 442 planes en 146 ciudades, 155 gratis. Cabalgatas de Reyes, luces, cuentacuentos y espectáculos.
 - [A Coruña](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-a-coruna)
 - [Albacete](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-albacete)
 - [Alcalá de Guadaíra](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-alcala-de-guadaira)
@@ -5091,7 +5091,7 @@ Each country heading names the language code that most of its pages use; a page 
 - [Zinacantepec](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-zinacantepec)
 - [Zitácuaro](https://www.rallytakesthetrain.com/christmas-events/navidad-con-ninos-zitacuaro)
 
-### United States (1,518 cities; English pages, hreflang en-US)
+### United States (1,528 cities; English pages, hreflang en-US)
 
 - [Alabama: state guide](https://www.rallytakesthetrain.com/christmas-events/alabama); cities: [Alabaster](https://www.rallytakesthetrain.com/christmas-events/alabaster-al), [Albertville](https://www.rallytakesthetrain.com/christmas-events/albertville-al), [Auburn](https://www.rallytakesthetrain.com/christmas-events/auburn-al), [Birmingham](https://www.rallytakesthetrain.com/christmas-events/birmingham-al), [Daphne](https://www.rallytakesthetrain.com/christmas-events/daphne-al), [Decatur](https://www.rallytakesthetrain.com/christmas-events/decatur-al), [Dothan](https://www.rallytakesthetrain.com/christmas-events/dothan-al), [Enterprise](https://www.rallytakesthetrain.com/christmas-events/enterprise-al), [Foley](https://www.rallytakesthetrain.com/christmas-events/foley-al), [Gadsden](https://www.rallytakesthetrain.com/christmas-events/gadsden-al), [Homewood](https://www.rallytakesthetrain.com/christmas-events/homewood-al), [Huntsville](https://www.rallytakesthetrain.com/christmas-events/huntsville-al), [Millbrook](https://www.rallytakesthetrain.com/christmas-events/millbrook-al), [Mobile](https://www.rallytakesthetrain.com/christmas-events/mobile-al), [Montgomery](https://www.rallytakesthetrain.com/christmas-events/montgomery-al), [Opelika](https://www.rallytakesthetrain.com/christmas-events/opelika-al), [Prattville](https://www.rallytakesthetrain.com/christmas-events/prattville-al), [Saraland](https://www.rallytakesthetrain.com/christmas-events/saraland-al), [Tuscaloosa](https://www.rallytakesthetrain.com/christmas-events/tuscaloosa-al), [Vestavia Hills](https://www.rallytakesthetrain.com/christmas-events/vestavia-hills-al)
 - [Alaska: state guide](https://www.rallytakesthetrain.com/christmas-events/alaska); cities: [Anchorage](https://www.rallytakesthetrain.com/christmas-events/anchorage-ak), [Fairbanks](https://www.rallytakesthetrain.com/christmas-events/fairbanks-ak), [Seward](https://www.rallytakesthetrain.com/christmas-events/seward-ak), [Wasilla](https://www.rallytakesthetrain.com/christmas-events/wasilla-ak)
