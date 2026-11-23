@@ -1,10 +1,10 @@
 {
  "today": "2026-11-22",
  "sitemap_urls": 28247,
- "city_pages": 4481,
+ "city_pages": 4531,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 25342,
+ "event_pages_listed": 25518,
  "count_mismatch": [
   [
    "/christmas-events/brockton-ma",
@@ -12,69 +12,9 @@
    2
   ],
   [
-   "/christmas-events/deltona-fl",
-   0,
-   2
-  ],
-  [
    "/christmas-events/framingham-ma",
    0,
    3
-  ],
-  [
-   "/christmas-events/hanford-ca",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/johnson-city-tn",
-   0,
-   3
-  ],
-  [
-   "/christmas-events/madera-ca",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-dos-hermanas",
-   0,
-   6
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-jaen",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-mostoles",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-reus",
-   0,
-   7
-  ],
-  [
-   "/christmas-events/navidad-con-ninos-torrejon-de-ardoz",
-   0,
-   4
-  ],
-  [
-   "/christmas-events/reading-pa",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/ridgedale-mo",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/san-marcos-tx",
-   0,
-   1
   ]
  ],
  "uncounted_city_pages": [
