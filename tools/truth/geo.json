@@ -15,6 +15,10 @@
 56.27,
 90.5
 ],
+"/christmas-events/adazi-lv": [
+57.08,
+24.32
+],
 "/christmas-events/addison-il": [
 41.93,
 -87.99
@@ -31,10 +35,16 @@
 51.29,
 -114.01
 ],
+"/christmas-events/aizpute-lv": [
+56.72,
+21.61
+],
 "/christmas-events/ajax-on": [
 43.85,
 -79.02
 ],
+"/christmas-events/akhali-tseli-batumi-ge": [],
+"/christmas-events/akhali-tseli-tbilisi-ge": [],
 "/christmas-events/al-ain-ae": [
 24.22,
 55.75
@@ -127,9 +137,17 @@
 14.53,
 121.15
 ],
+"/christmas-events/ankara-tr": [
+39.92,
+32.85
+],
 "/christmas-events/ankeny-ia": [
 41.73,
 -93.61
+],
+"/christmas-events/antalya-tr": [
+36.89,
+30.7
 ],
 "/christmas-events/antigua-and-barbuda": [
 17.22,
@@ -271,6 +289,10 @@
 47.14,
 39.74
 ],
+"/christmas-events/batumi-ge": [
+41.65,
+41.64
+],
 "/christmas-events/baytown-tx": [
 29.74,
 -94.98
@@ -402,6 +424,10 @@
 "/christmas-events/boca-raton-fl": [
 26.36,
 -80.08
+],
+"/christmas-events/bodrum-tr": [
+37.03,
+27.43
 ],
 "/christmas-events/boksburg-za": [
 -26.21,
@@ -638,6 +664,10 @@
 "/christmas-events/centurion-za": [
 -25.84,
 28.18
+],
+"/christmas-events/cesis-lv": [
+57.31,
+25.27
 ],
 "/christmas-events/ceske-budejovice-cz": [
 48.97,
@@ -979,6 +1009,10 @@
 56.35,
 37.52
 ],
+"/christmas-events/dobele-lv": [
+56.63,
+23.28
+],
 "/christmas-events/domodedovo-ru": [
 55.44,
 37.77
@@ -1158,6 +1192,10 @@
 "/christmas-events/erd-hu": [
 47.38,
 18.92
+],
+"/christmas-events/eskisehir-tr": [
+39.77,
+30.52
 ],
 "/christmas-events/esquimalt-bc": [
 48.43,
@@ -1463,6 +1501,10 @@
 43.19,
 -79.56
 ],
+"/christmas-events/grobina-lv": [
+56.54,
+21.17
+],
 "/christmas-events/grove-city-oh": [
 39.88,
 -83.09
@@ -1695,6 +1737,10 @@
 47.53,
 -122.04
 ],
+"/christmas-events/istanbul-tr": [
+41.01,
+28.98
+],
 "/christmas-events/ithaca-ny": [
 42.44,
 -76.55
@@ -1711,6 +1757,10 @@
 56.85,
 53.21
 ],
+"/christmas-events/izmir-tr": [
+38.42,
+27.13
+],
 "/christmas-events/jacksonville-nc": [
 34.75,
 -77.43
@@ -1722,6 +1772,10 @@
 "/christmas-events/jeffreys-bay-za": [
 -34.05,
 24.92
+],
+"/christmas-events/jekabpils-lv": [
+56.5,
+25.87
 ],
 "/christmas-events/jersey": [
 49.21,
@@ -1747,9 +1801,15 @@
 46.02,
 -73.44
 ],
+"/christmas-events/jul-notteroy-no": [],
+"/christmas-events/jul-sandvika-no": [],
 "/christmas-events/jupiter-fl": [
 26.93,
 -80.09
+],
+"/christmas-events/jurmala-lv": [
+56.97,
+23.79
 ],
 "/christmas-events/jurupa-valley-ca": [
 33.98,
@@ -1810,6 +1870,10 @@
 "/christmas-events/keffi-ng": [
 8.85,
 7.88
+],
+"/christmas-events/kekava-lv": [
+56.83,
+24.23
 ],
 "/christmas-events/kemerovo-ru": [
 55.36,
@@ -1995,6 +2059,10 @@
 59.91,
 30.51
 ],
+"/christmas-events/kuldiga-lv": [
+56.97,
+21.96
+],
 "/christmas-events/kuna-id": [
 43.49,
 -116.42
@@ -2171,6 +2239,10 @@
 13.24,
 123.54
 ],
+"/christmas-events/ligatne-lv": [
+57.23,
+25.04
+],
 "/christmas-events/lipetsk-ru": [
 52.69,
 39.11
@@ -2267,6 +2339,10 @@
 32.63,
 -90.0
 ],
+"/christmas-events/madona-lv": [
+56.85,
+26.22
+],
 "/christmas-events/magadan-ru": [
 63.55,
 154.01
@@ -2356,6 +2432,10 @@
 39.46,
 -77.96
 ],
+"/christmas-events/marupe-lv": [
+56.9,
+24.04
+],
 "/christmas-events/maryland-heights-mo": [
 38.72,
 -90.44
@@ -2427,6 +2507,10 @@
 "/christmas-events/merrick-ny": [
 40.65,
 -73.55
+],
+"/christmas-events/mersin-tr": [
+36.8,
+34.63
 ],
 "/christmas-events/mesquite-tx": [
 32.77,
@@ -5021,6 +5105,10 @@
 38.79,
 -90.7
 ],
+"/christmas-events/ogre-lv": [
+56.82,
+24.61
+],
 "/christmas-events/okotoks-ab": [
 50.73,
 -113.98
@@ -5028,6 +5116,10 @@
 "/christmas-events/oktyabrsky-ru": [
 54.48,
 53.47
+],
+"/christmas-events/olaine-lv": [
+56.79,
+23.93
 ],
 "/christmas-events/olive-branch-ms": [
 34.96,
@@ -5407,6 +5499,10 @@
 32.46,
 -86.48
 ],
+"/christmas-events/preili-lv": [
+56.29,
+26.73
+],
 "/christmas-events/prescott-az": [
 34.54,
 -112.47
@@ -5502,6 +5598,10 @@
 "/christmas-events/revelstoke-bc": [
 51.0,
 -118.2
+],
+"/christmas-events/rezekne-lv": [
+56.51,
+27.33
 ],
 "/christmas-events/richardson-tx": [
 32.95,
@@ -5671,6 +5771,10 @@
 45.26,
 -74.13
 ],
+"/christmas-events/salaspils-lv": [
+56.86,
+24.35
+],
 "/christmas-events/salem-va": [
 37.29,
 -80.06
@@ -5682,6 +5786,10 @@
 "/christmas-events/samara-ru": [
 53.2,
 50.1
+],
+"/christmas-events/samsun-tr": [
+41.23,
+35.97
 ],
 "/christmas-events/san-bernardino-ca": [
 34.83,
@@ -5864,6 +5972,10 @@
 59.62,
 17.72
 ],
+"/christmas-events/sigulda-lv": [
+57.15,
+24.86
+],
 "/christmas-events/silang-ph": [
 14.22,
 120.97
@@ -5891,6 +6003,10 @@
 "/christmas-events/slidell-la": [
 30.28,
 -89.78
+],
+"/christmas-events/smiltene-lv": [
+57.42,
+25.9
 ],
 "/christmas-events/smiths-falls-on": [
 44.9,
@@ -6100,6 +6216,10 @@
 14.57,
 121.13
 ],
+"/christmas-events/tbilisi-ge": [
+41.69,
+44.8
+],
 "/christmas-events/tchaikovsky-ru": [
 56.35,
 89.61
@@ -6200,6 +6320,10 @@
 33.85,
 -84.22
 ],
+"/christmas-events/tukums-lv": [
+56.97,
+23.15
+],
 "/christmas-events/tula-ru": [
 54.19,
 37.62
@@ -6265,9 +6389,17 @@
 50.66,
 14.04
 ],
+"/christmas-events/valka-lv": [
+57.77,
+26.02
+],
 "/christmas-events/vallejo-ca": [
 38.1,
 -122.26
+],
+"/christmas-events/valmiera-lv": [
+57.54,
+25.43
 ],
 "/christmas-events/valparaiso-in": [
 41.47,
@@ -6296,6 +6428,10 @@
 "/christmas-events/veliky-novgorod-ru": [
 58.52,
 31.28
+],
+"/christmas-events/ventspils-lv": [
+57.39,
+21.56
 ],
 "/christmas-events/verdun-qc": [
 45.46,
@@ -6637,6 +6773,14 @@
 52.62,
 38.53
 ],
+"/christmas-events/yilbasi-ankara-tr": [],
+"/christmas-events/yilbasi-antalya-tr": [],
+"/christmas-events/yilbasi-bodrum-tr": [],
+"/christmas-events/yilbasi-eskisehir-tr": [],
+"/christmas-events/yilbasi-istanbul-tr": [],
+"/christmas-events/yilbasi-izmir-tr": [],
+"/christmas-events/yilbasi-mersin-tr": [],
+"/christmas-events/yilbasi-samsun-tr": [],
 "/christmas-events/yorkville-il": [
 41.64,
 -88.45
