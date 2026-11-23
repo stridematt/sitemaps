@@ -10909,4 +10909,288 @@
     <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-riga-lv"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/riga-lv"/>
   </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/adazi-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/adazi-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-adazi-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-adazi-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/adazi-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-adazi-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/adazi-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-adazi-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-adazi-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/adazi-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/aizpute-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/aizpute-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-aizpute-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-aizpute-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/aizpute-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-aizpute-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/aizpute-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-aizpute-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-aizpute-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/aizpute-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-batumi-ge</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-batumi-ge"/>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-batumi-ge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/batumi-ge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/batumi-ge"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/batumi-ge</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-batumi-ge"/>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-batumi-ge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/batumi-ge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/batumi-ge"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-sakartvelo</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-sakartvelo"/>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-sakartvelo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/georgia-country"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/georgia-country"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/georgia-country</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-sakartvelo"/>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-sakartvelo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/georgia-country"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/georgia-country"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-tbilisi-ge</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-tbilisi-ge"/>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-tbilisi-ge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/tbilisi-ge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/tbilisi-ge"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/tbilisi-ge</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-tbilisi-ge"/>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://www.rallytakesthetrain.com/christmas-events/akhali-tseli-tbilisi-ge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/tbilisi-ge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/tbilisi-ge"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ankara-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/ankara-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-ankara-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-ankara-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/ankara-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/yilbasi-ankara-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/ankara-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-ankara-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-ankara-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/ankara-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/antalya-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/antalya-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-antalya-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-antalya-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/antalya-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/yilbasi-antalya-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/antalya-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-antalya-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-antalya-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/antalya-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/bodrum-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/bodrum-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-bodrum-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-bodrum-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/bodrum-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/yilbasi-bodrum-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/bodrum-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-bodrum-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-bodrum-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/bodrum-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/cesis-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/cesis-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-cesis-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-cesis-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/cesis-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-cesis-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/cesis-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-cesis-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-cesis-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/cesis-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/dobele-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/dobele-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-dobele-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-dobele-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/dobele-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-dobele-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/dobele-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-dobele-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-dobele-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/dobele-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/eskisehir-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/eskisehir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-eskisehir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-eskisehir-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/eskisehir-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/yilbasi-eskisehir-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/eskisehir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-eskisehir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-eskisehir-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/eskisehir-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/istanbul-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/istanbul-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-istanbul-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-istanbul-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/istanbul-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/yilbasi-istanbul-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/istanbul-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-istanbul-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-istanbul-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/istanbul-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/izmir-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/izmir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-izmir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-izmir-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/izmir-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/yilbasi-izmir-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/izmir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-izmir-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-izmir-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/izmir-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/jul-notteroy-no</loc>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.rallytakesthetrain.com/christmas-events/jul-notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.rallytakesthetrain.com/christmas-events/jul-notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://www.rallytakesthetrain.com/christmas-events/jul-notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/notteroy-no"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/notteroy-no</loc>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.rallytakesthetrain.com/christmas-events/jul-notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.rallytakesthetrain.com/christmas-events/jul-notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://www.rallytakesthetrain.com/christmas-events/jul-notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/notteroy-no"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/notteroy-no"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/jul-sandvika-no</loc>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.rallytakesthetrain.com/christmas-events/jul-sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.rallytakesthetrain.com/christmas-events/jul-sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://www.rallytakesthetrain.com/christmas-events/jul-sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/sandvika-no"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/sandvika-no</loc>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.rallytakesthetrain.com/christmas-events/jul-sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.rallytakesthetrain.com/christmas-events/jul-sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://www.rallytakesthetrain.com/christmas-events/jul-sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/sandvika-no"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/sandvika-no"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/jurmala-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/jurmala-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-jurmala-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-jurmala-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/jurmala-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-jurmala-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/jurmala-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-jurmala-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-jurmala-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/jurmala-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/kekava-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/kekava-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kekava-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kekava-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/kekava-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kekava-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/kekava-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kekava-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kekava-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/kekava-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/kuldiga-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/kuldiga-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kuldiga-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kuldiga-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/kuldiga-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kuldiga-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/kuldiga-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kuldiga-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-kuldiga-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/kuldiga-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/madona-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/madona-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-madona-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-madona-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/madona-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-madona-lv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/madona-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-madona-lv"/>
+    <xhtml:link rel="alternate" hreflang="lv-LV" href="https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-madona-lv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/madona-lv"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/mersin-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/mersin-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-mersin-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-mersin-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/mersin-tr"/>
+  </url>
+  <url>
+    <loc>https://www.rallytakesthetrain.com/christmas-events/yilbasi-mersin-tr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rallytakesthetrain.com/christmas-events/mersin-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-mersin-tr"/>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.rallytakesthetrain.com/christmas-events/yilbasi-mersin-tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rallytakesthetrain.com/christmas-events/mersin-tr"/>
+  </url>
 </urlset>
