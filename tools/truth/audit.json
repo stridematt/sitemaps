@@ -1,42 +1,11 @@
 {
  "today": "2026-11-23",
- "sitemap_urls": 28123,
- "city_pages": 4531,
+ "sitemap_urls": 28302,
+ "city_pages": 4537,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 25552,
- "count_mismatch": [
-  [
-   "/christmas-events/bergen-no",
-   13,
-   15
-  ],
-  [
-   "/christmas-events/bodo-no",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/christmas-in-oslo-with-kids",
-   5,
-   16
-  ],
-  [
-   "/christmas-events/fredrikstad-no",
-   0,
-   1
-  ],
-  [
-   "/christmas-events/jul-sandvika-no",
-   1,
-   2
-  ],
-  [
-   "/christmas-events/oslo-no",
-   5,
-   16
-  ]
- ],
+ "event_pages_listed": 25577,
+ "count_mismatch": [],
  "uncounted_city_pages": [
   [
    "/christmas-events/navidad-con-ninos-ponce-pr",
