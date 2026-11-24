@@ -6,7 +6,7 @@ rallytakesthetrain.com is the official website for the book. It is operated by t
 
 Beyond the book, the site publishes free family guides. As of November 24, 2026 the site has about 24,600 pages (not counting about 18,000 individual event listings):
 
-- Christmas 2026: Christmas events for kids in 3,506 cities across 46 countries, Christmas Eve church services at 12,122 churches in 1,106 cities in the U.S., Canada, the UK, Australia and Japan (with French pages for Quebec and Japanese pages for Japan), a free Christmas Eve tracker for kids (Rally's Christmas Eve Express), how to say Merry Christmas in 103 languages, Christmas history by city, Christmas gift guides by age, and Christmas train rides in every U.S. state plus France, Germany, Austria, Switzerland, the UK and Italy.
+- Christmas 2026: Christmas events for kids in 3,630 cities across 46 countries, Christmas Eve church services at 12,122 churches in 1,106 cities in the U.S., Canada, the UK, Australia and Japan (with French pages for Quebec and Japanese pages for Japan), a free Christmas Eve tracker for kids (Rally's Christmas Eve Express), how to say Merry Christmas in 103 languages, Christmas history by city, Christmas gift guides by age, and Christmas train rides in every U.S. state plus France, Germany, Austria, Switzerland, the UK and Italy.
 - Train travel with kids: all 42 Amtrak routes (a practical guide and a stop-by-stop itinerary for each), Halloween and Thanksgiving train rides, and dog and pet policies for 84 trains and transit systems in the U.S. and Canada.
 - Train museums: guides to about 650 train museums, heritage railroads, trolley museums and depots in all 50 states and Washington, D.C., more than 70 of them reviewed and approved by the museum itself, plus Whistle Stop, a swipeable feed of train facts, videos and trivia.
 - For teachers: 43 free, standards-aligned train lesson plans for Pre-K to 5th grade, a read-aloud guide and a field trip planner.
@@ -176,7 +176,7 @@ Rally wakes up early because a big journey is ahead: a ride on the Amtrak Pacifi
 
 Free Christmas guides for families, researched from each host's own page and updated daily through the season. Dates, times and prices change; every listing links to the host, and families should confirm there before going.
 
-- [Christmas Events for Kids Near Me](https://www.rallytakesthetrain.com/christmas-events-for-kids): the finder for Santa visits, story times, tree lightings, markets and holiday shows: 3,506 city guides in 46 countries, searchable by city or by map, each with dates, times, costs and a link to the host. As of November 10, 2026, 795 cities have confirmed 2026 events and the rest open as hosts post their dates. Every city guide is listed at the end of this file
+- [Christmas Events for Kids Near Me](https://www.rallytakesthetrain.com/christmas-events-for-kids): the finder for Santa visits, story times, tree lightings, markets and holiday shows: 3,630 city guides in 46 countries, searchable by city or by map, each with dates, times, costs and a link to the host. As of November 10, 2026, 795 cities have confirmed 2026 events and the rest open as hosts post their dates. Every city guide is listed at the end of this file
 - [Christmas Events for Kids: latest guides](https://www.rallytakesthetrain.com/christmas-events): the running index of country, state and city Christmas guides, newest first
 - [Christmas Eve Services Near Me](https://www.rallytakesthetrain.com/christmas-eve-services-near-me): Christmas Eve 2026 (Thursday, December 24) church service times at 12,122 churches in 1,106 cities, family and children's services first, searchable by city, region or tradition, with each listing linked to the church's own page. Country guides: [Christmas Eve Services in the United States](https://www.rallytakesthetrain.com/christmas-eve-services/united-states); [Christmas Eve Services in Canada](https://www.rallytakesthetrain.com/christmas-eve-services-canada/canada); [Messes et célébrations de la veille de Noël au Québec et au Canada français](https://www.rallytakesthetrain.com/messes-de-noel-quebec-canada/quebec-et-canada-francais); [Christmas Eve Services in the United Kingdom](https://www.rallytakesthetrain.com/christmas-eve-services-uk/united-kingdom); [Christmas Eve Services in Australia](https://www.rallytakesthetrain.com/christmas-eve-services-australia/australia); [日本のクリスマスイブ礼拝・ミサ](https://www.rallytakesthetrain.com/christmas-eve-reihai-japan/japan)
 - [Christmas Eve Services: latest U.S. pages](https://www.rallytakesthetrain.com/christmas-eve-services): the running index of U.S. Christmas Eve service pages by city, state and denomination (each other country has its own index, listed in the Christmas Eve directory below)
@@ -3402,7 +3402,7 @@ By city, with tradition pages after the semicolon:
 
 ## Christmas events for kids: every country, state and city guide (2026)
 
-3,506 city guides in 46 countries (as of November 24, 2026). Each guide lists confirmed Christmas events for kids (Santa visits, story times, tree lightings, markets, light displays, holiday shows) with dates, times, costs and a link to the host, plus the story of Christmas in that city. Thousands of individual event pages sit under these guides and are not listed here; each city guide links to them.
+3,630 city guides in 46 countries (as of November 24, 2026). Each guide lists confirmed Christmas events for kids (Santa visits, story times, tree lightings, markets, light displays, holiday shows) with dates, times, costs and a link to the host, plus the story of Christmas in that city. Thousands of individual event pages sit under these guides and are not listed here; each city guide links to them.
 
 - [Christmas Events for Kids Near Me 2026](https://www.rallytakesthetrain.com/christmas-events-for-kids): the searchable finder and map
 - [Christmas Events for Kids: latest guides](https://www.rallytakesthetrain.com/christmas-events): the running index
@@ -3423,7 +3423,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 - [Belgium: country guide](/christmas-events/christmas-in-belgium-with-kids): Sinterklaas parades, Christmas markets, ice rinks and holiday shows in Brussels, Antwerp, Bruges, Ghent, Leuven, Liège and Namur. 88 free, dates and prices. (hreflang en-BE)
 - [Belgium: country guide (Français)](/christmas-events/noel-avec-les-enfants-belgique): Saint Nicolas, marchés de Noël, patinoires et spectacles à Bruxelles, Liège, Charleroi et Namur : 128 sorties en famille, dont 28 gratuites. Dates et prix. (hreflang fr-BE)
-- [Belgium: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-belgie): Sinterklaasintredes, kerstmarkten, schaatsbanen en kerstvoorstellingen in Antwerpen, Gent, Brugge en Leuven: 140 uitstappen met kinderen, 62 gratis. (hreflang nl-BE)
+- [Belgium: country guide (Nederlands)](/christmas-events/kerst-met-kinderen-belgie): Sinterklaasintredes, kerstmarkten, schaatsbanen en kerstvoorstellingen in Antwerpen, Gent, Brugge en Leuven: 139 uitstappen met kinderen, 62 gratis. (hreflang nl-BE)
 - [Antwerp](/christmas-events/christmas-in-antwerp-with-kids); [Nederlands](/christmas-events/kerst-met-kinderen-antwerpen) hreflang nl-BE
 - [Bruges](/christmas-events/christmas-in-bruges-with-kids); [Nederlands](/christmas-events/kerst-met-kinderen-brugge) hreflang nl-BE
 - [Brussels](/christmas-events/christmas-in-brussels-with-kids); [Français](/christmas-events/noel-avec-les-enfants-bruxelles) hreflang fr-BE
@@ -3453,7 +3453,7 @@ Links under the headings below are written as paths on this site: put https://ww
 ### Denmark (11 cities; Danish pages, hreflang da-DK, unless marked)
 
 - [Denmark: country guide](/christmas-events/christmas-in-denmark-with-kids): Christmas events for kids in Denmark for 2026: 6 family events in Copenhagen, 2 free, with dates, prices and tips for visiting families. (hreflang en-DK)
-- [Denmark: country guide (Dansk)](/christmas-events/denmark): Juleaktiviteter for børn i Danmark 2026: 446 aktiviteter med bekræftet dato i 17 byer, 222 gratis, med julemanden, luciaoptog og julemarkeder.
+- [Denmark: country guide (Dansk)](/christmas-events/denmark): Juleaktiviteter for børn i Danmark 2026: 445 aktiviteter med bekræftet dato i 17 byer, 221 gratis, med julemanden, luciaoptog og julemarkeder.
 - [Aalborg](/christmas-events/aalborg-dk)
 - [Aarhus](/christmas-events/aarhus-dk)
 - [Copenhagen](/christmas-events/christmas-in-copenhagen-with-kids) hreflang en; [Dansk](/christmas-events/copenhagen-dk)
@@ -3475,7 +3475,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Finland (34 cities; Finnish pages, hreflang fi-FI)
 
-- [Finland: country guide (Finnish)](/christmas-events/finland): Lasten joulutapahtumat Suomessa: 558 tapahtumaa, 34 kaupunkia, joista maksuttomia 207. Joulupukki, satutuokiot, valonäytökset ja muuta päivineen ja hintoineen.
+- [Finland: country guide (Finnish)](/christmas-events/finland): Lasten joulutapahtumat Suomessa: 555 tapahtumaa, 34 kaupunkia, joista maksuttomia 206. Joulupukki, satutuokiot, valonäytökset ja muuta päivineen ja hintoineen.
 - [Espoo](/christmas-events/espoo-fi)
 - [Helsinki](/christmas-events/helsinki-fi)
 - [Hyvinkää](/christmas-events/hyvinkaa-fi)
@@ -3616,7 +3616,7 @@ Links under the headings below are written as paths on this site: put https://ww
 ### Germany (151 cities; German pages, hreflang de-DE, unless marked)
 
 - [Germany: country guide](/christmas-events/christmas-in-germany-with-kids): Christmas events for kids in Germany for 2026: 501 family events in 12 cities, 183 free, with dates, prices and tips for visiting families. (hreflang en-DE)
-- [Germany: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-deutschland): Weihnachten mit Kindern in Deutschland: 2.074 geprüfte Tipps in 166 Städten, 570 kostenlos. Weihnachtsmärkte, Weihnachtsmärchen, Nikolaus und Lichterpfade.
+- [Germany: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-deutschland): Weihnachten mit Kindern in Deutschland: 2.069 geprüfte Tipps in 166 Städten, 569 kostenlos. Weihnachtsmärkte, Weihnachtsmärchen, Nikolaus und Lichterpfade.
 - [Aachen](/christmas-events/weihnachten-mit-kindern-aachen)
 - [Aalen](/christmas-events/weihnachten-mit-kindern-aalen)
 - [Annaberg-Buchholz](/christmas-events/weihnachten-mit-kindern-annaberg-buchholz)
@@ -4491,8 +4491,8 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Switzerland (7 cities; English pages, hreflang en, unless marked)
 
-- [Switzerland: country guide](/christmas-events/christmas-in-switzerland-with-kids): Christmas events for kids in Switzerland for 2026: 364 family events in 7 cities, 42 free, with dates, prices and tips for visiting families. (hreflang en-CH)
-- [Switzerland: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-schweiz): Weihnachten mit Kindern in der Schweiz: 246 geprüfte Tipps in 5 Städten, 23 kostenlos. Samichlaus, Weihnachtsmärkte, Kerzenziehen und Märchen. (hreflang de-CH)
+- [Switzerland: country guide](/christmas-events/christmas-in-switzerland-with-kids): Christmas events for kids in Switzerland for 2026: 362 family events in 7 cities, 42 free, with dates, prices and tips for visiting families. (hreflang en-CH)
+- [Switzerland: country guide (Deutsch)](/christmas-events/weihnachten-mit-kindern-schweiz): Weihnachten mit Kindern in der Schweiz: 244 geprüfte Tipps in 5 Städten, 23 kostenlos. Samichlaus, Weihnachtsmärkte, Kerzenziehen und Märchen. (hreflang de-CH)
 - [Switzerland: country guide (Français)](/christmas-events/noel-avec-les-enfants-suisse): Que faire à Noël avec les enfants en Suisse ? Voici 118 activités vérifiées dans 2 villes, dont 19 gratuites : saint Nicolas, marchés de Noël, spectacles. (hreflang fr-CH)
 - [Basel](/christmas-events/christmas-in-basel-with-kids); [Deutsch](/christmas-events/weihnachten-mit-kindern-basel) hreflang de-CH
 - [Bern](/christmas-events/christmas-in-bern-with-kids); [Deutsch](/christmas-events/weihnachten-mit-kindern-bern) hreflang de-CH
@@ -4548,7 +4548,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### United Kingdom (44 cities; English pages, hreflang en-GB)
 
-- [United Kingdom: country guide](/christmas-events/uk): Find 1,047 Christmas events for kids in 44 UK cities, 141 free: pantos, Santa’s grottos, light trails and more. Pick your city for dates and prices.
+- [United Kingdom: country guide](/christmas-events/uk): Find 1,046 Christmas events for kids in 44 UK cities, 141 free: pantos, Santa’s grottos, light trails and more. Pick your city for dates and prices.
 - [Aberdeen](/christmas-events/aberdeen-uk)
 - [Belfast](/christmas-events/belfast-uk)
 - [Birmingham](/christmas-events/birmingham-uk)
@@ -4956,7 +4956,7 @@ Links under the headings below are written as paths on this site: put https://ww
 ### Mexico (133 cities; Spanish pages, hreflang es-MX, unless marked)
 
 - [Mexico: country guide](/christmas-events/christmas-in-mexico-with-kids): Christmas events for kids in Mexico for 2026: 7 family events in Mexico City, with dates, prices and tips for visiting families. (hreflang en-MX)
-- [Mexico: country guide (Español)](/christmas-events/navidad-con-ninos-mexico): Qué hacer en Navidad con niños en México: 127 actividades con fecha en 133 ciudades, 24 gratis: Macro Navidad, Villa Iluminada de Atlixco, Cascanueces y más.
+- [Mexico: country guide (Español)](/christmas-events/navidad-con-ninos-mexico): Qué hacer en Navidad con niños en México: 126 actividades con fecha en 133 ciudades, 24 gratis: Macro Navidad, Villa Iluminada de Atlixco, Cascanueces y más.
 - [Acapulco](/christmas-events/navidad-con-ninos-acapulco)
 - [Acolman](/christmas-events/navidad-con-ninos-acolman)
 - [Aguascalientes](/christmas-events/navidad-con-ninos-aguascalientes)
@@ -5091,7 +5091,7 @@ Links under the headings below are written as paths on this site: put https://ww
 - [Zinacantepec](/christmas-events/navidad-con-ninos-zinacantepec)
 - [Zitácuaro](/christmas-events/navidad-con-ninos-zitacuaro)
 
-### United States (1,531 cities; English pages, hreflang en-US)
+### United States (1,655 cities; English pages, hreflang en-US)
 
 - [Alabama: state guide](/christmas-events/alabama); cities: [Alabaster](/christmas-events/alabaster-al), [Albertville](/christmas-events/albertville-al), [Auburn](/christmas-events/auburn-al), [Birmingham](/christmas-events/birmingham-al), [Daphne](/christmas-events/daphne-al), [Decatur](/christmas-events/decatur-al), [Dothan](/christmas-events/dothan-al), [Enterprise](/christmas-events/enterprise-al), [Foley](/christmas-events/foley-al), [Gadsden](/christmas-events/gadsden-al), [Homewood](/christmas-events/homewood-al), [Huntsville](/christmas-events/huntsville-al), [Millbrook](/christmas-events/millbrook-al), [Mobile](/christmas-events/mobile-al), [Montgomery](/christmas-events/montgomery-al), [Opelika](/christmas-events/opelika-al), [Prattville](/christmas-events/prattville-al), [Saraland](/christmas-events/saraland-al), [Tuscaloosa](/christmas-events/tuscaloosa-al), [Vestavia Hills](/christmas-events/vestavia-hills-al)
 - [Alaska: state guide](/christmas-events/alaska); cities: [Anchorage](/christmas-events/anchorage-ak), [Fairbanks](/christmas-events/fairbanks-ak), [Seward](/christmas-events/seward-ak), [Wasilla](/christmas-events/wasilla-ak)
@@ -5229,7 +5229,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Japan (181 cities; Japanese pages, hreflang ja-JP, unless marked)
 
-- [Japan: country guide](/christmas-events/christmas-in-japan-with-kids): Christmas events for kids in Japan for 2026: 144 family events in 12 cities, 41 free, with dates, prices and tips for visiting families. (hreflang en-JP)
+- [Japan: country guide](/christmas-events/christmas-in-japan-with-kids): Christmas events for kids in Japan for 2026: 143 family events in 12 cities, 41 free, with dates, prices and tips for visiting families. (hreflang en-JP)
 - [Japan: country guide (日本語)](/christmas-events/kodomo-christmas-japan): 子連れで楽しめるクリスマスイベントを都市別にまとめたガイドです。東京、大阪、名古屋、横浜、札幌などの181の都市・地域で1521件（うち無料409件）を掲載。イルミネーションやサンタさんに会えるイベントの日時、料金、主催者へのリンクは各都市のページで確認できます。
 - [Ageo](/christmas-events/kodomo-christmas-ageo)
 - [Aizu Wakamatsu](/christmas-events/kodomo-christmas-aizu-wakamatsu)
@@ -5425,7 +5425,7 @@ Links under the headings below are written as paths on this site: put https://ww
 
 ### Philippines (41 cities; English pages, hreflang en-PH)
 
-- [Philippines: country guide](/christmas-events/philippines): 102 Christmas events for kids in the Philippines for 2026, 89 free: pailaw, Santa, Christmas villages and Nutcrackers, with dates checked. Pick your city.
+- [Philippines: country guide](/christmas-events/philippines): 101 Christmas events for kids in the Philippines for 2026, 88 free: pailaw, Santa, Christmas villages and Nutcrackers, with dates checked. Pick your city.
 - [Bacolod](/christmas-events/bacolod-ph)
 - [Baguio](/christmas-events/baguio-ph)
 - [Batangas City](/christmas-events/batangas-ph)
