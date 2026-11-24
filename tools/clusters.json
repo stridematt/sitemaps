@@ -6471,6 +6471,86 @@
           ]
         }
       ]
+    },
+    {
+      "name": "auto:bergen-no",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-bergen-with-kids",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/bergen-no",
+          "hreflang": [
+            "nb",
+            "no",
+            "nb-NO"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-bergen-with-kids",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:bodo-no",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-bodo-with-kids",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/bodo-no",
+          "hreflang": [
+            "nb",
+            "no",
+            "nb-NO"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-bodo-with-kids",
+          "hreflang": [
+            "en"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:christmas-in-fredrikstad-with-kids",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-fredrikstad-with-kids",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-fredrikstad-with-kids",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/fredrikstad-no",
+          "hreflang": [
+            "nb",
+            "no",
+            "nb-NO"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:christmas-in-trondheim-with-kids",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-trondheim-with-kids",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/christmas-in-trondheim-with-kids",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/trondheim-no",
+          "hreflang": [
+            "nb",
+            "no",
+            "nb-NO"
+          ]
+        }
+      ]
     }
   ]
 }
