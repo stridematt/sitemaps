@@ -6243,6 +6243,234 @@
           ]
         }
       ]
+    },
+    {
+      "name": "auto:ogre-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ogre-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ogre-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-ogre-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:olaine-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/olaine-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/olaine-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-olaine-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:rezekne-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/rezekne-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/rezekne-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-rezekne-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:salaspils-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/salaspils-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/salaspils-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-salaspils-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:samsun-tr",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/samsun-tr",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/samsun-tr",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/yilbasi-samsun-tr",
+          "hreflang": [
+            "tr",
+            "tr-TR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:sigulda-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/sigulda-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/sigulda-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-sigulda-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:smiltene-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/smiltene-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/smiltene-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-smiltene-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:tukums-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/tukums-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/tukums-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-tukums-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:turkey",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/turkey",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/turkey",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/yilbasi-turkiye",
+          "hreflang": [
+            "tr",
+            "tr-TR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:valka-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/valka-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/valka-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-valka-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:valmiera-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/valmiera-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/valmiera-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-valmiera-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto:ventspils-lv",
+      "x_default": "https://www.rallytakesthetrain.com/christmas-events/ventspils-lv",
+      "pages": [
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ventspils-lv",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "url": "https://www.rallytakesthetrain.com/christmas-events/ziemassvetki-ventspils-lv",
+          "hreflang": [
+            "lv",
+            "lv-LV"
+          ]
+        }
+      ]
     }
   ]
 }
