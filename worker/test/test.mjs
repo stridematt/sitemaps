@@ -8,7 +8,8 @@ import vm from 'node:vm';
 
 const ROOT = new URL('../../', import.meta.url).pathname;
 import { FIX } from './paths.mjs';
-import { healCity, refToday } from '../src/heal.js';
+import { refToday } from '../src/heal.js';
+import { runHealer } from '../src/index.js';
 const SITE = 'https://www.rallytakesthetrain.com';
 const clustersText = readFileSync(ROOT + 'tools/clusters.json', 'utf8');
 
@@ -270,11 +271,11 @@ await t('hub: counts healed from live.json, hreflang still tagged', async () => 
   await r2.arrayBuffer();
 });
 
-await t('city page: served as is when nothing is stale today, else healed exactly as healCity does; state guide is healed', async () => {
+await t('city page: served as is when nothing is stale today, else healed exactly as runHealer does; state guide is healed', async () => {
   const r = await get('/christmas-events/denver-co');
   const h = await r.text();
   const saved = readFileSync(DYN + 'christmas-events_denver-co.html', 'utf8');
-  const want = healCity(saved, refToday(), JSON.parse(liveText).pages, '/christmas-events/denver-co');
+  const want = runHealer('city', saved, JSON.parse(liveText), '/christmas-events/denver-co', refToday());
   if (want === null) assert.equal(h, saved);
   else { assert.ok(['healed', 'hit'].includes(r.headers.get('x-rtt-counts')), r.headers.get('x-rtt-counts')); assert.equal(h, want); }
   const g = await get('/christmas-events/colorado');
