@@ -1804,20 +1804,27 @@
 "v": 3
 }
 },
-"hw": 1795633760776,
+"hw": 1795635234586,
 "touched": [
 "/christmas-events/alabama",
 "/christmas-events/alpharetta-ga",
 "/christmas-events/atlanta-ga",
+"/christmas-events/brookhaven-ga",
+"/christmas-events/canton-ga",
 "/christmas-events/cumming-ga",
 "/christmas-events/decatur-ga",
+"/christmas-events/dunwoody-ga",
 "/christmas-events/georgia",
+"/christmas-events/hampton-ga",
 "/christmas-events/johns-creek-ga",
+"/christmas-events/kennesaw-ga",
 "/christmas-events/marietta-ga",
 "/christmas-events/mcdonough-ga",
 "/christmas-events/montgomery-al",
 "/christmas-events/newnan-ga",
+"/christmas-events/norcross-ga",
 "/christmas-events/roswell-ga",
+"/christmas-events/stockbridge-ga",
 "/christmas-events/villa-rica-ga"
 ]
 }
