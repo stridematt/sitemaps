@@ -80,3 +80,11 @@ Squarespace's own sitemap lags behind new pages and keeps URLs that now return 4
 - **Removed:** URLs in Squarespace's sitemap that return 404/410 or redirect. Every URL is re-checked about every two days (3,000 per run, plus everything that failed last time). If Squarespace rate-limits the sitemap.xml fetch (429 right after the counts crawl), it waits and retries up to 6 times, then keeps the previous list rather than failing the job. If a run would remove more than 3% of the sitemap at once, it keeps the previous list instead (an outage, not real deletions).
 
 The Worker applies `fix.json` as https://www.rallytakesthetrain.com/sitemap.xml is served (header `x-rtt-sitemap: fixed +N -M`). A request with the header `x-rtt-raw: 1` gets Squarespace's own copy. If the fix list can't be loaded, or the result would pass the 50,000 URL limit, Squarespace's sitemap is served unchanged.
+
+Since 2026-11-25 the site has more than 50,000 URLs, so Squarespace serves `/sitemap.xml` as an index of `sitemap0.xml`, `sitemap1.xml`, ... and lists those files by relative name, which the sitemap protocol does not allow. The Worker (route `www.rallytakesthetrain.com/sitemap*`) then serves:
+
+- `/sitemap.xml`: the index with every file as a full URL, plus `/sitemap-new-pages.xml` when there are pages to add (`x-rtt-sitemap: index N files +new-pages M`)
+- `/sitemapN.xml`: Squarespace's file with the dead URLs dropped (`x-rtt-sitemap: fixed +0 -M`)
+- `/sitemap-new-pages.xml`: the pages Squarespace does not list yet (`x-rtt-sitemap: new pages M`)
+
+`build_fix.py` and the rally-events sitemap audit read every file in the index. Anything else that reads `/sitemap.xml` for URLs has to follow the index too.

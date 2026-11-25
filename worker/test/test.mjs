@@ -28,11 +28,21 @@ let llmsPages = true;
 const llmsBody = 'x'.repeat(20000);
 const seen = []; // URLs the Worker requested from Squarespace
 let pagesUp = true;
+// Squarespace's split sitemap (since 2026-11-25): an index of relative file names, then the files.
+const sxUrl = (p) => `  <url>\n    <loc>${SITE}${p}</loc>\n    <lastmod>2026-11-20</lastmod>\n  </url>\n`;
+const sqsSitemaps = {
+  '/sitemap.xml': '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap>\n    <loc>sitemap0.xml</loc>\n    <lastmod>2026-11-25</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>sitemap1.xml</loc>\n    <lastmod>2026-11-25</lastmod>\n  </sitemap>\n</sitemapindex>\n',
+  '/sitemap0.xml': '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sxUrl('/blog') + sxUrl('/christmas-events/gone-xx') + '</urlset>\n',
+  '/sitemap1.xml': '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sxUrl('/christmas-events/denver-co') + '</urlset>\n',
+};
+const sitemapFix = { generated: '2026-11-25T15:05Z', add: [['/christmas-events/brand-new-xx', '2026-11-24']], remove: ['/christmas-events/gone-xx'] };
 let robots = 'User-agent: *\nDisallow: /config\n\nSitemap: https://www.rallytakesthetrain.com/sitemap.xml\n';
 
 async function outbound(req) {
   const u = new URL(req.url);
   if (u.hostname === 'www.rallytakesthetrain.com') seen.push(req.url);
+  if (u.pathname.endsWith('/tools/sitemap/fix.json')) return new Response(JSON.stringify(sitemapFix), { headers: { 'content-type': 'text/plain' } });
+  if (u.hostname === 'www.rallytakesthetrain.com' && sqsSitemaps[u.pathname]) return new Response(sqsSitemaps[u.pathname], { headers: { 'content-type': 'application/xml' } });
   if (/\/llms(-full)?\.txt$/.test(u.pathname) && u.hostname !== 'www.rallytakesthetrain.com') {
     const up = u.hostname === 'raw.githubusercontent.com' ? llmsGithub : llmsPages;
     if (up === 'bad') return new Response('<html>rate limited</html>', { headers: { 'content-type': 'text/html' } });
@@ -317,6 +327,24 @@ githubUp = true; pagesUp = true;
 
 // Existing hreflang link tags on a clustered page are replaced, not doubled.
 githubUp = true;
+await t('split sitemap: index with full URLs, files cleaned, new pages listed, raw untouched', async () => {
+  const idx = await (await get('/sitemap.xml')).text();
+  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap0.xml</loc>'));
+  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap1.xml</loc>'));
+  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap-new-pages.xml</loc>'));
+  assert.doesNotMatch(idx, /<loc>sitemap/);
+  const s0 = await get('/sitemap0.xml');
+  assert.match(s0.headers.get('content-type'), /xml/);
+  const s0t = await s0.text();
+  assert.ok(s0t.includes('/blog</loc>') && !s0t.includes('gone-xx'));
+  assert.ok(!s0t.includes('brand-new-xx'), 'additions only go in the new-pages file');
+  assert.ok((await (await get('/sitemap1.xml')).text()).includes('/christmas-events/denver-co</loc>'));
+  const np = await (await get('/sitemap-new-pages.xml')).text();
+  assert.ok(np.includes('<loc>https://www.rallytakesthetrain.com/christmas-events/brand-new-xx</loc>') && np.includes('<lastmod>2026-11-24</lastmod>'));
+  const raw = await (await get('/sitemap.xml', { headers: { 'x-rtt-raw': '1' } })).text();
+  assert.equal(raw, sqsSitemaps['/sitemap.xml']);
+});
+
 const modified = JSON.parse(clustersText);
 modified.clusters.push({ name: 'test', x_default: SITE + '/with-old-tags', pages: [
   { url: SITE + '/with-old-tags', hreflang: ['en'] }, { url: SITE + '/nope', hreflang: ['de'] }] });
