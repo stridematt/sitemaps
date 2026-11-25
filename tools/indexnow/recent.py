@@ -9,6 +9,9 @@ Usage: python3 tools/indexnow/recent.py [--hours 26] [--dry]
 """
 import argparse, collections, concurrent.futures as cf, gzip, json, os, re, sys, time, urllib.request
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sitemap'))
+import sitemap_read as SR  # follows /sitemap.xml when it is an index of files
+
 SITE = os.environ.get('RTT_SITE', 'https://www.rallytakesthetrain.com')
 PUBLIC = 'https://www.rallytakesthetrain.com'
 UA = 'rtt-indexnow-recent/1.0'
@@ -62,7 +65,8 @@ def main():
     a = ap.parse_args()
     now = int(time.time() * 1000)
     since = now - int(a.hours * 3600000)
-    sm = urllib.request.urlopen(urllib.request.Request(SITE + '/sitemap.xml', headers=HDR), timeout=120).read().decode('utf-8', 'replace')
+    rd = lambda u: urllib.request.urlopen(urllib.request.Request(u, headers=HDR), timeout=120).read().decode('utf-8', 'replace')
+    sm = SR.expand(rd(SITE + '/sitemap.xml'), SITE + '/sitemap.xml', rd)
     n = collections.Counter(re.findall(r'<loc>https://www\.rallytakesthetrain\.com/([a-z0-9-]+)/[^<]+</loc>', sm))
     colls = sorted(c for c, k in n.items() if k >= 3)
     # time slices, newest first: six hours each for the last 50 days, then one for everything older

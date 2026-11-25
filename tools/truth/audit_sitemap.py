@@ -12,6 +12,9 @@ Writes tools/truth/audit.json and prints a summary. Run: python3 tools/truth/aud
 """
 import collections, concurrent.futures as cf, datetime, html as H, json, os, re, sys, time, unicodedata, urllib.error, urllib.request
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sitemap'))
+import sitemap_read as SR  # follows /sitemap.xml when it is an index of files
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from analyze import analyze
@@ -58,7 +61,8 @@ def body(path, tries=6):
 def main():
     today = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=12)).date().isoformat()
     live = json.load(open(os.path.join(HERE, 'live.json'), encoding='utf-8'))
-    sm = urllib.request.urlopen(urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR}), timeout=120).read().decode()
+    rd = lambda u: urllib.request.urlopen(urllib.request.Request(u, headers={**HDR}), timeout=120).read().decode()
+    sm = SR.expand(rd(SITE + '/sitemap.xml'), SITE + '/sitemap.xml', rd)
     urls = sorted(set(re.findall(r'<loc>https://www\.rallytakesthetrain\.com(/christmas-events/[^<]+)</loc>', sm)))
     counted = set(live['pages']) | set(live['guides'])
     city_pages = sorted(p for p in counted if p in live['pages'])

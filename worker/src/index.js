@@ -440,11 +440,38 @@ async function serveLlms(path, request, ctx) {
 // Squarespace's sitemap lags behind new pages and keeps URLs that now 404 or redirect.
 // tools/sitemap/build_fix.py (every 3 hours) lists what to add and remove; it is applied
 // here as the sitemap is served. A request with x-rtt-raw gets Squarespace's own copy.
+//
+// Past 50,000 URLs Squarespace turns /sitemap.xml into an index of /sitemap0.xml, /sitemap1.xml, ...
+// and lists those files by relative name. Then:
+//   /sitemap.xml            the index, every file given as a full URL, plus /sitemap-new-pages.xml
+//   /sitemapN.xml           Squarespace's file with dead URLs dropped
+//   /sitemap-new-pages.xml  pages Squarespace does not list yet (the fix list's additions)
+// A page in the additions can sit in a Squarespace file too for up to 3 hours, until the next fix
+// list; a URL in two sitemap files is harmless.
 const SITEMAP_FIX = [
   'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/sitemap/fix.json',
   'https://sitemaps.rallytakesthetrain.com/tools/sitemap/fix.json',
 ];
 const MAX_SITEMAP_URLS = 50000;
+const SITE_ORIGIN = 'https://www.rallytakesthetrain.com';
+export const NEW_PAGES_SITEMAP = '/sitemap-new-pages.xml';
+const SITEMAP_FILE = /^\/sitemap\d*\.xml$/;
+const NL = '\n'; // kept as an escape so the deploy bundle stays on one line
+
+export function isSitemapPath(p) {
+  return SITEMAP_FILE.test(p) || p === NEW_PAGES_SITEMAP;
+}
+
+function sitemapEntries(add) {
+  return add.map(([p, d]) =>
+    '  <url>' + NL + '    <loc>' + SITE_ORIGIN + escapeXml(p) + '</loc>' + NL + '    <changefreq>weekly</changefreq>' + NL +
+    '    <priority>0.75</priority>' + NL + (/^\d{4}-\d\d-\d\d$/.test(d || '') ? '    <lastmod>' + d + '</lastmod>' + NL : '') + '  </url>' + NL).join('');
+}
+
+function cleanAdds(fix) {
+  const seen = new Set();
+  return ((fix && fix.add) || []).filter(([p]) => p && p.startsWith('/') && !seen.has(p) && seen.add(p));
+}
 
 export function applySitemapFix(xml, fix) {
   if (!fix || !xml.includes('</urlset>')) return null;
@@ -456,14 +483,40 @@ export function applySitemapFix(xml, fix) {
     seen.add(p);
     return block;
   });
-  const add = (fix.add || []).filter(([p]) => p && p.startsWith('/') && !seen.has(p));
+  const add = cleanAdds(fix).filter(([p]) => !seen.has(p));
   if (seen.size + add.length > MAX_SITEMAP_URLS) return null; // over the protocol limit: leave Squarespace's as is
-  const NL = '\n'; // kept as an escape so the deploy bundle stays on one line
-  const entries = add.map(([p, d]) =>
-    '  <url>' + NL + '    <loc>https://www.rallytakesthetrain.com' + escapeXml(p) + '</loc>' + NL + '    <changefreq>weekly</changefreq>' + NL +
-    '    <priority>0.75</priority>' + NL + (/^\d{4}-\d\d-\d\d$/.test(d || '') ? '    <lastmod>' + d + '</lastmod>' + NL : '') + '  </url>' + NL).join('');
-  out = out.replace(/<\/urlset>\s*$/, entries + '</urlset>' + NL);
+  out = out.replace(/<\/urlset>\s*$/, sitemapEntries(add) + '</urlset>' + NL);
   return { xml: out, added: add.length, removed };
+}
+
+// The index: every file as a full URL (the protocol requires it; Squarespace writes "sitemap0.xml"),
+// plus the new-pages file when there are pages to add.
+export function fixSitemapIndex(xml, fix) {
+  if (!xml.includes('</sitemapindex>')) return null;
+  let files = 0;
+  let out = xml.replace(/<loc>\s*([^<\s]+)\s*<\/loc>/g, (m, loc) => {
+    files++;
+    let u;
+    try { u = new URL(loc.replace(/&amp;/g, '&'), SITE_ORIGIN + '/'); } catch (e) { return m; }
+    if (u.hostname === 'rallytakesthetrain.com' || u.hostname === 'www.rallytakesthetrain.com') u = new URL(u.pathname + u.search, SITE_ORIGIN);
+    return '<loc>' + escapeXml(u.href) + '</loc>';
+  });
+  if (!files) return null;
+  const add = cleanAdds(fix);
+  if (add.length && !out.includes(SITE_ORIGIN + NEW_PAGES_SITEMAP + '<')) {
+    const last = add.map(([, d]) => d).filter(d => /^\d{4}-\d\d-\d\d$/.test(d || '')).sort().pop();
+    out = out.replace(/<\/sitemapindex>\s*$/, '  <sitemap>' + NL + '    <loc>' + SITE_ORIGIN + NEW_PAGES_SITEMAP + '</loc>' + NL +
+      (last ? '    <lastmod>' + last + '</lastmod>' + NL : '') + '  </sitemap>' + NL + '</sitemapindex>' + NL);
+  }
+  return { xml: out, files, added: add.length };
+}
+
+export function newPagesSitemap(fix) {
+  const add = cleanAdds(fix).slice(0, MAX_SITEMAP_URLS);
+  return {
+    xml: '<?xml version="1.0" encoding="UTF-8"?>' + NL + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + NL + sitemapEntries(add) + '</urlset>' + NL,
+    added: add.length,
+  };
 }
 
 async function loadSitemapFix(ctx) {
@@ -486,24 +539,35 @@ async function loadSitemapFix(ctx) {
   return null;
 }
 
-async function serveSitemapXml(request, ctx) {
+async function serveSitemap(path, request, ctx) {
   if (request.headers.has('x-rtt-raw')) return fetch(request);
+  const head = request.method === 'HEAD';
+  const headers = { 'content-type': 'application/xml; charset=utf-8', 'cache-control': 'no-cache' };
+  const fix = await loadSitemapFix(ctx);
+  if (path === NEW_PAGES_SITEMAP) {
+    const r = newPagesSitemap(fix);
+    return new Response(head ? null : r.xml, { headers: { ...headers, 'x-rtt-sitemap': `new pages ${r.added}` } });
+  }
   const origin = await fetch(new Request(request.url, { method: 'GET', headers: request.headers }), { cf: { cacheTtl: 600, cacheEverything: true } });
   if (origin.status !== 200 || !(origin.headers.get('content-type') || '').includes('xml')) return origin;
-  const fix = await loadSitemapFix(ctx);
-  if (!fix) return forBrowser(origin);
   const tagv = origin.headers.get('etag') || origin.headers.get('last-modified') || origin.headers.get('content-length') || '';
-  const key = `https://rtt-hreflang.internal/sitemap.xml?f=${encodeURIComponent(fix.generated || '')}&o=${encodeURIComponent(tagv)}&b=${BUILD}`;
-  const headers = { 'content-type': 'application/xml; charset=utf-8', 'cache-control': 'no-cache' };
+  const key = `https://rtt-hreflang.internal${path}?f=${encodeURIComponent((fix && fix.generated) || '')}&o=${encodeURIComponent(tagv)}&b=${BUILD}`;
   try {
     const hit = await caches.default.match(key);
-    if (hit) return new Response(request.method === 'HEAD' ? null : hit.body, { headers: { ...headers, 'x-rtt-sitemap': hit.headers.get('x-rtt-sitemap') || 'fixed' } });
+    if (hit) return new Response(head ? null : hit.body, { headers: { ...headers, 'x-rtt-sitemap': hit.headers.get('x-rtt-sitemap') || 'fixed' } });
   } catch (e) {}
-  const res = applySitemapFix(await origin.text(), fix);
-  if (!res) return fetch(request);
-  const note = `fixed +${res.added} -${res.removed}`;
-  ctx.waitUntil(caches.default.put(key, new Response(res.xml, { headers: { 'cache-control': 'public, max-age=600', 'x-rtt-sitemap': note } })).catch(() => {}));
-  return new Response(request.method === 'HEAD' ? null : res.xml, { headers: { ...headers, 'x-rtt-sitemap': note } });
+  const text = await origin.text();
+  let xml = text, note = 'as is';
+  const idx = fixSitemapIndex(text, fix);
+  if (idx) {
+    xml = idx.xml; note = `index ${idx.files} files` + (idx.added ? ` +new-pages ${idx.added}` : '');
+  } else if (fix) {
+    // The single sitemap takes the additions itself; a split file only loses its dead URLs.
+    const res = applySitemapFix(text, path === '/sitemap.xml' ? fix : { remove: fix.remove, add: [] });
+    if (res) { xml = res.xml; note = `fixed +${res.added} -${res.removed}`; }
+  }
+  ctx.waitUntil(caches.default.put(key, new Response(xml, { headers: { 'cache-control': 'public, max-age=600', 'x-rtt-sitemap': note } })).catch(() => {}));
+  return new Response(head ? null : xml, { headers: { ...headers, 'x-rtt-sitemap': note } });
 }
 
 async function handle(request, ctx) {
@@ -511,7 +575,7 @@ async function handle(request, ctx) {
   if (method !== 'GET' && method !== 'HEAD') return fetch(request);
   const path = normPath(new URL(request.url).pathname);
   if (LLMS[path]) return serveLlms(path, request, ctx);
-  if (path === '/sitemap.xml') return serveSitemapXml(request, ctx);
+  if (isSitemapPath(path)) return serveSitemap(path, request, ctx);
   const index = await getIndex(ctx);
   if (!index) return originFetch(request);
 

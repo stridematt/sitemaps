@@ -136,9 +136,18 @@
     const bust = '?t=' + Date.now();
     const live = await fetch(RAW + 'truth/live.json' + bust).then((r) => r.json());
     const ids = await fetch(RAW + 'sqsp/ids.json' + bust).then((r) => r.json());
-    let sm = '';
-    for (let i = 0; i < 6 && !sm; i++) { const r = await fetch('/sitemap.xml'); if (r.ok) sm = await r.text(); else await sleep(10000 * (i + 1)); }
-    if (!sm) throw new Error('could not read sitemap.xml');
+    const readSm = async (u) => {
+      for (let i = 0; i < 6; i++) { const r = await fetch(u); if (r.ok) return r.text(); await sleep(10000 * (i + 1)); }
+      throw new Error('could not read ' + u);
+    };
+    let sm = await readSm('/sitemap.xml');
+    if (sm.includes('<sitemapindex')) {   // past 50,000 URLs: an index of sitemap0.xml, sitemap1.xml, ... (relative or full URLs)
+      const files = [...new Set([...sm.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => new URL(m[1].replace(/&amp;/g, '&'), location.origin + '/').pathname)
+        .filter((p) => /^\/sitemap[\w-]*\.xml$/.test(p)))];
+      const parts = [];
+      for (const f of files) parts.push(await readSm(f));
+      sm = parts.join('\n');
+    }
     const notEvents = new Set([...Object.keys(live.pages), ...Object.keys(live.guides)].map((p) => p.split('/').pop()));
     const index = new Map();
     for (const m of sm.matchAll(/christmas-events\/([a-z0-9-]+)<\/loc>/g)) {

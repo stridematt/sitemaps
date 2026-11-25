@@ -32,6 +32,9 @@ import time
 import urllib.error
 import urllib.request
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sitemap'))
+import sitemap_read as SR  # follows /sitemap.xml when it is an index of files
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import build_hreflang  # noqa: E402
@@ -72,8 +75,8 @@ def site_pages(sitemap_file=None):
     if sitemap_file:
         xml = open(sitemap_file, encoding='utf-8').read()
     else:
-        req = urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR})
-        xml = urllib.request.urlopen(req, timeout=180).read().decode('utf-8')
+        rd = lambda u: urllib.request.urlopen(urllib.request.Request(u, headers={**HDR}), timeout=180).read().decode('utf-8')
+        xml = SR.expand(rd(SITE + '/sitemap.xml'), SITE + '/sitemap.xml', rd)
     locs = re.findall(r'<loc>([^<]+)</loc>', xml)
     return {path_of(l) for l in locs if l.startswith(SITE) and not re.search(r'\.(jpe?g|png|gif|webp)$', l, re.I)}
 

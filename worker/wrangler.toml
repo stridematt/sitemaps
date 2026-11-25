@@ -23,6 +23,8 @@ routes = [
   { pattern = "www.rallytakesthetrain.com/llms.txt", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/llms-full.txt", zone_name = "rallytakesthetrain.com" },
   { pattern = "www.rallytakesthetrain.com/sitemap.xml", zone_name = "rallytakesthetrain.com" },
+  # Squarespace's split files (sitemap0.xml, sitemap1.xml, ...) and sitemap-new-pages.xml; other /sitemap* paths pass straight through.
+  { pattern = "www.rallytakesthetrain.com/sitemap*", zone_name = "rallytakesthetrain.com" },
 ]
 
 # Match the live Worker (set in the dashboard): logs and Workers issues on.

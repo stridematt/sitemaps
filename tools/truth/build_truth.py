@@ -15,6 +15,9 @@ Usage: python3 tools/truth/build_truth.py [--state .state/truth.json] [--max 800
 """
 import urllib.parse
 import argparse, collections, concurrent.futures as cf, datetime, gzip, json, os, re, sys, threading, time, urllib.request
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sitemap'))
+import sitemap_read as SR  # follows /sitemap.xml when it is an index of files
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from analyze import analyze, item_id
 
@@ -472,6 +475,7 @@ def main():
     _, hb = L.get(HUB_RAW + '/christmas-events-for-kids')
     hub = L.parse_hub(hb.decode('utf-8'))
     _, sm = L.get(SITE + '/sitemap.xml')
+    sm = SR.expand(sm, SITE + '/sitemap.xml', lambda u: L.get(u)[1] or None)
     lastmod = dict(re.findall(r'<loc>https://www\.rallytakesthetrain\.com([^<]+)</loc>\s*(?:<changefreq>[^<]*</changefreq>\s*)?(?:<priority>[^<]*</priority>\s*)?<lastmod>([^<]+)</lastmod>', sm.decode('utf-8')))
 
     # Every city guide and where it belongs. Primary list: the hub's own finder data (xn-data),
