@@ -27,8 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SQS: https://rally-takes-the-train-site.squarespace.com
-      DYN: worker/test/fixtures/dyn
-      AUDIT: worker/test/fixtures/audit
+      DYN: ${{ github.workspace }}/pages/dyn
+      AUDIT: ${{ github.workspace }}/pages/audit
+      RTT_DYN: ${{ github.workspace }}/pages/dyn/
+      FIXTURES: ${{ github.workspace }}/pages/audit
     steps:
       - uses: actions/checkout@v4
 
@@ -42,14 +44,12 @@ jobs:
         working-directory: worker
         run: npm ci --no-audit --no-fund
 
-      # The tests read saved copies of live pages from worker/test/fixtures (Squarespace's own HTML, before the
-      # Worker). A page missing there is saved from Squarespace now and committed with the bundle; delete a file
-      # to refresh it.
-      - name: Save any missing test pages
+      # The tests read saved copies of live pages (Squarespace's own HTML, before the Worker). Fresh copies every
+      # run; the tests work out what to expect from whatever copy they get. (worker/test/fixtures stays git-ignored.)
+      - name: Save the test pages
         run: |
           mkdir -p "$DYN" "$AUDIT"
           get() {
-            [ -s "$2" ] && return 0
             for i in 1 2 3 4 5; do
               curl -fsS -A 'Mozilla/5.0 rtt-worker-tests' "$SQS$1" -o "$2" && [ -s "$2" ] && { echo "saved $1"; return 0; }
               sleep $((i * 10))
@@ -64,15 +64,12 @@ jobs:
           get /christmas-eve-services-near-me                       "$AUDIT/christmas-eve-services-near-me.html"
           get /christmas-eve-services/united-states                 "$AUDIT/us.html"
 
-      - name: Commit newly saved test pages
-        if: github.event_name != 'pull_request'
-        run: |
-          [ -z "$(git status --porcelain worker/test/fixtures)" ] && exit 0
-          git config user.name "rtt-hreflang bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add worker/test/fixtures
-          git commit -q -m "Worker tests: saved copies of the test pages"
-          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-pages
+          path: pages/
+          retention-days: 7
 
       - name: Bundle
         id: bundle
