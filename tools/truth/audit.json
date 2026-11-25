@@ -4,8 +4,13 @@
  "city_pages": 4537,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 25590,
+ "event_pages_listed": 25625,
  "count_mismatch": [
+  [
+   "/christmas-events/alpharetta-ga",
+   5,
+   13
+  ],
   [
    "/christmas-events/athens-gr",
    98,
@@ -40,6 +45,16 @@
    "/christmas-events/christmas-in-sao-paulo-with-kids",
    12,
    11
+  ],
+  [
+   "/christmas-events/cumming-ga",
+   5,
+   6
+  ],
+  [
+   "/christmas-events/decatur-ga",
+   4,
+   5
   ],
   [
    "/christmas-events/des-moines-ia",
@@ -85,6 +100,11 @@
    "/christmas-events/jacksonville-fl",
    35,
    34
+  ],
+  [
+   "/christmas-events/johns-creek-ga",
+   2,
+   3
   ],
   [
    "/christmas-events/jonesboro-ar",
@@ -137,6 +157,16 @@
    8
   ],
   [
+   "/christmas-events/marietta-ga",
+   7,
+   8
+  ],
+  [
+   "/christmas-events/mcdonough-ga",
+   4,
+   5
+  ],
+  [
    "/christmas-events/meridian-ms",
    17,
    16
@@ -177,8 +207,18 @@
    2
   ],
   [
+   "/christmas-events/newnan-ga",
+   4,
+   6
+  ],
+  [
    "/christmas-events/noel-avec-les-enfants-bertrange",
    5,
+   4
+  ],
+  [
+   "/christmas-events/norcross-ga",
+   2,
    4
   ],
   [
@@ -202,6 +242,11 @@
    12
   ],
   [
+   "/christmas-events/roswell-ga",
+   3,
+   17
+  ],
+  [
    "/christmas-events/sariaya-ph",
    1,
    0
@@ -217,9 +262,19 @@
    15
   ],
   [
+   "/christmas-events/stockbridge-ga",
+   3,
+   5
+  ],
+  [
    "/christmas-events/topeka-ks",
    23,
    22
+  ],
+  [
+   "/christmas-events/villa-rica-ga",
+   4,
+   6
   ],
   [
    "/christmas-events/weihnachten-mit-kindern-bremen",
