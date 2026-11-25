@@ -292,6 +292,24 @@ await t('signed-in visitors and unknown pages are never healed', async () => {
   assert.equal(e.headers.get('x-rtt-counts'), null);
   await e.arrayBuffer();
 });
+await t('split sitemap: index with full URLs, files cleaned, new pages listed, raw untouched', async () => {
+  const idx = await (await get('/sitemap.xml')).text();
+  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap0.xml</loc>'));
+  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap1.xml</loc>'));
+  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap-new-pages.xml</loc>'));
+  assert.doesNotMatch(idx, /<loc>sitemap/);
+  const s0 = await get('/sitemap0.xml');
+  assert.match(s0.headers.get('content-type'), /xml/);
+  const s0t = await s0.text();
+  assert.ok(s0t.includes('/blog</loc>') && !s0t.includes('gone-xx'));
+  assert.ok(!s0t.includes('brand-new-xx'), 'additions only go in the new-pages file');
+  assert.ok((await (await get('/sitemap1.xml')).text()).includes('/christmas-events/denver-co</loc>'));
+  const np = await (await get('/sitemap-new-pages.xml')).text();
+  assert.ok(np.includes('<loc>https://www.rallytakesthetrain.com/christmas-events/brand-new-xx</loc>') && np.includes('<lastmod>2026-11-24</lastmod>'));
+  const raw = await (await get('/sitemap.xml', { headers: { 'x-rtt-raw': '1' } })).text();
+  assert.equal(raw, sqsSitemaps['/sitemap.xml']);
+});
+
 await mf.dispose();
 
 const script = new URL('../dist/index.js', import.meta.url).pathname;
@@ -332,24 +350,6 @@ githubUp = true; pagesUp = true;
 
 // Existing hreflang link tags on a clustered page are replaced, not doubled.
 githubUp = true;
-await t('split sitemap: index with full URLs, files cleaned, new pages listed, raw untouched', async () => {
-  const idx = await (await get('/sitemap.xml')).text();
-  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap0.xml</loc>'));
-  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap1.xml</loc>'));
-  assert.ok(idx.includes('<loc>https://www.rallytakesthetrain.com/sitemap-new-pages.xml</loc>'));
-  assert.doesNotMatch(idx, /<loc>sitemap/);
-  const s0 = await get('/sitemap0.xml');
-  assert.match(s0.headers.get('content-type'), /xml/);
-  const s0t = await s0.text();
-  assert.ok(s0t.includes('/blog</loc>') && !s0t.includes('gone-xx'));
-  assert.ok(!s0t.includes('brand-new-xx'), 'additions only go in the new-pages file');
-  assert.ok((await (await get('/sitemap1.xml')).text()).includes('/christmas-events/denver-co</loc>'));
-  const np = await (await get('/sitemap-new-pages.xml')).text();
-  assert.ok(np.includes('<loc>https://www.rallytakesthetrain.com/christmas-events/brand-new-xx</loc>') && np.includes('<lastmod>2026-11-24</lastmod>'));
-  const raw = await (await get('/sitemap.xml', { headers: { 'x-rtt-raw': '1' } })).text();
-  assert.equal(raw, sqsSitemaps['/sitemap.xml']);
-});
-
 const modified = JSON.parse(clustersText);
 modified.clusters.push({ name: 'test', x_default: SITE + '/with-old-tags', pages: [
   { url: SITE + '/with-old-tags', hreflang: ['en'] }, { url: SITE + '/nope', hreflang: ['de'] }] });
