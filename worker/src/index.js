@@ -454,7 +454,7 @@ const SITEMAP_FIX = [
 ];
 const MAX_SITEMAP_URLS = 50000;
 const SITE_ORIGIN = 'https://www.rallytakesthetrain.com';
-export const NEW_PAGES_SITEMAP = '/sitemap-new-pages.xml';
+const NEW_PAGES_SITEMAP = '/sitemap-new-pages.xml';
 const SITEMAP_FILE = /^\/sitemap\d*\.xml$/;
 const NL = '\n'; // kept as an escape so the deploy bundle stays on one line
 

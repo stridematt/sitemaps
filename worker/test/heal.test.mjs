@@ -38,18 +38,32 @@ t('city page: nothing stale today, so nothing changes', () => {
   assert.equal(healCity(html, '2026-11-18', live.pages, '/christmas-events/denver-co'), null);
 });
 
+// Works on any saved copy of the page: what is past on Dec 1 is read from the cards themselves.
+const calLast = (tag) => {
+  const m = tag.match(/data-cal="([^"]*)"/);
+  if (!m) return '';
+  try { return (JSON.parse(m[1].replace(/&quot;/g, '"').replace(/&amp;/g, '&')).d || []).map((r) => r[3] || r[0] || '').sort().pop() || ''; } catch (e) { return ''; }
+};
+const cardsOf = (h) => [...h.matchAll(/<section class="rtt-pe-ride(?: [^"]*)?"([^>]*)>/g)].map((m) => ({ id: (m[1].match(/\bid="([^"]*)"/) || [])[1], last: calLast(m[1]) }));
+
 t('city page on Dec 1: past events removed and every count follows', () => {
   const html = readFileSync(DYN + 'christmas-events_denver-co.html', 'utf8');
+  const before = cardsOf(html);
+  const past = before.filter((c) => c.last && c.last < '2026-12-01');
   const out = healCity(html, '2026-12-01', live.pages, '/christmas-events/denver-co');
-  const cards = (out.match(/<section class="rtt-pe-ride"/g) || []).length;
+  if (!past.length && out === null) return; // a copy saved after Dec 1 has nothing to remove
+  const after = cardsOf(out);
+  const cards = after.length;
   const free = [...out.matchAll(/<section class="rtt-pe-ride"[^>]*data-xf-fl="([^"]*)"/g)].filter((m) => m[1].split(' ').includes('free')).length;
-  assert.ok(cards < 39);
+  assert.equal(cards, before.length - past.length, 'exactly the past events are removed');
+  for (const c of past) assert.ok(!out.includes(`id="${c.id}"`), `${c.id} (last day ${c.last}) is gone`);
+  for (const c of before.filter((c) => !past.includes(c))) assert.ok(out.includes(`id="${c.id}"`), `${c.id} stays`);
   assert.match(out, new RegExp(`<title>Denver Christmas Events for Kids 2026: ${cards} Events, ${free} Free</title>`));
   assert.ok(out.includes(`${free} of ${cards} are free.`));
   assert.ok(out.includes(`data-xf-total="${cards}"`));
-  assert.ok(!out.includes('id="ev-denver-grand-illumination-at-denver-union"'), 'a Nov 27 event is gone');
   for (const m of out.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(m[1]);
-  assert.ok(out.includes('Friday, November 20, 2026 to Wednesday, December 23, 2026'), 'dates untouched');
+  const kept = after.find((c) => c.last);
+  if (kept) assert.ok(out.includes(html.match(new RegExp(`<section class="rtt-pe-ride[^>]*id="${kept.id}"[^>]*>`))[0]), 'a remaining card is untouched');
 });
 
 t('state guide: each city section and link says that city’s own counts', () => {

@@ -1,0 +1,102 @@
+name: rtt-hreflang Worker (bundle and full tests)
+
+# Every change to the Worker: rebuild worker/deploy/rtt-hreflang.min.js and run every test, including the
+# Miniflare suite against fresh copies of live pages. On main the rebuilt bundle is committed, so the
+# checked-in copy always matches src/. (Workers Builds deploys from src/ on its own; this keeps the
+# manual-upload copy and the tests honest.)
+on:
+  push:
+    paths:
+      - 'worker/**'
+      - '!worker/deploy/**'
+      - '.github/workflows/worker.yml'
+  pull_request:
+    paths:
+      - 'worker/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: worker-bundle-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SQS: https://rally-takes-the-train-site.squarespace.com
+      DYN: ${{ github.workspace }}/pages/dyn
+      AUDIT: ${{ github.workspace }}/pages/audit
+      RTT_DYN: ${{ github.workspace }}/pages/dyn/
+      FIXTURES: ${{ github.workspace }}/pages/audit
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: worker/package-lock.json
+
+      - name: Install
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+
+      # The tests read saved copies of live pages (Squarespace's own HTML, before the Worker). Fresh copies every
+      # run; the tests work out what to expect from whatever copy they get. (worker/test/fixtures stays git-ignored.)
+      - name: Save the test pages
+        run: |
+          mkdir -p "$DYN" "$AUDIT"
+          get() {
+            for i in 1 2 3 4 5; do
+              curl -fsS -A 'Mozilla/5.0 rtt-worker-tests' "$SQS$1" -o "$2" && [ -s "$2" ] && { echo "saved $1"; return 0; }
+              sleep $((i * 10))
+            done
+            echo "could not save $1"; return 1
+          }
+          get /christmas-events-for-kids                            "$DYN/christmas-events-for-kids.html"
+          get /christmas-events/denver-co                           "$DYN/christmas-events_denver-co.html"
+          get /christmas-events/colorado                            "$DYN/christmas-events_colorado.html"
+          get /christmas-events-for-kids                            "$AUDIT/christmas-events-for-kids.html"
+          get /christmas-events/weihnachten-mit-kindern-deutschland "$AUDIT/christmas-events_weihnachten-mit-kindern-deutschland.html"
+          get /christmas-eve-services-near-me                       "$AUDIT/christmas-eve-services-near-me.html"
+          get /christmas-eve-services/united-states                 "$AUDIT/us.html"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-pages
+          path: pages/
+          retention-days: 7
+
+      - name: Bundle
+        id: bundle
+        working-directory: worker
+        run: npm run bundle
+
+      - name: Unit tests
+        working-directory: worker
+        run: |
+          rc=0
+          for f in sitemap services heal sqsp; do node test/$f.test.mjs || rc=1; done
+          exit $rc
+
+      - name: Full tests (Miniflare, the bundle as deployed)
+        if: always() && steps.bundle.outcome == 'success'
+        working-directory: worker
+        run: npm test
+
+      - name: Commit the rebuilt bundle
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          if [ -z "$(git status --porcelain worker/deploy)" ]; then
+            echo "Bundle already up to date."
+            exit 0
+          fi
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add worker/deploy
+          git commit -q -m "Worker bundle rebuilt from src/"
+          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
