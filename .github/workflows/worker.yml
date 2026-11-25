@@ -61,19 +61,26 @@ jobs:
           get /christmas-eve-services/united-states                        "$FIXTURES/us.html"
           ls -la "$RTT_DYN" "$FIXTURES"
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-pages
+          path: fixtures/
+          retention-days: 3
+
       - name: Bundle
+        id: bundle
         working-directory: worker
         run: npm run bundle
 
       - name: Unit tests
         working-directory: worker
         run: |
-          node test/sitemap.test.mjs
-          node test/services.test.mjs
-          node test/heal.test.mjs
-          node test/sqsp.test.mjs
+          rc=0
+          for f in sitemap services heal sqsp; do node test/$f.test.mjs || rc=1; done
+          exit $rc
 
       - name: Full tests (Miniflare, the bundle as deployed)
+        if: always() && steps.bundle.outcome == 'success'
         working-directory: worker
         run: npm test
 
