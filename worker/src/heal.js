@@ -485,6 +485,31 @@ export function fixSocialHead(html, path) {
   return out;
 }
 
+// The "open" unlock panel (rtt-ul--open) is written once when a city page is built: its "N more events",
+// "+N more" badge and type chips never change after that, so they drift as cards are added or pass.
+// Recount them from the cards that are actually on the page (same rules as the page script: N = cards - 1,
+// badge = N - ghost cards, chips counted by data-xf-ty / data-xf-fl, a chip with 0 is dropped).
+export function fixOpenPanel(html) {
+  if (!html || html.indexOf('rtt-ul--open') < 0) return html;
+  const cards = [...html.matchAll(/<section class="rtt-pe-ride[^"]*"[^>]*>/g)].map((m) => m[0]);
+  if (!cards.length) return html;
+  const attr = (t, k) => ((t.match(new RegExp(k + '="([^"]*)"')) || [])[1] || '');
+  const ty = cards.map((t) => ' ' + attr(t, 'data-xf-ty') + ' ');
+  const fl = cards.map((t) => ' ' + attr(t, 'data-xf-fl') + ' ');
+  const n = cards.length - 1;
+  return html.replace(/<section class="rtt-ul rtt-ul--open[^"]*"[\s\S]*?<\/section>/g, (panel) => {
+    let p = panel;
+    const ghosts = (p.match(/class="rtt-ul__g"/g) || []).length;
+    p = p.replace(/(<span class="rtt-ul__more">)([^<]*)(<\/span>)/, (all, a, t, b) => (n - ghosts > 0 ? a + t.replace(/\d+/, String(n - ghosts)) + b : ''));
+    p = p.replace(/(<span class="rtt-ul__one">)([^<]*)/, (all, a, t) => a + t.replace(/\d+/, String(n)));
+    p = p.replace(/<li data-([kf])="([^"]+)">([\s\S]*?)<b>\d+<\/b>([\s\S]*?)<\/li>/g, (all, kind, key, pre, post) => {
+      const c = (kind === 'k' ? ty : fl).filter((x) => x.includes(' ' + key + ' ')).length;
+      return c ? `<li data-${kind}="${key}">${pre}<b>${c}</b>${post}</li>` : '';
+    });
+    return p;
+  });
+}
+
 export function healCity(html, today, pages, self) {
   if (!html.includes('class="rtt-pe-ride')) return null;
   const cards = [];

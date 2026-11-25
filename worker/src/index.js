@@ -23,7 +23,7 @@
 //   5 minutes; requests never wait for a refresh after the first load. It is only
 //   re-parsed when the file actually changed.
 
-import { healHub, healCity, healGuide, refToday, freshen, fixSocialHead } from './heal.js';
+import { healHub, healCity, healGuide, refToday, freshen, fixSocialHead, fixOpenPanel } from './heal.js';
 import { isServicesPath, servicesHealerFor, runServicesHealer } from './services.js';
 
 const SOURCES = [
@@ -299,7 +299,7 @@ export function runHealer(kind, html, live, path, today) {
   else return null;
   // dateModified follows the day the page's content last changed (see freshen in heal.js)
   let base = out || html;
-  if (kind === 'city') base = fixSocialHead(base, path);
+  if (kind === 'city') base = fixOpenPanel(fixSocialHead(base, path));
   const dated = freshen(base, mod);
   return dated !== html ? dated : null;
 }
