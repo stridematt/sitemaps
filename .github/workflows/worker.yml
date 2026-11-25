@@ -1,0 +1,91 @@
+name: rtt-hreflang Worker (bundle and full tests)
+
+# Every change to the Worker: rebuild worker/deploy/rtt-hreflang.min.js and run every test, including the
+# Miniflare suite against fresh copies of live pages. On main the rebuilt bundle is committed, so the
+# checked-in copy always matches src/. (Workers Builds deploys from src/ on its own; this keeps the
+# manual-upload copy and the tests honest.)
+on:
+  push:
+    paths:
+      - 'worker/**'
+      - '!worker/deploy/**'
+      - '.github/workflows/worker.yml'
+  pull_request:
+    paths:
+      - 'worker/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: worker-bundle-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SQS: https://rally-takes-the-train-site.squarespace.com
+      RTT_DYN: ${{ github.workspace }}/fixtures/dyn/
+      FIXTURES: ${{ github.workspace }}/fixtures/audit
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: worker/package-lock.json
+
+      - name: Install
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+
+      - name: Save fresh copies of the test pages (Squarespace's own, before the Worker)
+        run: |
+          mkdir -p "$RTT_DYN" "$FIXTURES"
+          get() {
+            for i in 1 2 3 4 5; do
+              curl -fsS -A 'Mozilla/5.0 rtt-worker-tests' "$SQS$1" -o "$2" && [ -s "$2" ] && return 0
+              sleep $((i * 10))
+            done
+            echo "could not save $1"; return 1
+          }
+          get /christmas-events-for-kids                                   "$RTT_DYN/christmas-events-for-kids.html"
+          get /christmas-events/denver-co                                  "$RTT_DYN/christmas-events_denver-co.html"
+          get /christmas-events/colorado                                   "$RTT_DYN/christmas-events_colorado.html"
+          get /christmas-events-for-kids                                   "$FIXTURES/christmas-events-for-kids.html"
+          get /christmas-events/weihnachten-mit-kindern-deutschland        "$FIXTURES/christmas-events_weihnachten-mit-kindern-deutschland.html"
+          get /christmas-eve-services-near-me                              "$FIXTURES/christmas-eve-services-near-me.html"
+          get /christmas-eve-services/united-states                        "$FIXTURES/us.html"
+          ls -la "$RTT_DYN" "$FIXTURES"
+
+      - name: Bundle
+        working-directory: worker
+        run: npm run bundle
+
+      - name: Unit tests
+        working-directory: worker
+        run: |
+          node test/sitemap.test.mjs
+          node test/services.test.mjs
+          node test/heal.test.mjs
+          node test/sqsp.test.mjs
+
+      - name: Full tests (Miniflare, the bundle as deployed)
+        working-directory: worker
+        run: npm test
+
+      - name: Commit the rebuilt bundle
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          if [ -z "$(git status --porcelain worker/deploy)" ]; then
+            echo "Bundle already up to date."
+            exit 0
+          fi
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add worker/deploy
+          git commit -q -m "Worker bundle rebuilt from src/"
+          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
