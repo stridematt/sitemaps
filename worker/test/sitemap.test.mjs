@@ -1,5 +1,6 @@
 // Tests for the sitemap.xml fix. Run: node test/sitemap.test.mjs
-import { applySitemapFix, fixSitemapIndex, newPagesSitemap, isSitemapPath, NEW_PAGES_SITEMAP } from '../src/index.js';
+import { applySitemapFix, fixSitemapIndex, newPagesSitemap, isSitemapPath } from '../src/index.js';
+const NEW_PAGES_SITEMAP = '/sitemap-new-pages.xml';
 import assert from 'node:assert/strict';
 let n = 0;
 const t = (name, fn) => { fn(); n++; console.log('ok  ', name); };

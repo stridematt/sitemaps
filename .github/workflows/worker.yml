@@ -27,8 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SQS: https://rally-takes-the-train-site.squarespace.com
-      RTT_DYN: ${{ github.workspace }}/fixtures/dyn/
-      FIXTURES: ${{ github.workspace }}/fixtures/audit
+      DYN: worker/test/fixtures/dyn
+      AUDIT: worker/test/fixtures/audit
     steps:
       - uses: actions/checkout@v4
 
@@ -42,30 +42,37 @@ jobs:
         working-directory: worker
         run: npm ci --no-audit --no-fund
 
-      - name: Save fresh copies of the test pages (Squarespace's own, before the Worker)
+      # The tests read saved copies of live pages from worker/test/fixtures (Squarespace's own HTML, before the
+      # Worker). A page missing there is saved from Squarespace now and committed with the bundle; delete a file
+      # to refresh it.
+      - name: Save any missing test pages
         run: |
-          mkdir -p "$RTT_DYN" "$FIXTURES"
+          mkdir -p "$DYN" "$AUDIT"
           get() {
+            [ -s "$2" ] && return 0
             for i in 1 2 3 4 5; do
-              curl -fsS -A 'Mozilla/5.0 rtt-worker-tests' "$SQS$1" -o "$2" && [ -s "$2" ] && return 0
+              curl -fsS -A 'Mozilla/5.0 rtt-worker-tests' "$SQS$1" -o "$2" && [ -s "$2" ] && { echo "saved $1"; return 0; }
               sleep $((i * 10))
             done
             echo "could not save $1"; return 1
           }
-          get /christmas-events-for-kids                                   "$RTT_DYN/christmas-events-for-kids.html"
-          get /christmas-events/denver-co                                  "$RTT_DYN/christmas-events_denver-co.html"
-          get /christmas-events/colorado                                   "$RTT_DYN/christmas-events_colorado.html"
-          get /christmas-events-for-kids                                   "$FIXTURES/christmas-events-for-kids.html"
-          get /christmas-events/weihnachten-mit-kindern-deutschland        "$FIXTURES/christmas-events_weihnachten-mit-kindern-deutschland.html"
-          get /christmas-eve-services-near-me                              "$FIXTURES/christmas-eve-services-near-me.html"
-          get /christmas-eve-services/united-states                        "$FIXTURES/us.html"
-          ls -la "$RTT_DYN" "$FIXTURES"
+          get /christmas-events-for-kids                            "$DYN/christmas-events-for-kids.html"
+          get /christmas-events/denver-co                           "$DYN/christmas-events_denver-co.html"
+          get /christmas-events/colorado                            "$DYN/christmas-events_colorado.html"
+          get /christmas-events-for-kids                            "$AUDIT/christmas-events-for-kids.html"
+          get /christmas-events/weihnachten-mit-kindern-deutschland "$AUDIT/christmas-events_weihnachten-mit-kindern-deutschland.html"
+          get /christmas-eve-services-near-me                       "$AUDIT/christmas-eve-services-near-me.html"
+          get /christmas-eve-services/united-states                 "$AUDIT/us.html"
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: test-pages
-          path: fixtures/
-          retention-days: 3
+      - name: Commit newly saved test pages
+        if: github.event_name != 'pull_request'
+        run: |
+          [ -z "$(git status --porcelain worker/test/fixtures)" ] && exit 0
+          git config user.name "rtt-hreflang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add worker/test/fixtures
+          git commit -q -m "Worker tests: saved copies of the test pages"
+          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
 
       - name: Bundle
         id: bundle
