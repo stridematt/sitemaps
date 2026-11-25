@@ -458,6 +458,33 @@ function sectionEnd(html, i) {
   return -1;
 }
 
+
+// Head fixes for city pages: Squarespace stamps one site-wide location (New York) on every page's
+// og:latitude/og:longitude, serves og:image over http and sends a small Twitter card. Give each city page its
+// own coordinates (the average of its events' places), or drop the tags when it has none.
+const SITE_LAT = '40.7207559', SITE_LON = '-74.0007613';
+export function fixSocialHead(html, path) {
+  if (!html || typeof html !== 'string') return html;
+  let out = html;
+  const lat = out.match(/<meta property="og:latitude" content="([^"]*)">/);
+  if (lat && lat[1] === SITE_LAT && !/\/christmas-events\/(?:new-york-ny|nyc)$/.test(path || '')) {
+    const pts = [...out.matchAll(/"GeoCoordinates"\s*,\s*"latitude"\s*:\s*(-?\d+(?:\.\d+)?)\s*,\s*"longitude"\s*:\s*(-?\d+(?:\.\d+)?)/g)]
+      .map((m) => [Number(m[1]), Number(m[2])])
+      .filter(([a, b]) => Math.abs(a) <= 90 && Math.abs(b) <= 180 && !(Math.abs(a - 40.7207559) < 1e-6 && Math.abs(b + 74.0007613) < 1e-6));
+    if (pts.length) {
+      const a = pts.reduce((x, p) => x + p[0], 0) / pts.length, b = pts.reduce((x, p) => x + p[1], 0) / pts.length;
+      out = out.replace(/(<meta property="og:latitude" content=")[^"]*(">)/, `$1${a.toFixed(4)}$2`)
+        .replace(/(<meta property="og:longitude" content=")[^"]*(">)/, `$1${b.toFixed(4)}$2`);
+    } else {
+      out = out.replace(/<meta property="og:(?:latitude|longitude)" content="[^"]*">\n?/g, '');
+    }
+  }
+  out = out.replace(/(<meta (?:property="og:image"|name="twitter:image") content=")http:\/\/(static1\.squarespace\.com\/)/g, '$1https://$2');
+  const w = out.match(/<meta property="og:image:width" content="(\d+)">/);
+  if (w && Number(w[1]) >= 1200) out = out.replace('<meta name="twitter:card" content="summary">', '<meta name="twitter:card" content="summary_large_image">');
+  return out;
+}
+
 export function healCity(html, today, pages, self) {
   if (!html.includes('class="rtt-pe-ride')) return null;
   const cards = [];
