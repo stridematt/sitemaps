@@ -1,11 +1,267 @@
 {
- "today": "2026-11-24",
- "sitemap_urls": 28015,
+ "today": "2026-11-25",
+ "sitemap_urls": 30636,
  "city_pages": 4537,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 25577,
- "count_mismatch": [],
+ "event_pages_listed": 25590,
+ "count_mismatch": [
+  [
+   "/christmas-events/athens-gr",
+   98,
+   96
+  ],
+  [
+   "/christmas-events/bertrange-lu",
+   5,
+   4
+  ],
+  [
+   "/christmas-events/bossier-city-la",
+   2,
+   1
+  ],
+  [
+   "/christmas-events/brooklyn-ny",
+   8,
+   7
+  ],
+  [
+   "/christmas-events/charleston-wv",
+   16,
+   15
+  ],
+  [
+   "/christmas-events/christmas-in-bremen-with-kids",
+   31,
+   30
+  ],
+  [
+   "/christmas-events/christmas-in-sao-paulo-with-kids",
+   12,
+   11
+  ],
+  [
+   "/christmas-events/des-moines-ia",
+   29,
+   28
+  ],
+  [
+   "/christmas-events/el-paso-tx",
+   9,
+   8
+  ],
+  [
+   "/christmas-events/galveston-tx",
+   4,
+   3
+  ],
+  [
+   "/christmas-events/gladsaxe-dk",
+   14,
+   13
+  ],
+  [
+   "/christmas-events/great-falls-mt",
+   10,
+   9
+  ],
+  [
+   "/christmas-events/harrisburg-pa",
+   19,
+   18
+  ],
+  [
+   "/christmas-events/hemet-ca",
+   9,
+   8
+  ],
+  [
+   "/christmas-events/huntington-beach-ca",
+   5,
+   4
+  ],
+  [
+   "/christmas-events/jacksonville-fl",
+   35,
+   34
+  ],
+  [
+   "/christmas-events/jonesboro-ar",
+   19,
+   18
+  ],
+  [
+   "/christmas-events/kolding-dk",
+   18,
+   17
+  ],
+  [
+   "/christmas-events/kotka-fi",
+   17,
+   16
+  ],
+  [
+   "/christmas-events/krasnoyarsk-ru",
+   5,
+   4
+  ],
+  [
+   "/christmas-events/lafayette-la",
+   19,
+   18
+  ],
+  [
+   "/christmas-events/lappeenranta-fi",
+   16,
+   15
+  ],
+  [
+   "/christmas-events/lapu-lapu-ph",
+   1,
+   0
+  ],
+  [
+   "/christmas-events/lees-summit-mo",
+   10,
+   9
+  ],
+  [
+   "/christmas-events/little-rock-ar",
+   28,
+   27
+  ],
+  [
+   "/christmas-events/long-beach-ca",
+   9,
+   8
+  ],
+  [
+   "/christmas-events/meridian-ms",
+   17,
+   16
+  ],
+  [
+   "/christmas-events/mosfellsbaer-is",
+   5,
+   4
+  ],
+  [
+   "/christmas-events/natal-com-criancas-praia-grande",
+   2,
+   1
+  ],
+  [
+   "/christmas-events/natal-com-criancas-sao-paulo",
+   14,
+   13
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-cuenca-ec",
+   1,
+   0
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-mar-del-plata-ar",
+   2,
+   1
+  ],
+  [
+   "/christmas-events/navidad-con-ninos-rio-cuarto-ar",
+   1,
+   0
+  ],
+  [
+   "/christmas-events/new-albany-oh",
+   3,
+   2
+  ],
+  [
+   "/christmas-events/noel-avec-les-enfants-bertrange",
+   5,
+   4
+  ],
+  [
+   "/christmas-events/novyy-god-krasnoyarsk-ru",
+   5,
+   4
+  ],
+  [
+   "/christmas-events/pierre-sd",
+   2,
+   1
+  ],
+  [
+   "/christmas-events/pittsburgh-pa",
+   30,
+   29
+  ],
+  [
+   "/christmas-events/porvoo-fi",
+   13,
+   12
+  ],
+  [
+   "/christmas-events/sariaya-ph",
+   1,
+   0
+  ],
+  [
+   "/christmas-events/shippensburg-pa",
+   3,
+   2
+  ],
+  [
+   "/christmas-events/southend-on-sea-uk",
+   16,
+   15
+  ],
+  [
+   "/christmas-events/topeka-ks",
+   23,
+   22
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-bremen",
+   33,
+   32
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-erfurt",
+   18,
+   17
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-friedrichshafen",
+   28,
+   27
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-greifswald",
+   6,
+   5
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-hameln",
+   4,
+   3
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-neubrandenburg",
+   9,
+   8
+  ],
+  [
+   "/christmas-events/weihnachten-mit-kindern-norderstedt",
+   13,
+   12
+  ],
+  [
+   "/christmas-events/zadar-hr",
+   9,
+   8
+  ]
+ ],
  "uncounted_city_pages": [
   [
    "/christmas-events/navidad-con-ninos-ponce-pr",
@@ -164,6 +420,12 @@
    "Bilbao Gabonak 2026-2027: Programa Navidad en Bilbao"
   ],
   [
+   "/christmas-events/breakfast-with-santa-at-jurupa-community-center-jurupa-valley-ca",
+   "2026-12-12",
+   "/christmas-events/jurupa-valley-ca",
+   "Breakfast with Santa at Jurupa Community Center"
+  ],
+  [
    "/christmas-events/buble-christmas-tribute-pamplona-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-pamplona",
@@ -246,6 +508,18 @@
    "2026-12-20",
    "/christmas-events/christmas-in-bruges-with-kids",
    "Christmas Market at the Villa Donnersmarck"
+  ],
+  [
+   "/christmas-events/christmas-on-main-and-stuart-tree-lighting-fl",
+   "2026-11-27",
+   "/christmas-events/stuart-fl",
+   "Christmas on Main and Stuart Tree Lighting"
+  ],
+  [
+   "/christmas-events/christmas-on-the-river-in-downtown-parkville-mo",
+   "2026-12-04",
+   "/christmas-events/kansas-city-mo",
+   "Christmas on the River in Downtown Parkville"
   ],
   [
    "/christmas-events/christmas-tree-lighting-at-danat-al-ain-resort-ae",
@@ -338,12 +612,6 @@
    "Elurretako erregina"
   ],
   [
-   "/christmas-events/encendido-del-arbol-de-la-navidad-madrid-es",
-   "2026-11-24",
-   "/christmas-events/navidad-con-ninos-madrid",
-   "Encendido del Árbol de la Navidad"
-  ],
-  [
    "/christmas-events/ene-kantak-amagoia-dragoia-bilbao-es",
    "2026-12-22",
    "/christmas-events/navidad-con-ninos-bilbao",
@@ -434,6 +702,12 @@
    "Ibercaja Xplora: El Gran Rastro de los Reyes Magos"
   ],
   [
+   "/christmas-events/illuminights-a-lantern-festival-presented-by-georgia-power-atlanta-ga",
+   "2027-01-17",
+   "/christmas-events/atlanta-ga",
+   "IllumiNights: A Lantern Festival presented by Georgia Power"
+  ],
+  [
    "/christmas-events/ipuin-kontaketa-musikatuak-bilbao-es",
    "2027-01-04",
    "/christmas-events/navidad-con-ninos-bilbao",
@@ -456,6 +730,12 @@
    "2026-12-09",
    "/christmas-events/christmas-in-namur-with-kids",
    "Jolaboka (Cologne)"
+  ],
+  [
+   "/christmas-events/junie-b-jones-in-jingle-bells-batman-smells-prattville-al",
+   "2027-12-02",
+   "/christmas-events/montgomery-al",
+   "Junie B. Jones in Jingle Bells, Batman Smells"
   ],
   [
    "/christmas-events/kameleoiak-gara-artes-vivas-nuur-san-sebastian-es",
@@ -608,6 +888,12 @@
    "Murren bidaia"
   ],
   [
+   "/christmas-events/napa-christmas-parade-ca",
+   "2026-12-05",
+   "/christmas-events/napa-ca",
+   "Napa Christmas Parade"
+  ],
+  [
    "/christmas-events/natal-na-praca-felgueiras-pt",
    "2027-01-10",
    "/christmas-events/natal-com-criancas-felgueiras",
@@ -648,6 +934,12 @@
    "2026-12-23",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Olentzeroren sekretua"
+  ],
+  [
+   "/christmas-events/pancakes-with-santa-at-the-waterloo-convention-center-ia",
+   "2026-12-13",
+   "/christmas-events/waterloo-ia",
+   "Pancakes with Santa at the Waterloo Convention Center"
   ],
   [
    "/christmas-events/pero-que-me-estas-cantando-kike-lera-zaragoza-es",
@@ -692,6 +984,12 @@
    "Santa Reads in the Crane (Der Weihnachtsmann liest im Kran)"
   ],
   [
+   "/christmas-events/santas-cottage-at-birkdale-village-huntersville-nc",
+   "2026-12-24",
+   "/christmas-events/cornelius-nc",
+   "Santa's Cottage at Birkdale Village"
+  ],
+  [
    "/christmas-events/sausalito-winterfest-lighted-boat-parade-ca",
    "2026-12-13",
    "/christmas-events/san-rafael-ca",
@@ -720,6 +1018,12 @@
    "2026-12-13",
    "/christmas-events/weihnachten-mit-kindern-dormagen",
    "Sternenzauber-Weihnachtsmarkt in der Altstadt in Monheim am Rhein"
+  ],
+  [
+   "/christmas-events/storytime-with-miss-williams-atlanta-ga",
+   "2026-12-12",
+   "/christmas-events/atlanta-ga",
+   "Storytime with Miss Williams"
   ],
   [
    "/christmas-events/szent-miklos-napi-unnepseg-mikulas-varo-a-kalaka-belvaros-lipotvaros-hu",
@@ -819,10 +1123,10 @@
   ]
  ],
  "upcoming_not_listed_by_country": {
-  "Spain": 77,
+  "Spain": 76,
   "Belgium": 26,
+  "United States": 15,
   "Portugal": 7,
-  "United States": 6,
   "Cyprus": 4,
   "Germany": 4,
   "Puerto Rico": 3,
@@ -869,6 +1173,11 @@
    "Recklinghäuser Weihnachtscircus"
   ],
   [
+   "/christmas-events/sights-and-sounds-of-christmas-in-san-marcos-tx",
+   "/christmas-events/san-marcos-tx",
+   "Sights and Sounds of Christmas in San Marcos"
+  ],
+  [
    "/christmas-events/snow-white-the-arena-panto-waterford-ie",
    "/christmas-events/waterford-ie",
    "Snow White: The Arena Panto 2026"
@@ -879,7 +1188,7 @@
    "Tidings of Tradition: Christmas Tour 2026"
   ]
  ],
- "past_not_listed": 348,
+ "past_not_listed": 349,
  "other": [
   [
    "/christmas-events/arrival-and-sint-festival-in-zandvoort-intocht-en-sintfestival-zandvoort-nl",
