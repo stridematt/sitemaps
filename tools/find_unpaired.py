@@ -16,6 +16,9 @@ import re
 import sys
 import urllib.request
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sitemap'))
+import sitemap_read as SR  # follows /sitemap.xml when it is an index of files
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://www.rallytakesthetrain.com'
 CE = '/christmas-events/'
@@ -36,8 +39,8 @@ def site_pages(path=None):
     if path:
         xml = open(path, encoding='utf-8').read()
     else:
-        req = urllib.request.Request(SITE + '/sitemap.xml', headers={**HDR})
-        xml = urllib.request.urlopen(req, timeout=120).read().decode('utf-8')
+        rd = lambda u: urllib.request.urlopen(urllib.request.Request(u, headers={**HDR}), timeout=120).read().decode('utf-8')
+        xml = SR.expand(rd(SITE + '/sitemap.xml'), SITE + '/sitemap.xml', rd)
     locs = re.findall(r'<loc>([^<]+)</loc>', xml)
     return {l.replace(SITE, '', 1).rstrip('/') or '/' for l in locs if l.startswith(SITE) and not re.search(r'\.(jpe?g|png|gif|webp)$', l, re.I)}
 

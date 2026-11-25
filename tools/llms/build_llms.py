@@ -16,6 +16,9 @@ replaces a good file.
 """
 import argparse, collections, concurrent.futures as cf, datetime, html, json, os, re, sys, time, urllib.request
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sitemap'))
+import sitemap_read as SR  # follows /sitemap.xml when it is an index of files
+
 SITE = 'https://www.rallytakesthetrain.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -362,6 +365,7 @@ def main():
     hub = parse_hub(hb.decode('utf-8'))
     eve_data = {sec: collection(sec) for sec, *_ in EVE_SECTIONS}
     _, sm = get(SITE + '/sitemap.xml')
+    sm = SR.expand(sm, SITE + '/sitemap.xml', lambda u: get(u)[1] or None)
     sitemap = [u.replace(SITE, '') for u in re.findall(r'<loc>([^<]+)</loc>', sm.decode('utf-8'))]
     if len(sitemap) < 1000:
         raise SystemExit(f'sitemap.xml looks broken ({len(sitemap)} URLs)')

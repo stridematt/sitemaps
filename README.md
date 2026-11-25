@@ -87,4 +87,4 @@ Since 2026-11-25 the site has more than 50,000 URLs, so Squarespace serves `/sit
 - `/sitemapN.xml`: Squarespace's file with the dead URLs dropped (`x-rtt-sitemap: fixed +0 -M`)
 - `/sitemap-new-pages.xml`: the pages Squarespace does not list yet (`x-rtt-sitemap: new pages M`)
 
-`build_fix.py` and the rally-events sitemap audit read every file in the index. Anything else that reads `/sitemap.xml` for URLs has to follow the index too.
+Every script that reads URLs from the sitemap follows the index through `tools/sitemap/sitemap_read.py` (`SR.expand(text, url, fetch)`; tests: `python3 tools/sitemap/test_sitemap_read.py`), and so do `tools/sqsp/link_cards.js` and the rally-events sitemap audit. A new script that reads `/sitemap.xml` should use it too.

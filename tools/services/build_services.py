@@ -13,6 +13,9 @@ Usage: python3 tools/services/build_services.py [--max 5000] [--threads 6]
 """
 import argparse, collections, concurrent.futures as cf, datetime, html as H, json, os, re, sys, time, unicodedata, urllib.request
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sitemap'))
+import sitemap_read as SR  # follows /sitemap.xml when it is an index of files
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 OUT = os.path.join(HERE, 'live_services.json')
@@ -171,6 +174,7 @@ def main():
     st, sm = get(SQS + '/sitemap.xml')
     if st != 200:
         sys.exit(f'sitemap HTTP {st}')
+    sm = SR.expand(sm, SQS + '/sitemap.xml', lambda u: (lambda r: r[1] if r[0] == 200 else None)(get(u)))
     cols = [c for c in COLLECTIONS if not a.only or c in a.only.split(',')]
     urls = sorted({u for u in re.findall(r'<loc>https?://[^/<]+(/[^<]+)</loc>', sm)
                    if u.count('/') == 2 and u.split('/')[1] in cols and '/category/' not in u and '/tag/' not in u})[:a.max]
