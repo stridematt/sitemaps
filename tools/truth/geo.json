@@ -15,6 +15,10 @@
 56.27,
 90.5
 ],
+"/christmas-events/acton-ma": [
+42.49,
+-71.43
+],
 "/christmas-events/adazi-lv": [
 57.08,
 24.32
@@ -22,6 +26,10 @@
 "/christmas-events/addison-il": [
 41.93,
 -87.99
+],
+"/christmas-events/addison-tx": [
+32.96,
+-96.83
 ],
 "/christmas-events/ahmedabad-in": [
 23.02,
@@ -61,6 +69,10 @@
 37.61,
 -121.9
 ],
+"/christmas-events/albany-ca": [
+37.89,
+-122.3
+],
 "/christmas-events/albertville-al": [
 34.27,
 -86.21
@@ -81,6 +93,10 @@
 56.4,
 38.73
 ],
+"/christmas-events/algonquin-il": [
+42.17,
+-88.29
+],
 "/christmas-events/alliston-on": [
 44.15,
 -79.87
@@ -100,6 +116,10 @@
 "/christmas-events/altoona-pa": [
 40.52,
 -78.4
+],
+"/christmas-events/alvin-tx": [
+29.42,
+-95.24
 ],
 "/christmas-events/alytus-lt": [
 54.4,
@@ -145,6 +165,10 @@
 41.73,
 -93.61
 ],
+"/christmas-events/anna-tx": [
+33.35,
+-96.55
+],
 "/christmas-events/antalya-tr": [
 36.89,
 30.7
@@ -152,6 +176,10 @@
 "/christmas-events/antigua-and-barbuda": [
 17.22,
 -61.96
+],
+"/christmas-events/antioch-ca": [
+38.01,
+-121.81
 ],
 "/christmas-events/antipolo-ph": [
 14.59,
@@ -177,9 +205,17 @@
 64.54,
 40.53
 ],
+"/christmas-events/arlington-ma": [
+42.42,
+-71.16
+],
 "/christmas-events/arlington-va": [
 38.88,
 -77.09
+],
+"/christmas-events/arlington-wa": [
+48.19,
+-122.13
 ],
 "/christmas-events/armavir-ru": [
 45.0,
@@ -201,6 +237,14 @@
 35.49,
 -120.67
 ],
+"/christmas-events/atascocita-tx": [
+30.0,
+-95.16
+],
+"/christmas-events/attleboro-ma": [
+41.94,
+-71.28
+],
 "/christmas-events/auburn-ny": [
 32.61,
 -85.48
@@ -216,6 +260,10 @@
 "/christmas-events/aurora-on": [
 44.0,
 -79.47
+],
+"/christmas-events/aventura-fl": [
+25.96,
+-80.14
 ],
 "/christmas-events/azov-ru": [
 47.09,
@@ -289,6 +337,10 @@
 47.14,
 39.74
 ],
+"/christmas-events/battle-ground-wa": [
+45.78,
+-122.53
+],
 "/christmas-events/batumi-ge": [
 41.65,
 41.64
@@ -308,6 +360,10 @@
 "/christmas-events/beavercreek-oh": [
 39.71,
 -84.06
+],
+"/christmas-events/beaverton-or": [
+45.49,
+-122.8
 ],
 "/christmas-events/bedford-tx": [
 40.03,
@@ -336,6 +392,14 @@
 "/christmas-events/bellville-za": [
 -33.91,
 18.63
+],
+"/christmas-events/belmont-ca": [
+37.52,
+-122.29
+],
+"/christmas-events/belmont-ma": [
+42.4,
+-71.18
 ],
 "/christmas-events/belmopan-bz": [
 17.25,
@@ -369,9 +433,17 @@
 59.41,
 56.8
 ],
+"/christmas-events/berkeley-ca": [
+37.87,
+-122.27
+],
 "/christmas-events/bermuda": [
 32.3,
 -64.76
+],
+"/christmas-events/berwyn-il": [
+41.85,
+-87.79
 ],
 "/christmas-events/bethlehem-pa": [
 40.62,
@@ -388,6 +460,14 @@
 "/christmas-events/beverly-hills-ca": [
 34.07,
 -118.4
+],
+"/christmas-events/beverly-ma": [
+42.55,
+-70.88
+],
+"/christmas-events/billerica-ma": [
+42.56,
+-71.27
 ],
 "/christmas-events/biysk-ru": [
 52.54,
@@ -429,9 +509,17 @@
 37.03,
 27.43
 ],
+"/christmas-events/boerne-tx": [
+29.79,
+-98.73
+],
 "/christmas-events/boksburg-za": [
 -26.21,
 28.26
+],
+"/christmas-events/bolingbrook-il": [
+41.7,
+-88.07
 ],
 "/christmas-events/bor-ru": [
 56.36,
@@ -441,6 +529,10 @@
 60.49,
 15.42
 ],
+"/christmas-events/bothell-wa": [
+47.76,
+-122.21
+],
 "/christmas-events/boucherville-qc": [
 45.61,
 -73.45
@@ -448,6 +540,10 @@
 "/christmas-events/bracebridge-on": [
 45.04,
 -79.31
+],
+"/christmas-events/braintree-ma": [
+42.22,
+-71.0
 ],
 "/christmas-events/brampton-on": [
 43.69,
@@ -464,6 +560,10 @@
 "/christmas-events/brea-ca": [
 33.92,
 -117.89
+],
+"/christmas-events/brentwood-ca": [
+37.93,
+-121.7
 ],
 "/christmas-events/brentwood-tn": [
 36.03,
@@ -497,6 +597,10 @@
 36.05,
 -95.79
 ],
+"/christmas-events/brookfield-il": [
+41.82,
+-87.85
+],
 "/christmas-events/brookfield-wi": [
 41.82,
 -87.85
@@ -508,6 +612,10 @@
 "/christmas-events/brookings-sd": [
 44.31,
 -96.8
+],
+"/christmas-events/brookline-ma": [
+42.33,
+-71.12
 ],
 "/christmas-events/brooklyn-park-mn": [
 45.1,
@@ -525,6 +633,10 @@
 53.28,
 34.37
 ],
+"/christmas-events/buda-tx": [
+30.08,
+-97.84
+],
 "/christmas-events/budyonnovsk-ru": [
 44.78,
 44.16
@@ -532,6 +644,10 @@
 "/christmas-events/buena-park-ca": [
 33.87,
 -118.0
+],
+"/christmas-events/buffalo-grove-il": [
+42.15,
+-87.96
 ],
 "/christmas-events/bugulma-ru": [
 54.54,
@@ -541,9 +657,21 @@
 -20.11,
 28.54
 ],
+"/christmas-events/burien-wa": [
+47.47,
+-122.35
+],
 "/christmas-events/burleson-tx": [
 30.48,
 -96.64
+],
+"/christmas-events/burlingame-ca": [
+37.58,
+-122.35
+],
+"/christmas-events/burlington-ma": [
+42.5,
+-71.2
 ],
 "/christmas-events/burlington-on": [
 43.32,
@@ -585,6 +713,18 @@
 43.67,
 -116.69
 ],
+"/christmas-events/calumet-city-il": [
+41.62,
+-87.53
+],
+"/christmas-events/camas-wa": [
+45.59,
+-122.4
+],
+"/christmas-events/cambridge-ma": [
+42.37,
+-71.1
+],
 "/christmas-events/cambridge-on": [
 43.36,
 -80.31
@@ -605,6 +745,10 @@
 40.8,
 -81.37
 ],
+"/christmas-events/canyon-lake-tx": [
+33.68,
+-117.25
+],
 "/christmas-events/cape-girardeau-mo": [
 37.3,
 -89.52
@@ -621,6 +765,10 @@
 45.14,
 -76.15
 ],
+"/christmas-events/carlsbad-ca": [
+33.14,
+-117.33
+],
 "/christmas-events/carlsbad-nm": [
 33.14,
 -117.33
@@ -632,6 +780,10 @@
 "/christmas-events/carmichael-ca": [
 38.63,
 -121.32
+],
+"/christmas-events/carpentersville-il": [
+42.12,
+-88.26
 ],
 "/christmas-events/carrollton-tx": [
 32.95,
@@ -652,6 +804,18 @@
 "/christmas-events/cedar-falls-ia": [
 42.54,
 -92.45
+],
+"/christmas-events/cedar-hill-tx": [
+32.59,
+-96.96
+],
+"/christmas-events/cedar-park-tx": [
+30.52,
+-97.83
+],
+"/christmas-events/celina-tx": [
+33.32,
+-96.78
 ],
 "/christmas-events/centerville-oh": [
 31.26,
@@ -709,6 +873,14 @@
 55.14,
 37.45
 ],
+"/christmas-events/chelmsford-ma": [
+42.6,
+-71.35
+],
+"/christmas-events/chelsea-ma": [
+42.39,
+-71.04
+],
 "/christmas-events/chelyabinsk-ru": [
 55.16,
 61.4
@@ -764,6 +936,14 @@
 "/christmas-events/chula-vista-ca": [
 32.64,
 -117.08
+],
+"/christmas-events/cibolo-tx": [
+29.57,
+-98.23
+],
+"/christmas-events/cicero-il": [
+41.85,
+-87.75
 ],
 "/christmas-events/citrus-heights-ca": [
 38.71,
@@ -845,9 +1025,17 @@
 37.98,
 -122.03
 ],
+"/christmas-events/concord-ma": [
+42.46,
+-71.35
+],
 "/christmas-events/conroe-tx": [
 30.31,
 -95.46
+],
+"/christmas-events/converse-tx": [
+43.02,
+-105.5
 ],
 "/christmas-events/cookeville-tn": [
 36.16,
@@ -856,6 +1044,10 @@
 "/christmas-events/coon-rapids-mn": [
 45.17,
 -93.3
+],
+"/christmas-events/cooper-city-fl": [
+26.06,
+-80.27
 ],
 "/christmas-events/coppell-tx": [
 32.96,
@@ -869,6 +1061,10 @@
 49.28,
 -122.79
 ],
+"/christmas-events/coral-gables-fl": [
+25.73,
+-80.26
+],
 "/christmas-events/coral-springs-fl": [
 26.27,
 -80.27
@@ -880,6 +1076,10 @@
 "/christmas-events/cornwall-on": [
 45.05,
 -74.73
+],
+"/christmas-events/coronado-ca": [
+32.69,
+-117.18
 ],
 "/christmas-events/cottage-grove-mn": [
 44.83,
@@ -896,6 +1096,10 @@
 "/christmas-events/covina-ca": [
 34.09,
 -117.89
+],
+"/christmas-events/covington-wa": [
+47.37,
+-122.1
 ],
 "/christmas-events/crown-point-in": [
 41.42,
@@ -917,6 +1121,14 @@
 37.32,
 -122.03
 ],
+"/christmas-events/cutler-bay-fl": [
+25.58,
+-80.34
+],
+"/christmas-events/cypress-tx": [
+29.97,
+-95.7
+],
 "/christmas-events/da-nang-vn": [
 16.07,
 108.22
@@ -925,9 +1137,21 @@
 14.11,
 122.96
 ],
+"/christmas-events/daly-city-ca": [
+37.69,
+-122.47
+],
 "/christmas-events/dana-point-ca": [
 33.47,
 -117.7
+],
+"/christmas-events/dania-beach-fl": [
+26.05,
+-80.14
+],
+"/christmas-events/danvers-ma": [
+42.57,
+-70.94
 ],
 "/christmas-events/danville-ca": [
 37.82,
@@ -949,9 +1173,17 @@
 41.08,
 -73.47
 ],
+"/christmas-events/darien-il": [
+41.75,
+-87.97
+],
 "/christmas-events/dartmouth-ns": [
 44.68,
 -63.57
+],
+"/christmas-events/davie-fl": [
+26.06,
+-80.23
 ],
 "/christmas-events/de-pere-wi": [
 44.45,
@@ -969,6 +1201,10 @@
 30.87,
 -84.57
 ],
+"/christmas-events/dedham-ma": [
+42.25,
+-71.17
+],
 "/christmas-events/deer-park-tx": [
 29.71,
 -95.12
@@ -977,9 +1213,17 @@
 26.32,
 -80.1
 ],
+"/christmas-events/deerfield-il": [
+42.17,
+-87.84
+],
 "/christmas-events/dekalb-il": [
 41.89,
 -88.77
+],
+"/christmas-events/del-mar-ca": [
+32.96,
+-117.27
 ],
 "/christmas-events/delaware-oh": [
 40.23,
@@ -996,6 +1240,14 @@
 "/christmas-events/derby-ks": [
 37.55,
 -97.27
+],
+"/christmas-events/des-moines-wa": [
+47.4,
+-122.31
+],
+"/christmas-events/des-plaines-il": [
+42.04,
+-87.89
 ],
 "/christmas-events/desoto-tx": [
 32.59,
@@ -1033,6 +1285,10 @@
 55.44,
 37.77
 ],
+"/christmas-events/doral-fl": [
+25.82,
+-80.36
+],
 "/christmas-events/dorval-qc": [
 45.45,
 -73.75
@@ -1044,6 +1300,10 @@
 "/christmas-events/downers-grove-il": [
 41.79,
 -88.01
+],
+"/christmas-events/dracut-ma": [
+42.67,
+-71.3
 ],
 "/christmas-events/draper-ut": [
 40.52,
@@ -1069,6 +1329,10 @@
 48.78,
 -123.71
 ],
+"/christmas-events/duncanville-tx": [
+32.65,
+-96.91
+],
 "/christmas-events/dunedin-fl": [
 28.01,
 -82.79
@@ -1080,6 +1344,10 @@
 "/christmas-events/durbanville-za": [
 -33.84,
 18.65
+],
+"/christmas-events/duxbury-ma": [
+42.04,
+-70.67
 ],
 "/christmas-events/dzerzhinsk-ru": [
 56.24,
@@ -1105,6 +1373,10 @@
 -33.02,
 27.9
 ],
+"/christmas-events/east-palo-alto-ca": [
+37.47,
+-122.14
+],
 "/christmas-events/east-peoria-il": [
 40.67,
 -89.58
@@ -1112,6 +1384,10 @@
 "/christmas-events/east-singapore-sg": [
 1.32,
 103.76
+],
+"/christmas-events/easton-ma": [
+42.02,
+-71.13
 ],
 "/christmas-events/edenvale-za": [
 -26.14,
@@ -1145,6 +1421,10 @@
 26.25,
 29.27
 ],
+"/christmas-events/el-cajon-ca": [
+32.79,
+-116.96
+],
 "/christmas-events/el-reno-ok": [
 35.53,
 -97.96
@@ -1168,6 +1448,10 @@
 "/christmas-events/elk-grove-ca": [
 38.41,
 -121.37
+],
+"/christmas-events/elk-grove-village-il": [
+42.0,
+-88.0
 ],
 "/christmas-events/elkhart-in": [
 41.6,
@@ -1197,10 +1481,15 @@
 38.4,
 -96.18
 ],
+"/christmas-events/encinitas-ca": [
+33.04,
+-117.28
+],
 "/christmas-events/engels-ru": [
 51.5,
 46.12
 ],
+"/christmas-events/ennis-tx": [],
 "/christmas-events/enterprise-al": [
 31.32,
 -85.86
@@ -1225,6 +1514,14 @@
 42.05,
 -87.68
 ],
+"/christmas-events/everett-ma": [
+42.41,
+-71.05
+],
+"/christmas-events/evergreen-park-il": [
+41.72,
+-87.7
+],
 "/christmas-events/fair-oaks-ca": [
 38.64,
 -121.25
@@ -1241,6 +1538,14 @@
 39.79,
 -82.64
 ],
+"/christmas-events/fallbrook-ca": [
+33.37,
+-117.22
+],
+"/christmas-events/farmers-branch-tx": [
+32.93,
+-96.9
+],
 "/christmas-events/farmington-nm": [
 36.73,
 -108.21
@@ -1248,6 +1553,10 @@
 "/christmas-events/farragut-tn": [
 35.88,
 -84.15
+],
+"/christmas-events/federal-way-wa": [
+47.31,
+-122.34
 ],
 "/christmas-events/fergus-on": [
 43.71,
@@ -1281,6 +1590,10 @@
 38.68,
 -121.18
 ],
+"/christmas-events/forest-grove-or": [
+45.52,
+-123.11
+],
 "/christmas-events/forney-tx": [
 32.75,
 -96.47
@@ -1300,6 +1613,18 @@
 "/christmas-events/fourways-za": [
 -26.0,
 28.0
+],
+"/christmas-events/foxborough-ma": [
+42.07,
+-71.25
+],
+"/christmas-events/frankfort-il": [
+41.5,
+-87.85
+],
+"/christmas-events/franklin-ma": [
+42.59,
+-72.61
 ],
 "/christmas-events/franklin-tn": [
 35.93,
@@ -1321,6 +1646,14 @@
 40.66,
 -73.58
 ],
+"/christmas-events/fremont-ca": [
+37.55,
+-121.99
+],
+"/christmas-events/friendswood-tx": [
+29.53,
+-95.2
+],
 "/christmas-events/frisco-tx": [
 33.15,
 -96.82
@@ -1332,6 +1665,10 @@
 "/christmas-events/fryazino-ru": [
 55.95,
 38.06
+],
+"/christmas-events/fulshear-tx": [
+29.69,
+-95.9
 ],
 "/christmas-events/fuquay-varina-nc": [
 35.58,
@@ -1489,6 +1826,10 @@
 44.92,
 -79.37
 ],
+"/christmas-events/grayslake-il": [
+42.34,
+-88.04
+],
 "/christmas-events/greater-upper-marlboro-md": [
 38.82,
 -76.75
@@ -1512,6 +1853,10 @@
 "/christmas-events/grenada": [
 12.14,
 -61.69
+],
+"/christmas-events/gresham-or": [
+45.5,
+-122.43
 ],
 "/christmas-events/grimsby-on": [
 43.19,
@@ -1553,6 +1898,10 @@
 28.11,
 -81.63
 ],
+"/christmas-events/hallandale-beach-fl": [
+25.98,
+-80.15
+],
 "/christmas-events/haltom-city-tx": [
 32.8,
 -97.27
@@ -1576,6 +1925,14 @@
 "/christmas-events/hanover-pa": [
 39.8,
 -76.98
+],
+"/christmas-events/hanover-park-il": [
+42.0,
+-88.15
+],
+"/christmas-events/happy-valley-or": [
+45.43,
+-122.5
 ],
 "/christmas-events/harare-zw": [
 -17.86,
@@ -1601,6 +1958,10 @@
 37.67,
 -122.08
 ],
+"/christmas-events/helotes-tx": [
+29.56,
+-98.69
+],
 "/christmas-events/hendersonville-tn": [
 36.3,
 -86.62
@@ -1608,6 +1969,10 @@
 "/christmas-events/henrietta-ny": [
 43.06,
 -77.63
+],
+"/christmas-events/hercules-ca": [
+38.02,
+-122.29
 ],
 "/christmas-events/hermanus-za": [
 -34.42,
@@ -1621,6 +1986,10 @@
 25.83,
 -80.28
 ],
+"/christmas-events/hialeah-gardens-fl": [
+25.87,
+-80.32
+],
 "/christmas-events/high-point-nc": [
 35.96,
 -80.01
@@ -1628,6 +1997,10 @@
 "/christmas-events/high-river-ab": [
 50.58,
 -113.87
+],
+"/christmas-events/highland-park-il": [
+42.18,
+-87.8
 ],
 "/christmas-events/highland-village-tx": [
 33.09,
@@ -1637,13 +2010,25 @@
 40.03,
 -83.16
 ],
+"/christmas-events/hillsboro-or": [
+45.52,
+-122.99
+],
 "/christmas-events/hilton-head-island-sc": [
 32.16,
 -80.75
 ],
+"/christmas-events/hinsdale-il": [
+41.8,
+-87.93
+],
 "/christmas-events/ho-chi-minh-city-vn": [
 10.77,
 106.72
+],
+"/christmas-events/hoffman-estates-il": [
+42.04,
+-88.08
 ],
 "/christmas-events/holland-mi": [
 42.79,
@@ -1653,6 +2038,10 @@
 35.65,
 -78.83
 ],
+"/christmas-events/hollywood-fl": [
+26.01,
+-80.15
+],
 "/christmas-events/homestead-fl": [
 25.47,
 -80.48
@@ -1661,6 +2050,10 @@
 33.47,
 -86.81
 ],
+"/christmas-events/homewood-il": [
+41.56,
+-87.67
+],
 "/christmas-events/hope-mills-nc": [
 34.97,
 -78.95
@@ -1668,6 +2061,10 @@
 "/christmas-events/hopkinsville-ky": [
 36.87,
 -87.49
+],
+"/christmas-events/hopkinton-ma": [
+42.23,
+-71.52
 ],
 "/christmas-events/howard-wi": [
 44.54,
@@ -1688,6 +2085,10 @@
 "/christmas-events/hudson-oh": [
 41.24,
 -81.44
+],
+"/christmas-events/hull-ma": [
+42.3,
+-70.91
 ],
 "/christmas-events/huntington-beach-ca": [
 33.68,
@@ -1721,6 +2122,10 @@
 17.36,
 78.47
 ],
+"/christmas-events/imperial-beach-ca": [
+32.58,
+-117.11
+],
 "/christmas-events/imus-ph": [
 14.43,
 120.94
@@ -1733,9 +2138,17 @@
 44.85,
 -93.04
 ],
+"/christmas-events/ipswich-ma": [
+42.68,
+-70.84
+],
 "/christmas-events/irkutsk-ru": [
 52.29,
 104.28
+],
+"/christmas-events/irving-tx": [
+32.83,
+-96.94
 ],
 "/christmas-events/ishim-ru": [
 56.11,
@@ -1819,6 +2232,10 @@
 ],
 "/christmas-events/jul-notteroy-no": [],
 "/christmas-events/jul-sandvika-no": [],
+"/christmas-events/julian-ca": [
+33.07,
+-116.59
+],
 "/christmas-events/jupiter-fl": [
 26.93,
 -80.09
@@ -1871,6 +2288,10 @@
 24.85,
 67.02
 ],
+"/christmas-events/katy-tx": [
+29.79,
+-95.82
+],
 "/christmas-events/kawit-ph": [
 14.44,
 120.9
@@ -1899,6 +2320,14 @@
 -26.1,
 28.23
 ],
+"/christmas-events/kendall-fl": [
+25.68,
+-80.32
+],
+"/christmas-events/kenmore-wa": [
+47.76,
+-122.25
+],
 "/christmas-events/kenner-la": [
 29.99,
 -90.24
@@ -1922,6 +2351,10 @@
 "/christmas-events/kettering-oh": [
 39.69,
 -84.17
+],
+"/christmas-events/key-biscayne-fl": [
+25.7,
+-80.16
 ],
 "/christmas-events/khabarovsk-ru": [
 51.63,
@@ -1970,6 +2403,10 @@
 "/christmas-events/kirishi-ru": [
 59.45,
 32.01
+],
+"/christmas-events/kirkland-wa": [
+47.68,
+-122.21
 ],
 "/christmas-events/kirov-ru": [
 58.6,
@@ -2131,6 +2568,10 @@
 47.03,
 -122.81
 ],
+"/christmas-events/lafayette-ca": [
+37.89,
+-122.12
+],
 "/christmas-events/lagos-ng": [
 6.46,
 3.39
@@ -2163,13 +2604,41 @@
 33.65,
 -117.69
 ],
+"/christmas-events/lake-forest-il": [
+42.26,
+-87.84
+],
+"/christmas-events/lake-in-the-hills-il": [
+42.18,
+-88.33
+],
+"/christmas-events/lake-jackson-tx": [
+29.03,
+-95.43
+],
 "/christmas-events/lake-mary-fl": [
 28.76,
 -81.32
 ],
+"/christmas-events/lake-oswego-or": [
+45.42,
+-122.67
+],
+"/christmas-events/lake-stevens-wa": [
+48.02,
+-122.07
+],
 "/christmas-events/lake-wales-fl": [
 27.9,
 -81.59
+],
+"/christmas-events/lakeside-ca": [
+32.85,
+-116.9
+],
+"/christmas-events/lakeway-tx": [
+30.36,
+-97.99
 ],
 "/christmas-events/lakewood-ca": [
 33.85,
@@ -2195,6 +2664,10 @@
 41.31,
 -105.59
 ],
+"/christmas-events/larkspur-ca": [
+37.93,
+-122.54
+],
 "/christmas-events/lathrop-ca": [
 37.82,
 -121.28
@@ -2219,6 +2692,10 @@
 29.51,
 -95.09
 ],
+"/christmas-events/leander-tx": [
+30.57,
+-97.86
+],
 "/christmas-events/lebanon-tn": [
 36.21,
 -86.29
@@ -2227,6 +2704,10 @@
 34.24,
 -78.0
 ],
+"/christmas-events/lemon-grove-ca": [
+32.74,
+-117.03
+],
 "/christmas-events/lenexa-ks": [
 38.97,
 -94.78
@@ -2234,6 +2715,10 @@
 "/christmas-events/lenoir-nc": [
 35.26,
 -77.65
+],
+"/christmas-events/lewisville-tx": [
+33.05,
+-96.99
 ],
 "/christmas-events/lexington-ma": [
 42.45,
@@ -2251,6 +2736,10 @@
 39.25,
 -94.42
 ],
+"/christmas-events/libertyville-il": [
+42.28,
+-87.95
+],
 "/christmas-events/ligao-ph": [
 13.24,
 123.54
@@ -2267,6 +2756,10 @@
 50.99,
 39.5
 ],
+"/christmas-events/lisle-il": [
+41.8,
+-88.07
+],
 "/christmas-events/livonia-mi": [
 42.37,
 -83.35
@@ -2282,6 +2775,10 @@
 "/christmas-events/lockport-ny": [
 43.17,
 -78.7
+],
+"/christmas-events/lombard-il": [
+41.89,
+-88.02
 ],
 "/christmas-events/long-beach-ny": [
 40.59,
@@ -2343,6 +2840,14 @@
 55.78,
 12.5
 ],
+"/christmas-events/lynn-ma": [
+42.47,
+-70.95
+],
+"/christmas-events/lynnfield-ma": [
+42.54,
+-71.05
+],
 "/christmas-events/lytkarino-ru": [
 55.58,
 37.91
@@ -2387,6 +2892,10 @@
 8.15,
 125.13
 ],
+"/christmas-events/malden-ma": [
+42.43,
+-71.07
+],
 "/christmas-events/malolos-ph": [
 14.84,
 120.81
@@ -2406,6 +2915,14 @@
 "/christmas-events/manitowoc-wi": [
 44.1,
 -87.83
+],
+"/christmas-events/manor-tx": [
+30.34,
+-97.56
+],
+"/christmas-events/mansfield-ma": [
+42.03,
+-71.22
 ],
 "/christmas-events/mansfield-oh": [
 40.76,
@@ -2443,6 +2960,14 @@
 "/christmas-events/marshall-tx": [
 32.54,
 -94.37
+],
+"/christmas-events/marshfield-ma": [
+42.09,
+-70.71
+],
+"/christmas-events/martinez-ca": [
+38.01,
+-122.13
 ],
 "/christmas-events/martinsburg-wv": [
 39.46,
@@ -2496,6 +3021,14 @@
 33.2,
 -96.62
 ],
+"/christmas-events/mcminnville-or": [
+45.21,
+-123.19
+],
+"/christmas-events/medford-ma": [
+42.42,
+-71.11
+],
 "/christmas-events/meleuz-ru": [
 52.96,
 55.93
@@ -2507,6 +3040,10 @@
 "/christmas-events/melrose-park-il": [
 41.9,
 -87.86
+],
+"/christmas-events/menlo-park-ca": [
+37.45,
+-122.18
 ],
 "/christmas-events/menomonee-falls-wi": [
 43.18,
@@ -2535,6 +3072,26 @@
 "/christmas-events/metairie-la": [
 29.99,
 -90.15
+],
+"/christmas-events/methuen-ma": [
+42.73,
+-71.19
+],
+"/christmas-events/miami-beach-fl": [
+25.79,
+-80.14
+],
+"/christmas-events/miami-gardens-fl": [
+25.94,
+-80.25
+],
+"/christmas-events/miami-lakes-fl": [
+25.91,
+-80.31
+],
+"/christmas-events/miami-springs-fl": [
+25.82,
+-80.29
 ],
 "/christmas-events/miass-ru": [
 55.05,
@@ -2572,6 +3129,22 @@
 35.45,
 -97.4
 ],
+"/christmas-events/milford-ma": [
+42.14,
+-71.52
+],
+"/christmas-events/mill-creek-wa": [
+47.86,
+-122.22
+],
+"/christmas-events/mill-valley-ca": [
+37.91,
+-122.54
+],
+"/christmas-events/millbrae-ca": [
+37.6,
+-122.4
+],
 "/christmas-events/millbrook-al": [
 32.48,
 -86.36
@@ -2587,6 +3160,10 @@
 "/christmas-events/milton-ga": [
 34.11,
 -84.27
+],
+"/christmas-events/milton-ma": [
+42.25,
+-71.07
 ],
 "/christmas-events/milton-on": [
 43.51,
@@ -2612,6 +3189,10 @@
 53.71,
 91.69
 ],
+"/christmas-events/miramar-fl": [
+25.99,
+-80.23
+],
 "/christmas-events/mission-bc": [
 49.16,
 -122.28
@@ -2620,6 +3201,10 @@
 33.6,
 -117.66
 ],
+"/christmas-events/missouri-city-tx": [
+29.62,
+-95.54
+],
 "/christmas-events/mitchell-sd": [
 43.71,
 -98.03
@@ -2627,6 +3212,10 @@
 "/christmas-events/modimolle-za": [
 -24.7,
 28.41
+],
+"/christmas-events/mokena-il": [
+41.53,
+-87.89
 ],
 "/christmas-events/moline-il": [
 41.51,
@@ -2672,6 +3261,10 @@
 37.13,
 -121.65
 ],
+"/christmas-events/morton-grove-il": [
+42.04,
+-87.78
+],
 "/christmas-events/moscow-ru": [
 55.63,
 37.61
@@ -2707,6 +3300,14 @@
 "/christmas-events/mountain-view-ca": [
 37.39,
 -122.08
+],
+"/christmas-events/mountlake-terrace-wa": [
+47.79,
+-122.31
+],
+"/christmas-events/mukilteo-wa": [
+47.95,
+-122.3
 ],
 "/christmas-events/mumbai-in": [
 19.05,
@@ -2779,6 +3380,10 @@
 "/christmas-events/natick-ma": [
 42.28,
 -71.35
+],
+"/christmas-events/national-city-ca": [
+32.68,
+-117.1
 ],
 "/christmas-events/navarre-fl": [
 30.4,
@@ -3964,6 +4569,10 @@
 -12.97,
 28.64
 ],
+"/christmas-events/needham-ma": [
+42.28,
+-71.24
+],
 "/christmas-events/neenah-wi": [
 44.19,
 -88.46
@@ -3996,6 +4605,10 @@
 30.0,
 -91.82
 ],
+"/christmas-events/new-lenox-il": [
+41.51,
+-87.97
+],
 "/christmas-events/new-rochelle-ny": [
 40.91,
 -73.78
@@ -4003,6 +4616,14 @@
 "/christmas-events/new-smyrna-beach-fl": [
 29.03,
 -80.93
+],
+"/christmas-events/newark-ca": [
+37.53,
+-122.04
+],
+"/christmas-events/newberg-or": [
+45.3,
+-122.97
 ],
 "/christmas-events/newburyport-ma": [
 42.81,
@@ -4031,6 +4652,10 @@
 "/christmas-events/newton-ia": [
 41.7,
 -93.05
+],
+"/christmas-events/newton-ma": [
+42.33,
+-71.19
 ],
 "/christmas-events/niagara-falls-ny": [
 43.08,
@@ -4088,9 +4713,17 @@
 59.77,
 18.7
 ],
+"/christmas-events/north-andover-ma": [
+42.7,
+-71.13
+],
 "/christmas-events/north-battleford-sk": [
 52.78,
 -108.3
+],
+"/christmas-events/north-bend-wa": [
+47.5,
+-121.78
 ],
 "/christmas-events/north-charleston-sc": [
 32.85,
@@ -4099,6 +4732,14 @@
 "/christmas-events/north-highlands-ca": [
 38.69,
 -121.37
+],
+"/christmas-events/north-miami-beach-fl": [
+25.93,
+-80.16
+],
+"/christmas-events/north-miami-fl": [
+25.89,
+-80.19
 ],
 "/christmas-events/north-myrtle-beach-sc": [
 33.83,
@@ -4132,6 +4773,10 @@
 "/christmas-events/notteroy-no": [
 59.22,
 10.41
+],
+"/christmas-events/novato-ca": [
+38.11,
+-122.57
 ],
 "/christmas-events/novi-mi": [
 42.48,
@@ -5077,6 +5722,10 @@
 48.43,
 -123.32
 ],
+"/christmas-events/oak-brook-il": [
+41.83,
+-87.95
+],
 "/christmas-events/oak-creek-wi": [
 42.9,
 -87.92
@@ -5166,6 +5815,10 @@
 -80.1
 ],
 "/christmas-events/orchard-road-singapore-sg": [],
+"/christmas-events/oregon-city-or": [
+45.36,
+-122.61
+],
 "/christmas-events/orekhovo-zuyevo-ru": [
 55.81,
 38.98
@@ -5258,6 +5911,10 @@
 34.58,
 -118.12
 ],
+"/christmas-events/palmetto-bay-fl": [
+25.62,
+-80.32
+],
 "/christmas-events/paphos-cy": [
 34.77,
 32.42
@@ -5331,9 +5988,17 @@
 55.78,
 38.65
 ],
+"/christmas-events/peabody-ma": [
+42.53,
+-70.93
+],
 "/christmas-events/pekin-il": [
 40.57,
 -89.65
+],
+"/christmas-events/pembroke-pines-fl": [
+26.01,
+-80.29
 ],
 "/christmas-events/penang-my": [
 5.41,
@@ -5367,6 +6032,10 @@
 53.02,
 158.65
 ],
+"/christmas-events/pflugerville-tx": [
+30.44,
+-97.62
+],
 "/christmas-events/phnom-penh-kh": [
 11.57,
 104.86
@@ -5399,6 +6068,10 @@
 13.56,
 123.27
 ],
+"/christmas-events/pinecrest-fl": [
+25.67,
+-80.31
+],
 "/christmas-events/pinellas-park-fl": [
 27.84,
 -82.7
@@ -5419,9 +6092,21 @@
 49.22,
 -122.69
 ],
+"/christmas-events/pittsburg-ca": [
+38.03,
+-121.89
+],
 "/christmas-events/pittsfield-ma": [
 42.45,
 -73.25
+],
+"/christmas-events/plainfield-il": [
+41.61,
+-88.21
+],
+"/christmas-events/plantation-fl": [
+26.13,
+-80.23
 ],
 "/christmas-events/pleasant-grove-ut": [
 40.36,
@@ -5438,6 +6123,10 @@
 "/christmas-events/plettenberg-bay-za": [
 -34.05,
 23.37
+],
+"/christmas-events/plymouth-ma": [
+41.94,
+-70.76
 ],
 "/christmas-events/plzen-cz": [
 49.75,
@@ -5535,6 +6224,10 @@
 53.2,
 -105.76
 ],
+"/christmas-events/princeton-tx": [
+33.18,
+-96.5
+],
 "/christmas-events/prokopyevsk-ru": [
 53.89,
 86.75
@@ -5575,6 +6268,10 @@
 14.65,
 121.05
 ],
+"/christmas-events/quincy-ma": [
+42.25,
+-71.0
+],
 "/christmas-events/quispamsis-nb": [
 45.43,
 -65.96
@@ -5582,6 +6279,10 @@
 "/christmas-events/ramenskoye-ru": [
 55.57,
 38.23
+],
+"/christmas-events/ramona-ca": [
+33.05,
+-116.88
 ],
 "/christmas-events/rancho-palos-verdes-ca": [
 33.75,
@@ -5595,6 +6296,10 @@
 40.84,
 -74.59
 ],
+"/christmas-events/reading-ma": [
+42.53,
+-71.1
+],
 "/christmas-events/redford-mi": [
 42.38,
 -83.3
@@ -5607,6 +6312,14 @@
 47.67,
 -122.12
 ],
+"/christmas-events/redwood-city-ca": [
+37.49,
+-122.23
+],
+"/christmas-events/renton-wa": [
+47.48,
+-122.2
+],
 "/christmas-events/reston-va": [
 38.95,
 -77.35
@@ -5618,6 +6331,10 @@
 "/christmas-events/revelstoke-bc": [
 51.0,
 -118.2
+],
+"/christmas-events/revere-ma": [
+42.41,
+-71.01
 ],
 "/christmas-events/rezekne-lv": [
 56.51,
@@ -5663,9 +6380,17 @@
 28.33,
 -80.73
 ],
+"/christmas-events/rockport-ma": [
+42.66,
+-70.62
+],
 "/christmas-events/rockville-md": [
 39.08,
 -77.15
+],
+"/christmas-events/rockwall-tx": [
+32.89,
+-96.41
 ],
 "/christmas-events/rohnert-park-ca": [
 38.34,
@@ -5687,6 +6412,10 @@
 34.08,
 -118.07
 ],
+"/christmas-events/rosenberg-tx": [
+29.56,
+-95.81
+],
 "/christmas-events/roseville-ca": [
 38.75,
 -121.29
@@ -5706,6 +6435,10 @@
 "/christmas-events/round-lake-beach-il": [
 42.37,
 -88.09
+],
+"/christmas-events/round-rock-tx": [
+30.51,
+-97.68
 ],
 "/christmas-events/rowlett-tx": [
 32.9,
@@ -5742,6 +6475,10 @@
 "/christmas-events/rzhev-ru": [
 56.26,
 34.33
+],
+"/christmas-events/sachse-tx": [
+32.98,
+-96.6
 ],
 "/christmas-events/safety-harbor-fl": [
 27.99,
@@ -5795,6 +6532,10 @@
 56.86,
 24.35
 ],
+"/christmas-events/salem-ma": [
+42.52,
+-70.9
+],
 "/christmas-events/salem-va": [
 37.29,
 -80.06
@@ -5807,6 +6548,10 @@
 53.2,
 50.1
 ],
+"/christmas-events/sammamish-wa": [
+47.6,
+-122.04
+],
 "/christmas-events/samsun-tr": [
 41.23,
 35.97
@@ -5818,6 +6563,10 @@
 "/christmas-events/san-bruno-ca": [
 37.62,
 -122.41
+],
+"/christmas-events/san-carlos-ca": [
+37.5,
+-122.26
 ],
 "/christmas-events/san-carlos-pangasinan-ph": [
 15.93,
@@ -5835,13 +6584,25 @@
 34.1,
 -118.11
 ],
+"/christmas-events/san-leandro-ca": [
+37.72,
+-122.16
+],
 "/christmas-events/san-marcos-ca": [
 33.14,
 -117.17
 ],
+"/christmas-events/san-mateo-ca": [
+37.5,
+-122.33
+],
 "/christmas-events/san-mateo-ph": [
 14.7,
 121.12
+],
+"/christmas-events/san-pablo-ca": [
+37.96,
+-122.35
 ],
 "/christmas-events/san-pedro-bz": [
 17.92,
@@ -5851,6 +6612,10 @@
 37.97,
 -122.53
 ],
+"/christmas-events/san-ramon-ca": [
+37.76,
+-121.95
+],
 "/christmas-events/sandton-za": [
 -26.07,
 28.05
@@ -5858,6 +6623,10 @@
 "/christmas-events/sandvika-no": [
 59.89,
 10.52
+],
+"/christmas-events/sandy-or": [
+45.4,
+-122.26
 ],
 "/christmas-events/sandy-springs-ga": [
 33.92,
@@ -5870,6 +6639,10 @@
 "/christmas-events/santa-rosa-ph": [
 14.31,
 121.11
+],
+"/christmas-events/santee-ca": [
+32.84,
+-116.97
 ],
 "/christmas-events/santiago-ph": [
 16.69,
@@ -5903,6 +6676,14 @@
 54.92,
 43.34
 ],
+"/christmas-events/saugus-ma": [
+42.46,
+-71.01
+],
+"/christmas-events/sausalito-ca": [
+37.86,
+-122.49
+],
 "/christmas-events/schenectady-ny": [
 42.81,
 -73.94
@@ -5911,6 +6692,10 @@
 29.56,
 -98.27
 ],
+"/christmas-events/scituate-ma": [
+42.19,
+-70.73
+],
 "/christmas-events/searcy-ar": [
 35.9,
 -92.71
@@ -5918,6 +6703,14 @@
 "/christmas-events/seaside-ca": [
 36.63,
 -121.82
+],
+"/christmas-events/seatac-wa": [
+47.44,
+-122.28
+],
+"/christmas-events/seguin-tx": [
+29.57,
+-97.96
 ],
 "/christmas-events/seminole-fl": [
 28.72,
@@ -5968,9 +6761,17 @@
 55.92,
 37.99
 ],
+"/christmas-events/sherwood-or": [
+45.36,
+-122.84
+],
 "/christmas-events/sherwood-park-ab": [
 53.53,
 -113.3
+],
+"/christmas-events/shoreline-wa": [
+47.76,
+-122.34
 ],
 "/christmas-events/shoreview-mn": [
 45.07,
@@ -6044,9 +6845,21 @@
 54.78,
 32.05
 ],
+"/christmas-events/snohomish-wa": [
+48.01,
+-121.73
+],
+"/christmas-events/snoqualmie-wa": [
+47.53,
+-121.83
+],
 "/christmas-events/sochi-ru": [
 43.59,
 39.72
+],
+"/christmas-events/solana-beach-ca": [
+32.99,
+-117.27
 ],
 "/christmas-events/solikamsk-ru": [
 59.65,
@@ -6060,9 +6873,21 @@
 -34.08,
 18.85
 ],
+"/christmas-events/somerville-ma": [
+42.39,
+-71.1
+],
 "/christmas-events/sosnovy-bor-ru": [
 59.9,
 29.08
+],
+"/christmas-events/south-elgin-il": [
+41.99,
+-88.29
+],
+"/christmas-events/south-miami-fl": [
+25.71,
+-80.29
 ],
 "/christmas-events/south-pasadena-ca": [
 34.11,
@@ -6091,6 +6916,14 @@
 "/christmas-events/spring-hill-tn": [
 35.75,
 -86.93
+],
+"/christmas-events/spring-tx": [
+30.07,
+-95.4
+],
+"/christmas-events/spring-valley-ca": [
+39.08,
+-122.59
 ],
 "/christmas-events/springville-ut": [
 40.17,
@@ -6144,6 +6977,10 @@
 53.53,
 -114.0
 ],
+"/christmas-events/stoughton-ma": [
+42.13,
+-71.1
+],
 "/christmas-events/stow-oh": [
 41.16,
 -81.44
@@ -6160,6 +6997,14 @@
 54.89,
 38.08
 ],
+"/christmas-events/sudbury-ma": [
+42.38,
+-71.42
+],
+"/christmas-events/sugar-land-tx": [
+29.62,
+-95.63
+],
 "/christmas-events/sumter-sc": [
 33.92,
 -80.34
@@ -6167,6 +7012,10 @@
 "/christmas-events/sundbyberg-se": [
 59.36,
 17.97
+],
+"/christmas-events/sunrise-fl": [
+26.17,
+-80.28
 ],
 "/christmas-events/surgut-ru": [
 61.24,
@@ -6179,6 +7028,10 @@
 "/christmas-events/swakopmund-na": [
 -22.68,
 14.53
+],
+"/christmas-events/swampscott-ma": [
+42.47,
+-70.92
 ],
 "/christmas-events/syktyvkar-ru": [
 61.67,
@@ -6232,6 +7085,10 @@
 -6.52,
 35.79
 ],
+"/christmas-events/taunton-ma": [
+41.9,
+-71.09
+],
 "/christmas-events/taylor-mi": [
 42.24,
 -83.27
@@ -6260,6 +7117,10 @@
 30.2,
 -102.1
 ],
+"/christmas-events/tewksbury-ma": [
+42.61,
+-71.23
+],
 "/christmas-events/texas-city-tx": [
 29.4,
 -94.92
@@ -6279,6 +7140,10 @@
 "/christmas-events/thorold-on": [
 43.12,
 -79.2
+],
+"/christmas-events/tigard-or": [
+45.43,
+-122.77
 ],
 "/christmas-events/tikhoretsk-ru": [
 45.85,
@@ -6340,6 +7205,10 @@
 39.33,
 -120.18
 ],
+"/christmas-events/tualatin-or": [
+45.38,
+-122.77
+],
 "/christmas-events/tucker-ga": [
 33.85,
 -84.22
@@ -6347,6 +7216,10 @@
 "/christmas-events/tukums-lv": [
 56.97,
 23.15
+],
+"/christmas-events/tukwila-wa": [
+47.46,
+-122.26
 ],
 "/christmas-events/tula-ru": [
 54.19,
@@ -6395,6 +7268,18 @@
 "/christmas-events/umhlanga-za": [
 -31.46,
 27.21
+],
+"/christmas-events/union-city-ca": [
+37.59,
+-122.02
+],
+"/christmas-events/universal-city-tx": [
+34.14,
+-118.36
+],
+"/christmas-events/university-park-tx": [
+32.86,
+-96.79
 ],
 "/christmas-events/upland-ca": [
 34.11,
@@ -6464,6 +7349,10 @@
 "/christmas-events/verkhnyaya-pyshma-ru": [
 56.97,
 60.57
+],
+"/christmas-events/vernon-hills-il": [
+42.24,
+-87.96
 ],
 "/christmas-events/vestal-ny": [
 42.09,
@@ -6557,6 +7446,18 @@
 35.98,
 -78.51
 ],
+"/christmas-events/walnut-creek-ca": [
+37.9,
+-122.06
+],
+"/christmas-events/walpole-ma": [
+42.15,
+-71.25
+],
+"/christmas-events/waltham-ma": [
+42.38,
+-71.24
+],
 "/christmas-events/warren-township-nj": [
 40.63,
 -74.52
@@ -6569,9 +7470,17 @@
 38.89,
 -77.04
 ],
+"/christmas-events/washougal-wa": [
+45.58,
+-122.35
+],
 "/christmas-events/waterford-ct": [
 41.34,
 -72.13
+],
+"/christmas-events/watertown-ma": [
+42.37,
+-71.18
 ],
 "/christmas-events/waukee-ia": [
 41.61,
@@ -6645,6 +7554,10 @@
 -27.98,
 26.74
 ],
+"/christmas-events/wellesley-ma": [
+42.3,
+-71.29
+],
 "/christmas-events/wentzville-mo": [
 38.82,
 -90.87
@@ -6661,6 +7574,10 @@
 49.86,
 -119.58
 ],
+"/christmas-events/west-linn-or": [
+45.37,
+-122.61
+],
 "/christmas-events/west-saint-paul-mn": [
 44.91,
 -93.08
@@ -6676,6 +7593,10 @@
 "/christmas-events/westfield-nj": [
 40.65,
 -74.35
+],
+"/christmas-events/westford-ma": [
+42.58,
+-71.44
 ],
 "/christmas-events/westland-mi": [
 42.32,
@@ -6696,6 +7617,14 @@
 "/christmas-events/westmount-qc": [
 45.49,
 -73.6
+],
+"/christmas-events/weston-fl": [
+26.1,
+-80.4
+],
+"/christmas-events/weston-ma": [
+42.37,
+-71.3
 ],
 "/christmas-events/weymouth-ma": [
 42.22,
@@ -6733,9 +7662,17 @@
 42.07,
 -87.68
 ],
+"/christmas-events/wilmington-ma": [
+42.55,
+-71.17
+],
 "/christmas-events/wilsonville-or": [
 45.31,
 -122.77
+],
+"/christmas-events/winchester-ma": [
+42.45,
+-71.14
 ],
 "/christmas-events/windhoek-na": [
 -22.58,
@@ -6745,9 +7682,17 @@
 38.55,
 -122.82
 ],
+"/christmas-events/winnetka-il": [
+42.11,
+-87.74
+],
 "/christmas-events/winter-park-fl": [
 28.6,
 -81.35
+],
+"/christmas-events/woburn-ma": [
+42.48,
+-71.15
 ],
 "/christmas-events/wolfville-ns": [
 45.09,
@@ -6761,9 +7706,17 @@
 45.14,
 -122.86
 ],
+"/christmas-events/woodinville-wa": [
+47.75,
+-122.16
+],
 "/christmas-events/woodland-ca": [
 38.68,
 -121.77
+],
+"/christmas-events/woodridge-il": [
+41.76,
+-88.05
 ],
 "/christmas-events/woodstock-il": [
 42.31,
@@ -6780,6 +7733,10 @@
 "/christmas-events/wyoming-mi": [
 42.91,
 -85.71
+],
+"/christmas-events/yacolt-wa": [
+45.87,
+-122.41
 ],
 "/christmas-events/yakutsk-ru": [
 62.03,
