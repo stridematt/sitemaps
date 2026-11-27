@@ -25,6 +25,7 @@
 
 import { healHub, healCity, healGuide, refToday, freshen } from './heal.js';
 import { isServicesPath, servicesHealerFor, runServicesHealer } from './services.js';
+import { runScheduler, schedulerStatus, STATUS_PATH } from './scheduler.js';
 
 const SOURCES = [
   'https://raw.githubusercontent.com/stridematt/sitemaps/main/tools/clusters.json',
@@ -626,6 +627,7 @@ async function handle(request, ctx, env) {
   const method = request.method;
   if (method !== 'GET' && method !== 'HEAD') return fetch(request);
   const path = normPath(new URL(request.url).pathname);
+  if (path === STATUS_PATH) return schedulerStatus(env || {});
   if (LLMS[path]) return serveLlms(path, request, ctx);
   if (isSitemapPath(path)) return serveSitemap(path, request, ctx);
   const index = await getIndex(ctx);
@@ -675,6 +677,9 @@ async function handle(request, ctx, env) {
 }
 
 export default {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(runScheduler(env, controller.scheduledTime || Date.now()));
+  },
   async fetch(request, env, ctx) {
     try {
       const vm = env && env.CF_VERSION_METADATA;
