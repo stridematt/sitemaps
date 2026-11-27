@@ -541,6 +541,28 @@ def main():
             place[p] = {'country': 'Canada', 'state': None, 'name': m.group(1).strip(), 'main': p, 'guess': 1}
         elif code in us_state:
             place[p] = {'country': 'United States', 'state': '/christmas-events/' + us_state[code], 'name': m.group(1).strip(), 'main': p, 'guess': 1}   # by slug ending only: a country guide that lists the page wins (mumbai-in is India, not Indiana)
+    # Cities the quick counts added right after a publish stay cities. A new town page is live before the hub's
+    # finder, its A to Z or Squarespace's sitemap list it, and without this the full run dropped every such town
+    # from the counts until they caught up (Nov 26, 2026: 251 towns and 1,146 events vanished from the totals).
+    # A kept page that no longer answers (404/410) is dropped after the reads below.
+    prev_cities = dict((json.load(open(last_live, encoding='utf-8')) if os.path.exists(last_live) else {}).get('cities', {}))
+    nc_path = os.path.join(HERE, 'new_cities.json')
+    for p, (n, co, *_) in (json.load(open(nc_path, encoding='utf-8')) if os.path.exists(nc_path) else {}).items():
+        prev_cities.setdefault(p, [0, 0, n, co, '', 0, []])
+    kept = []
+    for p, c in prev_cities.items():
+        if p in place or not p.startswith('/christmas-events/') or not isinstance(c, list) or len(c) < 4 or not c[3]:
+            continue
+        st = c[4] or None
+        if c[3] == 'United States' and not st:
+            code = p.rsplit('-', 1)[-1]
+            st = '/christmas-events/' + us_state[code] if code in us_state else None
+        place[p] = {'country': c[3], 'state': st, 'name': c[2] or p.rsplit('/', 1)[-1], 'main': p, 'guess': 1, 'kept': 1}
+        for a in (c[6] if len(c) > 6 and isinstance(c[6], list) else []):
+            place.setdefault(a, {**place[p], 'kept': 1})
+        kept.append(p)
+    if kept:
+        log(f'{len(kept)} cities from the last counts that the hub and sitemap do not list yet, kept: {sorted(kept)[:12]}')
     missing = [p for p, v in place.items() if v['main'] == p and not any(q in in_az for q, o in place.items() if o['main'] == p)]
     odd = sorted(p for p in place if 'duplicate' in p or 'copy' in p.rsplit('/', 1)[-1].split('-'))
     for p in odd:  # leftover copies are not counted as cities
@@ -728,6 +750,12 @@ def main():
                 failed += 1
     if failed:
         log(f'{failed} pages could not be read; their last known counts are kept')
+    gone_kept = sorted(q for q, o in place.items() if o.get('kept') and q not in pages)
+    for q in gone_kept:
+        place.pop(q, None)
+    if gone_kept:
+        log(f'{len(gone_kept)} kept cities dropped (page gone): {gone_kept[:12]}')
+
     rts = sorted(v.get('rt', 0) for q, v in pages.items() if q in place)
     log(f"{_pace['n']} requests, {_pace['throttled']} throttled; the page unread longest was last read {str(round((time.time() - rts[0]) / 3600, 1)) + ' hours ago' if rts and rts[0] else 'before reads were timed'}")
     moved = [q for q, par in cand.items() if (pages.get(q) or {}).get('up') and q in place and place[q]['main'] == q]

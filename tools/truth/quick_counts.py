@@ -19,6 +19,9 @@ from analyze import analyze  # noqa: E402
 from build_truth import HDR, SITE, own_country, ISO_NAME  # noqa: E402
 
 LIVE = os.path.join(HERE, 'live.json')
+# New city pages this script added (path -> [name, country, day]). The full run reads it so a town the hub and
+# Squarespace's sitemap do not list yet stays counted (build_truth.py never writes this file).
+NEW_CITIES = os.path.join(HERE, 'new_cities.json')
 
 
 def fetch(p):
@@ -36,6 +39,8 @@ def main(paths):
         main_of[m] = m
         for a in c[6] or []:
             main_of[a] = m
+    new_cities = json.load(open(NEW_CITIES, encoding='utf-8')) if os.path.exists(NEW_CITIES) else {}
+    added = len(new_cities)
     changed = []
     for p in paths:
         p = p if p.startswith('/christmas-events/') else '/christmas-events/' + p.strip('/')
@@ -59,6 +64,7 @@ def main(paths):
                 continue
             name = re.sub(r'\s*\(\d{4}\)$', '', (re.search(r'<title>([^<]*)</title>', h) or [None, p])[1]).strip()
             cities[p] = [0, 0, name, country, '', 0, []]
+            new_cities[p] = [name, country, today]
             main_of[p] = m = p
             live['countries'][country]['cities'] = live['countries'][country].get('cities', 0) + 1
             live['total']['cities'] += 1
@@ -88,6 +94,8 @@ def main(paths):
     if changed:
         live['generated'] = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ')
         json.dump(live, open(LIVE, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+    if len(new_cities) != added:
+        json.dump(dict(sorted(new_cities.items())), open(NEW_CITIES, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, separators=(',', ':'))
     print(f'{len(changed)} page(s) updated; total {live["total"]["events"]:,} events')
 
 

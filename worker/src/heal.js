@@ -48,6 +48,8 @@ for (const n of ['The Gambia', 'Gambia', 'Sierra Leone', 'Liberia', 'Mauritius',
 for (const n of ['Cambodia', 'Bangladesh', 'Sri Lanka', 'Pakistan', 'Guam', 'Vanuatu', 'Samoa', 'Tonga', 'Papua New Guinea', 'Solomon Islands', 'Nepal', 'Mongolia', 'Laos', 'Myanmar', 'Brunei', 'Macau', 'Kazakhstan', 'Uzbekistan', 'Kyrgyzstan', 'Northern Mariana Islands', 'New Caledonia', 'French Polynesia']) GROUP[n] = 'Asia and the Pacific';
 for (const n of ['Gibraltar', 'Guernsey', 'Jersey', 'Isle of Man', 'Czechia', 'Armenia', 'Georgia', 'Moldova', 'Belarus', 'San Marino', 'Faroe Islands', 'Kosovo', 'Russia']) GROUP[n] = 'Europe';
 
+const US_CODES = new Set('AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY'.split(' '));
+
 export function healHub(html, live, opts = {}) {
   if (!live || !live.total || !html.includes('id="xn-data"')) return null;
   const T = live.total;
@@ -102,9 +104,16 @@ export function healHub(html, live, opts = {}) {
       const known = new Set();
       for (const a of D.p) for (const x of String(a[6] || '').split(',')) known.add('/christmas-events/' + x.slice(x.indexOf(':') + 1));
       for (const [p, c] of Object.entries(live.cities || {})) {
-        if (c[3] === 'United States' || c[3] === 'Canada' || !cIdx.has(c[3])) continue;
+        if (c[3] === 'Canada' || !cIdx.has(c[3])) continue;
         if (known.has(p) || (c[6] || []).some((q) => known.has(q))) continue;
-        D.p.push([c[2], '', '', cIdx.get(c[3]), '', c[0], [p].concat(c[6] || []).map(pageRef).join(','), typeof c[7] === 'number' ? c[7] : null, typeof c[8] === 'number' ? c[8] : null, 0]);
+        // A new U.S. town goes in under its state (from the slug ending), so the finder shows it with the state.
+        let st = '';
+        if (c[3] === 'United States') {
+          const code = (p.match(/-([a-z]{2})$/) || [])[1];
+          if (!code || !US_CODES.has(code.toUpperCase())) continue;
+          st = code.toUpperCase();
+        }
+        D.p.push([c[2], '', '', cIdx.get(c[3]), st, c[0], [p].concat(c[6] || []).map(pageRef).join(','), typeof c[7] === 'number' ? c[7] : null, typeof c[8] === 'number' ? c[8] : null, 0]);
       }
       for (const cc of Object.keys(D.r || {})) {
         for (const r of D.r[cc][1] || []) {

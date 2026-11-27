@@ -69,7 +69,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools/truth/live.json tools/sqsp/ids.json tools/truth/counted_events.json tools/truth/geo.json tools/truth/found.json
           git commit -q -m "Live counts: $(python3 -c "import json;t=json.load(open('tools/truth/live.json'))['total'];print(f\"{t['events']:,} events, {t['free']:,} free, {t['cities']:,} cities\")")"
-          for i in 1 2 3; do git pull -q --rebase && git push && break; sleep 10; done
+          # Quick counts commit live.json while this run reads pages. This run re-read every page, so its numbers win
+          # a conflict (-X theirs keeps the commit being replayed). New cities from quick counts are kept through
+          # tools/truth/new_cities.json, which only quick counts writes. A failed rebase is aborted, never left half done.
+          for i in 1 2 3; do
+            if git pull -q --rebase -X theirs; then git push && break; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 10
+          done
 
       - name: Tell search engines which pages changed (IndexNow)
         run: |

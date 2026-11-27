@@ -227,10 +227,53 @@ function refreshLive(ctx) {
   return lstate.refreshing;
 }
 
-async function getLive(ctx) {
+async function getLive(ctx, env) {
   if (!lstate.data) await refreshLive(ctx);
   else if (Date.now() - lstate.at > REFRESH_MS) ctx.waitUntil(refreshLive(ctx));
-  return lstate.data;
+  return withDbTotals(lstate.data, await getDbCounts(ctx, env));
+}
+
+// ---- Event totals from the events directory (D1 rally-events) ----------------------------
+// The site's headline event count is the directory's count of events, not a sum of what the
+// page crawl managed to read: unique live events whose last day has not passed anywhere yet
+// (UTC-12, the same rule the page counts use), each event once however many pages list it.
+// If the database is unreachable the crawl's numbers in live.json are used as before.
+const DB_SQL = "SELECT COUNT(DISTINCT event_id) events, COUNT(DISTINCT CASE WHEN is_free=1 THEN event_id END) free " +
+  "FROM events WHERE status='live' AND COALESCE(NULLIF(end_date,''), NULLIF(first_date,''), '9999-12-31') >= date('now','-12 hours')";
+const dstate = { data: null, at: 0, refreshing: null };
+
+function refreshDbCounts(env) {
+  if (dstate.refreshing) return dstate.refreshing;
+  dstate.refreshing = (async () => {
+    try {
+      const r = await env.EVENTS_DB.prepare(DB_SQL).first();
+      if (r && Number(r.events) > 0) dstate.data = { events: Number(r.events), free: Number(r.free) || 0 };
+    } catch (e) {
+      // keep what we have
+    } finally {
+      dstate.at = Date.now();
+      dstate.refreshing = null;
+    }
+  })();
+  return dstate.refreshing;
+}
+
+async function getDbCounts(ctx, env) {
+  if (!env || !env.EVENTS_DB) return null;
+  if (!dstate.data) await refreshDbCounts(env);
+  else if (Date.now() - dstate.at > REFRESH_MS) ctx.waitUntil(refreshDbCounts(env));
+  return dstate.data;
+}
+
+const dbMerged = { base: null, key: '', out: null };
+export function withDbTotals(live, db) {
+  if (!live || !live.total || !db) return live;
+  const key = `${db.events}/${db.free}`;
+  if (dbMerged.base === live && dbMerged.key === key) return dbMerged.out;
+  // generated carries the count too, so healed pages cached for the old number are not reused
+  const out = { ...live, total: { ...live.total, events: db.events, free: db.free }, generated: `${live.generated || ''}|db${key}` };
+  Object.assign(dbMerged, { base: live, key, out });
+  return out;
 }
 
 // ---- Christmas Eve services counts (tools/services/live_services.json, rebuilt hourly) ------
@@ -570,7 +613,7 @@ async function serveSitemap(path, request, ctx) {
   return new Response(head ? null : xml, { headers: { ...headers, 'x-rtt-sitemap': note } });
 }
 
-async function handle(request, ctx) {
+async function handle(request, ctx, env) {
   const method = request.method;
   if (method !== 'GET' && method !== 'HEAD') return fetch(request);
   const path = normPath(new URL(request.url).pathname);
@@ -599,7 +642,7 @@ async function handle(request, ctx) {
       live = await getServices(ctx);
       kind = servicesHealerFor(path, live);
     } else {
-      live = await getLive(ctx);
+      live = await getLive(ctx, env);
       kind = healerFor(path, live);
     }
     if (kind) {
@@ -626,7 +669,7 @@ export default {
     try {
       const vm = env && env.CF_VERSION_METADATA;
       if (vm && vm.id && BUILD === 'dev') BUILD = String(vm.id).slice(0, 10);
-      return await handle(request, ctx);
+      return await handle(request, ctx, env);
     } catch (e) {
       return fetch(request); // fail open: never break the site
     }

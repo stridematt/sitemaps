@@ -27,6 +27,12 @@ routes = [
   { pattern = "www.rallytakesthetrain.com/sitemap*", zone_name = "rallytakesthetrain.com" },
 ]
 
+# The events directory: the site's headline event count comes from it (read only, see getDbCounts in src/index.js).
+[[d1_databases]]
+binding = "EVENTS_DB"
+database_name = "rally-events"
+database_id = "b02b08f8-ba97-419f-ab1c-a9c658365e96"
+
 # Match the live Worker (set in the dashboard): logs and Workers issues on.
 [observability]
 enabled = true
