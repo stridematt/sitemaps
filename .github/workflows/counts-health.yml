@@ -1,0 +1,45 @@
+name: counts-health
+
+# Every hour: is the Christmas events hub showing a sound total, and are the jobs behind it running?
+# See tools/truth/health_check.py for the checks. On a problem this run fails and an issue titled
+# "Counts health check failing" is opened (or updated); GitHub emails both. The issue closes itself
+# once every check passes again.
+on:
+  schedule:
+    - cron: '41 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+concurrency:
+  group: counts-health
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the checks
+        id: checks
+        run: |
+          set +e
+          python3 tools/truth/health_check.py
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+          cat health.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Open, update or close the issue
+        run: |
+          title="Counts health check failing"
+          num=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ "${{ steps.checks.outputs.rc }}" != "0" ]; then
+            if [ -n "$num" ]; then gh issue edit "$num" --body-file health.md
+            else gh issue create --title "$title" --body-file health.md; fi
+            exit 1
+          elif [ -n "$num" ]; then
+            gh issue close "$num" --comment "All checks pass again. $(head -1 health.md)"
+          fi

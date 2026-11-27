@@ -266,12 +266,21 @@ async function getDbCounts(ctx, env) {
 }
 
 const dbMerged = { base: null, key: '', out: null };
+// The directory count is used unless it is far below what the page crawl counted (live.json): then something is
+// wrong with the database or its sync (a bad sync, a mass status change), and the crawl's number is shown instead.
+// Both fall as events pass, so the check holds all season, including the big drop after Christmas.
+const DB_FLOOR = 0.85;   // not exported: a Worker module may only export handlers
 export function withDbTotals(live, db) {
-  if (!live || !live.total || !db) return live;
-  const key = `${db.events}/${db.free}`;
+  if (!live || !live.total) return live;
+  const crawl = Number(live.total.events) || 0;
+  const src = !db ? 'crawl' : (crawl && db.events < DB_FLOOR * crawl ? 'crawl-guard' : 'db');
+  const key = src === 'db' ? `${db.events}/${db.free}` : src;
   if (dbMerged.base === live && dbMerged.key === key) return dbMerged.out;
   // generated carries the count too, so healed pages cached for the old number are not reused
-  const out = { ...live, total: { ...live.total, events: db.events, free: db.free }, generated: `${live.generated || ''}|db${key}` };
+  const out = src === 'db'
+    ? { ...live, total: { ...live.total, events: db.events, free: db.free }, generated: `${live.generated || ''}|db${key}`, countSource: 'db' }
+    : { ...live, countSource: src, dbEvents: db ? db.events : null };
+  if (src === 'crawl-guard') console.log(`event count guard: directory says ${db.events}, crawl says ${crawl}; showing the crawl`);
   Object.assign(dbMerged, { base: live, key, out });
   return out;
 }
@@ -649,6 +658,7 @@ async function handle(request, ctx, env) {
       const h = await healed(request, path, kind, live, ctx);
       if (h.resp) return forBrowser(h.resp);
       const resp = new Response(h.html, { status: 200, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-cache', 'x-rtt-counts': h.status } });
+      if (kind === 'hub' && live.countSource) resp.headers.set('x-rtt-count-source', live.countSource);
       return entry ? tag(resp, entry) : resp;
     }
   }

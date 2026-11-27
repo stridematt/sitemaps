@@ -1,3 +1,5 @@
+import { withDbTotals } from '../src/index.js';
+const DB_FLOOR = 0.85;
 // Unit tests for the self-healing counts, with fixed dates. Run: node test/heal.test.mjs
 import { healHub, healCity, healGuide, rewriteCounts, refToday } from '../src/heal.js';
 import { readFileSync } from 'node:fs';
@@ -33,9 +35,13 @@ t('reference day is UTC-12', () => {
   assert.equal(refToday(Date.UTC(2026, 11, 2, 13, 0)), '2026-12-02');
 });
 
-t('city page: nothing stale today, so nothing changes', () => {
+// The saved page is whatever Squarespace has stored today, which can lag the live counts. So the test is that
+// healing settles: one pass brings the page in line, and a second pass on that output changes nothing.
+t('city page: healing settles in one pass (a second pass changes nothing)', () => {
   const html = readFileSync(DYN + 'christmas-events_denver-co.html', 'utf8');
-  assert.equal(healCity(html, '2026-11-18', live.pages, '/christmas-events/denver-co'), null);
+  const day = '2026-11-18';
+  const once = healCity(html, day, live.pages, '/christmas-events/denver-co') || html;
+  assert.equal(healCity(once, day, live.pages, '/christmas-events/denver-co'), null);
 });
 
 // Works on any saved copy of the page: what is past on Dec 1 is read from the cards themselves.
@@ -115,4 +121,15 @@ t('hub: countries live on the site but not on the hub get a row, finder data, an
   assert.ok(!/Merry Christmas in (?!103)\d+ languages/.test(out), 'language count');
 });
 
+t('hub total: the events directory count, unless it is far below the crawl', () => {
+  const base = { generated: 'g1', total: { events: 26000, free: 9000, cities: 4500 } };
+  const a = withDbTotals(base, { events: 28212, free: 10348 });
+  assert.equal(a.total.events, 28212); assert.equal(a.total.free, 10348); assert.equal(a.countSource, 'db');
+  assert.equal(a.total.cities, 4500, 'cities still come from the crawl');
+  assert.notEqual(a.generated, base.generated, 'a new number invalidates healed-page caches');
+  const b = withDbTotals(base, { events: Math.floor(DB_FLOOR * 26000) - 1, free: 1 });
+  assert.equal(b.total.events, 26000); assert.equal(b.countSource, 'crawl-guard');
+  const c = withDbTotals(base, null);
+  assert.equal(c.total.events, 26000); assert.equal(c.countSource, 'crawl');
+});
 console.log(`\n${n} heal tests passed`);
