@@ -80,7 +80,7 @@ jobs:
         working-directory: worker
         run: |
           rc=0
-          for f in sitemap services heal sqsp; do node test/$f.test.mjs || rc=1; done
+          for f in sitemap services heal sqsp scheduler; do node test/$f.test.mjs || rc=1; done
           exit $rc
 
       - name: Full tests (Miniflare, the bundle as deployed)

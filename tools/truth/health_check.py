@@ -4,9 +4,11 @@ Checks:
   1. The hub is live and shows its total from the events directory (header x-rtt-count-source: db).
      'crawl-guard' means the directory count fell far below the page crawl: the database or its sync is suspect.
   2. The hub's number is not far below the crawl's number in live.json.
-  3. The full recount (hreflang.yml, counts job) succeeded in the last 4 hours, and has not failed 3 times running.
+  3. The recount (hreflang.yml, counts job) succeeded in the last 3 hours, and has not failed 3 times running.
   4. The crawl's city count did not drop more than 5% from the last full run's (the Nov 26 failure: 251 towns).
   5. live.json was regenerated in the last 6 hours.
+  6. The Cloudflare scheduler (worker/src/scheduler.js) ticked in the last 25 minutes, has its GitHub token,
+     and its last attempts to start jobs did not fail.
 
 Usage: GH_TOKEN=... python3 tools/truth/health_check.py   (in Actions, gh is already signed in)
 """
@@ -52,18 +54,18 @@ except Exception as e:
 
 # 3: the full recount
 try:
-    runs = gh(f'repos/{REPO}/actions/workflows/hreflang.yml/runs?event=schedule&per_page=12')['workflow_runs']
+    runs = gh(f'repos/{REPO}/actions/workflows/hreflang.yml/runs?per_page=15')['workflow_runs']
     results = []
     for run in runs:
-        if run['status'] != 'completed':
+        if run['status'] != 'completed' or run['event'] not in ('schedule', 'workflow_dispatch'):
             continue
         jobs = gh(f'repos/{REPO}/actions/runs/{run["id"]}/jobs')['jobs']
         job = next((j for j in jobs if j['name'] == 'counts'), None)
         if job and job['conclusion'] in ('success', 'failure'):
             results.append((ts(job['completed_at']), job['conclusion'], run['html_url']))
     ok = [r for r in results if r[1] == 'success']
-    if not ok or now - ok[0][0] > datetime.timedelta(hours=4):
-        problems.append(f'The full recount has not succeeded in 4 hours (last success: {ok[0][0]:%Y-%m-%d %H:%M} UTC).' if ok
+    if not ok or now - ok[0][0] > datetime.timedelta(hours=3):
+        problems.append(f'The full recount has not succeeded in 3 hours (last success: {ok[0][0]:%Y-%m-%d %H:%M} UTC).' if ok
                         else 'The full recount has not succeeded in its last runs.')
     streak = 0
     for r in results:
@@ -99,6 +101,24 @@ if gen:
     notes.append(f'live.json generated {gen} ({age.total_seconds() / 3600:.1f} hours ago)')
     if age > datetime.timedelta(hours=6):
         problems.append(f'live.json has not been regenerated in {age.total_seconds() / 3600:.0f} hours.')
+
+# 6: the Cloudflare scheduler that starts these jobs
+try:
+    req = urllib.request.Request('https://www.rallytakesthetrain.com/christmas-rtt-scheduler.json?h=' + now.strftime('%H%M'), headers={'User-Agent': UA})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        sch = json.load(r)
+    tick = sch.get('tick')
+    started = sorted((j.get('lastStart') or '' for j in (sch.get('jobs') or {}).values()), reverse=True)
+    notes.append(f'Scheduler: last tick {tick}, token {"set" if sch.get("tokenSet") else "MISSING"}, last start {started[0] if started and started[0] else "none yet"}')
+    if not sch.get('tokenSet'):
+        problems.append('The Cloudflare scheduler has no GitHub token (GH_DISPATCH_TOKEN secret on the rtt-hreflang Worker), so it cannot start jobs.')
+    if not tick or now - ts(tick) > datetime.timedelta(minutes=25):
+        problems.append(f'The Cloudflare scheduler has not ticked since {tick}. Check the cron trigger on the rtt-hreflang Worker.')
+    if sch.get('errors'):
+        problems.append('The Cloudflare scheduler could not start jobs: ' + '; '.join(sch['errors'])
+                        + ('. The GitHub token may have expired or lost access.' if any(' 401' in e or ' 403' in e or ' 404' in e for e in sch['errors']) else ''))
+except Exception as e:
+    problems.append(f'The Cloudflare scheduler status could not be read: {e}')
 
 body = [f'Last checked: {now:%Y-%m-%d %H:%M} UTC', '']
 body += ['**Problems**', ''] + [f'- {p}' for p in problems] + [''] if problems else ['All checks passed.', '']

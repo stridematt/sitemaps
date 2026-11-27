@@ -5,14 +5,24 @@ on:
     paths:
       - 'tools/**'
       - 'hreflang-sitemap.xml'
+  # Cloudflare starts runs on time (worker/src/scheduler.js): counts every hour at :50, the full run (counts
+  # and upkeep) every 3 hours at :20. GitHub's own schedule stays as the backup; the gate job below stops a
+  # scheduled run in seconds when Cloudflare already started one in the last 25 minutes.
   schedule:
-    - cron: '23 */3 * * *' # every 3 hours: counts and upkeep (Cloudflare workers also start runs)
-    - cron: '53 * * * *'   # every hour: counts only
+    - cron: '23 */3 * * *' # backup: counts and upkeep
+    - cron: '53 * * * *'   # backup: counts only
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'full = counts and upkeep; counts = counts only'
+        type: choice
+        options: [full, counts]
+        default: full
 
 permissions:
   contents: write
   issues: write
+  actions: read
 
 # Each job queues on its own, so a new counts run never waits for the slower upkeep job of the run before it.
 jobs:
@@ -30,8 +40,28 @@ jobs:
           git diff --exit-code hreflang-sitemap.xml || (echo "::error::hreflang-sitemap.xml is out of date. Run python3 tools/build_hreflang.py and commit it." && exit 1)
 
   # The counts: what every page's numbers come from. First and on its own, about 10 minutes.
-  counts:
+  # A scheduled run steps aside when the Cloudflare scheduler already started one recently (or one is running):
+  # GitHub often starts scheduled runs late, which would otherwise repeat the same work.
+  gate:
     if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.g.outputs.run }}
+    steps:
+      - id: g
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then echo "run=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+          since=$(date -u -d '25 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
+          n=$(gh api "repos/${{ github.repository }}/actions/workflows/hreflang.yml/runs?event=workflow_dispatch&per_page=5" \
+                --jq "[.workflow_runs[] | select(.created_at >= \"$since\" or .status != \"completed\")] | length" || echo 0)
+          if [ "${n:-0}" -gt 0 ]; then echo "Cloudflare started a run in the last 25 minutes; this scheduled run steps aside."; echo "run=0" >> "$GITHUB_OUTPUT"
+          else echo "run=1" >> "$GITHUB_OUTPUT"; fi
+
+  counts:
+    needs: gate
+    if: needs.gate.outputs.run == '1'
     runs-on: ubuntu-latest
     concurrency:
       group: hreflang-counts
@@ -106,7 +136,8 @@ jobs:
 
   # Upkeep: hreflang pairs, llms.txt, the sitemap audit and the sitemap fix. Slower, and nothing waits for it.
   auto-pair:
-    if: github.event_name != 'push' && (github.event_name != 'schedule' || github.event.schedule == '23 */3 * * *')
+    needs: gate
+    if: needs.gate.outputs.run == '1' && ((github.event_name == 'schedule' && github.event.schedule == '23 */3 * * *') || (github.event_name == 'workflow_dispatch' && inputs.mode != 'counts'))
     runs-on: ubuntu-latest
     concurrency:
       group: hreflang-auto-pair

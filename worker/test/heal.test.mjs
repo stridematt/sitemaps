@@ -86,7 +86,10 @@ t('hub: finder data, rows, A to Z and headline all from live.json', () => {
   const out = healHub(html, live, { day: '2026-11-18' });
   const T = live.total;
   assert.ok(out.includes(`<title>Christmas Events for Kids Near Me 2026: ${(Math.floor(T.events / 1000) * 1000).toLocaleString('en-US')}+ Events</title>`));
-  const notInHub = Object.entries(live.cities).find(([, c]) => !c[5]);
+  // a city missing from the A to Z is added to its state's or country's list (when the hub has that list)
+  const hasList = ([, c]) => c[3] === 'United States' ? html.includes(`<a href="${c[4]}">`) && /xn-az__st/.test(html)
+    : html.includes(`Christmas events for kids in ${c[3]}<span>`) || html.includes(`Christmas events for kids in the ${c[3]}<span>`);
+  const notInHub = Object.entries(live.cities).find((e) => !e[1][5] && hasList(e));
   if (notInHub) assert.ok(out.includes(`href="${notInHub[0]}"`), 'a city missing from the A to Z is listed');
   const n = (x) => x.toLocaleString('en-US');
   assert.ok(out.includes(`<h2 class="xn-map__h" id="xn-map-h">${n(T.events)} Christmas events for kids <em>around the world</em></h2>`), 'map heading leads with events');

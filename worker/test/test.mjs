@@ -388,4 +388,32 @@ await t('hub shows the events directory count (unique live upcoming events)', as
 });
 await mfEvents.dispose();
 
+// The scheduler in the runtime: the cron starts GitHub jobs and the status page reports it.
+const ghCalls = [];
+const mfSched = new Miniflare({ modules: true, scriptPath: new URL('../dist/index.js', import.meta.url).pathname, compatibilityDate: '2026-08-01',
+  kvNamespaces: ['SCHEDULER_KV'], bindings: { GH_DISPATCH_TOKEN: 'test-token' },
+  outboundService: async (req) => {
+    const u = new URL(req.url);
+    if (u.hostname === 'api.github.com') {
+      if (u.pathname.endsWith('/dispatches')) { ghCalls.push({ path: u.pathname, body: await req.json(), auth: req.headers.get('authorization') }); return new Response(null, { status: 204 }); }
+      return new Response(JSON.stringify({ workflow_runs: [] }));
+    }
+    return outbound(req);
+  } });
+await t('scheduler: the cron starts the due GitHub job and the status page shows it', async () => {
+  const w = await mfSched.getWorker();
+  await w.scheduled({ cron: '*/10 * * * *', scheduledTime: new Date('2026-11-27T06:20:00Z') });
+  assert.equal(ghCalls.length, 1);
+  assert.match(ghCalls[0].path, /workflows\/hreflang\.yml\/dispatches$/);
+  assert.deepEqual(ghCalls[0].body, { ref: 'main', inputs: { mode: 'full' } });
+  assert.equal(ghCalls[0].auth, 'Bearer test-token');
+  const r = await mfSched.dispatchFetch(SITE + '/christmas-rtt-scheduler.json');
+  const st = await r.json();
+  assert.equal(st.tokenSet, true);
+  assert.equal(st.jobs['hreflang-full'].action, 'started');
+  assert.doesNotMatch(JSON.stringify(st), /test-token/);
+  assert.equal(r.headers.get('x-robots-tag'), 'noindex');
+});
+await mfSched.dispose();
+
 console.log(`\n${passed} tests passed`);

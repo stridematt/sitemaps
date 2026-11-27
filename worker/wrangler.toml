@@ -33,6 +33,14 @@ binding = "EVENTS_DB"
 database_name = "rally-events"
 database_id = "b02b08f8-ba97-419f-ab1c-a9c658365e96"
 
+# Scheduler (src/scheduler.js): every 10 minutes, start the GitHub jobs on time. Needs the GH_DISPATCH_TOKEN secret.
+[triggers]
+crons = ["*/10 * * * *"]
+
+[[kv_namespaces]]
+binding = "SCHEDULER_KV"
+id = "3cc6bc64dfd847d78c6203888a132b40"
+
 # Match the live Worker (set in the dashboard): logs and Workers issues on.
 [observability]
 enabled = true

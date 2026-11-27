@@ -43,6 +43,23 @@ CA_NAMES = {'on': 'Ontario', 'qc': 'Quebec', 'bc': 'British Columbia', 'ab': 'Al
             'nt': 'Northwest Territories', 'yt': 'Yukon', 'nu': 'Nunavut'}
 
 
+
+def clean_city_name(name, path):
+    """A town's display name. Quick counts record the page title ("Albany OR Christmas Events for Kids 2026",
+    "Christmas Events for Kids in Branson, MO 2026"); the hub needs "Albany", "Branson"."""
+    n = (name or '').strip()
+    n = re.sub(r'^Christmas Events for Kids (?:in|near) ', '', n, flags=re.I)
+    n = re.sub(r'\s*(?:Christmas Events for Kids|Christmas Events)\b.*$', '', n, flags=re.I)
+    n = re.sub(r'\s+20\d\d\b.*$', '', n)
+    n = re.sub(r'(?:,\s*|\s+)[A-Z]{2}$', '', n).strip(' ,:-')
+    if not n or len(n) > 60:
+        slug = path.rsplit('/', 1)[-1]
+        parts = slug.split('-')
+        if len(parts) > 1 and len(parts[-1]) == 2:
+            parts = parts[:-1]
+        n = ' '.join(w.capitalize() for w in parts)
+    return n
+
 def geocode(name, country, cc='', region=''):
     """[lat, lng] of a city (2 decimals) from OpenStreetMap's Nominatim; [] when it knows no such place;
     None when it could not be asked (tried again next run). One request a second."""
@@ -545,24 +562,33 @@ def main():
     # finder, its A to Z or Squarespace's sitemap list it, and without this the full run dropped every such town
     # from the counts until they caught up (Nov 26, 2026: 251 towns and 1,146 events vanished from the totals).
     # A kept page that no longer answers (404/410) is dropped after the reads below.
-    prev_cities = dict((json.load(open(last_live, encoding='utf-8')) if os.path.exists(last_live) else {}).get('cities', {}))
+    # Only towns quick counts recorded in new_cities.json are kept, never every city of the last live.json: the
+    # live.json keys are output keys (a city's English page), not the hub's own paths, so treating them as places
+    # duplicated hub cities listed under another language's page (Nov 27: 1,052 such duplicates, fixed here).
+    prev_live = (json.load(open(last_live, encoding='utf-8')) if os.path.exists(last_live) else {}).get('cities', {})
+    known = set(place)
+    for c in prev_live.values():
+        if isinstance(c, list) and len(c) > 6 and isinstance(c[6], list):
+            known.update(c[6])
+    for q, c in prev_live.items():
+        if isinstance(c, list) and len(c) > 5 and c[5]:
+            known.add(q)   # was in the hub A to Z last time: the hub knows it under some path
     nc_path = os.path.join(HERE, 'new_cities.json')
-    for p, (n, co, *_) in (json.load(open(nc_path, encoding='utf-8')) if os.path.exists(nc_path) else {}).items():
-        prev_cities.setdefault(p, [0, 0, n, co, '', 0, []])
+    new_cities = json.load(open(nc_path, encoding='utf-8')) if os.path.exists(nc_path) else {}
     kept = []
-    for p, c in prev_cities.items():
-        if p in place or not p.startswith('/christmas-events/') or not isinstance(c, list) or len(c) < 4 or not c[3]:
+    for p, (n, co, *_) in new_cities.items():
+        if p in known or not p.startswith('/christmas-events/') or not co:
             continue
-        st = c[4] or None
-        if c[3] == 'United States' and not st:
+        c = prev_live.get(p) or []
+        st = (c[4] if len(c) > 4 else '') or None
+        if co == 'United States' and not st:
             code = p.rsplit('-', 1)[-1]
             st = '/christmas-events/' + us_state[code] if code in us_state else None
-        place[p] = {'country': c[3], 'state': st, 'name': c[2] or p.rsplit('/', 1)[-1], 'main': p, 'guess': 1, 'kept': 1}
-        for a in (c[6] if len(c) > 6 and isinstance(c[6], list) else []):
-            place.setdefault(a, {**place[p], 'kept': 1})
+        place[p] = {'country': co, 'state': st, 'name': clean_city_name(n, p),
+                    'main': p, 'guess': 1, 'kept': 1}
         kept.append(p)
     if kept:
-        log(f'{len(kept)} cities from the last counts that the hub and sitemap do not list yet, kept: {sorted(kept)[:12]}')
+        log(f'{len(kept)} new towns (from quick counts) that the hub and sitemap do not list yet, kept: {sorted(kept)[:12]}')
     missing = [p for p, v in place.items() if v['main'] == p and not any(q in in_az for q, o in place.items() if o['main'] == p)]
     odd = sorted(p for p in place if 'duplicate' in p or 'copy' in p.rsplit('/', 1)[-1].split('-'))
     for p in odd:  # leftover copies are not counted as cities
