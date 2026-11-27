@@ -1,110 +1,30 @@
 {
- "today": "2026-11-25",
- "sitemap_urls": 30636,
- "city_pages": 4705,
+ "today": "2026-11-26",
+ "sitemap_urls": 35218,
+ "city_pages": 5209,
  "city_pages_unread": [],
  "upcoming_unknown_city_unread": 0,
- "event_pages_listed": 26964,
+ "event_pages_listed": 30221,
  "count_mismatch": [
   [
-   "/christmas-events/alameda-ca",
-   6,
+   "/christmas-events/columbia-mo",
+   3,
+   10
+  ],
+  [
+   "/christmas-events/palm-bay-fl",
+   10,
    11
   ],
   [
-   "/christmas-events/castro-valley-ca",
-   3,
-   5
+   "/christmas-events/syracuse-ny",
+   25,
+   26
   ],
   [
-   "/christmas-events/chicago-il",
-   104,
-   112
-  ],
-  [
-   "/christmas-events/concord-ca",
-   2,
-   6
-  ],
-  [
-   "/christmas-events/dallas-tx",
-   52,
-   53
-  ],
-  [
-   "/christmas-events/danville-ca",
-   3,
-   6
-  ],
-  [
-   "/christmas-events/dublin-ca",
-   4,
-   5
-  ],
-  [
-   "/christmas-events/livermore-ca",
-   8,
-   14
-  ],
-  [
-   "/christmas-events/moraga-ca",
-   5,
-   6
-  ],
-  [
-   "/christmas-events/napa-ca",
-   11,
-   12
-  ],
-  [
-   "/christmas-events/oakland-ca",
-   11,
-   18
-  ],
-  [
-   "/christmas-events/oakley-ca",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/pleasant-hill-ca",
-   2,
-   4
-  ],
-  [
-   "/christmas-events/pleasanton-ca",
-   3,
-   5
-  ],
-  [
-   "/christmas-events/richmond-ca",
-   2,
-   4
-  ],
-  [
-   "/christmas-events/san-diego-ca",
-   77,
-   78
-  ],
-  [
-   "/christmas-events/san-francisco-ca",
-   43,
-   50
-  ],
-  [
-   "/christmas-events/san-rafael-ca",
-   7,
-   6
-  ],
-  [
-   "/christmas-events/south-san-francisco-ca",
-   2,
-   3
-  ],
-  [
-   "/christmas-events/vallejo-ca",
-   2,
-   3
+   "/christmas-events/waco-tx",
+   20,
+   23
   ]
  ],
  "uncounted_city_pages": [
@@ -114,6 +34,24 @@
   ]
  ],
  "upcoming_not_listed": [
+  [
+   "/christmas-events/41st-annual-dickens-of-a-christmas-franklin-tn",
+   "2026-12-13",
+   "/christmas-events/nashville-tn",
+   "41st Annual Dickens of a Christmas"
+  ],
+  [
+   "/christmas-events/74th-annual-winter-park-christmas-parade-fl",
+   "2026-12-05",
+   "/christmas-events/orlando-fl",
+   "74th Annual Winter Park Christmas Parade"
+  ],
+  [
+   "/christmas-events/80th-annual-christmas-parade-temple-tx",
+   "2026-12-07",
+   "/christmas-events/killeen-tx",
+   "80th Annual Christmas Parade"
+  ],
   [
    "/christmas-events/a-christmas-story-eine-weihnachtsgeschichte-nobel-popel-music-theater-leuven-be",
    "2026-12-20",
@@ -151,6 +89,18 @@
    "Al museo en familia: Las 6 pruebas de Heraclio"
   ],
   [
+   "/christmas-events/alejo-igoa-rescatando-la-navidad-movistar-arena-buenos-aires-ar",
+   "2026-12-13",
+   "/christmas-events/navidad-con-ninos-buenos-aires-ar",
+   "Alejo Igoa presenta Rescatando la Navidad"
+  ],
+  [
+   "/christmas-events/all-aboard-with-santa-at-gaithersburg-community-museum-md",
+   "2026-12-06",
+   "/christmas-events/germantown-md",
+   "All Aboard with Santa at Gaithersburg Community Museum"
+  ],
+  [
    "/christmas-events/an-advent-day-for-the-whole-family-bruges-be",
    "2026-12-30",
    "/christmas-events/christmas-in-bruges-with-kids",
@@ -167,6 +117,12 @@
    "2026-12-06",
    "/christmas-events/navidad-con-ninos-pamplona",
    "Annie, el musical"
+  ],
+  [
+   "/christmas-events/annual-christmas-tree-lighting-at-city-hall-clovis-ca",
+   "2026-12-07",
+   "/christmas-events/fresno-ca",
+   "Annual Christmas Tree Lighting at City Hall"
   ],
   [
    "/christmas-events/anonima-baluarte-txiki-pamplona-es",
@@ -271,16 +227,16 @@
    "Breakfast with Santa at Jurupa Community Center"
   ],
   [
-   "/christmas-events/breakfast-with-santa-at-tam-valley-community-center-mill-valley-ca",
-   "2026-12-12",
-   "/christmas-events/san-rafael-ca",
-   "Breakfast with Santa at Tam Valley Community Center"
-  ],
-  [
    "/christmas-events/buble-christmas-tribute-pamplona-es",
    "2026-12-13",
    "/christmas-events/navidad-con-ninos-pamplona",
    "Bublé Christmas Tribute"
+  ],
+  [
+   "/christmas-events/buena-park-christmas-tree-lighting-ca",
+   "2026-12-04",
+   "/christmas-events/anaheim-ca",
+   "Buena Park Christmas Tree Lighting"
   ],
   [
    "/christmas-events/cabalgata-de-los-reyes-magos-de-villa-de-vallecas-madrid-es",
@@ -325,6 +281,24 @@
    "Carillón de Navidad en la Plaza de España"
   ],
   [
+   "/christmas-events/cascanueces-san-petersburgo-gran-plaza-teatro-bahia-blanca-ar",
+   "2026-11-26",
+   "/christmas-events/navidad-con-ninos-bahia-blanca-ar",
+   "El Cascanueces, Ballet de San Petersburgo"
+  ],
+  [
+   "/christmas-events/cascanueces-san-petersburgo-teatro-luz-y-fuerza-santa-fe-ar",
+   "2026-12-01",
+   "/christmas-events/navidad-con-ninos-santa-fe-ar",
+   "El Cascanueces, Ballet Clásico de San Petersburgo"
+  ],
+  [
+   "/christmas-events/christmas-at-the-plaza-downtown-temple-tx",
+   "2026-11-28",
+   "/christmas-events/killeen-tx",
+   "Christmas at the Plaza"
+  ],
+  [
    "/christmas-events/christmas-in-larnaca-with-kids",
    "2027-01-06",
    "/christmas-events/larnaca-cy",
@@ -347,6 +321,12 @@
    "2027-01-03",
    "/christmas-events/paphos-cy",
    "Christmas in Paphos with Kids (2026)"
+  ],
+  [
+   "/christmas-events/christmas-in-the-park-lees-summit-mo",
+   "2026-12-31",
+   "/christmas-events/kansas-city-mo",
+   "Christmas in the Park"
   ],
   [
    "/christmas-events/christmas-market-at-the-abenteueroase-adventure-oasis-bruges-be",
@@ -379,6 +359,12 @@
    "إضاءة شجرة الكريسماس في منتجع داناة العين"
   ],
   [
+   "/christmas-events/christmas-tree-lighting-in-old-town-tustin-ca",
+   "2026-12-04",
+   "/christmas-events/irvine-ca",
+   "Christmas Tree Lighting in Old Town Tustin"
+  ],
+  [
    "/christmas-events/cine-infantil-bihurri-san-sebastian-es",
    "2026-12-23",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -397,12 +383,6 @@
    "Cine infantil: \"Los Aristogatos"
   ],
   [
-   "/christmas-events/community-christmas-giveaway-at-encounter-church-san-leandro-ca",
-   "2026-12-19",
-   "/christmas-events/oakland-ca",
-   "Community Christmas Giveaway at Encounter Church"
-  ],
-  [
    "/christmas-events/concertos-de-natal-igrejas-alhadas-vila-verde-alqueidao-e-marinha-das-ondas-pt",
    "2026-12-20",
    "/christmas-events/natal-com-criancas-figueira-da-foz",
@@ -413,6 +393,12 @@
    "2026-12-16",
    "/christmas-events/navidad-con-ninos-madrid",
    "Concierto de Navidad de la Banda de Música de la Policía Municipal de Madrid"
+  ],
+  [
+   "/christmas-events/cookie-decorating-with-the-grinch-at-urban-apples-westfield-in",
+   "2026-12-05",
+   "/christmas-events/westfield-in",
+   "Cookie Decorating with the Grinch at Urban Apples"
   ],
   [
    "/christmas-events/cranger-weihnachtszauber-herten-de",
@@ -433,10 +419,46 @@
    "Das Geheimnis der Weihnachtswichtel (The Secret of the Christmas Elves)"
   ],
   [
+   "/christmas-events/dickens-street-faire-elk-grove-ca",
+   "2026-11-28",
+   "/christmas-events/sacramento-ca",
+   "Dickens Street Faire"
+  ],
+  [
    "/christmas-events/die-himmelskinder-weihnacht-the-sky-childrens-christmas-leuven-be",
    "2026-12-05",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Die Himmelskinder-Weihnacht (The Sky Children's Christmas)"
+  ],
+  [
+   "/christmas-events/disney-celebra-movistar-arena-buenos-aires-ar",
+   "2026-12-23",
+   "/christmas-events/navidad-con-ninos-buenos-aires-ar",
+   "Disney Celebra: una Navidad con Topa y Laurita Fernández"
+  ],
+  [
+   "/christmas-events/donut-decorating-with-the-grinch-at-urban-apples-westfield-in",
+   "2026-12-20",
+   "/christmas-events/westfield-in",
+   "Donut Decorating with the Grinch at Urban Apples"
+  ],
+  [
+   "/christmas-events/downtown-beloit-grand-lighted-holiday-parade-and-tree-lighting-wi",
+   "2026-11-27",
+   "/christmas-events/janesville-wi",
+   "Downtown Beloit Grand Lighted Holiday Parade and Tree Lighting"
+  ],
+  [
+   "/christmas-events/downtown-hampton-lighted-boat-parade-va",
+   "2026-12-12",
+   "/christmas-events/newport-news-va",
+   "Downtown Hampton Lighted Boat Parade"
+  ],
+  [
+   "/christmas-events/downtown-holiday-celebration-christmas-tree-lighting-roseville-ca",
+   "2026-12-03",
+   "/christmas-events/sacramento-ca",
+   "Downtown Holiday Celebration: Christmas Tree Lighting"
   ],
   [
    "/christmas-events/egerszegi-advent-zalaegerszeg-hu",
@@ -493,10 +515,22 @@
    "Era uma vez nos Jardins do Marquês, O Natal"
   ],
   [
+   "/christmas-events/ethel-m-chocolates-holiday-cactus-garden-lights-henderson-nv",
+   "2027-01-03",
+   "/christmas-events/las-vegas-nv",
+   "Ethel M Chocolates Holiday Cactus Garden Lights"
+  ],
+  [
    "/christmas-events/european-christmas-market-huntington-beach-ca",
    "2027-01-03",
    "/christmas-events/huntington-beach-ca",
    "European Christmas Market"
+  ],
+  [
+   "/christmas-events/evergy-festival-of-lights-kingsville-mo",
+   "2026-12-18",
+   "/christmas-events/kansas-city-mo",
+   "Evergy Festival of Lights"
   ],
   [
    "/christmas-events/family-christmas-market-at-alice-salomon-platz-berlin-be",
@@ -509,6 +543,12 @@
    "2026-12-02",
    "/christmas-events/christmas-in-bruges-with-kids",
    "Family Concert: Christmas with Astrid Lindgren"
+  ],
+  [
+   "/christmas-events/fantasy-of-lights-street-parade-tree-lighting-tempe-az",
+   "2026-11-28",
+   "/christmas-events/phoenix-az",
+   "Fantasy of Lights Street Parade + Tree Lighting"
   ],
   [
    "/christmas-events/feria-de-santo-tomas-en-bilbao-es",
@@ -529,6 +569,12 @@
    "Garbeo cósmico"
   ],
   [
+   "/christmas-events/glendale-glitters-az",
+   "2026-11-28",
+   "/christmas-events/phoenix-az",
+   "Glendale Glitters"
+  ],
+  [
    "/christmas-events/glittery-and-the-sparkle-elf-glittery-und-der-funkelwichtel-bruges-be",
    "2026-12-12",
    "/christmas-events/christmas-in-bruges-with-kids",
@@ -541,10 +587,28 @@
    "Gran Cabalgata de los Reyes Magos en Tetuán"
   ],
   [
+   "/christmas-events/guerreras-golden-una-navidad-dorada-la-plata-ar",
+   "2026-12-05",
+   "/christmas-events/navidad-con-ninos-la-plata-ar",
+   "Guerreras Golden: Una Navidad Dorada"
+  ],
+  [
    "/christmas-events/haurtxoko-de-aiete-mari-domingi-ren-bisita-san-sebastian-es",
    "2026-12-24",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Haurtxoko de Aiete: Mari Domingi-ren bisita"
+  ],
+  [
+   "/christmas-events/henderson-winterfest-nv",
+   "2026-12-04",
+   "/christmas-events/las-vegas-nv",
+   "Henderson WinterFest"
+  ],
+  [
+   "/christmas-events/hikari-a-festival-of-lights-anaheim-ca",
+   "2026-12-27",
+   "/christmas-events/anaheim-ca",
+   "Hikari: A Festival of Lights"
   ],
   [
    "/christmas-events/holiday-nights-at-the-promenade-at-sunset-walk-kissimmee-fl",
@@ -553,10 +617,28 @@
    "Holiday Nights at the Promenade at Sunset Walk"
   ],
   [
+   "/christmas-events/holiday-tree-lighting-ceremony-moreno-valley-ca",
+   "2026-12-05",
+   "/christmas-events/riverside-ca",
+   "Holiday Tree Lighting Ceremony"
+  ],
+  [
+   "/christmas-events/holly-jolly-festival-of-lights-eagleville-tn",
+   "2026-12-23",
+   "/christmas-events/nashville-tn",
+   "Holly Jolly Festival of Lights"
+  ],
+  [
    "/christmas-events/ibercaja-xplora-el-gran-rastro-de-los-reyes-magos-zaragoza-es",
    "2026-12-30",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Ibercaja Xplora: El Gran Rastro de los Reyes Magos"
+  ],
+  [
+   "/christmas-events/illumination-holiday-festival-elk-grove-ca",
+   "2026-12-05",
+   "/christmas-events/sacramento-ca",
+   "Illumination Holiday Festival"
   ],
   [
    "/christmas-events/illuminights-a-lantern-festival-presented-by-georgia-power-atlanta-ga",
@@ -613,6 +695,12 @@
    "Kameleoiak gara! Taller de arte: Kooperatiba"
   ],
   [
+   "/christmas-events/kenners-magical-christmas-village-la",
+   "2026-12-31",
+   "/christmas-events/new-orleans-la",
+   "Kenner's Magical Christmas Village"
+  ],
+  [
    "/christmas-events/kokosnuss-feiert-weihnachten-familientag-kokosnuss-celebrates-christmas-namur-be",
    "2026-12-27",
    "/christmas-events/christmas-in-namur-with-kids",
@@ -623,6 +711,12 @@
    "2026-12-02",
    "/christmas-events/christmas-in-namur-with-kids",
    "Kreativ-Tag: Geschenkpapier selbst gestalten (Creative Day: Make Your Own Wrapping Paper)"
+  ],
+  [
+   "/christmas-events/krist-kindl-markt-copperas-cove-tx",
+   "2026-12-06",
+   "/christmas-events/killeen-tx",
+   "Krist Kindl Markt"
   ],
   [
    "/christmas-events/la-leyenda-de-los-gigantes-pamplona-es",
@@ -661,6 +755,18 @@
    "Let's Quiz! Weihnachtsedition (Christmas Edition)"
   ],
   [
+   "/christmas-events/light-up-sanford-fl",
+   "2026-12-04",
+   "/christmas-events/orlando-fl",
+   "Light Up Sanford"
+  ],
+  [
+   "/christmas-events/lightscape-brooklyn-ny",
+   "2027-01-03",
+   "/christmas-events/new-york-ny",
+   "Lightscape"
+  ],
+  [
    "/christmas-events/loa-eta-laia-zuzenean-bilbao-es",
    "2026-11-29",
    "/christmas-events/navidad-con-ninos-bilbao",
@@ -697,6 +803,12 @@
    "Mamuka"
   ],
   [
+   "/christmas-events/manassas-ballet-theatre-the-nutcracker-va",
+   "2026-12-23",
+   "/christmas-events/occoquan-va",
+   "Manassas Ballet Theatre: The Nutcracker"
+  ],
+  [
    "/christmas-events/mascaras-disfraces-y-criaturas-fantasticas-recreando-el-mundo-san-sebastian-es",
    "2026-12-23",
    "/christmas-events/navidad-con-ninos-san-sebastian",
@@ -725,6 +837,12 @@
    "2026-12-23",
    "/christmas-events/natal-com-criancas-matosinhos",
    "Mercado de Natal de Matosinhos (FaMa )"
+  ],
+  [
+   "/christmas-events/merry-main-street-kick-off-and-christmas-tree-lighting-mesa-az",
+   "2026-11-27",
+   "/christmas-events/phoenix-az",
+   "Merry Main Street Kick-off and Christmas Tree Lighting"
   ],
   [
    "/christmas-events/moko-pamplona-es",
@@ -763,6 +881,18 @@
    "Natal na Vila"
   ],
   [
+   "/christmas-events/navidad-en-las-caballerizas-talar-de-pacheco-tigre-ar",
+   "2026-11-29",
+   "/christmas-events/navidad-con-ninos-tigre-ar",
+   "Navidad en las Caballerizas, feria de la Fundación María de Guadalupe"
+  ],
+  [
+   "/christmas-events/navidad-en-las-peliculas-teatro-el-nacional-buenos-aires-ar",
+   "2026-12-08",
+   "/christmas-events/navidad-con-ninos-buenos-aires-ar",
+   "Navidad en las Películas, concierto con orquesta y coro"
+  ],
+  [
    "/christmas-events/navidad-en-villaverde-madrid-es",
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-madrid",
@@ -781,6 +911,30 @@
    "Nikolauskonzert der Regionalschule Weiden (Saint Nicholas Concert of the Weiden Regional School)"
   ],
   [
+   "/christmas-events/norco-christmas-festival-ca",
+   "2026-12-12",
+   "/christmas-events/riverside-ca",
+   "Norco Christmas Festival"
+  ],
+  [
+   "/christmas-events/norco-parade-of-lights-ca",
+   "2026-12-12",
+   "/christmas-events/riverside-ca",
+   "Norco Parade of Lights"
+  ],
+  [
+   "/christmas-events/north-pole-express-at-union-depot-saint-paul-mn",
+   "2026-12-13",
+   "/christmas-events/minneapolis-mn",
+   "North Pole Express at Union Depot"
+  ],
+  [
+   "/christmas-events/northbridge-university-winter-festival-orlando-fl",
+   "2026-12-05",
+   "/christmas-events/orlando-fl",
+   "Northbridge University Winter Festival, Orlando"
+  ],
+  [
    "/christmas-events/oh-du-furzige-weihnachtszeit-oh-you-farty-christmas-season-bruges-be",
    "2026-12-23",
    "/christmas-events/christmas-in-bruges-with-kids",
@@ -793,10 +947,10 @@
    "Olentzeroren sekretua"
   ],
   [
-   "/christmas-events/once-upon-a-holiday-at-cavallo-point-sausalito-ca",
-   "2026-12-13",
-   "/christmas-events/san-rafael-ca",
-   "Once Upon a Holiday at Cavallo Point"
+   "/christmas-events/pacific-grove-holiday-parade-of-lights-ca",
+   "2026-12-03",
+   "/christmas-events/salinas-ca",
+   "Pacific Grove Holiday Parade of Lights"
   ],
   [
    "/christmas-events/pancakes-with-santa-at-the-waterloo-convention-center-ia",
@@ -805,10 +959,22 @@
    "Pancakes with Santa at the Waterloo Convention Center"
   ],
   [
+   "/christmas-events/parade-of-lights-elk-grove-ca",
+   "2026-12-05",
+   "/christmas-events/sacramento-ca",
+   "Parade of Lights"
+  ],
+  [
    "/christmas-events/pero-que-me-estas-cantando-kike-lera-zaragoza-es",
    "2026-12-29",
    "/christmas-events/navidad-con-ninos-zaragoza",
    "Pero, ¿qué me estás cantando? Kike Lera."
+  ],
+  [
+   "/christmas-events/pop-up-gingerbread-houses-las-vegas-nv",
+   "2026-12-01",
+   "/christmas-events/las-vegas-nv",
+   "Pop-up: Gingerbread Houses!"
   ],
   [
    "/christmas-events/porrotx-marimotots-pupu-eta-lore-musu-bete-urte-donostia-san-sebastian-es",
@@ -847,10 +1013,28 @@
    "Navidad en Plaza del Caribe"
   ],
   [
+   "/christmas-events/santa-express-at-the-southern-michigan-railroad-clinton-mi",
+   "2026-12-12",
+   "/christmas-events/detroit-mi",
+   "Santa Express at the Southern Michigan Railroad"
+  ],
+  [
    "/christmas-events/santa-reads-in-the-crane-der-weihnachtsmann-liest-im-kran-leuven-be",
    "2026-12-12",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Santa Reads in the Crane (Der Weihnachtsmann liest im Kran)"
+  ],
+  [
+   "/christmas-events/santa-trains-at-nevada-state-railroad-museum-boulder-city-nv",
+   "2026-12-20",
+   "/christmas-events/henderson-nv",
+   "Santa Trains at Nevada State Railroad Museum"
+  ],
+  [
+   "/christmas-events/santa-trolley-at-the-pennsylvania-trolley-museum-washington-pa",
+   "2026-12-20",
+   "/christmas-events/pittsburgh-pa",
+   "Santa Trolley at the Pennsylvania Trolley Museum"
   ],
   [
    "/christmas-events/santas-cottage-at-birkdale-village-huntersville-nc",
@@ -859,10 +1043,10 @@
    "Santa's Cottage at Birkdale Village"
   ],
   [
-   "/christmas-events/sausalito-lighted-boat-parade-sausalito-ca",
-   "2026-12-12",
-   "/christmas-events/san-francisco-ca",
-   "Sausalito 39th Annual Lighted Boat Parade & Fireworks"
+   "/christmas-events/santas-enchanted-visit-at-kentlands-mansion-gaithersburg-md",
+   "2026-12-05",
+   "/christmas-events/germantown-md",
+   "Santa's Enchanted Visit at Kentlands Mansion"
   ],
   [
    "/christmas-events/sausalito-winterfest-lighted-boat-parade-ca",
@@ -887,6 +1071,12 @@
    "2027-01-06",
    "/christmas-events/navidad-con-ninos-san-sebastian",
    "Scrooge eta mamuak"
+  ],
+  [
+   "/christmas-events/seaworld-orlando-christmas-celebration-fl",
+   "2027-01-04",
+   "/christmas-events/winter-garden-fl",
+   "SeaWorld Orlando Christmas Celebration"
   ],
   [
    "/christmas-events/snowflake-lane-bellevue-wa",
@@ -919,6 +1109,12 @@
    "Taller: \"Hippo-dromos"
   ],
   [
+   "/christmas-events/taller-pesebre-de-yeso-cic-asuncion-salta-ar",
+   "2026-12-10",
+   "/christmas-events/navidad-con-ninos-salta-ar",
+   "Taller navideño de armado de pesebre en yeso"
+  ],
+  [
    "/christmas-events/teatro-infantil-la-vendedora-de-palabras-madrid-es",
    "2026-11-27",
    "/christmas-events/navidad-con-ninos-madrid",
@@ -931,18 +1127,6 @@
    "The Christmas Bakery: The Musical (Die Weihnachtsbäckerei)"
   ],
   [
-   "/christmas-events/the-great-dickens-christmas-fair-daly-city-ca",
-   "2026-12-20",
-   "/christmas-events/san-francisco-ca",
-   "The Great Dickens Christmas Fair"
-  ],
-  [
-   "/christmas-events/the-nutcracker-by-marin-conservatory-of-dance-novato-ca",
-   "2026-12-13",
-   "/christmas-events/san-rafael-ca",
-   "The Nutcracker by Marin Conservatory of Dance"
-  ],
-  [
    "/christmas-events/timm-thaler-the-boy-who-sold-his-laughter-leuven-be",
    "2026-12-26",
    "/christmas-events/christmas-in-leuven-with-kids",
@@ -953,6 +1137,12 @@
    "2026-12-27",
    "/christmas-events/navidad-con-ninos-caguas-pr",
    "Tren Navideño de Caguas"
+  ],
+  [
+   "/christmas-events/una-navidad-circo-del-anima-flavio-mendoza-avellaneda-ar",
+   "2026-12-25",
+   "/christmas-events/navidad-con-ninos-avellaneda-ar",
+   "Una Navidad en el Circo del Ánima, de Flavio Mendoza"
   ],
   [
    "/christmas-events/una-noche-de-reyes-de-daniel-tejero-zaragoza-es",
@@ -985,22 +1175,28 @@
    "Who, How, What Christmas? (Wer Wie Was Weihnachten?)"
   ],
   [
+   "/christmas-events/wild-lights-royal-oak-mi",
+   "2027-01-03",
+   "/christmas-events/detroit-mi",
+   "Wild Lights"
+  ],
+  [
    "/christmas-events/winter-weekend-winterliches-wochenende-leuven-be",
    "2027-01-10",
    "/christmas-events/christmas-in-leuven-with-kids",
    "Winter Weekend (Winterliches Wochenende)"
   ],
   [
-   "/christmas-events/winter-wonderlab-sausalito-ca",
-   "2027-01-03",
-   "/christmas-events/san-francisco-ca",
-   "Winter Wonderlab"
+   "/christmas-events/winter-wonder-queens-ny",
+   "2026-12-06",
+   "/christmas-events/new-york-ny",
+   "Winter Wonder"
   ],
   [
-   "/christmas-events/winterdance-a-celtic-christmas-celebration-berkeley-ca",
-   "2026-12-17",
-   "/christmas-events/oakland-ca",
-   "Winterdance: A Celtic Christmas Celebration"
+   "/christmas-events/winterfest-at-carowinds-charlotte-nc",
+   "2027-01-03",
+   "/christmas-events/rock-hill-sc",
+   "WinterFest at Carowinds"
   ],
   [
    "/christmas-events/wir-warten-aufs-christkind-koeln-kinder-de",
@@ -1029,8 +1225,9 @@
  ],
  "upcoming_not_listed_by_country": {
   "Spain": 76,
+  "United States": 62,
   "Belgium": 26,
-  "United States": 25,
+  "Argentina": 9,
   "Portugal": 7,
   "Cyprus": 4,
   "Germany": 4,
@@ -1042,6 +1239,11 @@
   "Switzerland": 1
  },
  "card_without_link": [
+  [
+   "/christmas-events/all-aboard-with-santa-gaithersburg-md-2",
+   "/christmas-events/gaithersburg-md",
+   "All Aboard with Santa"
+  ],
   [
    "/christmas-events/babies-and-toddlers-storytelling-christmas-wonderland-at-bewleys-dublin-ie",
    "/christmas-events/dublin-ie",
@@ -1093,7 +1295,7 @@
    "Tidings of Tradition: Christmas Tour 2026"
   ]
  ],
- "past_not_listed": 350,
+ "past_not_listed": 414,
  "other": [
   [
    "/christmas-events/arrival-and-sint-festival-in-zandvoort-intocht-en-sintfestival-zandvoort-nl",
@@ -1106,6 +1308,10 @@
   [
    "/christmas-events/christmas-in-cyprus-with-kids",
    "no event dates"
+  ],
+  [
+   "/christmas-events/downtown-holiday-lighting-ceremony-fort-collins-co",
+   "unreachable"
   ],
   [
    "/christmas-events/organizer",
