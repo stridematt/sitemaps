@@ -31,14 +31,14 @@ jobs:
           python3 tools/truth/quick_counts.py $PAGES
       - name: Commit
         run: |
-          if git diff --quiet -- tools/truth/live.json; then echo "No change."; exit 0; fi
+          if git diff --quiet -- tools/truth/live.json tools/truth/new_cities.json; then echo "No change."; exit 0; fi
           git config user.name "rtt-hreflang bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tools/truth/live.json
+          git add tools/truth/live.json tools/truth/new_cities.json
           git commit -q -m "Quick counts: $(echo $PAGES | wc -w) page(s) after a publish"
           # The full run may have committed live.json meanwhile: then its numbers win (it re-read every page).
           for i in 1 2 3; do
             if git pull -q --rebase; then git push && exit 0; fi
             git rebase --abort; echo "live.json changed upstream; re-running on top of it"
-            git reset -q --hard origin/main && python3 tools/truth/quick_counts.py $PAGES && git add tools/truth/live.json && git commit -q -m "Quick counts (retry)" || exit 0
+            git reset -q --hard origin/main && python3 tools/truth/quick_counts.py $PAGES && git add tools/truth/live.json tools/truth/new_cities.json && git commit -q -m "Quick counts (retry)" || exit 0
           done
