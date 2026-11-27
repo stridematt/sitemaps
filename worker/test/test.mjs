@@ -135,10 +135,16 @@ await t('tagged pages: every inline script still compiles; only the planned line
     after.forEach(([attrs, code], i) => {
       if (/json/i.test(attrs)) { if (code.trim()) JSON.parse(code); return; } // data blocks may be healed; they must still parse
       if (code !== before[i][1]) {
+        // a script whose only change is the live total in the site title is expected and not counted
+        const tn = (code.match(/Christmas Events for Kids Near Me 2026: ([\d,]+\+) Events/) || [])[1];
+        if (tn && code === before[i][1].replace(/(Christmas Events for Kids Near Me 2026: )[\d,]+\+( Events)/g, `$1${tn}$2`)) { new vm.Script(code); return; }
         changed++;
         let want = before[i][1].replace("l.rel='alternate'", "l.rel='x-rtt-hreflang-off'");
         if (code !== want) for (const [a, b] of HUBFIX) want = want.replace(a, b);
         if (code !== want && sh.test(code)) want = want.replace(sh, code.match(sh)[0]);
+        // the site title Squarespace puts in its page context carries the rounded live total ("28,000+ Events")
+        const st = /(Christmas Events for Kids Near Me 2026: )[\d,]+\+( Events)/g;
+        if (code !== want) { const n = (code.match(/Christmas Events for Kids Near Me 2026: ([\d,]+\+) Events/) || [])[1]; if (n) want = want.replace(st, `$1${n}$2`); }
         if (code !== want) want = want.replace("l.rel='x-rtt-hreflang-off'", "l.rel='alternate'");
         assert.equal(code, want, path);
       }
@@ -363,5 +369,23 @@ await t('existing hreflang link tags replaced, anchors in body kept', async () =
   assert.match(h, /<a hreflang="de" href="\/x">/);
 });
 await mf3.dispose();
+
+// The hub total from the events directory (D1 binding EVENTS_DB), end to end in the Workers runtime.
+const mfEvents = new Miniflare({ modules: true, scriptPath: new URL('../dist/index.js', import.meta.url).pathname, compatibilityDate: '2026-08-01',
+  d1Databases: ['EVENTS_DB'], outboundService: outbound });
+const eventsDb = await mfEvents.getD1Database('EVENTS_DB');
+await eventsDb.exec("CREATE TABLE events (event_id TEXT, status TEXT, first_date TEXT, end_date TEXT, is_free INTEGER)");
+const crawlTotal = JSON.parse(liveText).total.events;
+const dbRows = [];
+for (let i = 0; i < crawlTotal + 7; i++) dbRows.push(`('RTT-${i}','live','2099-12-01','',${i % 3 === 0 ? 1 : 0})`);
+dbRows.push("('RTT-past','live','2000-01-01','2000-01-02',1)", "('RTT-gone','gone','2099-12-01','',1)", "('RTT-0','live','2099-12-01','',1)");
+for (let i = 0; i < dbRows.length; i += 500) await eventsDb.exec(`INSERT INTO events VALUES ${dbRows.slice(i, i + 500).join(',')}`);
+await t('hub shows the events directory count (unique live upcoming events)', async () => {
+  const r = await mfEvents.dispatchFetch(SITE + '/christmas-events-for-kids');
+  const h = await r.text();
+  assert.equal(r.headers.get('x-rtt-count-source'), 'db');
+  assert.match(h, new RegExp(`${(crawlTotal + 7).toLocaleString('en-US')} Christmas events`));
+});
+await mfEvents.dispose();
 
 console.log(`\n${passed} tests passed`);
